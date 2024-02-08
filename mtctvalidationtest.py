@@ -217,11 +217,6 @@ def plot_slices_with_labels(image, labels, title):
 
     colors = ['red', 'blue', 'green', 'purple', 'orange', 'cyan', 'magenta', 'yellow', 'brown', 'pink', 'gray']
     custom_cmap = ListedColormap(colors * int(len(labels) / len(colors)))
-
-    # ... (rest of the function remains unchanged)
-
-
-
     ct_x_slice = image[0][:, image[0].shape[1] // 2, :]
     ct_y_slice = image[0][:, :, image[0].shape[2] // 2]
     ct_z_slice = image[0][image[0].shape[0] // 2, :, :]
@@ -457,7 +452,6 @@ class YourModel(torch.nn.Module):
         self.loss_function = DiceLoss(smooth_nr=0, smooth_dr=1e-5, squared_pred=True, to_onehot_y=False, sigmoid=True)
 
     def forward(self, x):
-        # Your forward pass here
         return self.unet(x)
 
 """#Defining Train and Testfunctions"""
