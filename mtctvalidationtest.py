@@ -131,7 +131,7 @@ set_path = '/content/drive/My Drive/set_1'
 case_folders = [os.path.join(set_path, folder) for folder in os.listdir(set_path) if os.path.isdir(os.path.join(set_path, folder))]
 loaded_data_resized = load_data_in_batches(case_folders)
 
-# Assuming loaded_data_scaled is the list of dictionaries containing scaled images and labels
+#loading and saving
 #with open('/content/drive/MyDrive/resized_data.pkl', 'wb') as file:
     #pickle.dump(loaded_data_resized, file)
 with open('/content/drive/MyDrive/resized_data.pkl', 'rb') as file:
