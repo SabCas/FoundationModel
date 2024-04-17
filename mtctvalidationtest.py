@@ -711,8 +711,7 @@ lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer3, T_max=10)
 
 """
 
-import torch
-from google.colab import drive
+
 
 def save_load_model(model, optimizer, action, model_name='model.pth'):
     drive.mount('/content/drive')
