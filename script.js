@@ -30,10 +30,13 @@ var storyDetailOpen = document.getElementById('storyDetailOpen');
 var systemOverviewOpen = document.getElementById('systemOverviewOpen');
 var deckLinks = document.querySelectorAll('.deck-link');
 var scenes = document.querySelectorAll('.scene');
+var quoteContent = document.querySelector('.quote-content');
+var storyText = document.getElementById('storyText');
 var storyTitle = document.getElementById('storyTitle');
 var storyCopy = document.getElementById('storyCopy');
 var storedPassword = localStorage.getItem('sitePassword');
 var activeStoryDetail = 'flying-understanding';
+var storyTextTimer;
 
 var deckData = {
   'founder-thesis': ['Who We Are', 'The founder thesis', 'KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.', 'Private preview / origin'],
@@ -309,12 +312,44 @@ if (desktopPanelQuery.addEventListener) {
 var observer = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (!entry.isIntersecting || !storyTitle || !storyCopy) return;
-    activeStoryDetail = entry.target.getAttribute('data-detail') || 'flying-understanding';
-    storyTitle.textContent = entry.target.getAttribute('data-title');
-    storyCopy.textContent = entry.target.getAttribute('data-copy');
+    var nextStoryDetail = entry.target.getAttribute('data-detail') || 'flying-understanding';
+    var nextStoryTitle = entry.target.getAttribute('data-title');
+    var nextStoryCopy = entry.target.getAttribute('data-copy');
+
+    if (nextStoryDetail === activeStoryDetail) return;
+    activeStoryDetail = nextStoryDetail;
+
+    if (!storyText) {
+      storyTitle.textContent = nextStoryTitle;
+      storyCopy.textContent = nextStoryCopy;
+      return;
+    }
+
+    window.clearTimeout(storyTextTimer);
+    storyText.classList.add('is-changing');
+
+    storyTextTimer = window.setTimeout(function () {
+      storyTitle.textContent = nextStoryTitle;
+      storyCopy.textContent = nextStoryCopy;
+      storyText.classList.remove('is-changing');
+    }, 260);
   });
 }, { threshold: 0.58 });
 
 scenes.forEach(function (scene) { observer.observe(scene); });
+
+if (quoteContent) {
+  quoteContent.classList.add('is-ready');
+
+  var quoteObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      quoteContent.classList.add('is-visible');
+      quoteObserver.unobserve(quoteContent);
+    });
+  }, { threshold: 0.35 });
+
+  quoteObserver.observe(quoteContent);
+}
 
 showLockScreen();
