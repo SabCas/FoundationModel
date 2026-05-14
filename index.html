@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KUBECA | Private Preview</title>
+  <title>KUBECA | Private Navigation Preview</title>
+  <meta name="description" content="KUBECA builds GPS-denied spatial intelligence for autonomous aerial systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,8 +40,8 @@
       <p id="passwordMode" class="password-mode">Private Preview</p>
       <h1 id="passwordTitle">Access<br>Restricted</h1>
       <span class="title-rule"></span>
-      <p class="access-copy">We are building the next generation of navigation intelligence for autonomous systems operating beyond reliable infrastructure.</p>
-      <p class="access-copy">This is a private preview environment for authorized partners, researchers, and investors.</p>
+      <p class="access-copy">KUBECA builds GPS-denied spatial intelligence for autonomous aerial systems.</p>
+      <p class="access-copy">This private preview is available to selected partners, researchers, and investors.</p>
       <label for="passwordInput">Enter Access Code</label>
       <div class="input-shell">
         <input id="passwordInput" type="password" minlength="3" autocomplete="current-password" placeholder="Access code" required />
@@ -53,79 +54,144 @@
 </section>
 
 <div id="siteContent" class="site-content locked" aria-hidden="true">
-<header class="site-header" id="siteHeader"><div class="container nav-wrap">
-  <div class="brand-area">
-    <a class="logo" href="index.html">KUBECA</a>
-  </div>
-  <div class="nav-actions">
-    <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-controls="megaMenu">☰</button>
-  </div>
-</div></header>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a class="logo" href="#home" aria-label="KUBECA Home">KUBECA</a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <button id="megaMenuOpen" class="nav-button" type="button">Navigation</button>
+      </nav>
+      <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-controls="megaMenu" type="button">☰</button>
+    </div>
+  </header>
 
-<aside id="megaMenu" class="mega-menu" aria-hidden="true">
-  <div class="mega-top"><span class="mega-brand">KUBECA Navigation</span><button id="menuClose" class="menu-close">×</button></div>
-  <div class="mega-grid">
-    <div class="mega-row"><h4>WHO WE ARE</h4><a id="founderLink" href="founder.html">Founder story</a><p>Company vision</p><p>Research direction</p></div>
-    <div class="mega-row"><h4>WHY WE EXIST</h4><p>The GPS-free future</p><p>The autonomy bottleneck</p><p>Why navigation must change</p></div>
-    <div class="mega-row"><h4>WHAT WE BUILD</h4><p>Navigation intelligence</p><p>Visual-inertial fusion</p><p>Map-assisted localization</p><p>Autonomy stack</p></div>
-    <div class="mega-row"><h4>HOW IT WORKS</h4><p>Perception as positioning</p><p>Sensors into state estimation</p><p>Uncertainty-aware decisions</p><p>Adaptive route recovery</p></div>
-    <div class="mega-row"><h4>WHERE IT OPERATES</h4><p>Contested environments</p><p>Disaster response</p><p>Industrial inspection</p><p>Remote logistics</p></div>
-    <div class="mega-row"><h4>HOW WE PROGRESS</h4><p>Current build phase</p><p>Technical roadmap</p><p>Research notes</p><p>Future demos</p></div>
-    <div class="mega-row"><h4>WHO WE WORK WITH</h4><p>Strategic partners</p><p>Research collaborators</p><p>Investor access</p></div>
-  </div>
-</aside>
+  <aside id="megaMenu" class="mega-menu" aria-hidden="true">
+    <div class="mega-top">
+      <span class="mega-brand">KUBECA Navigation</span>
+      <button id="menuClose" class="menu-close" type="button">×</button>
+    </div>
+    <div class="mega-grid">
+      <div class="mega-row">
+        <h4>WHO WE ARE</h4>
+        <button class="deck-link" data-deck="founder-thesis" type="button">The founder thesis</button>
+        <button class="deck-link" data-deck="company-vision" type="button">The company vision</button>
+        <button class="deck-link" data-deck="research-direction" type="button">The research direction</button>
+      </div>
+      <div class="mega-row">
+        <h4>WHY WE EXIST</h4>
+        <button class="deck-link" data-deck="gps-disappears" type="button">When GPS disappears</button>
+        <button class="deck-link" data-deck="autonomy-bottleneck" type="button">The autonomy bottleneck</button>
+        <button class="deck-link" data-deck="navigation-change" type="button">Why navigation must change</button>
+      </div>
+      <div class="mega-row">
+        <h4>WHAT WE BUILD</h4>
+        <button class="deck-link" data-deck="software-layer" type="button">The software intelligence layer</button>
+        <button class="deck-link" data-deck="hardware-architecture" type="button">The aerial hardware architecture</button>
+        <button class="deck-link" data-deck="scout-uav-roadmap" type="button">The scout UAV roadmap</button>
+        <button class="deck-link" data-deck="multi-drone-network" type="button">The multi-drone spatial network</button>
+      </div>
+      <div class="mega-row">
+        <h4>HOW IT WORKS</h4>
+        <button class="deck-link" data-deck="perception-positioning" type="button">Perception becomes positioning</button>
+        <button class="deck-link" data-deck="state-estimation" type="button">Sensors become state estimation</button>
+        <button class="deck-link" data-deck="scene-graphs" type="button">Scene graphs become spatial memory</button>
+        <button class="deck-link" data-deck="map-recovery" type="button">Maps support position recovery</button>
+        <button class="deck-link" data-deck="uncertainty" type="button">Uncertainty guides decisions</button>
+      </div>
+      <div class="mega-row">
+        <h4>WHERE IT OPERATES</h4>
+        <button class="deck-link" data-deck="degraded-signals" type="button">Degraded signal environments</button>
+        <button class="deck-link" data-deck="unknown-terrain" type="button">Unknown and unmapped terrain</button>
+        <button class="deck-link" data-deck="disaster-zones" type="button">Disaster and search zones</button>
+        <button class="deck-link" data-deck="critical-infrastructure" type="button">Critical infrastructure</button>
+        <button class="deck-link" data-deck="remote-corridors" type="button">Remote aerial corridors</button>
+      </div>
+      <div class="mega-row">
+        <h4>HOW WE ADVANCE</h4>
+        <button class="deck-link" data-deck="simulation-first" type="button">Simulation-first development</button>
+        <button class="deck-link" data-deck="single-drone-prototype" type="button">Single-drone prototype</button>
+        <button class="deck-link" data-deck="scene-map-matching" type="button">Scene understanding and map matching</button>
+        <button class="deck-link" data-deck="collaborative-mapping" type="button">Collaborative multi-drone mapping</button>
+        <button class="deck-link" data-deck="field-validation" type="button">Field validation roadmap</button>
+      </div>
+      <div class="mega-row">
+        <h4>WHO WE WORK WITH</h4>
+        <button class="deck-link" data-deck="aerospace-partners" type="button">Strategic aerospace partners</button>
+        <button class="deck-link" data-deck="research-collaborators" type="button">Robotics research collaborators</button>
+        <button class="deck-link" data-deck="resilience-operators" type="button">Defense and resilience operators</button>
+        <button class="deck-link" data-deck="early-investors" type="button">Early-stage investors</button>
+      </div>
+    </div>
+  </aside>
 
-<div id="panelBackdrop" class="panel-backdrop founder-backdrop" aria-hidden="true">
-  <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1800&q=85">
-    <source src="assets/videos/founder.mp4" type="video/mp4">
-  </video>
-</div>
-
-<aside id="founderPanel" class="content-panel" aria-hidden="true">
-  <button id="founderClose" class="panel-close" type="button" aria-label="Close founder story">×</button>
-  <div class="panel-content">
-    <span>Founder Story</span>
-    <h1>Built for the moment the signal fails.</h1>
-    <p>KUBECA began as a focused research direction: make autonomous systems keep their sense of position when GPS becomes unreliable, denied, or unavailable.</p>
-    <p>This mockup card can later hold the real founder narrative, company origin, research motivation, and early technical milestones.</p>
-    <div class="founder-note">Mockup content / investor preview</div>
-  </div>
-</aside>
-
-<main>
-  <section class="hero-image">
-    <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85" aria-label="Navigation intelligence hardware">
-      <source src="assets/videos/hero.mp4" type="video/mp4">
+  <div id="panelBackdrop" class="panel-backdrop" aria-hidden="true">
+    <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1800&q=85">
+      <source src="assets/videos/founder.mp4" type="video/mp4">
     </video>
-  </section>
+  </div>
 
-  <section class="quote-section">
-    <p>Navigation must keep working when the signal disappears.</p>
-  </section>
+  <aside id="deckPanel" class="content-panel" aria-hidden="true">
+    <button id="deckPanelClose" class="panel-close" type="button" aria-label="Close card">×</button>
+    <div class="panel-content">
+      <span id="panelEyebrow">Private Card</span>
+      <h1 id="panelTitle">The founder thesis</h1>
+      <p id="panelBody">KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.</p>
+      <div id="panelNote" class="founder-note">Private preview / investor deck</div>
+    </div>
+  </aside>
 
-  <section class="story" id="story">
-    <section class="scene" data-title="Navigation intelligence" data-copy="Visual-inertial systems for autonomous machines operating beyond reliable GPS coverage.">
-      <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1532693322450-2cb5c511067d?auto=format&fit=crop&w=1400&q=85" aria-label="Moon surface and space navigation">
-        <source src="assets/videos/access.mp4" type="video/mp4">
-      </video>
-    </section>
-    <section class="scene" data-title="Autonomy in hard places" data-copy="Decision systems designed for denied, remote, and infrastructure-poor operating environments.">
-      <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1400&q=85" aria-label="Aircraft in flight">
+  <aside id="detailPanel" class="detail-panel" aria-hidden="true">
+    <button id="detailClose" class="detail-close" type="button" aria-label="Close detail popup">Close <span>×</span></button>
+    <div class="detail-content">
+      <span id="detailEyebrow">System Detail</span>
+      <h1 id="detailTitle">Software-first navigation intelligence</h1>
+      <p id="detailIntro">A deeper view of how KUBECA turns perception, motion, maps, and confidence into navigation decisions.</p>
+      <div id="detailGrid" class="detail-grid"></div>
+    </div>
+  </aside>
+
+  <main id="home">
+    <section class="hero-section">
+      <video class="media-fill hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85">
         <source src="assets/videos/hero.mp4" type="video/mp4">
       </video>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Private Navigation Preview</p>
+        <h1>GPS-denied spatial intelligence for autonomous aerial systems.</h1>
+        <p class="hero-copy">KUBECA starts with the software layer: visual-inertial localization, scene memory, map-assisted navigation, and uncertainty-aware decision-making.</p>
+      </div>
     </section>
-    <section class="scene" data-title="Field roadmap" data-copy="A practical path from prototype research to resilient field testing and partner demonstrations.">
-      <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1400&q=85" aria-label="Rocket launch">
-        <source src="assets/videos/founder.mp4" type="video/mp4">
-      </video>
+
+    <section class="quote-section">
+      <div class="container">
+        <p>Navigation must keep working when the signal disappears.</p>
+      </div>
     </section>
-    <aside class="story-text" id="storyText">
-      <span>Private Preview</span>
-      <h2 id="storyTitle">Navigation intelligence</h2>
-      <p id="storyCopy">Visual-inertial systems for autonomous machines operating beyond reliable GPS coverage.</p>
-    </aside>
-  </section>
-</main>
+
+    <section class="story" id="story">
+      <section class="scene" data-detail="software" data-title="Software-first navigation intelligence" data-copy="The core system turns visual perception, inertial motion, maps, and uncertainty into resilient position estimates.">
+        <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1532693322450-2cb5c511067d?auto=format&fit=crop&w=1400&q=85" aria-label="Abstract navigation intelligence">
+          <source src="assets/videos/access.mp4" type="video/mp4">
+        </video>
+      </section>
+      <section class="scene" data-detail="environment" data-title="Built for GPS-denied environments" data-copy="Autonomous aerial systems need to keep operating when signals are degraded, unavailable, or unreliable.">
+        <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1400&q=85" aria-label="Autonomous aerial system">
+          <source src="assets/videos/hero.mp4" type="video/mp4">
+        </video>
+      </section>
+      <section class="scene" data-detail="roadmap" data-title="A roadmap toward collaborative aerial autonomy" data-copy="Future drone teams can share partial maps, reduce uncertainty, and build spatial memory together.">
+        <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1400&q=85" aria-label="Aerial autonomy roadmap">
+          <source src="assets/videos/founder.mp4" type="video/mp4">
+        </video>
+      </section>
+      <aside class="story-text" id="storyText">
+        <span>System Preview</span>
+        <h2 id="storyTitle">Software-first navigation intelligence</h2>
+        <p id="storyCopy">The core system turns visual perception, inertial motion, maps, and uncertainty into resilient position estimates.</p>
+        <button id="storyDetailOpen" class="primary-link" type="button">Open detailed view</button>
+      </aside>
+    </section>
+  </main>
 </div>
 
 <script src="script.js"></script>
