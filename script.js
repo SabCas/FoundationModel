@@ -13,6 +13,7 @@ var toggle = document.getElementById('mobileToggle');
 var megaMenu = document.getElementById('megaMenu');
 var menuClose = document.getElementById('menuClose');
 var founderLink = document.getElementById('founderLink');
+var panelBackdrop = document.getElementById('panelBackdrop');
 var founderPanel = document.getElementById('founderPanel');
 var founderClose = document.getElementById('founderClose');
 var scenes = document.querySelectorAll('.scene');
@@ -93,12 +94,14 @@ function closeMenu() {
 
 function openFounderPanel() {
   if (!founderPanel) return;
+  if (panelBackdrop) panelBackdrop.classList.add('open');
   founderPanel.classList.add('open');
   founderPanel.setAttribute('aria-hidden', 'false');
 }
 
 function closeFounderPanel() {
   if (!founderPanel) return;
+  if (panelBackdrop) panelBackdrop.classList.remove('open');
   founderPanel.classList.remove('open');
   founderPanel.setAttribute('aria-hidden', 'true');
 }
