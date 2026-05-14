@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUBECA Concept Deck</title>
+  <style>
+    @page { size: 16in 9in; margin: 0; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: #0d1117;
+      background: #fff;
+    }
+    .slide {
+      width: 16in;
+      height: 9in;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+      background: #f4f5f4;
+      padding: .62in;
+    }
+    .slide:last-child { page-break-after: auto; }
+    .label {
+      text-transform: uppercase;
+      letter-spacing: .26em;
+      font-size: 11px;
+      font-weight: 800;
+      color: #68717d;
+    }
+    h1 {
+      margin: .22in 0 0;
+      max-width: 10.8in;
+      font-size: 64px;
+      line-height: .94;
+      font-weight: 300;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: .18in 0 .26in;
+      font-size: 44px;
+      line-height: .98;
+      font-weight: 300;
+    }
+    p {
+      margin: 0;
+      max-width: 5.8in;
+      color: #4c535c;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .brand {
+      position: absolute;
+      top: .45in;
+      left: .62in;
+      display: flex;
+      align-items: center;
+      gap: .22in;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: .38em;
+    }
+    .mark {
+      width: .28in;
+      height: .28in;
+      border: 1px solid #111821;
+      position: relative;
+    }
+    .mark:after {
+      content: "";
+      position: absolute;
+      inset: .105in;
+      background: #111821;
+      border-radius: 50%;
+    }
+    .mock {
+      position: absolute;
+      border: 1px solid #dfe3e8;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(4, 9, 17, .16);
+    }
+    .dark-media {
+      background:
+        radial-gradient(circle at 72% 58%, rgba(220, 229, 242, .72), transparent 0 13%, transparent 14%),
+        linear-gradient(135deg, #08101a 0%, #111a24 42%, #03070d 100%);
+    }
+    .tech-media {
+      background:
+        radial-gradient(circle at 24% 40%, rgba(223, 227, 232, .35), transparent 0 18%, transparent 19%),
+        linear-gradient(135deg, #0a1119 0%, #1e3038 45%, #05070b 100%);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      height: 100%;
+      margin: -.62in;
+    }
+    .access-art {
+      position: relative;
+      padding: .72in .62in;
+      background: #f7f7f5;
+    }
+    .access-art:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 55%;
+      background: linear-gradient(180deg, #101923, #020711);
+    }
+    .access-copy {
+      display: flex;
+      align-items: center;
+      padding: .9in 1.4in;
+      background: #fff;
+    }
+    .access-box h1 { font-size: 58px; }
+    .input {
+      width: 4.6in;
+      height: .6in;
+      margin-top: .42in;
+      border: 1px solid #c3c9d1;
+      color: #a7adb5;
+      display: flex;
+      align-items: center;
+      padding: 0 .22in;
+      font-size: 17px;
+    }
+    .button {
+      width: 4.6in;
+      height: .6in;
+      margin-top: .18in;
+      background: #070c13;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .hero {
+      background:
+        linear-gradient(to top, rgba(2, 7, 17, .8), rgba(2, 7, 17, .08) 62%),
+        linear-gradient(135deg, #111a24 0%, #33434d 40%, #05070b 100%);
+      color: #fff;
+    }
+    .hero p, .hero .label { color: #e7edf4; }
+    .hero h1 { position: absolute; left: .72in; bottom: 1.58in; max-width: 10.9in; font-size: 78px; }
+    .hero .copy { position: absolute; left: .72in; bottom: .74in; max-width: 6.6in; color: #e8edf4; }
+    .quote {
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    .quote h1 {
+      max-width: 11.5in;
+      font-size: 72px;
+      line-height: 1.02;
+    }
+    .story-layout {
+      display: grid;
+      grid-template-columns: 48% 52%;
+      gap: .5in;
+      height: 100%;
+    }
+    .story-media {
+      height: 100%;
+      border: 1px solid #111821;
+    }
+    .story-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: .7in;
+    }
+    .story-copy h1 { font-size: 62px; }
+    .small-button {
+      width: 2.6in;
+      height: .46in;
+      margin-top: .36in;
+      background: #111821;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .detail-card {
+      position: absolute;
+      left: .85in;
+      right: .85in;
+      top: .62in;
+      bottom: .62in;
+      background: #fff;
+      border: 1px solid #dfe3e8;
+      padding: .52in;
+    }
+    .detail-card h1 { font-size: 58px; max-width: 10in; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid #dfe3e8;
+      border-left: 1px solid #dfe3e8;
+      margin-top: .38in;
+    }
+    .node {
+      min-height: 1.42in;
+      border-right: 1px solid #dfe3e8;
+      border-bottom: 1px solid #dfe3e8;
+      padding: .22in;
+    }
+    .node b {
+      display: block;
+      margin-bottom: .18in;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: 10px;
+      color: #68717d;
+    }
+    .node h3 {
+      margin: 0 0 .1in;
+      font-size: 18px;
+    }
+    .node p {
+      font-size: 13px;
+      line-height: 1.42;
+    }
+    .menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4.4in;
+      height: 9in;
+      background: #020711;
+      color: #fff;
+      padding: .45in;
+    }
+    .menu h3 {
+      margin: 0 0 .24in;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      font-size: 13px;
+    }
+    .menu-row {
+      border-top: 1px solid rgba(211, 220, 235, .18);
+      padding: .18in 0;
+    }
+    .menu-row b {
+      display: block;
+      margin-bottom: .08in;
+      letter-spacing: .2em;
+      font-size: 11px;
+    }
+    .menu-row span {
+      display: block;
+      color: #d1daea;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .left-card {
+      position: absolute;
+      left: .68in;
+      top: .82in;
+      bottom: .55in;
+      width: 5.8in;
+      background: #fff;
+      padding: .52in;
+      border: 1px solid #dfe3e8;
+      box-shadow: 0 24px 70px rgba(4, 9, 17, .16);
+    }
+    .left-card h1 { font-size: 54px; }
+  </style>
+</head>
+<body>
+  <section class="slide">
+    <div class="brand"><span class="mark"></span>KUBECA</div>
+    <div style="position:absolute;left:.62in;bottom:.65in;">
+      <div class="label">Concept Preview</div>
+      <h1>Private navigation intelligence website.</h1>
+      <p style="margin-top:.28in;">A clean cinematic website concept for investor, research, and partner conversations.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="split">
+      <div class="access-art">
+        <div class="brand"><span class="mark"></span>KUBECA</div>
+      </div>
+      <div class="access-copy">
+        <div class="access-box">
+          <div class="label">Private Preview</div>
+          <h1>Access<br>Restricted</h1>
+          <p>KUBECA builds GPS-denied spatial intelligence for autonomous aerial systems.</p>
+          <div class="input">Access code</div>
+          <div class="button">Unlock System</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide hero">
+    <div class="label" style="position:absolute;left:.72in;top:.62in;">Hero Experience</div>
+    <h1>GPS-denied spatial intelligence for autonomous aerial systems.</h1>
+    <p class="copy">The main page stays cinematic: fullscreen motion, minimal navigation, and a clear aerospace technology message.</p>
+  </section>
+
+  <section class="slide quote">
+    <h1>Navigation must keep working when the signal disappears.</h1>
+  </section>
+
+  <section class="slide">
+    <div class="story-layout">
+      <div class="story-media tech-media"></div>
+      <div class="story-copy">
+        <div class="label">Scroll Story</div>
+        <h1>Software-first navigation intelligence</h1>
+        <p>The user scrolls through large video scenes. The text stays clean, focused, and opens deeper information only when needed.</p>
+        <div class="small-button">Open Detail View</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide dark-media">
+    <div class="detail-card">
+      <div class="label">Detailed Popup</div>
+      <h1>Software-first navigation intelligence</h1>
+      <p>This card appears from the scroll section and shows the important content without turning the homepage into a long normal site.</p>
+      <div class="grid">
+        <div class="node"><b>01</b><h3>Visual navigation</h3><p>Cameras read terrain, structures, movement, and landmarks as positioning signals.</p></div>
+        <div class="node"><b>02</b><h3>Visual-inertial fusion</h3><p>Motion data and observations combine to reduce drift and keep state estimation alive.</p></div>
+        <div class="node"><b>03</b><h3>Map-assisted localization</h3><p>Known maps and remembered scenes help recover position after signal loss.</p></div>
+        <div class="node"><b>04</b><h3>Adaptive recovery</h3><p>The autonomy layer adjusts routes when confidence drops or scenes change.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide dark-media">
+    <div class="left-card">
+      <div class="label">Menu Card</div>
+      <h1>The founder thesis</h1>
+      <p>KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.</p>
+    </div>
+    <div class="menu">
+      <h3>KUBECA Navigation</h3>
+      <div class="menu-row"><b>WHO WE ARE</b><span>The founder thesis<br>The company vision<br>The research direction</span></div>
+      <div class="menu-row"><b>WHY WE EXIST</b><span>When GPS disappears<br>The autonomy bottleneck<br>Why navigation must change</span></div>
+      <div class="menu-row"><b>WHAT WE BUILD</b><span>The software intelligence layer<br>The aerial hardware architecture<br>The scout UAV roadmap</span></div>
+      <div class="menu-row"><b>WHO WE WORK WITH</b><span>Strategic aerospace partners<br>Research collaborators<br>Early-stage investors</span></div>
+    </div>
+  </section>
+</body>
+</html>

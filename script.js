@@ -27,12 +27,13 @@ var detailTitle = document.getElementById('detailTitle');
 var detailIntro = document.getElementById('detailIntro');
 var detailGrid = document.getElementById('detailGrid');
 var storyDetailOpen = document.getElementById('storyDetailOpen');
+var systemOverviewOpen = document.getElementById('systemOverviewOpen');
 var deckLinks = document.querySelectorAll('.deck-link');
 var scenes = document.querySelectorAll('.scene');
 var storyTitle = document.getElementById('storyTitle');
 var storyCopy = document.getElementById('storyCopy');
 var storedPassword = localStorage.getItem('sitePassword');
-var activeStoryDetail = 'software';
+var activeStoryDetail = 'flying-understanding';
 
 var deckData = {
   'founder-thesis': ['Who We Are', 'The founder thesis', 'KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.', 'Private preview / origin'],
@@ -67,38 +68,37 @@ var deckData = {
 };
 
 var detailData = {
-  software: {
-    eyebrow: 'System Detail',
-    title: 'Software-first navigation intelligence',
-    intro: 'This is the main KUBECA layer: a navigation system that turns perception, inertial motion, maps, and uncertainty into usable position and route decisions.',
-    items: [
-      ['01', 'Visual navigation', 'Cameras read terrain, structures, movement, and landmarks as positioning signals when external location becomes unreliable.'],
-      ['02', 'Visual-inertial fusion', 'Motion data and visual observations are combined to reduce drift and keep state estimation alive between confident matches.'],
-      ['03', 'Map-assisted localization', 'Known maps, partial maps, and remembered scenes help recover position after signal loss or accumulated uncertainty.'],
-      ['04', 'Adaptive route recovery', 'The autonomy layer can adjust routes when confidence drops, scenes change, or expected landmarks disappear.']
-    ]
+  'flying-understanding': {
+    eyebrow: 'Popup Slide 01 — Spatial Intelligence Software',
+    title: 'From Flying to Understanding',
+    intro: 'Most drones can capture video. KUBECA is building software that helps aerial systems understand the environment they enter.',
+    body: 'The system turns camera, sensor, and motion data into useful spatial structure:',
+    bullets: ['paths and open areas', 'obstacles and landmarks', 'explored and unknown zones', 'environmental change'],
+    why: 'A drone becomes more than a flying camera. It becomes a system that can interpret space, support navigation, and make better mission decisions.'
   },
-  environment: {
-    eyebrow: 'Operating Detail',
-    title: 'Built for GPS-denied environments',
-    intro: 'The point is not just flying without a clean signal. The point is keeping autonomy useful when the operating environment becomes uncertain.',
-    items: [
-      ['01', 'Signal denial', 'The system is framed for places where GPS is weak, blocked, spoofed, degraded, or operationally untrusted.'],
-      ['02', 'Contested spaces', 'Autonomous aerial systems need local navigation logic when infrastructure cannot be assumed.'],
-      ['03', 'Disaster response', 'Damaged infrastructure, smoke, debris, and changing terrain make resilient localization more valuable than perfect maps.'],
-      ['04', 'Industrial inspection', 'Complex structures create signal shadows, repeated geometry, and navigation ambiguity around critical assets.']
-    ]
+  'modular-systems': {
+    eyebrow: 'Popup Slide 02 — Modular Aerial Hardware',
+    title: 'From Single Drones to Modular Systems',
+    intro: 'One drone cannot solve every environment. KUBECA’s hardware vision combines different aerial roles into one system.',
+    body: 'Long-range UAVs provide distance and coverage. Carrier platforms provide compute, sensors, and mission extension. Scout drones explore smaller, complex, or hard-to-reach areas.',
+    bullets: [],
+    why: 'The system can scale from wide-area operation to detailed local exploration without depending on one drone type for everything.'
   },
-  roadmap: {
-    eyebrow: 'Roadmap Detail',
-    title: 'Toward collaborative aerial autonomy',
-    intro: 'The roadmap moves from a single navigation intelligence layer toward teams of aerial systems that share spatial memory and reduce uncertainty together.',
-    items: [
-      ['01', 'Simulation-first build', 'Controlled environments test drift, signal loss, map recovery, and route decisions before field exposure.'],
-      ['02', 'Single-drone prototype', 'The first implementation validates localization and recovery on one aerial system.'],
-      ['03', 'Scene memory', 'Observed landmarks, routes, and terrain become a spatial memory that can support future missions.'],
-      ['04', 'Multi-drone network', 'Future drone teams share partial maps, compare confidence, and coordinate exploration in uncertain areas.']
-    ]
+  'shared-map': {
+    eyebrow: 'Popup Slide 03 — Networked Drone Teams',
+    title: 'From Local Views to One Shared Map',
+    intro: 'Each drone sees only part of the environment. KUBECA’s vision is to connect those observations into one evolving map.',
+    body: 'The system combines what multiple drones observe:',
+    bullets: ['routes and open areas', 'obstacles and unknown zones', 'changes in the environment', 'areas already explored by the team'],
+    why: 'Drone teams can coordinate with shared awareness instead of operating as isolated units.'
+  },
+  'kubeca-system': {
+    eyebrow: 'Overview Slide — The KUBECA System',
+    title: 'The KUBECA System',
+    intro: 'KUBECA is building the spatial intelligence layer for autonomous drone teams.',
+    body: 'The vision combines three parts:',
+    bullets: ['01 Software that understands space', '02 Modular aerial hardware', '03 Shared maps for coordinated drone teams'],
+    why: 'Together, they create aerial systems that can navigate, map, adapt, and coordinate in complex real-world environments.'
   }
 };
 
@@ -217,7 +217,7 @@ function closeDeckPanel() {
 }
 
 function openDetailPanel(detailId) {
-  var detail = detailData[detailId] || detailData.software;
+  var detail = detailData[detailId] || detailData['flying-understanding'];
 
   closeDeckPanel();
   detailEyebrow.textContent = detail.eyebrow;
@@ -225,12 +225,30 @@ function openDetailPanel(detailId) {
   detailIntro.textContent = detail.intro;
   detailGrid.innerHTML = '';
 
-  detail.items.forEach(function (item) {
-    var node = document.createElement('article');
-    node.className = 'detail-node';
-    node.innerHTML = '<span>' + item[0] + '</span><h3>' + item[1] + '</h3><p>' + item[2] + '</p>';
-    detailGrid.appendChild(node);
-  });
+  if (detail.body) {
+    var body = document.createElement('p');
+    body.className = 'detail-body';
+    body.textContent = detail.body;
+    detailGrid.appendChild(body);
+  }
+
+  if (detail.bullets && detail.bullets.length) {
+    var list = document.createElement('ul');
+    list.className = 'detail-bullets';
+    detail.bullets.forEach(function (bullet) {
+      var item = document.createElement('li');
+      item.textContent = bullet;
+      list.appendChild(item);
+    });
+    detailGrid.appendChild(list);
+  }
+
+  if (detail.why) {
+    var why = document.createElement('div');
+    why.className = 'detail-why';
+    why.innerHTML = '<span>Why it matters</span><p>' + detail.why + '</p>';
+    detailGrid.appendChild(why);
+  }
 
   if (panelBackdrop) panelBackdrop.classList.add('open');
   if (detailPanel) {
@@ -260,6 +278,9 @@ if (panelBackdrop) panelBackdrop.addEventListener('click', closeAllPanels);
 if (storyDetailOpen) storyDetailOpen.addEventListener('click', function () {
   openDetailPanel(activeStoryDetail);
 });
+if (systemOverviewOpen) systemOverviewOpen.addEventListener('click', function () {
+  openDetailPanel('kubeca-system');
+});
 
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') closeAllPanels();
@@ -288,7 +309,7 @@ if (desktopPanelQuery.addEventListener) {
 var observer = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (!entry.isIntersecting || !storyTitle || !storyCopy) return;
-    activeStoryDetail = entry.target.getAttribute('data-detail') || 'software';
+    activeStoryDetail = entry.target.getAttribute('data-detail') || 'flying-understanding';
     storyTitle.textContent = entry.target.getAttribute('data-title');
     storyCopy.textContent = entry.target.getAttribute('data-copy');
   });
