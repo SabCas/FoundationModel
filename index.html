@@ -85,6 +85,7 @@
       <div class="mega-row">
         <h4>WHAT WE BUILD</h4>
         <button class="deck-link" data-deck="software-layer" type="button">The software intelligence layer</button>
+        <button class="deck-link" data-deck="prototype-platforms" type="button">Prototype aerial platforms</button>
         <button class="deck-link" data-deck="hardware-architecture" type="button">The aerial hardware architecture</button>
         <button class="deck-link" data-deck="scout-uav-roadmap" type="button">The scout UAV roadmap</button>
         <button class="deck-link" data-deck="multi-drone-network" type="button">The multi-drone spatial network</button>
@@ -134,7 +135,7 @@
     <div class="panel-content">
       <span id="panelEyebrow">Private Card</span>
       <h1 id="panelTitle">The founder thesis</h1>
-      <p id="panelBody">KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.</p>
+      <div id="panelBody" class="panel-body">KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.</div>
       <div id="panelNote" class="founder-note">Private preview / investor deck</div>
     </div>
   </aside>
@@ -157,7 +158,7 @@
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <p class="eyebrow">Private Navigation Preview</p>
-        <h1>GPS-denied spatial intelligence for autonomous aerial systems.</h1>
+        <h1>Autonomous aerial systems.</h1>
         <p class="hero-copy">KUBECA is building the spatial intelligence layer for autonomous drone teams.</p>
         <div class="hero-actions">
           <button id="systemOverviewOpen" class="secondary-link" type="button">The KUBECA System</button>
@@ -165,10 +166,33 @@
       </div>
     </section>
 
+    <section class="progress-rail" id="systemProgress" aria-label="System progress">
+      <div class="container progress-rail-inner">
+        <div class="progress-select">
+          <span class="progress-rail-label">System Progress</span>
+          <button id="progressLayerButton" class="progress-layer-button" type="button">Spatial Intelligence Software</button>
+        </div>
+        <div class="progress-track" role="group" aria-label="Development phases">
+          <button class="progress-step active" type="button">Research</button>
+          <button class="progress-step active" type="button">Architecture</button>
+          <button class="progress-step active" type="button">Simulation</button>
+          <button class="progress-step active" type="button">Prototype</button>
+          <button class="progress-step" type="button">Validation</button>
+          <button class="progress-step" type="button">Field Demo</button>
+        </div>
+        <div class="progress-phase">
+          <span>Current Phase</span>
+          <strong id="progressPhaseText">Prototype Development</strong>
+          <em id="progressMilestone">Next: First integrated navigation demo</em>
+        </div>
+        <button id="progressDeckOpen" class="progress-deck-button" type="button">View full progress <span>→</span></button>
+      </div>
+    </section>
+
     <section class="quote-section">
       <div class="container quote-content">
         <span>Coordinated Autonomy</span>
-        <p>The future of drones is not one aircraft flying alone. KUBECA builds modular aerial autonomy for coordinated drone teams.</p>
+        <p>The future of drones is not one aircraft flying alone.<br>KUBECA builds modular aerial autonomy for coordinated drone teams.</p>
       </div>
     </section>
 

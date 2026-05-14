@@ -277,6 +277,199 @@
       box-shadow: 0 24px 70px rgba(4, 9, 17, .16);
     }
     .left-card h1 { font-size: 54px; }
+    .product-slide {
+      background: #fff;
+      padding: .6in .64in .48in;
+    }
+    .product-slide .label {
+      position: absolute;
+      top: .55in;
+      left: .64in;
+    }
+    .product-title {
+      position: absolute;
+      left: .64in;
+      top: 1.38in;
+      max-width: 5.2in;
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 52px;
+      line-height: 1.02;
+      font-weight: 300;
+    }
+    .product-intro {
+      position: absolute;
+      left: .64in;
+      top: 2.72in;
+      width: 3.9in;
+      font-size: 14px;
+      color: #5d6670;
+    }
+    .product-table {
+      position: absolute;
+      left: .64in;
+      top: 4.05in;
+      width: 6.85in;
+      border-top: 1px solid #d6dbe0;
+    }
+    .product-row {
+      display: grid;
+      grid-template-columns: 1.35in 1fr 1fr;
+      gap: .34in;
+      padding: .14in 0;
+      border-bottom: 1px solid #d6dbe0;
+    }
+    .product-row span,
+    .product-row strong,
+    .product-row p {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 10px;
+      line-height: 1.38;
+    }
+    .product-row span {
+      font-weight: 800;
+      color: #68717d;
+    }
+    .product-row strong {
+      font-size: 13px;
+      font-weight: 500;
+      color: #111821;
+    }
+    .product-row small {
+      display: block;
+      margin-top: .04in;
+      color: #5d6670;
+      font-size: 8px;
+      font-weight: 800;
+    }
+    .product-row p {
+      text-transform: none;
+      letter-spacing: 0;
+      color: #333b45;
+      font-size: 10px;
+    }
+    .product-visual {
+      position: absolute;
+      right: .62in;
+      top: 1.32in;
+      width: 7.2in;
+      height: 5.45in;
+    }
+    .deck-wing .body {
+      position: absolute;
+      left: 56%;
+      top: 0;
+      width: .34in;
+      height: 5.1in;
+      transform: translateX(-50%);
+      border-radius: .22in;
+      background: linear-gradient(90deg, #cbd1d6, #fbfcfd 48%, #c1c7cd);
+      box-shadow: inset 0 0 0 1px rgba(34, 44, 54, .12), 0 22px 32px rgba(22, 31, 42, .16);
+    }
+    .deck-wing .body:before {
+      content: "";
+      position: absolute;
+      left: .08in;
+      right: .08in;
+      top: .23in;
+      height: .43in;
+      border-radius: .18in;
+      background: #19212a;
+      opacity: .58;
+    }
+    .deck-wing .wing {
+      position: absolute;
+      left: .15in;
+      right: .08in;
+      top: 2.02in;
+      height: .34in;
+      border-radius: .04in;
+      background: linear-gradient(180deg, #eef1f3, #c9cfd4);
+      box-shadow: inset 0 0 0 1px rgba(34, 44, 54, .14), 0 18px 28px rgba(22, 31, 42, .12);
+    }
+    .deck-wing .tail {
+      position: absolute;
+      left: 51%;
+      bottom: .02in;
+      width: 1.35in;
+      height: .72in;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, #dce1e5, #bfc6cc);
+      clip-path: polygon(50% 0, 100% 82%, 58% 100%, 50% 58%, 42% 100%, 0 82%);
+    }
+    .deck-drone {
+      position: absolute;
+      right: .34in;
+      bottom: .18in;
+      width: 1.68in;
+      height: 1.68in;
+      filter: drop-shadow(0 18px 22px rgba(22, 31, 42, .18));
+    }
+    .deck-drone i {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: .46in;
+      height: 1.02in;
+      transform: translate(-50%, -50%);
+      border-radius: .2in;
+      background: linear-gradient(90deg, #d9dee2, #fbfcfc 48%, #c4cbd1);
+      box-shadow: inset 0 0 0 1px rgba(34, 44, 54, .13);
+    }
+    .deck-drone span {
+      position: absolute;
+      width: .42in;
+      height: .42in;
+      border: .05in solid #1d232b;
+      border-radius: 50%;
+    }
+    .deck-drone span:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: .58in;
+      height: .04in;
+      background: #1d232b;
+      transform: translate(-50%, -50%) rotate(32deg);
+      border-radius: 999px;
+    }
+    .deck-drone span:nth-child(1) { left: 0; top: .05in; }
+    .deck-drone span:nth-child(2) { right: 0; top: .05in; }
+    .deck-drone span:nth-child(3) { left: 0; bottom: .05in; }
+    .deck-drone span:nth-child(4) { right: 0; bottom: .05in; }
+    .product-features {
+      position: absolute;
+      left: .64in;
+      right: .64in;
+      bottom: .46in;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid #d8dde2;
+    }
+    .product-feature {
+      padding: .34in .34in 0;
+      min-height: .82in;
+      border-left: 1px solid #d8dde2;
+    }
+    .product-feature:first-child {
+      border-left: 0;
+      padding-left: 0;
+    }
+    .product-feature strong {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 11px;
+    }
+    .product-feature p {
+      margin-top: .08in;
+      max-width: 3.1in;
+      font-size: 11px;
+      color: #5d6670;
+    }
   </style>
 </head>
 <body>
@@ -316,6 +509,60 @@
     <h1>Navigation must keep working when the signal disappears.</h1>
   </section>
 
+  <section class="slide product-slide">
+    <div class="label">Prototype Platforms</div>
+    <h1 class="product-title">Aerial systems<br>built for autonomy</h1>
+    <p class="product-intro">Prototype modular aerial platforms designed to operate independently or as one coordinated team in GPS-denied environments.</p>
+    <div class="product-table">
+      <div class="product-row">
+        <span>Platform</span>
+        <strong>KUBECA LRA<small>Long-range aircraft</small></strong>
+        <strong>KUBECA SCD<small>Scout drone</small></strong>
+      </div>
+      <div class="product-row">
+        <span>Overview</span>
+        <p>Long-endurance ISR platform for mapping, monitoring, and command.</p>
+        <p>Agile scout drone for close-range reconnaissance and perimeter scan.</p>
+      </div>
+      <div class="product-row">
+        <span>Endurance</span>
+        <p>12+ hours</p>
+        <p>45+ minutes</p>
+      </div>
+      <div class="product-row">
+        <span>Range</span>
+        <p>200+ km</p>
+        <p>25+ km</p>
+      </div>
+      <div class="product-row">
+        <span>Navigation</span>
+        <p>GPS-denied / INS / Visual</p>
+        <p>GPS-denied / INS / Visual</p>
+      </div>
+      <div class="product-row">
+        <span>Role</span>
+        <p>Command and wide-area autonomy</p>
+        <p>Tactical recon and target localization</p>
+      </div>
+    </div>
+    <div class="product-visual" aria-hidden="true">
+      <div class="deck-wing">
+        <span class="wing"></span>
+        <span class="body"></span>
+        <span class="tail"></span>
+      </div>
+      <div class="deck-drone">
+        <span></span><span></span><span></span><span></span>
+        <i></i>
+      </div>
+    </div>
+    <div class="product-features">
+      <div class="product-feature"><strong>GPS-denied operations</strong><p>Built to navigate and operate in contested environments.</p></div>
+      <div class="product-feature"><strong>Team-centric autonomy</strong><p>Multiple systems. One shared map. Coordinated as a single team.</p></div>
+      <div class="product-feature"><strong>Modular and adaptable</strong><p>Open architecture for rapid integration and mission flexibility.</p></div>
+    </div>
+  </section>
+
   <section class="slide">
     <div class="story-layout">
       <div class="story-media tech-media"></div>
@@ -352,7 +599,7 @@
       <h3>KUBECA Navigation</h3>
       <div class="menu-row"><b>WHO WE ARE</b><span>The founder thesis<br>The company vision<br>The research direction</span></div>
       <div class="menu-row"><b>WHY WE EXIST</b><span>When GPS disappears<br>The autonomy bottleneck<br>Why navigation must change</span></div>
-      <div class="menu-row"><b>WHAT WE BUILD</b><span>The software intelligence layer<br>The aerial hardware architecture<br>The scout UAV roadmap</span></div>
+      <div class="menu-row"><b>WHAT WE BUILD</b><span>The software intelligence layer<br>Prototype aerial platforms<br>The aerial hardware architecture<br>The scout UAV roadmap</span></div>
       <div class="menu-row"><b>WHO WE WORK WITH</b><span>Strategic aerospace partners<br>Research collaborators<br>Early-stage investors</span></div>
     </div>
   </section>

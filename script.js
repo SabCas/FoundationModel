@@ -28,6 +28,11 @@ var detailIntro = document.getElementById('detailIntro');
 var detailGrid = document.getElementById('detailGrid');
 var storyDetailOpen = document.getElementById('storyDetailOpen');
 var systemOverviewOpen = document.getElementById('systemOverviewOpen');
+var progressLayerButton = document.getElementById('progressLayerButton');
+var progressSteps = document.querySelectorAll('.progress-step');
+var progressPhaseText = document.getElementById('progressPhaseText');
+var progressMilestone = document.getElementById('progressMilestone');
+var progressDeckOpen = document.getElementById('progressDeckOpen');
 var deckLinks = document.querySelectorAll('.deck-link');
 var scenes = document.querySelectorAll('.scene');
 var quoteContent = document.querySelector('.quote-content');
@@ -36,6 +41,8 @@ var storyTitle = document.getElementById('storyTitle');
 var storyCopy = document.getElementById('storyCopy');
 var storedPassword = localStorage.getItem('sitePassword');
 var activeStoryDetail = 'flying-understanding';
+var activeProgressLayer = 'spatial-software';
+var progressLayerOrder = ['spatial-software', 'long-range-uav', 'scout-drone', 'shared-map'];
 var storyTextTimer;
 
 var deckData = {
@@ -46,6 +53,7 @@ var deckData = {
   'autonomy-bottleneck': ['Why We Exist', 'The autonomy bottleneck', 'Autonomous systems can perceive more than ever, but they still need resilient position, memory, and route recovery when infrastructure fails.', 'Problem frame'],
   'navigation-change': ['Why We Exist', 'Why navigation must change', 'Future aerial autonomy needs navigation that is local, adaptive, memory-based, and robust to uncertainty.', 'Thesis'],
   'software-layer': ['What We Build', 'The software intelligence layer', 'The first KUBECA layer turns perception, inertial motion, maps, and confidence estimates into navigation decisions.', 'Core system'],
+  'prototype-platforms': ['What We Build', 'Prototype aerial platforms', 'KUBECA’s prototype direction pairs KUBECA LRA, a long-range aircraft for 12+ hour wide-area ISR and command, with KUBECA SCD, a 45+ minute scout drone for close-range reconnaissance, perimeter scan, and target localization. Both are designed around GPS-denied / INS / visual navigation.', 'Pitch deck / prototype'],
   'hardware-architecture': ['What We Build', 'The aerial hardware architecture', 'Hardware planning stays close to the software: sensing, onboard compute, deployable scouts, and field-ready autonomy constraints.', 'Roadmap'],
   'scout-uav-roadmap': ['What We Build', 'The scout UAV roadmap', 'Scout UAVs are the first practical path for testing localization, route recovery, and scene-memory workflows.', 'Roadmap'],
   'multi-drone-network': ['What We Build', 'The multi-drone spatial network', 'Future drone teams can share partial maps, reduce uncertainty, and build collaborative spatial awareness.', 'Future layer'],
@@ -102,6 +110,45 @@ var detailData = {
     body: 'The vision combines three parts:',
     bullets: ['01 Software that understands space', '02 Modular aerial hardware', '03 Shared maps for coordinated drone teams'],
     why: 'Together, they create aerial systems that can navigate, map, adapt, and coordinate in complex real-world environments.'
+  },
+  'prototype-platforms': {
+    eyebrow: 'Products — Prototype Platforms',
+    title: 'Aerial systems built for autonomy',
+    intro: 'Modular aerial platforms designed to operate independently or as an integrated team in GPS-denied environments.',
+    body: '',
+    bullets: [],
+    why: ''
+  }
+};
+
+var progressData = {
+  'spatial-software': {
+    name: 'Spatial Intelligence Software',
+    phase: 'Prototype Development',
+    phaseIndex: 3,
+    milestone: 'Next: First integrated navigation demo',
+    deck: 'software-layer'
+  },
+  'long-range-uav': {
+    name: 'Long-Range UAV',
+    phase: 'Architecture / Prototype',
+    phaseIndex: 2,
+    milestone: 'Next: Airframe and payload integration plan',
+    deck: 'hardware-architecture'
+  },
+  'scout-drone': {
+    name: 'Scout Drone System',
+    phase: 'Simulation / Prototype',
+    phaseIndex: 2,
+    milestone: 'Next: Close-range scout navigation test',
+    deck: 'scout-uav-roadmap'
+  },
+  'shared-map': {
+    name: 'Shared Map Network',
+    phase: 'Architecture Research',
+    phaseIndex: 1,
+    milestone: 'Next: Multi-drone shared map demo',
+    deck: 'multi-drone-network'
   }
 };
 
@@ -189,26 +236,41 @@ function toggleMenu() {
 function openDeckPanel(deckId) {
   var card = deckData[deckId] || deckData['founder-thesis'];
 
-  closeDetailPanel();
-  panelEyebrow.textContent = card[0];
-  panelTitle.textContent = card[1];
-  panelBody.textContent = card[2];
-  panelNote.textContent = card[3];
+  if (deckId === 'prototype-platforms') {
+    if (window.matchMedia('(min-width: 761px)').matches) {
+      openMenu();
+    } else {
+      if (megaMenu) {
+        megaMenu.classList.remove('open');
+        megaMenu.setAttribute('aria-hidden', 'true');
+      }
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    }
+    openDetailPanel('prototype-platforms');
+    return;
+  }
+
+  closeDeckPanel();
+  detailPanel.classList.remove('product-detail');
+  detailPanel.classList.add('deck-detail');
+  detailEyebrow.textContent = card[0];
+  detailTitle.textContent = card[1];
+  detailIntro.textContent = card[2];
+  detailGrid.innerHTML = '<div class="deck-card-meta"><span>' + card[0] + '</span><strong>' + card[3] + '</strong></div>';
 
   if (window.matchMedia('(min-width: 761px)').matches) {
     openMenu();
-    if (panelBackdrop) panelBackdrop.classList.add('open');
-    deckPanel.classList.add('open');
-    deckPanel.setAttribute('aria-hidden', 'false');
   } else {
     if (megaMenu) {
       megaMenu.classList.remove('open');
       megaMenu.setAttribute('aria-hidden', 'true');
     }
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
-    if (panelBackdrop) panelBackdrop.classList.add('open');
-    deckPanel.classList.add('open');
-    deckPanel.setAttribute('aria-hidden', 'false');
+  }
+  if (panelBackdrop) panelBackdrop.classList.add('open');
+  if (detailPanel) {
+    detailPanel.classList.add('open');
+    detailPanel.setAttribute('aria-hidden', 'false');
   }
 }
 
@@ -223,10 +285,24 @@ function openDetailPanel(detailId) {
   var detail = detailData[detailId] || detailData['flying-understanding'];
 
   closeDeckPanel();
+  if (detailPanel) {
+    detailPanel.classList.remove('deck-detail');
+    detailPanel.classList.toggle('product-detail', detailId === 'prototype-platforms');
+  }
   detailEyebrow.textContent = detail.eyebrow;
   detailTitle.textContent = detail.title;
   detailIntro.textContent = detail.intro;
   detailGrid.innerHTML = '';
+
+  if (detailId === 'prototype-platforms') {
+    detailGrid.innerHTML = '<div class="product-slide-copy"><div class="product-slide-table"><div class="product-slide-row product-slide-head"><span>Platform</span><b>KUBECA LRA<small>Long-range aircraft</small></b><b>KUBECA SCD<small>Scout drone</small></b></div><div class="product-slide-row"><span>Overview</span><p>Long-endurance ISR platform for mapping, monitoring, and command.</p><p>Agile scout drone for close-range reconnaissance and perimeter scan.</p></div><div class="product-slide-row"><span>Endurance</span><p>12+ hours</p><p>45+ minutes</p></div><div class="product-slide-row"><span>Range</span><p>200+ km</p><p>25+ km</p></div><div class="product-slide-row"><span>Max payload</span><p>5 kg</p><p>1.2 kg</p></div><div class="product-slide-row"><span>Navigation</span><p>GPS-denied / INS / Visual</p><p>GPS-denied / INS / Visual</p></div><div class="product-slide-row"><span>Deployment</span><p>Runway / catapult</p><p>Hand launch</p></div><div class="product-slide-row"><span>Role</span><p>Command and control, wide-area ISR</p><p>Tactical recon, target localization</p></div></div></div><div class="product-slide-visual"><div class="product-wing"><i class="wing"></i><i class="body"></i><i class="tail"></i></div><div class="product-drone"><i></i><span></span><span></span><span></span><span></span></div></div><div class="product-slide-features"><span><b>GPS-denied operations</b><em>Built to navigate and operate in contested environments.</em></span><span><b>Team-centric autonomy</b><em>Multiple systems. One shared map. Coordinated as a single team.</em></span><span><b>Modular and adaptable</b><em>Open architecture for integration and mission flexibility.</em></span></div>';
+    if (panelBackdrop) panelBackdrop.classList.add('open');
+    if (detailPanel) {
+      detailPanel.classList.add('open');
+      detailPanel.setAttribute('aria-hidden', 'false');
+    }
+    return;
+  }
 
   if (detail.body) {
     var body = document.createElement('p');
@@ -264,12 +340,33 @@ function closeDetailPanel() {
   if (panelBackdrop) panelBackdrop.classList.remove('open');
   if (!detailPanel) return;
   detailPanel.classList.remove('open');
+  detailPanel.classList.remove('deck-detail');
+  detailPanel.classList.remove('product-detail');
   detailPanel.setAttribute('aria-hidden', 'true');
 }
 
 function closeAllPanels() {
   closeDeckPanel();
   closeDetailPanel();
+}
+
+function setProgressLayer(layerId) {
+  var layer = progressData[layerId] || progressData['spatial-software'];
+  activeProgressLayer = layerId;
+
+  if (progressLayerButton) progressLayerButton.textContent = layer.name;
+  if (progressPhaseText) progressPhaseText.textContent = layer.phase;
+  if (progressMilestone) progressMilestone.textContent = layer.milestone;
+
+  progressSteps.forEach(function (step, index) {
+    step.classList.toggle('active', index <= layer.phaseIndex);
+  });
+}
+
+function cycleProgressLayer() {
+  var index = progressLayerOrder.indexOf(activeProgressLayer);
+  var nextLayer = progressLayerOrder[(index + 1) % progressLayerOrder.length];
+  setProgressLayer(nextLayer);
 }
 
 if (toggle) toggle.addEventListener('click', toggleMenu);
@@ -283,6 +380,17 @@ if (storyDetailOpen) storyDetailOpen.addEventListener('click', function () {
 });
 if (systemOverviewOpen) systemOverviewOpen.addEventListener('click', function () {
   openDetailPanel('kubeca-system');
+});
+if (progressLayerButton) progressLayerButton.addEventListener('click', cycleProgressLayer);
+progressSteps.forEach(function (step) {
+  step.addEventListener('click', function () {
+    var layer = progressData[activeProgressLayer] || progressData['spatial-software'];
+    openDeckPanel(layer.deck);
+  });
+});
+if (progressDeckOpen) progressDeckOpen.addEventListener('click', function () {
+  var layer = progressData[activeProgressLayer] || progressData['spatial-software'];
+  openDeckPanel(layer.deck);
 });
 
 document.addEventListener('keydown', function (event) {
