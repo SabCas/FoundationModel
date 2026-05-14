@@ -3,48 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AeroDynamics | Full Corporate Mockup</title>
+  <title>KUBECA | Private Preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<section id="lockScreen" class="lock-screen">
+  <aside class="access-visual" aria-hidden="true">
+    <div class="scan-grid"></div>
+    <div class="brand-mark">
+      <span class="brand-icon"></span>
+      <span>KUBECA</span>
+    </div>
+    <div class="status-block top-status">
+      <span>System Status</span>
+      <strong>Stealth</strong>
+    </div>
+    <div class="status-block bottom-status">
+      <span>Signal State</span>
+      <strong id="signalState">Locked</strong>
+      <span>Access Level</span>
+      <strong>Private Preview</strong>
+      <span>Environment</span>
+      <strong>Restricted</strong>
+    </div>
+  </aside>
+
+  <div class="access-panel">
+    <form id="passwordForm" class="password-box">
+      <p id="passwordMode" class="password-mode">Private Preview</p>
+      <h1 id="passwordTitle">Access<br>Restricted</h1>
+      <span class="title-rule"></span>
+      <p class="access-copy">We are building the next generation of navigation intelligence for autonomous systems operating beyond reliable infrastructure.</p>
+      <p class="access-copy">This is a private preview environment for authorized partners, researchers, and investors.</p>
+      <label for="passwordInput">Enter Access Code</label>
+      <div class="input-shell">
+        <input id="passwordInput" type="password" minlength="3" autocomplete="current-password" placeholder="Access code" required />
+        <span class="input-target"></span>
+      </div>
+      <button id="passwordSubmit" type="submit">Unlock System <span>-></span></button>
+      <p id="passwordMessage" class="password-message" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<div id="siteContent" class="site-content locked" aria-hidden="true">
 <header class="site-header" id="siteHeader"><div class="container nav-wrap">
-  <a class="logo" href="#">AeroDynamics</a>
-  <span class="tagline">with our technologies.</span>
-  <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-controls="megaMenu">☰</button>
+  <div class="brand-area">
+    <a class="logo" href="index.html">KUBECA</a>
+  </div>
+  <div class="nav-actions">
+    <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-controls="megaMenu">☰</button>
+  </div>
 </div></header>
 
 <aside id="megaMenu" class="mega-menu" aria-hidden="true">
-  <div class="mega-top"><span class="mega-brand">◎ Hanwha-style Mock Menu</span><button id="menuClose" class="menu-close">×</button></div>
+  <div class="mega-top"><span class="mega-brand">KUBECA Navigation</span><button id="menuClose" class="menu-close">×</button></div>
   <div class="mega-grid">
-    <div class="mega-row"><h4>WHO WE ARE</h4><p>Company Info.</p><p>History</p><p>Locations</p></div>
-    <div class="mega-row"><h4>WHY WE EXIST</h4><p>Mission</p><p>Vision</p><p>Values</p></div>
-    <div class="mega-row"><h4>WHAT WE DO</h4><p>Virtual Showroom</p><p>Sustainable Technologies</p><p>Products & Services</p><p>Discover</p><p>Protect</p></div>
-    <div class="mega-row"><h4>IR</h4><p>Earnings Release</p><p>IR Events</p><p>Financial Information</p><p>Stock Information</p><p>Reports</p></div>
-    <div class="mega-row"><h4>NEWS & MEDIA</h4><p>Newsroom</p><p>Library</p><p>Notice</p></div>
-    <div class="mega-row"><h4>ESG</h4><p>Sustainable management</p><p>Ethics Compliance</p><p>EHS Management</p><p>Social Contribution</p></div>
-    <div class="mega-row"><h4>CAREERS</h4><p>Talent</p><p>Recruit</p><p>Contact</p></div>
+    <div class="mega-row"><h4>WHO WE ARE</h4><a id="founderLink" href="founder.html">Founder story</a><p>Company vision</p><p>Research direction</p></div>
+    <div class="mega-row"><h4>WHY WE EXIST</h4><p>The GPS-free future</p><p>The autonomy bottleneck</p><p>Why navigation must change</p></div>
+    <div class="mega-row"><h4>WHAT WE BUILD</h4><p>Navigation intelligence</p><p>Visual-inertial fusion</p><p>Map-assisted localization</p><p>Autonomy stack</p></div>
+    <div class="mega-row"><h4>HOW IT WORKS</h4><p>Perception as positioning</p><p>Sensors into state estimation</p><p>Uncertainty-aware decisions</p><p>Adaptive route recovery</p></div>
+    <div class="mega-row"><h4>WHERE IT OPERATES</h4><p>Contested environments</p><p>Disaster response</p><p>Industrial inspection</p><p>Remote logistics</p></div>
+    <div class="mega-row"><h4>HOW WE PROGRESS</h4><p>Current build phase</p><p>Technical roadmap</p><p>Research notes</p><p>Future demos</p></div>
+    <div class="mega-row"><h4>WHO WE WORK WITH</h4><p>Strategic partners</p><p>Research collaborators</p><p>Investor access</p></div>
   </div>
 </aside>
 
-<main class="story" id="story">
-  <section class="scene" data-title="Sustainable technologies" data-copy="We remain fully committed to protecting the earth, improving quality of life and developing core technologies for sustainable growth.">
-    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Sustainable technology mockup" />
+<aside id="founderPanel" class="content-panel" aria-hidden="true">
+  <button id="founderClose" class="panel-close" type="button" aria-label="Close founder story">×</button>
+  <span>Founder Story</span>
+  <h1>Built for the moment the signal fails.</h1>
+  <p>KUBECA began as a focused research direction: make autonomous systems keep their sense of position when GPS becomes unreliable, denied, or unavailable.</p>
+  <p>This mockup card can later hold the real founder narrative, company origin, research motivation, and early technical milestones.</p>
+  <div class="founder-note">Mockup content / investor preview</div>
+</aside>
+
+<main>
+  <section class="hero-image">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85" alt="Navigation intelligence hardware" />
   </section>
-  <section class="scene" data-title="Discover" data-copy="We explore the future growth engines from unknown areas.">
-    <img src="https://images.unsplash.com/photo-1532693322450-2cb5c511067d?auto=format&fit=crop&w=900&q=80" alt="Moon discover mockup" />
+
+  <section class="quote-section">
+    <p>Navigation must keep working when the signal disappears.</p>
   </section>
-  <section class="scene" data-title="Protect" data-copy="We build trusted defense systems that protect people, nations, and critical infrastructure.">
-    <img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=900&q=80" alt="Defense protect mockup" />
+
+  <section class="story" id="story">
+    <section class="scene" data-title="Navigation intelligence" data-copy="Visual-inertial systems for autonomous machines operating beyond reliable GPS coverage.">
+      <img src="https://images.unsplash.com/photo-1532693322450-2cb5c511067d?auto=format&fit=crop&w=1400&q=85" alt="Moon surface and space navigation" />
+    </section>
+    <section class="scene" data-title="Autonomy in hard places" data-copy="Decision systems designed for denied, remote, and infrastructure-poor operating environments.">
+      <img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1400&q=85" alt="Aircraft in flight" />
+    </section>
+    <section class="scene" data-title="Field roadmap" data-copy="A practical path from prototype research to resilient field testing and partner demonstrations.">
+      <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1400&q=85" alt="Rocket launch" />
+    </section>
+    <aside class="story-text" id="storyText">
+      <span>Private Preview</span>
+      <h2 id="storyTitle">Navigation intelligence</h2>
+      <p id="storyCopy">Visual-inertial systems for autonomous machines operating beyond reliable GPS coverage.</p>
+    </aside>
   </section>
-  <aside class="story-text" id="storyText">
-    <h2 id="storyTitle">Sustainable technologies</h2>
-    <p id="storyCopy">We remain fully committed to protecting the earth, improving quality of life and developing core technologies for sustainable growth.</p>
-    <a href="#" class="view-more">VIEW MORE ⮕</a>
-  </aside>
 </main>
+</div>
 
 <script src="script.js"></script>
 </body>
