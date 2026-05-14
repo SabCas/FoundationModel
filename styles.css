@@ -1,7 +1,17 @@
 :root { --bg:#020711; --light:#f2f2f4; --text:#111; --menuText:#d1daea; }
 *{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;background:var(--light);color:var(--text)}
+body.locked{overflow:hidden}
 .container{width:min(1240px,94vw);margin:auto}
 .site-header{position:sticky;top:0;z-index:80;background:#f3f5f3;border-bottom:1px solid #ddd}.nav-wrap{display:flex;align-items:center;justify-content:space-between;min-height:58px}.logo{font-weight:700;text-decoration:none;color:#111}.tagline{font-size:2rem;font-weight:300}.mobile-toggle{border:none;background:transparent;font-size:24px;cursor:pointer}
+
+.password-gate{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:rgba(2,7,17,.9);padding:20px}
+.password-gate.hidden{display:none}
+.gate-card{width:min(420px,96vw);background:#fff;border-radius:14px;padding:28px;box-shadow:0 10px 36px rgba(0,0,0,.3)}
+.gate-card h1{margin:0 0 10px}.gate-card p{margin:0 0 18px;color:#333}
+.gate-form{display:grid;gap:10px}.gate-form label{font-size:.9rem;font-weight:600}
+.gate-form input{padding:10px 12px;border:1px solid #cfd4da;border-radius:8px;font-size:1rem}
+.gate-form button{padding:10px 12px;border:none;border-radius:8px;background:#111;color:#fff;font-weight:600;cursor:pointer}
+.gate-error{min-height:20px;color:#b00020;font-size:.9rem}
 
 .mega-menu{position:fixed;inset:0;background:radial-gradient(circle at 20% 120%,rgba(100,30,20,.2),transparent 50%),#020711;color:#fff;z-index:140;display:none;padding:24px 20px;overflow:auto}
 .mega-menu.open{display:block}.mega-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.menu-close{background:transparent;border:none;color:#c8cfdb;font-size:28px;cursor:pointer}

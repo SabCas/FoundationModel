@@ -10,6 +10,19 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<div id="passwordGate" class="password-gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="gate-card">
+    <h1 id="gateTitle">Enter Password</h1>
+    <p>This website is protected. Enter the password to open the content.</p>
+    <form id="gateForm" class="gate-form" novalidate>
+      <label for="gateInput">Password</label>
+      <input id="gateInput" type="password" autocomplete="current-password" required />
+      <button type="submit">Open Website</button>
+      <p id="gateError" class="gate-error" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
 <header class="site-header" id="siteHeader"><div class="container nav-wrap">
   <a class="logo" href="#">AeroDynamics</a>
   <span class="tagline">with our technologies.</span>
