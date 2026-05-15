@@ -52,8 +52,15 @@ var activeDeckId = '';
 var storyTextTimer;
 var progressScrollTimer;
 var storyScrollTimer;
+var storyUpdateFrame;
 
 var deckData = {
+  'pitch-opening': ['Who We Are', 'The 10-Minute Pitch', 'The future of drones is not one aircraft flying alone. It is coordinated aerial teams that understand their environment, share one evolving map, and operate as a network.', 'Main pitch / opening'],
+  'pitch-timing': ['Why We Exist', 'The Timing', 'Autonomous aircraft, onboard AI, edge compute, and sensor systems are converging now, but the missing layer is still shared spatial intelligence.', 'Main pitch / timing'],
+  'pitch-opportunity': ['Why We Exist', 'The Opportunity', 'The next leap in aerial autonomy is the intelligence layer that lets drone teams map, localize, coordinate, and recover together in difficult environments.', 'Main pitch / opportunity'],
+  'pitch-system': ['What We Build', 'The KUBECA System', 'KUBECA combines spatial intelligence software, modular aerial platforms, and shared maps for coordinated drone teams.', 'Main pitch / system'],
+  'pitch-progress': ['How We Advance', 'Current Progress', 'Current focus: system architecture, simulation environment, first prototype path, and strategic partner conversations.', 'Main pitch / progress'],
+  'pitch-funding-ask': ['How We Advance', 'Funding Milestones', 'The next raise funds integrated prototype development, validation, early team, and strategic demonstrations.', 'Main pitch / funding'],
   'founder-thesis': ['Who We Are', 'The founder thesis', 'KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.', 'Private preview / origin'],
   'company-vision': ['Who We Are', 'The company vision', 'Build the spatial intelligence layer that lets aerial systems understand where they are, what changed, and how to recover.', 'Private preview / vision'],
   'research-direction': ['Who We Are', 'The research direction', 'Our research connects visual-inertial localization, scene graphs, map matching, and uncertainty-aware autonomy.', 'Research track'],
@@ -505,37 +512,79 @@ if (desktopPanelQuery.addEventListener) {
   desktopPanelQuery.addListener(handlePanelViewportChange);
 }
 
-var observer = new IntersectionObserver(function (entries) {
-  entries.forEach(function (entry) {
-    if (!entry.isIntersecting || !storyTitle || !storyCopy) return;
-    var nextStoryDetail = entry.target.getAttribute('data-detail') || 'flying-understanding';
-    var nextStoryTitle = entry.target.getAttribute('data-title');
-    var nextStoryCopy = entry.target.getAttribute('data-copy');
+function setActiveStoryScene(scene, force) {
+  if (!scene || !storyTitle || !storyCopy) return;
+  var nextStoryDetail = scene.getAttribute('data-detail') || 'flying-understanding';
+  if (!force && nextStoryDetail === activeStoryDetail) return;
 
-    if (nextStoryDetail === activeStoryDetail) return;
-    closeStoryInlineDetail();
-    activeStoryDetail = nextStoryDetail;
+  var sceneList = Array.prototype.slice.call(scenes);
+  var sceneIndex = sceneList.indexOf(scene);
+  var nextStoryTitle = String(sceneIndex + 1).padStart(2, '0') + ' - ' + scene.getAttribute('data-title');
+  var nextStoryCopy = scene.getAttribute('data-copy');
 
-    if (!storyText) {
-      storyTitle.textContent = nextStoryTitle;
-      storyCopy.textContent = nextStoryCopy;
-      if (storyDetailInline && storyDetailInline.classList.contains('open')) renderStoryInlineDetail();
-      return;
-    }
+  closeStoryInlineDetail();
+  activeStoryDetail = nextStoryDetail;
 
-    window.clearTimeout(storyTextTimer);
-    storyText.classList.add('is-changing');
+  window.clearTimeout(storyTextTimer);
+  if (!storyText || force) {
+    storyTitle.textContent = nextStoryTitle;
+    storyCopy.textContent = nextStoryCopy;
+    renderStoryInlineDetail();
+    if (storyText) storyText.classList.remove('is-changing');
+    return;
+  }
 
-    storyTextTimer = window.setTimeout(function () {
-      storyTitle.textContent = nextStoryTitle;
-      storyCopy.textContent = nextStoryCopy;
-      if (storyDetailInline && storyDetailInline.classList.contains('open')) renderStoryInlineDetail();
-      storyText.classList.remove('is-changing');
-    }, 260);
+  storyText.classList.add('is-changing');
+  storyTextTimer = window.setTimeout(function () {
+    storyTitle.textContent = nextStoryTitle;
+    storyCopy.textContent = nextStoryCopy;
+    renderStoryInlineDetail();
+    storyText.classList.remove('is-changing');
+  }, 360);
+}
+
+function updateStoryFromScroll() {
+  if (!scenes.length || !storySection) return;
+  var rect = storySection.getBoundingClientRect();
+  var storyHeight = storySection.offsetHeight || window.innerHeight;
+  var scrollableHeight = Math.max(storyHeight - window.innerHeight, 1);
+  var progress = Math.min(Math.max((0 - rect.top) / scrollableHeight, 0), 1);
+  var index = Math.round(progress * (scenes.length - 1));
+
+  setActiveStoryScene(scenes[index], false);
+}
+
+function updateStoryPin() {
+  if (!storySection || !storyText) return;
+  storyText.classList.remove('is-fixed', 'is-bottom');
+
+  if (!window.matchMedia('(min-width: 641px)').matches) return;
+
+  var headerOffset = 58;
+  var rect = storySection.getBoundingClientRect();
+  if (rect.top > headerOffset) return;
+
+  if (rect.bottom <= window.innerHeight) {
+    storyText.classList.add('is-bottom');
+    return;
+  }
+
+  storyText.classList.add('is-fixed');
+}
+
+function requestStoryUpdate() {
+  if (storyUpdateFrame) return;
+  storyUpdateFrame = window.requestAnimationFrame(function () {
+    storyUpdateFrame = null;
+    updateStoryPin();
+    updateStoryFromScroll();
   });
-}, { threshold: 0.58 });
+}
 
-scenes.forEach(function (scene) { observer.observe(scene); });
+setActiveStoryScene(scenes[0], true);
+updateStoryPin();
+window.addEventListener('scroll', requestStoryUpdate, { passive: true });
+window.addEventListener('resize', requestStoryUpdate);
 renderStoryInlineDetail();
 
 if (quoteContent) {
