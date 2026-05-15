@@ -146,7 +146,7 @@ function showLockScreen() {
   if (storedPassword) {
     passwordMode.textContent = 'Private Preview';
     passwordTitle.innerHTML = 'Access<br>Restricted';
-    passwordSubmit.innerHTML = 'Unlock System <span>-></span>';
+    passwordSubmit.innerHTML = 'Unlock Preview <span>-></span>';
     passwordInput.setAttribute('autocomplete', 'current-password');
   } else {
     passwordMode.textContent = 'Initialize Access';
