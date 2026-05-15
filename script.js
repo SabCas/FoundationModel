@@ -48,6 +48,7 @@ var storyDetailBullets = document.getElementById('storyDetailBullets');
 var storyDetailWhy = document.getElementById('storyDetailWhy');
 var storedPassword = localStorage.getItem('sitePassword');
 var activeStoryDetail = 'flying-understanding';
+var activeDeckId = '';
 var storyTextTimer;
 var progressScrollTimer;
 var storyScrollTimer;
@@ -84,6 +85,8 @@ var deckData = {
   'resilience-operators': ['Who We Work With', 'Defense and resilience operators', 'Operators working in degraded or contested environments define the real constraints that matter.', 'Partner track'],
   'early-investors': ['Who We Work With', 'Early-stage investors', 'KUBECA is positioned for early strategic conversations around resilient autonomy and GPS-denied navigation.', 'Investor access']
 };
+
+var deckOrder = Object.keys(deckData);
 
 var detailData = {
   'flying-understanding': {
@@ -216,8 +219,48 @@ function toggleMenu() {
   }
 }
 
+function getDeckIndex(deckId) {
+  return deckOrder.indexOf(deckId);
+}
+
+function getAdjacentDeckId(direction) {
+  var index = getDeckIndex(activeDeckId);
+  if (index < 0) return '';
+  return deckOrder[(index + direction + deckOrder.length) % deckOrder.length];
+}
+
+function updateActiveDeckLinks(deckId) {
+  document.querySelectorAll('[data-deck]').forEach(function (link) {
+    var isActive = link.getAttribute('data-deck') === deckId;
+    link.classList.toggle('is-active', isActive);
+    if (isActive) {
+      link.setAttribute('aria-current', 'true');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+function clearActiveDeck() {
+  activeDeckId = '';
+  updateActiveDeckLinks('');
+}
+
+function renderDeckControls(deckId) {
+  var index = getDeckIndex(deckId);
+  if (index < 0) return '';
+  return '<div class="deck-nav"><button type="button" data-deck-nav="prev">Prev</button><span>' + String(index + 1).padStart(2, '0') + ' / ' + String(deckOrder.length).padStart(2, '0') + '</span><button type="button" data-deck-nav="next">Next</button></div>';
+}
+
+function goToAdjacentDeck(direction) {
+  var nextDeckId = getAdjacentDeckId(direction);
+  if (nextDeckId) openDeckPanel(nextDeckId);
+}
+
 function openDeckPanel(deckId) {
   var card = deckData[deckId] || deckData['founder-thesis'];
+  activeDeckId = deckData[deckId] ? deckId : 'founder-thesis';
+  updateActiveDeckLinks(activeDeckId);
 
   if (deckId === 'prototype-platforms') {
     if (window.matchMedia('(min-width: 761px)').matches) {
@@ -239,7 +282,7 @@ function openDeckPanel(deckId) {
   detailEyebrow.textContent = card[0];
   detailTitle.textContent = card[1];
   detailIntro.textContent = card[2];
-  detailGrid.innerHTML = '<div class="deck-card-meta"><span>' + card[0] + '</span><strong>' + card[3] + '</strong></div>';
+  detailGrid.innerHTML = '<div class="deck-card-meta"><span>' + card[0] + '</span><strong>' + card[3] + '</strong></div>' + renderDeckControls(activeDeckId);
 
   if (window.matchMedia('(min-width: 761px)').matches) {
     openMenu();
@@ -268,6 +311,7 @@ function openDetailPanel(detailId) {
   var detail = detailData[detailId] || detailData['flying-understanding'];
 
   closeDeckPanel();
+  if (detailId !== 'prototype-platforms') clearActiveDeck();
   if (detailPanel) {
     detailPanel.classList.remove('deck-detail');
     detailPanel.classList.toggle('product-detail', detailId === 'prototype-platforms');
@@ -278,7 +322,7 @@ function openDetailPanel(detailId) {
   detailGrid.innerHTML = '';
 
   if (detailId === 'prototype-platforms') {
-    detailGrid.innerHTML = '<div class="product-slide-copy"><div class="product-slide-table"><div class="product-slide-row product-slide-head"><span>Platform</span><b>KUBECA LRA<small>Long-range aircraft</small></b><b>KUBECA SCD<small>Scout drone</small></b></div><div class="product-slide-row"><span>Overview</span><p>Long-endurance ISR platform for mapping, monitoring, and command.</p><p>Agile scout drone for close-range reconnaissance and perimeter scan.</p></div><div class="product-slide-row"><span>Endurance</span><p>12+ hours</p><p>45+ minutes</p></div><div class="product-slide-row"><span>Range</span><p>200+ km</p><p>25+ km</p></div><div class="product-slide-row"><span>Max payload</span><p>5 kg</p><p>1.2 kg</p></div><div class="product-slide-row"><span>Navigation</span><p>GPS-denied / INS / Visual</p><p>GPS-denied / INS / Visual</p></div><div class="product-slide-row"><span>Deployment</span><p>Runway / catapult</p><p>Hand launch</p></div><div class="product-slide-row"><span>Role</span><p>Command and control, wide-area ISR</p><p>Tactical recon, target localization</p></div></div></div><div class="product-slide-visual"><div class="product-wing"><i class="wing"></i><i class="body"></i><i class="tail"></i></div><div class="product-drone"><i></i><span></span><span></span><span></span><span></span></div></div><div class="product-slide-features"><span><b>GPS-denied operations</b><em>Built to navigate and operate in contested environments.</em></span><span><b>Team-centric autonomy</b><em>Multiple systems. One shared map. Coordinated as a single team.</em></span><span><b>Modular and adaptable</b><em>Open architecture for integration and mission flexibility.</em></span></div>';
+    detailGrid.innerHTML = '<div class="product-slide-copy"><div class="product-slide-table"><div class="product-slide-row product-slide-head"><span>Platform</span><b>KUBECA LRA<small>Long-range aircraft</small></b><b>KUBECA SCD<small>Scout drone</small></b></div><div class="product-slide-row"><span>Overview</span><p>Long-endurance ISR platform for mapping, monitoring, and command.</p><p>Agile scout drone for close-range reconnaissance and perimeter scan.</p></div><div class="product-slide-row"><span>Endurance</span><p>12+ hours</p><p>45+ minutes</p></div><div class="product-slide-row"><span>Range</span><p>200+ km</p><p>25+ km</p></div><div class="product-slide-row"><span>Max payload</span><p>5 kg</p><p>1.2 kg</p></div><div class="product-slide-row"><span>Navigation</span><p>GPS-denied / INS / Visual</p><p>GPS-denied / INS / Visual</p></div><div class="product-slide-row"><span>Deployment</span><p>Runway / catapult</p><p>Hand launch</p></div><div class="product-slide-row"><span>Role</span><p>Command and control, wide-area ISR</p><p>Tactical recon, target localization</p></div></div></div><div class="product-slide-visual"><div class="product-wing"><i class="wing"></i><i class="body"></i><i class="tail"></i></div><div class="product-drone"><i></i><span></span><span></span><span></span><span></span></div></div><div class="product-slide-features"><span><b>GPS-denied operations</b><em>Built to navigate and operate in contested environments.</em></span><span><b>Team-centric autonomy</b><em>Multiple systems. One shared map. Coordinated as a single team.</em></span><span><b>Modular and adaptable</b><em>Open architecture for integration and mission flexibility.</em></span></div>' + renderDeckControls(activeDeckId);
     if (panelBackdrop) panelBackdrop.classList.add('open');
     if (detailPanel) {
       detailPanel.classList.add('open');
@@ -326,6 +370,7 @@ function closeDetailPanel() {
   detailPanel.classList.remove('deck-detail');
   detailPanel.classList.remove('product-detail');
   detailPanel.setAttribute('aria-hidden', 'true');
+  clearActiveDeck();
 }
 
 function closeAllPanels() {
@@ -415,11 +460,28 @@ progressLinks.forEach(function (link) {
   });
 });
 
+if (detailGrid) {
+  detailGrid.addEventListener('click', function (event) {
+    var navButton = event.target.closest('[data-deck-nav]');
+    if (!navButton) return;
+    goToAdjacentDeck(navButton.getAttribute('data-deck-nav') === 'next' ? 1 : -1);
+  });
+}
+
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
     closeProgressBoard();
     closeStoryInlineDetail();
     closeAllPanels();
+  }
+  if (!activeDeckId || !detailPanel || !detailPanel.classList.contains('open')) return;
+  if (event.key === 'ArrowRight') {
+    event.preventDefault();
+    goToAdjacentDeck(1);
+  }
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault();
+    goToAdjacentDeck(-1);
   }
 });
 
