@@ -278,7 +278,15 @@
         <span>KUBECA System Story</span>
         <h2 id="storyTitle">01 — From Flying to Understanding</h2>
         <p id="storyCopy">The next generation of drones will not just follow coordinates. They will understand the environment around them.</p>
-        <button id="storyDetailOpen" class="primary-link" type="button">Open detailed view</button>
+        <button id="storyDetailOpen" class="primary-link" type="button" aria-expanded="false" aria-controls="storyDetailInline">Open detail</button>
+        <div id="storyDetailInline" class="story-detail-inline" aria-hidden="true">
+          <span id="storyDetailEyebrow">Main Point 01</span>
+          <h3 id="storyDetailTitle">From Flying to Understanding</h3>
+          <p id="storyDetailIntro">Most drones can capture video. KUBECA is building software that helps aerial systems understand the environment they enter.</p>
+          <p id="storyDetailBody">The system turns camera, sensor, and motion data into useful spatial structure.</p>
+          <ul id="storyDetailBullets"></ul>
+          <p id="storyDetailWhy"></p>
+        </div>
       </aside>
     </section>
   </main>

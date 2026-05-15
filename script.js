@@ -32,16 +32,25 @@ var systemProgress = document.getElementById('systemProgress');
 var progressToggle = document.getElementById('progressToggle');
 var progressBoard = document.getElementById('progressBoard');
 var progressLinks = document.querySelectorAll('.progress-row, .roadmap-item');
+var storySection = document.getElementById('story');
 var deckLinks = document.querySelectorAll('.deck-link');
 var scenes = document.querySelectorAll('.scene');
 var quoteContent = document.querySelector('.quote-content');
 var storyText = document.getElementById('storyText');
 var storyTitle = document.getElementById('storyTitle');
 var storyCopy = document.getElementById('storyCopy');
+var storyDetailInline = document.getElementById('storyDetailInline');
+var storyDetailEyebrow = document.getElementById('storyDetailEyebrow');
+var storyDetailTitle = document.getElementById('storyDetailTitle');
+var storyDetailIntro = document.getElementById('storyDetailIntro');
+var storyDetailBody = document.getElementById('storyDetailBody');
+var storyDetailBullets = document.getElementById('storyDetailBullets');
+var storyDetailWhy = document.getElementById('storyDetailWhy');
 var storedPassword = localStorage.getItem('sitePassword');
 var activeStoryDetail = 'flying-understanding';
 var storyTextTimer;
 var progressScrollTimer;
+var storyScrollTimer;
 
 var deckData = {
   'founder-thesis': ['Who We Are', 'The founder thesis', 'KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.', 'Private preview / origin'],
@@ -78,7 +87,7 @@ var deckData = {
 
 var detailData = {
   'flying-understanding': {
-    eyebrow: 'Popup Slide 01 — Spatial Intelligence Software',
+    eyebrow: 'Main Point 01 — Spatial Intelligence Software',
     title: 'From Flying to Understanding',
     intro: 'Most drones can capture video. KUBECA is building software that helps aerial systems understand the environment they enter.',
     body: 'The system turns camera, sensor, and motion data into useful spatial structure:',
@@ -86,7 +95,7 @@ var detailData = {
     why: 'A drone becomes more than a flying camera. It becomes a system that can interpret space, support navigation, and make better mission decisions.'
   },
   'modular-systems': {
-    eyebrow: 'Popup Slide 02 — Modular Aerial Hardware',
+    eyebrow: 'Main Point 02 — Modular Aerial Hardware',
     title: 'From Single Drones to Modular Systems',
     intro: 'One drone cannot solve every environment. KUBECA’s hardware vision combines different aerial roles into one system.',
     body: 'Long-range UAVs provide distance and coverage. Carrier platforms provide compute, sensors, and mission extension. Scout drones explore smaller, complex, or hard-to-reach areas.',
@@ -94,7 +103,7 @@ var detailData = {
     why: 'The system can scale from wide-area operation to detailed local exploration without depending on one drone type for everything.'
   },
   'shared-map': {
-    eyebrow: 'Popup Slide 03 — Networked Drone Teams',
+    eyebrow: 'Main Point 03 — Networked Drone Teams',
     title: 'From Local Views to One Shared Map',
     intro: 'Each drone sees only part of the environment. KUBECA’s vision is to connect those observations into one evolving map.',
     body: 'The system combines what multiple drones observe:',
@@ -325,6 +334,35 @@ function closeProgressBoard() {
   progressToggle.innerHTML = 'Open progress board <span>↓</span>';
 }
 
+function renderStoryInlineDetail() {
+  if (!storyDetailInline || !storyDetailEyebrow || !storyDetailTitle || !storyDetailIntro || !storyDetailBody || !storyDetailBullets || !storyDetailWhy) return;
+  var detail = detailData[activeStoryDetail] || detailData['flying-understanding'];
+  storyDetailEyebrow.textContent = detail.eyebrow;
+  storyDetailTitle.textContent = detail.title;
+  storyDetailIntro.textContent = detail.intro;
+  storyDetailBody.textContent = detail.body || '';
+  storyDetailBody.hidden = !detail.body;
+  storyDetailBullets.innerHTML = '';
+  detail.bullets.forEach(function (bullet) {
+    var item = document.createElement('li');
+    item.textContent = bullet;
+    storyDetailBullets.appendChild(item);
+  });
+  storyDetailBullets.hidden = detail.bullets.length === 0;
+  storyDetailWhy.textContent = detail.why || '';
+  storyDetailWhy.hidden = !detail.why;
+}
+
+function closeStoryInlineDetail() {
+  if (!storyDetailInline || !storyDetailInline.classList.contains('open')) return;
+  storyDetailInline.classList.remove('open');
+  storyDetailInline.setAttribute('aria-hidden', 'true');
+  if (storyDetailOpen) {
+    storyDetailOpen.setAttribute('aria-expanded', 'false');
+    storyDetailOpen.textContent = 'Open detail';
+  }
+}
+
 if (toggle) toggle.addEventListener('click', toggleMenu);
 if (megaMenuOpen) megaMenuOpen.addEventListener('click', toggleMenu);
 if (menuClose) menuClose.addEventListener('click', closeMenu);
@@ -332,7 +370,12 @@ if (deckPanelClose) deckPanelClose.addEventListener('click', closeDeckPanel);
 if (detailClose) detailClose.addEventListener('click', closeDetailPanel);
 if (panelBackdrop) panelBackdrop.addEventListener('click', closeAllPanels);
 if (storyDetailOpen) storyDetailOpen.addEventListener('click', function () {
-  openDetailPanel(activeStoryDetail);
+  if (!storyDetailInline) return;
+  var isOpen = storyDetailInline.classList.toggle('open');
+  storyDetailInline.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  storyDetailOpen.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  storyDetailOpen.textContent = isOpen ? 'Close detail' : 'Open detail';
+  if (isOpen) renderStoryInlineDetail();
 });
 if (systemOverviewOpen) systemOverviewOpen.addEventListener('click', function () {
   openDetailPanel('kubeca-system');
@@ -351,6 +394,14 @@ window.addEventListener('scroll', function () {
     if (rect.bottom < 120 || rect.top > window.innerHeight - 120) closeProgressBoard();
   }, 80);
 }, { passive: true });
+window.addEventListener('scroll', function () {
+  if (!storySection || !storyDetailInline || !storyDetailInline.classList.contains('open')) return;
+  window.clearTimeout(storyScrollTimer);
+  storyScrollTimer = window.setTimeout(function () {
+    var rect = storySection.getBoundingClientRect();
+    if (rect.bottom < 120 || rect.top > window.innerHeight - 120) closeStoryInlineDetail();
+  }, 80);
+}, { passive: true });
 progressLinks.forEach(function (link) {
   link.addEventListener('click', function () {
     openDeckPanel(link.getAttribute('data-deck'));
@@ -360,6 +411,7 @@ progressLinks.forEach(function (link) {
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
     closeProgressBoard();
+    closeStoryInlineDetail();
     closeAllPanels();
   }
 });
@@ -392,11 +444,13 @@ var observer = new IntersectionObserver(function (entries) {
     var nextStoryCopy = entry.target.getAttribute('data-copy');
 
     if (nextStoryDetail === activeStoryDetail) return;
+    closeStoryInlineDetail();
     activeStoryDetail = nextStoryDetail;
 
     if (!storyText) {
       storyTitle.textContent = nextStoryTitle;
       storyCopy.textContent = nextStoryCopy;
+      if (storyDetailInline && storyDetailInline.classList.contains('open')) renderStoryInlineDetail();
       return;
     }
 
@@ -406,12 +460,14 @@ var observer = new IntersectionObserver(function (entries) {
     storyTextTimer = window.setTimeout(function () {
       storyTitle.textContent = nextStoryTitle;
       storyCopy.textContent = nextStoryCopy;
+      if (storyDetailInline && storyDetailInline.classList.contains('open')) renderStoryInlineDetail();
       storyText.classList.remove('is-changing');
     }, 260);
   });
 }, { threshold: 0.58 });
 
 scenes.forEach(function (scene) { observer.observe(scene); });
+renderStoryInlineDetail();
 
 if (quoteContent) {
   quoteContent.classList.add('is-ready');
