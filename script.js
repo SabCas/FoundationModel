@@ -28,11 +28,10 @@ var detailIntro = document.getElementById('detailIntro');
 var detailGrid = document.getElementById('detailGrid');
 var storyDetailOpen = document.getElementById('storyDetailOpen');
 var systemOverviewOpen = document.getElementById('systemOverviewOpen');
-var progressLayerButton = document.getElementById('progressLayerButton');
-var progressSteps = document.querySelectorAll('.progress-step');
-var progressPhaseText = document.getElementById('progressPhaseText');
-var progressMilestone = document.getElementById('progressMilestone');
-var progressDeckOpen = document.getElementById('progressDeckOpen');
+var systemProgress = document.getElementById('systemProgress');
+var progressToggle = document.getElementById('progressToggle');
+var progressBoard = document.getElementById('progressBoard');
+var progressLinks = document.querySelectorAll('.progress-row, .roadmap-item');
 var deckLinks = document.querySelectorAll('.deck-link');
 var scenes = document.querySelectorAll('.scene');
 var quoteContent = document.querySelector('.quote-content');
@@ -41,9 +40,8 @@ var storyTitle = document.getElementById('storyTitle');
 var storyCopy = document.getElementById('storyCopy');
 var storedPassword = localStorage.getItem('sitePassword');
 var activeStoryDetail = 'flying-understanding';
-var activeProgressLayer = 'spatial-software';
-var progressLayerOrder = ['spatial-software', 'long-range-uav', 'scout-drone', 'shared-map'];
 var storyTextTimer;
+var progressScrollTimer;
 
 var deckData = {
   'founder-thesis': ['Who We Are', 'The founder thesis', 'KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.', 'Private preview / origin'],
@@ -118,37 +116,6 @@ var detailData = {
     body: '',
     bullets: [],
     why: ''
-  }
-};
-
-var progressData = {
-  'spatial-software': {
-    name: 'Spatial Intelligence Software',
-    phase: 'Prototype Development',
-    phaseIndex: 3,
-    milestone: 'Next: First integrated navigation demo',
-    deck: 'software-layer'
-  },
-  'long-range-uav': {
-    name: 'Long-Range UAV',
-    phase: 'Architecture / Prototype',
-    phaseIndex: 2,
-    milestone: 'Next: Airframe and payload integration plan',
-    deck: 'hardware-architecture'
-  },
-  'scout-drone': {
-    name: 'Scout Drone System',
-    phase: 'Simulation / Prototype',
-    phaseIndex: 2,
-    milestone: 'Next: Close-range scout navigation test',
-    deck: 'scout-uav-roadmap'
-  },
-  'shared-map': {
-    name: 'Shared Map Network',
-    phase: 'Architecture Research',
-    phaseIndex: 1,
-    milestone: 'Next: Multi-drone shared map demo',
-    deck: 'multi-drone-network'
   }
 };
 
@@ -350,23 +317,12 @@ function closeAllPanels() {
   closeDetailPanel();
 }
 
-function setProgressLayer(layerId) {
-  var layer = progressData[layerId] || progressData['spatial-software'];
-  activeProgressLayer = layerId;
-
-  if (progressLayerButton) progressLayerButton.textContent = layer.name;
-  if (progressPhaseText) progressPhaseText.textContent = layer.phase;
-  if (progressMilestone) progressMilestone.textContent = layer.milestone;
-
-  progressSteps.forEach(function (step, index) {
-    step.classList.toggle('active', index <= layer.phaseIndex);
-  });
-}
-
-function cycleProgressLayer() {
-  var index = progressLayerOrder.indexOf(activeProgressLayer);
-  var nextLayer = progressLayerOrder[(index + 1) % progressLayerOrder.length];
-  setProgressLayer(nextLayer);
+function closeProgressBoard() {
+  if (!progressToggle || !progressBoard || !progressBoard.classList.contains('open')) return;
+  progressBoard.classList.remove('open');
+  progressBoard.setAttribute('aria-hidden', 'true');
+  progressToggle.setAttribute('aria-expanded', 'false');
+  progressToggle.innerHTML = 'Open progress board <span>↓</span>';
 }
 
 if (toggle) toggle.addEventListener('click', toggleMenu);
@@ -381,20 +337,31 @@ if (storyDetailOpen) storyDetailOpen.addEventListener('click', function () {
 if (systemOverviewOpen) systemOverviewOpen.addEventListener('click', function () {
   openDetailPanel('kubeca-system');
 });
-if (progressLayerButton) progressLayerButton.addEventListener('click', cycleProgressLayer);
-progressSteps.forEach(function (step) {
-  step.addEventListener('click', function () {
-    var layer = progressData[activeProgressLayer] || progressData['spatial-software'];
-    openDeckPanel(layer.deck);
-  });
+if (progressToggle && progressBoard) progressToggle.addEventListener('click', function () {
+  var isOpen = progressBoard.classList.toggle('open');
+  progressBoard.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  progressToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  progressToggle.innerHTML = isOpen ? 'Close progress board <span>↑</span>' : 'Open progress board <span>↓</span>';
 });
-if (progressDeckOpen) progressDeckOpen.addEventListener('click', function () {
-  var layer = progressData[activeProgressLayer] || progressData['spatial-software'];
-  openDeckPanel(layer.deck);
+window.addEventListener('scroll', function () {
+  if (!systemProgress || !progressBoard || !progressBoard.classList.contains('open')) return;
+  window.clearTimeout(progressScrollTimer);
+  progressScrollTimer = window.setTimeout(function () {
+    var rect = systemProgress.getBoundingClientRect();
+    if (rect.bottom < 120 || rect.top > window.innerHeight - 120) closeProgressBoard();
+  }, 80);
+}, { passive: true });
+progressLinks.forEach(function (link) {
+  link.addEventListener('click', function () {
+    openDeckPanel(link.getAttribute('data-deck'));
+  });
 });
 
 document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') closeAllPanels();
+  if (event.key === 'Escape') {
+    closeProgressBoard();
+    closeAllPanels();
+  }
 });
 
 deckLinks.forEach(function (link) {

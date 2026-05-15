@@ -166,33 +166,95 @@
       </div>
     </section>
 
-    <section class="progress-rail" id="systemProgress" aria-label="System progress">
-      <div class="container progress-rail-inner">
-        <div class="progress-select">
-          <span class="progress-rail-label">System Progress</span>
-          <button id="progressLayerButton" class="progress-layer-button" type="button">Spatial Intelligence Software</button>
-        </div>
-        <div class="progress-track" role="group" aria-label="Development phases">
-          <button class="progress-step active" type="button">Research</button>
-          <button class="progress-step active" type="button">Architecture</button>
-          <button class="progress-step active" type="button">Simulation</button>
-          <button class="progress-step active" type="button">Prototype</button>
-          <button class="progress-step" type="button">Validation</button>
-          <button class="progress-step" type="button">Field Demo</button>
-        </div>
-        <div class="progress-phase">
-          <span>Current Phase</span>
-          <strong id="progressPhaseText">Prototype Development</strong>
-          <em id="progressMilestone">Next: First integrated navigation demo</em>
-        </div>
-        <button id="progressDeckOpen" class="progress-deck-button" type="button">View full progress <span>→</span></button>
-      </div>
-    </section>
-
     <section class="quote-section">
       <div class="container quote-content">
         <span>Coordinated Autonomy</span>
         <p>The future of drones is not one aircraft flying alone.<br>KUBECA builds modular aerial autonomy for coordinated drone teams.</p>
+      </div>
+    </section>
+
+    <section class="progress-board-section" id="systemProgress" aria-label="System progress">
+      <div class="container progress-summary">
+        <div>
+          <span>KUBECA System</span>
+          <strong>System progress</strong>
+          <em>Core layers advancing through a clear engineering process.</em>
+        </div>
+        <button id="progressToggle" class="progress-toggle" type="button" aria-expanded="false" aria-controls="progressBoard">Open progress board <span>↓</span></button>
+      </div>
+      <div id="progressBoard" class="container progress-board" aria-hidden="true">
+        <div class="progress-board-main">
+          <div class="progress-board-head">
+            <div>
+              <span>KUBECA System</span>
+              <h2>System progress.<br>Built with focus.</h2>
+            </div>
+            <p>Core layers of aerial autonomy advancing through a clear engineering process. Select any row to open the deeper deck.</p>
+          </div>
+
+          <div class="progress-table" aria-label="KUBECA maturity progress">
+            <div class="progress-table-head">
+              <span>System</span>
+              <span>Maturity Progress</span>
+              <span>Current Status</span>
+            </div>
+            <button class="progress-row" data-deck="hardware-architecture" type="button">
+              <span class="progress-icon progress-icon-wing"></span>
+              <span class="progress-name"><strong>Long-Range UAV Platform</strong><em>KUBECA LRA</em></span>
+              <span class="progress-line" style="--step:3"><i>Concept</i><i>Architecture</i><i>Prototype</i><i>Flight Test</i><i>Integration</i></span>
+              <span class="progress-status"><em>Current phase</em><strong>Prototype Development</strong></span>
+            </button>
+            <button class="progress-row" data-deck="scout-uav-roadmap" type="button">
+              <span class="progress-icon progress-icon-drone"></span>
+              <span class="progress-name"><strong>Scout Drone System</strong><em>KUBECA SCD</em></span>
+              <span class="progress-line" style="--step:1"><i>Concept</i><i>Architecture</i><i>Prototype</i><i>Integration</i><i>Field Test</i></span>
+              <span class="progress-status"><em>Current phase</em><strong>Concept Definition</strong></span>
+            </button>
+            <button class="progress-row" data-deck="software-layer" type="button">
+              <span class="progress-icon progress-icon-map"></span>
+              <span class="progress-name"><strong>Spatial Intelligence Software</strong><em>KUBECA NAV</em></span>
+              <span class="progress-line" style="--step:3"><i>Research</i><i>Simulation</i><i>Prototype</i><i>Validation</i><i>Field Deployment</i></span>
+              <span class="progress-status"><em>Current phase</em><strong>Prototype Development</strong></span>
+            </button>
+            <button class="progress-row" data-deck="multi-drone-network" type="button">
+              <span class="progress-icon progress-icon-network"></span>
+              <span class="progress-name"><strong>Shared Map Network</strong><em>KUBECA NET</em></span>
+              <span class="progress-line" style="--step:2"><i>Research</i><i>Simulation</i><i>Multi-Agent Test</i><i>Integration</i><i>Field Deployment</i></span>
+              <span class="progress-status"><em>Current phase</em><strong>Simulation Development</strong></span>
+            </button>
+          </div>
+
+          <div class="progress-principles" aria-label="System principles">
+            <span><b>Focus</b><em>Building the most critical capabilities first.</em></span>
+            <span><b>Integration</b><em>All systems designed to work together as one.</em></span>
+            <span><b>Iteration</b><em>Testing early. Learning fast. Improving continuously.</em></span>
+            <span><b>Advantage</b><em>GPS-denied. Team-centric. Mission ready.</em></span>
+          </div>
+        </div>
+
+        <aside class="progress-roadmap" aria-label="Roadmap">
+          <h3>Roadmap</h3>
+          <button class="roadmap-item complete" data-deck="research-direction" type="button">
+            <span>01</span><strong>Research & Foundation</strong><em>Completed</em>
+            <p>Core algorithms, spatial understanding research, and system architecture defined.</p>
+          </button>
+          <button class="roadmap-item active" data-deck="simulation-first" type="button">
+            <span>02</span><strong>Simulation Environment</strong><em>In Progress</em>
+            <p>High-fidelity simulation for sensors, mapping, and multi-agent coordination.</p>
+          </button>
+          <button class="roadmap-item active" data-deck="single-drone-prototype" type="button">
+            <span>03</span><strong>Single-Agent Prototypes</strong><em>In Progress</em>
+            <p>First hardware and software prototypes for individual platforms.</p>
+          </button>
+          <button class="roadmap-item" data-deck="collaborative-mapping" type="button">
+            <span>04</span><strong>Teamed Autonomy</strong><em>Planned</em>
+            <p>Multi-agent integration and shared map capabilities.</p>
+          </button>
+          <button class="roadmap-item" data-deck="field-validation" type="button">
+            <span>05</span><strong>Field Validation</strong><em>Planned</em>
+            <p>Real-world testing in GPS-denied environments.</p>
+          </button>
+        </aside>
       </div>
     </section>
 
