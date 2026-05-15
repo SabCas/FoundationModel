@@ -12,45 +12,54 @@
 </head>
 <body>
 <section id="lockScreen" class="lock-screen">
-  <aside class="access-visual" aria-hidden="true">
-    <video class="media-fill access-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000&q=90">
-      <source src="assets/videos/access.mp4" type="video/mp4">
-    </video>
-    <div class="scan-grid"></div>
+  <header class="access-top">
     <div class="brand-mark">
       <span class="brand-icon"></span>
       <span>KUBECA</span>
     </div>
+    <p>Private Preview <span></span></p>
+  </header>
+
+  <aside class="access-visual" aria-hidden="true">
+    <video class="media-fill access-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=90">
+      <source src="assets/videos/access.mp4" type="video/mp4">
+    </video>
+    <div class="scan-grid"></div>
+    <div class="access-corners"></div>
+    <span class="access-caption">Aerial Intelligence Platform</span>
+    <span class="access-coordinate">34.0522&deg; N<br>118.2437&deg; W</span>
+    <span class="access-reticle">+</span>
     <div class="status-block top-status">
-      <span>System Status</span>
-      <strong>Stealth</strong>
-    </div>
-    <div class="status-block bottom-status">
       <span>Signal State</span>
       <strong id="signalState">Locked</strong>
-      <span>Access Level</span>
-      <strong>Private Preview</strong>
-      <span>Environment</span>
-      <strong>Restricted</strong>
     </div>
   </aside>
 
   <div class="access-panel">
     <form id="passwordForm" class="password-box">
-      <p id="passwordMode" class="password-mode">Private Preview</p>
-      <h1 id="passwordTitle">Access<br>Restricted</h1>
-      <span class="title-rule"></span>
-      <p class="access-copy">KUBECA builds GPS-denied spatial intelligence for autonomous aerial systems.</p>
-      <p class="access-copy">This private preview is available to selected partners, researchers, and investors.</p>
-      <label for="passwordInput">Enter Access Code</label>
-      <div class="input-shell">
-        <input id="passwordInput" type="password" minlength="3" autocomplete="current-password" placeholder="Access code" required />
-        <span class="input-target"></span>
+      <div class="access-copy-block">
+        <p id="passwordMode" class="password-mode">Private Preview</p>
+        <span class="title-rule"></span>
+        <h1 id="passwordTitle">Access<br>Restricted</h1>
+        <p class="access-copy">KUBECA builds GPS-denied spatial intelligence for autonomous aerial systems.</p>
+        <p class="access-copy">This private preview is available to selected partners, researchers, and investors.</p>
       </div>
-      <button id="passwordSubmit" type="submit">Unlock System <span>-></span></button>
-      <p id="passwordMessage" class="password-message" aria-live="polite"></p>
+      <div class="access-form-block">
+        <label for="passwordInput">Enter Access Code</label>
+        <div class="input-shell">
+          <input id="passwordInput" type="password" minlength="3" autocomplete="current-password" placeholder="Access code" required />
+          <span class="input-target"></span>
+        </div>
+        <button id="passwordSubmit" type="submit">Unlock System <span>-></span></button>
+        <p id="passwordMessage" class="password-message" aria-live="polite"></p>
+        <p class="secure-note">Secure encrypted connection</p>
+      </div>
     </form>
   </div>
+  <footer class="access-footer">
+    <span>KUBECA Systems</span>
+    <span>Confidential Access Only</span>
+  </footer>
 </section>
 
 <div id="siteContent" class="site-content locked" aria-hidden="true">

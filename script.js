@@ -156,7 +156,14 @@ function showLockScreen() {
   }
 
   if (signalState) signalState.textContent = 'Locked';
-  passwordInput.focus();
+  window.requestAnimationFrame(function () {
+    try {
+      passwordInput.focus({ preventScroll: true });
+    } catch (error) {
+      passwordInput.focus();
+    }
+    if (lockScreen) lockScreen.scrollTop = 0;
+  });
 }
 
 if (passwordForm) {
