@@ -467,12 +467,12 @@ function renderDeckChapter(deckId) {
         '<p>In contested, enclosed, or fast-changing environments, this chain creates three mission-critical failure points.</p>' +
       '</section>' +
       '<section class="why-flow">' +
-        '<div class="why-flow-art"><img src="assets/icons/separate/graphics/control_loop_graphic.svg" alt="Fragile control loop diagram"></div>' +
+        '<div class="why-flow-art"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-control-loop.svg" alt="Fragile control loop diagram"></div>' +
       '</section>' +
       '<section class="why-columns">' +
-        '<article><small>01</small><div class="why-issue-head"><h4>AUTONOMY<br>BOTTLENECK</h4><img class="why-issue-icon" src="assets/icons/separate/icons/operator.svg" alt="" aria-hidden="true"></div><p>Too much of the mission still depends on direct human control, creating slow decision loops and limited scalability.</p></article>' +
-        '<article><small>02</small><div class="why-issue-head"><h4>SIGNAL & CONTROL<br>FRAGILITY</h4><img class="why-issue-icon" src="assets/icons/separate/icons/rf_link.svg" alt="" aria-hidden="true"></div><p>Radio, GPS, terrain, walls, and interference can break the link. When the connection fails, missions lose precision, context, or control.</p></article>' +
-        '<article><small>03</small><div class="why-issue-head"><h4>HUMAN<br>EXPOSURE</h4><img class="why-issue-icon" src="assets/icons/separate/icons/delayed_decisions.svg" alt="" aria-hidden="true"></div><p>Operators carry the burden of piloting, watching, remembering, reporting, and deciding—under pressure and often too close to risk.</p></article>' +
+        '<article><small>01</small><div class="why-issue-head"><h4>AUTONOMY<br>BOTTLENECK</h4><img class="why-issue-icon" src="assets/icons/kubeca/kubeca_icons/svg/kubeca-menu-operator.svg" alt="" aria-hidden="true"></div><p>Too much of the mission still depends on direct human control, creating slow decision loops and limited scalability.</p></article>' +
+        '<article><small>02</small><div class="why-issue-head"><h4>SIGNAL & CONTROL<br>FRAGILITY</h4><img class="why-issue-icon" src="assets/icons/kubeca/kubeca_icons/svg/kubeca-menu-rf-link.svg" alt="" aria-hidden="true"></div><p>Radio, GPS, terrain, walls, and interference can break the link. When the connection fails, missions lose precision, context, or control.</p></article>' +
+        '<article><small>03</small><div class="why-issue-head"><h4>HUMAN<br>EXPOSURE</h4><img class="why-issue-icon" src="assets/icons/kubeca/kubeca_icons/svg/kubeca-menu-delayed-decisions.svg" alt="" aria-hidden="true"></div><p>Operators carry the burden of piloting, watching, remembering, reporting, and deciding—under pressure and often too close to risk.</p></article>' +
       '</section>' +
       '<section class="why-bottom">' +
         '<small>BOTTOM LINE</small>' +

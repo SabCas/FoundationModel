@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="900" viewBox="0 0 1800 900" role="img" aria-labelledby="title desc">
+<title id="title">KUBECA Control Loop Graphic</title>
+<desc id="desc">A standalone grayscale control loop graphic showing drones, live video, GPS, RF link, and mission data going into one operator, manual control, and delayed decisions.</desc>
+<defs>
+<style>
+  .bg{fill:#f5f5f4}.ink{fill:#080b0f}.line{stroke:#d7d9dc;stroke-width:1.4}.greyline{stroke:#20262f;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}.dash{stroke-dasharray:9 9}.icon{stroke:#080b0f;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}.box{fill:#fff;stroke:#080b0f;stroke-width:1.5}.label{font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:21px;letter-spacing:5px}.sub{font-family:Arial,Helvetica,sans-serif;font-size:18px}.boxTitle{font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:24px;letter-spacing:4px}.boxSub{font-family:Arial,Helvetica,sans-serif;font-size:19px}
+</style>
+<marker id="arrow" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#080b0f"/></marker>
+</defs>
+<rect class="bg" width="1800" height="900" rx="2"/>
+
+<!-- input row -->
+<g transform="translate(0 95)">
+<line class="line" x1="360" y1="0" x2="360" y2="150"/><line class="line" x1="690" y1="0" x2="690" y2="150"/><line class="line" x1="1020" y1="0" x2="1020" y2="150"/><line class="line" x1="1350" y1="0" x2="1350" y2="150"/>
+
+<g transform="translate(180 10)"><g class="icon"><line x1="-48" y1="22" x2="48" y2="22"/><line x1="0" y1="-12" x2="0" y2="60"/><rect x="-15" y="10" width="30" height="24" rx="2" fill="#080b0f" stroke="none"/><ellipse cx="-48" cy="0" rx="28" ry="5"/><ellipse cx="48" cy="0" rx="28" ry="5"/><ellipse cx="-48" cy="46" rx="28" ry="5"/><ellipse cx="48" cy="46" rx="28" ry="5"/><line x1="-8" y1="34" x2="-22" y2="68"/><line x1="8" y1="34" x2="22" y2="68"/></g><text class="label ink" x="0" y="125" text-anchor="middle">DRONES</text><text class="sub ink" x="0" y="165" text-anchor="middle">Multiple assets</text></g>
+
+<g transform="translate(525 16)"><g class="icon"><rect x="-45" y="0" width="90" height="62" rx="3"/><path d="M-10 13 L18 31 L-10 49 Z"/></g><text class="label ink" x="0" y="119" text-anchor="middle">LIVE VIDEO</text><text class="sub ink" x="0" y="159" text-anchor="middle">High data volume</text></g>
+
+<g transform="translate(900 6)"><g class="icon"><path d="M0 0C-23 0-42 19-42 43C-42 76 0 112 0 112C0 112 42 76 42 43C42 19 23 0 0 0Z"/><circle cx="0" cy="43" r="10"/></g><text class="label ink" x="0" y="129" text-anchor="middle">GPS</text><text class="sub ink" x="0" y="169" text-anchor="middle">Position data</text></g>
+
+<g transform="translate(1185 12)"><g class="icon"><path d="M0 90V38"/><path d="M-22 90H22"/><path d="M-15 38H15L0 12Z"/><path d="M-31 29C-42 43-42 59-31 73"/><path d="M31 29C42 43 42 59 31 73"/><path d="M-50 15C-68 39-68 63-50 87"/><path d="M50 15C68 39 68 63 50 87"/></g><text class="label ink" x="0" y="123" text-anchor="middle">RF LINK</text><text class="sub ink" x="0" y="163" text-anchor="middle">Connectivity</text></g>
+
+<g transform="translate(1530 18)"><g class="icon"><path d="M-55 18L0-6L55 18L0 42Z"/><path d="M-55 48L0 24L55 48L0 72Z"/><path d="M-55 78L0 54L55 78L0 102Z"/></g><text class="label ink" x="0" y="117" text-anchor="middle">MISSION DATA</text><text class="sub ink" x="0" y="157" text-anchor="middle">Maps, intel, updates</text></g>
+</g>
+
+<!-- funnel -->
+<g class="greyline dash">
+<path d="M180 300V365Q180 390 210 395L900 470"/>
+<path d="M525 300V365Q525 390 555 395L900 470"/>
+<path d="M900 300V470"/>
+<path d="M1185 300V365Q1185 390 1155 395L900 470"/>
+<path d="M1530 300V365Q1530 390 1500 395L900 470"/>
+</g>
+
+<line x1="900" y1="425" x2="900" y2="485" stroke="#080b0f" stroke-width="2.8" marker-end="url(#arrow)"/>
+<g transform="translate(610 485)"><rect class="box" width="580" height="90"/><g transform="translate(80 20)" class="icon"><circle cx="24" cy="16" r="14"/><path d="M0 56C4 37 15 29 24 29C33 29 44 37 48 56Z"/></g><text class="boxTitle ink" x="290" y="38" text-anchor="middle">ONE OPERATOR</text><text class="boxSub ink" x="290" y="68" text-anchor="middle">Human bottleneck</text></g>
+
+<line x1="900" y1="575" x2="900" y2="640" stroke="#080b0f" stroke-width="2.8" marker-end="url(#arrow)"/>
+<g transform="translate(500 640)"><rect class="box" width="800" height="104"/><g transform="translate(92 24)" class="icon"><path d="M28 0C13 0 4 12 4 28C4 44 13 56 28 56"/><path d="M28 0C43 0 52 12 52 28C52 44 43 56 28 56"/><path d="M28 0V56"/><path d="M16 13C23 18 23 25 16 30"/><path d="M40 13C33 18 33 25 40 30"/><path d="M16 43C23 38 23 32 16 29"/><path d="M40 43C33 38 33 32 40 29"/></g><text class="boxTitle ink" x="400" y="40" text-anchor="middle">MANUAL CONTROL</text><text class="boxTitle ink" x="400" y="72" text-anchor="middle">+ LIVE INTERPRETATION</text><text class="boxSub ink" x="400" y="96" text-anchor="middle">Piloting, watching, remembering, deciding</text></g>
+
+<line x1="900" y1="744" x2="900" y2="800" stroke="#080b0f" stroke-width="2.8" marker-end="url(#arrow)"/>
+<g transform="translate(350 800)"><rect class="box" width="1100" height="80"/><g transform="translate(60 16)" class="icon"><circle cx="24" cy="24" r="24"/><path d="M24 8V25L38 34"/></g><text class="boxTitle ink" x="550" y="35" text-anchor="middle" style="font-size:21px;letter-spacing:3px">DELAYED DECISIONS / LOST CONTEXT / HUMAN EXPOSURE</text><text class="boxSub ink" x="550" y="64" text-anchor="middle">Slower response, information loss, increased risk</text></g>
+</svg>
