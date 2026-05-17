@@ -2556,7 +2556,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   object-position:center 43%;
   transform:scale(1) translate3d(0,0,0);
   transform-origin:center 42%;
-  animation:kubecaHeroCameraMove 16s cubic-bezier(.22,1,.36,1) infinite alternate;
+  animation:kubecaHeroCameraMove 28s cubic-bezier(.22,1,.36,1) infinite alternate;
   filter:grayscale(.02) contrast(1.02) brightness(1.08);
   will-change:transform;
 }
