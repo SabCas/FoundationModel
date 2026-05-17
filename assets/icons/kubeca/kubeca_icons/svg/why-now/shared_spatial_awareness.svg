@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Shared spatial awareness">
+<defs>
+  <style>
+    .icon {
+      fill: none;
+      stroke: #080b0f;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fill {
+      fill: #080b0f;
+      stroke: none;
+    }
+    .soft {
+      fill: #f3f3f2;
+      stroke: none;
+    }
+  </style>
+</defs>
+
+<g class="icon">
+  <path d="M16 64C27 42 44 32 64 32C84 32 101 42 112 64C101 86 84 96 64 96C44 96 27 86 16 64Z"/>
+  <circle cx="64" cy="64" r="14"/>
+  <circle cx="64" cy="64" r="4" class="fill"/>
+  <path d="M24 42V30H36"/>
+  <path d="M92 30H104V42"/>
+  <path d="M104 86V98H92"/>
+  <path d="M36 98H24V86"/>
+</g>
+</svg>

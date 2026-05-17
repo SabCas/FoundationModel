@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Mission intelligence layer">
+<defs>
+  <style>
+    .icon {
+      fill: none;
+      stroke: #080b0f;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fill {
+      fill: #080b0f;
+      stroke: none;
+    }
+    .soft {
+      fill: #f3f3f2;
+      stroke: none;
+    }
+  </style>
+</defs>
+
+<g class="icon">
+  <path d="M64 14C44 14 31 31 31 58C31 87 44 110 64 110"/>
+  <path d="M64 14C84 14 97 31 97 58C97 87 84 110 64 110"/>
+  <path d="M64 14V110"/>
+  <path d="M47 35C57 42 57 52 47 59"/>
+  <path d="M81 35C71 42 71 52 81 59"/>
+  <path d="M47 82C57 75 57 65 47 58"/>
+  <path d="M81 82C71 75 71 65 81 58"/>
+  <path d="M18 58H31"/>
+  <path d="M97 58H110"/>
+  <path d="M64 2V14"/>
+  <path d="M64 110V124"/>
+</g>
+</svg>

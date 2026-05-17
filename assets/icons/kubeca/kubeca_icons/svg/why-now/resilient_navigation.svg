@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Resilient navigation">
+<defs>
+  <style>
+    .icon {
+      fill: none;
+      stroke: #080b0f;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fill {
+      fill: #080b0f;
+      stroke: none;
+    }
+    .soft {
+      fill: #f3f3f2;
+      stroke: none;
+    }
+  </style>
+</defs>
+
+<g class="icon">
+  <path d="M64 14L106 34V70C106 98 86 114 64 122C42 114 22 98 22 70V34Z"/>
+  <path d="M64 34L84 82L64 72L44 82Z"/>
+  <path d="M64 34V72"/>
+</g>
+</svg>

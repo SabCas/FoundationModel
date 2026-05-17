@@ -62,8 +62,8 @@ var deckData = {
   'pitch-system': ['What We Build', 'The KUBECA System', 'KUBECA combines spatial intelligence software, modular aerial platforms, and shared maps for coordinated drone teams.', 'Main pitch / system'],
   'pitch-progress': ['How We Advance', 'Current Progress', 'Current focus: system architecture, simulation environment, first prototype path, and strategic partner conversations.', 'Main pitch / progress'],
   'pitch-funding-ask': ['How We Advance', 'Funding Milestones', 'The next raise funds integrated prototype development, validation, early team, and strategic demonstrations.', 'Main pitch / funding'],
-  'founder-thesis': ['Who We Are', 'Founder Thesis', 'We believe the next generation of autonomous aerial systems will not be defined by hardware alone, but by mission intelligence: the ability to navigate, map, coordinate, and act in complex environments with minimal human burden.', 'Who we are / founder thesis'],
-  'company-vision': ['Who We Are', 'Company Vision', 'KUBECA is building an autonomous aerial intelligence system for open and enclosed environments - combining multi-drone coordination, spatial understanding, mission planning, and resilient operation where conventional drone systems reach their limits.', 'Who we are / company vision'],
+  'founder-thesis': ['Who We Are', 'Founder Thesis', 'The next advantage is not the drone. It is the intelligence that connects the system across platforms, maps, navigation, and mission execution.', 'Who we are / founder thesis'],
+  'company-vision': ['Who We Are', 'Company Vision', 'KUBECA builds mission intelligence for autonomous aerial systems - connecting aerial assets, shared maps, resilient navigation, and human-in-the-loop control into one coordinated operational layer.', 'Who we are / company vision'],
   'mission-core': ['Who We Are', 'Mission', 'Our mission is to give operators real-time situational awareness and autonomous execution capability in environments that are too dangerous, too complex, or too fast-moving for traditional drone operations.', 'Who we are / mission'],
   'built-from-field-experience': ['Who We Are', 'Built From Field Experience', 'KUBECA is built by a team with practical experience in drone development, field testing, and operational feedback loops. Our work is grounded in real-world constraints: signal loss, complex terrain, pilot overload, cost pressure, and the need for systems that can function under stress. The team has worked on drone platforms for third-party companies, received direct feedback from frontline operators, and contributed expertise in professional military contexts. This gives KUBECA a pragmatic foundation: we do not build theoretical autonomy - we build systems designed for operational reality.', 'Who we are / field experience'],
   'research-direction': ['Who We Are', 'The research direction', 'Our research connects visual-inertial localization, scene graphs, map matching, and uncertainty-aware autonomy.', 'Research track'],
@@ -72,6 +72,9 @@ var deckData = {
   'dangerous-environments': ['Why This Matters', 'Dangerous Environments', 'Operations in contested, degraded, and hard-to-access areas require systems that continue working when infrastructure is unreliable.', 'Operational urgency'],
   'human-exposure': ['Why This Matters', 'Human Exposure', 'Autonomous aerial systems reduce direct human exposure during high-risk inspection, response, and reconnaissance missions.', 'Safety imperative'],
   'navigation-change': ['Why We Exist', 'Why navigation must change', 'Future aerial autonomy needs navigation that is local, adaptive, memory-based, and robust to uncertainty.', 'Thesis'],
+  'drone-scale-accelerating': ['Why Now', 'Drone Scale Is Accelerating', 'Aerial systems are becoming cheaper, more numerous, and mission-critical. The bottleneck has shifted from owning drones to coordinating them intelligently.', 'Timing driver'],
+  'signals-no-longer-trusted': ['Why Now', 'Signals Can No Longer Be Trusted', 'GPS disruption, RF interference, terrain, buildings, and electronic warfare are breaking traditional control links and degrading mission continuity.', 'Timing driver'],
+  'operators-need-intelligent-systems': ['Why Now', 'Operators Need Intelligent Systems', 'Human operators cannot manually fly, watch, remember, report, and decide across growing fleets in real time. They need mission intelligence that connects assets, maps, and decisions.', 'Timing driver'],
   'defense-security-demand': ['Why Now', 'Defense & Security Demand', 'Global demand for resilient, autonomous ISR and operational support is accelerating across defense and security stakeholders.', 'Market momentum'],
   'autonomous-systems-shift': ['Why Now', 'Autonomous Systems Shift', 'Compute, onboard AI, and sensor fusion are now mature enough to transition from isolated drones to coordinated autonomous systems.', 'Technology shift'],
   'software-layer': ['What We Build', 'The software intelligence layer', 'The first KUBECA layer turns perception, inertial motion, maps, and confidence estimates into navigation decisions.', 'Core system'],
@@ -392,33 +395,65 @@ function renderDeckVisualMarkup(deckId, index, groupHeading) {
   '</div>';
 }
 
+var chapterMeta = {
+  'WHO WE ARE': { number: '01', className: 'who', label: 'WHO WE ARE' },
+  'WHY THIS MATTERS': { number: '02', className: 'why', label: 'WHY THIS MATTERS' },
+  'WHY NOW': { number: '03', className: 'now', label: 'WHY NOW' }
+};
+
+function iconPath(fileName) {
+  return 'assets/icons/kubeca/kubeca_icons/svg/' + fileName;
+}
+
+function whyNowIconPath(fileName) {
+  return iconPath('why-now/' + fileName);
+}
+
+function renderChapterHeader(groupHeading) {
+  var meta = chapterMeta[groupHeading];
+  if (!meta) return '';
+
+  return '<header class="chapter-header ' + meta.className + '-header">' +
+    '<div class="chapter-brand ' + meta.className + '-brand"><div class="chapter-mark ' + meta.className + '-mark"></div><span>KUBECA</span></div>' +
+    '<div class="chapter-section-label ' + meta.className + '-section-label">' + meta.number + ' / ' + meta.label + '<span></span></div>' +
+  '</header>';
+}
+
+function renderChapterFooter(className) {
+  return '<footer class="chapter-footer ' + className + '-footer"><em>KUBECA | AUTONOMOUS AERIAL INTELLIGENCE</em></footer>';
+}
+
+function renderChapterBottom(className, label, lineOne, lineTwo) {
+  return '<section class="chapter-bottom ' + className + '-bottom">' +
+    '<small>' + label + '</small>' +
+    '<p>' + lineOne + '<br><span>' + lineTwo + '</span></p>' +
+  '</section>';
+}
+
 function renderDeckChapter(deckId) {
   var group = getDeckGroup(deckId);
   if (group.heading === 'WHO WE ARE') {
-    return '<section class="who-page-layout">' +
-      '<header class="who-header">' +
-        '<div class="who-brand"><div class="who-mark"></div><span>KUBECA</span></div>' +
-        '<div class="who-section-label">01 / WHO WE ARE<span></span></div>' +
-      '</header>' +
+    return '<section class="chapter-page chapter-page-who who-page-layout">' +
+      renderChapterHeader(group.heading) +
       '<section class="who-hero">' +
         '<div class="who-hero-text">' +
-          '<h2>AUTONOMOUS<br>AERIAL INTELLIGENCE<br>FOR COMPLEX<br>ENVIRONMENTS</h2>' +
+          '<h2>AUTONOMOUS<br>AERIAL INTELLIGENCE<br>FOR SYSTEM-LEVEL<br>OPERATIONS</h2>' +
           '<div class="who-blue-line"></div>' +
-          '<p>KUBECA builds intelligent multi-drone systems for environments where remote control, GPS dependency, and human-led reconnaissance reach their limits.</p>' +
+          '<p>KUBECA builds mission intelligence for autonomous aerial systems - connecting long-range platforms, quadcopters, micro-drones, shared maps, and human-in-the-loop control into one coordinated operational layer.</p>' +
         '</div>' +
         '<div class="who-hero-image"><video autoplay muted loop playsinline><source src="assets/videos/hero.mp4" type="video/mp4"></video></div>' +
       '</section>' +
       '<section class="who-two-column">' +
         '<article class="who-text-block">' +
           '<p class="who-eyebrow">FOUNDER THESIS</p><div class="who-small-line"></div>' +
-          '<h3>THE NEXT ADVANTAGE IS NOT THE DRONE.<br>IT IS THE INTELLIGENCE INSIDE THE SYSTEM.</h3>' +
+          '<h3>THE NEXT ADVANTAGE IS NOT THE DRONE.<br>IT IS THE INTELLIGENCE THAT CONNECTS THE SYSTEM.</h3>' +
           '<div class="who-blue-line who-blue-line-small"></div>' +
-          '<p>As aerial platforms become cheaper and more numerous, the decisive layer shifts from hardware to software: autonomy, spatial understanding, resilient navigation, and coordinated decision-making.</p>' +
+          '<p>As aerial platforms become cheaper and more numerous, the decisive layer shifts from hardware to software: autonomy, resilient navigation, spatial understanding, and coordinated mission execution.</p>' +
         '</article>' +
         '<article class="who-text-block who-text-block-right">' +
           '<p class="who-eyebrow">COMPANY VISION</p><div class="who-small-line"></div>' +
           '<h3>THE AERIAL INTELLIGENCE LAYER<br>FOR AUTONOMOUS OPERATIONS.</h3>' +
-          '<p>KUBECA aims to turn drones from remote-controlled tools into coordinated mission assets - able to map, relay, understand, and operate as a distributed system across open and enclosed terrain.</p>' +
+          '<p>KUBECA aims to turn drones from remote-controlled tools into connected mission assets - able to map, relay, coordinate, and operate as one distributed system across open and enclosed terrain.</p>' +
           '<p class="who-eyebrow who-eyebrow-diagram">SYSTEM LOGIC</p>' +
           '<div class="who-system-diagram">' +
             '<div class="who-diagram-row">OPERATOR</div><div class="who-arrow">↓</div>' +
@@ -432,10 +467,10 @@ function renderDeckChapter(deckId) {
         '<div><p class="who-eyebrow">MISSION</p><div class="who-small-line"></div></div>' +
         '<div class="who-mission-content"><h3>REDUCE HUMAN EXPOSURE. INCREASE SITUATIONAL CONTROL.</h3>' +
           '<div class="who-mission-grid">' +
-            '<div class="who-mission-item"><div class="who-icon"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-see.svg" alt="" aria-hidden="true"></div><h4>SEE</h4><p>Real-time intelligence from complex terrain.</p></div>' +
-            '<div class="who-mission-item"><div class="who-icon"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-map.svg" alt="" aria-hidden="true"></div><h4>MAP</h4><p>Shared spatial awareness across the swarm.</p></div>' +
-            '<div class="who-mission-item"><div class="who-icon"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-coordinate.svg" alt="" aria-hidden="true"></div><h4>RELAY</h4><p>Communication through distributed aerial nodes.</p></div>' +
-            '<div class="who-mission-item"><div class="who-icon"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-act.svg" alt="" aria-hidden="true"></div><h4>DECIDE</h4><p>Operator-guided mission control.</p></div>' +
+            '<div class="who-mission-item"><div class="who-icon"><img src="' + iconPath('kubeca-see.svg') + '" alt="" aria-hidden="true"></div><h4>SEE</h4><p>Real-time intelligence from complex terrain.</p></div>' +
+            '<div class="who-mission-item"><div class="who-icon"><img src="' + iconPath('kubeca-map.svg') + '" alt="" aria-hidden="true"></div><h4>MAP</h4><p>Shared spatial awareness across the swarm.</p></div>' +
+            '<div class="who-mission-item"><div class="who-icon"><img src="' + iconPath('kubeca-coordinate.svg') + '" alt="" aria-hidden="true"></div><h4>RELAY</h4><p>Communication through distributed aerial nodes.</p></div>' +
+            '<div class="who-mission-item"><div class="who-icon"><img src="' + iconPath('kubeca-act.svg') + '" alt="" aria-hidden="true"></div><h4>DECIDE</h4><p>Operator-guided mission control.</p></div>' +
           '</div>' +
         '</div>' +
       '</section>' +
@@ -450,35 +485,69 @@ function renderDeckChapter(deckId) {
           '<article><video autoplay muted loop playsinline><source src="assets/videos/founder.mp4" type="video/mp4"></video><div><h4>DEFENSE CONTEXT</h4><p>Exposure to professional military environments and modern drone-warfare requirements.</p></div></article>' +
         '</div>' +
       '</section>' +
-      '<footer class="who-footer"><em>KUBECA | AUTONOMOUS AERIAL INTELLIGENCE</em></footer>' +
+      renderChapterFooter('who') +
     '</section>';
   }
 
   if (group.heading === 'WHY THIS MATTERS') {
-    return '<section class="why-page-layout">' +
-      '<header class="why-header">' +
-        '<div class="why-brand"><div class="why-mark"></div><span>KUBECA</span></div>' +
-        '<div class="why-section-label">02 / WHY THIS MATTERS<span></span></div>' +
-      '</header>' +
+    return '<section class="chapter-page chapter-page-why why-page-layout">' +
+      renderChapterHeader(group.heading) +
       '<section class="why-hero">' +
-        '<h2>THE FRAGILE<br>CONTROL LOOP</h2>' +
+        '<h2>ONE FRAGILE LOOP<br>LIMITS THE MISSION.</h2>' +
         '<div class="why-blue-line"></div>' +
-        '<p>Current drone systems still depend on one vulnerable chain: <strong>stable signals, manual piloting, and human interpretation.</strong></p>' +
-        '<p>In contested, enclosed, or fast-changing environments, this chain creates three mission-critical failure points.</p>' +
+        '<p>Current drone operations still depend on stable signals, manual piloting, and human interpretation.</p>' +
+        '<p>When the environment becomes contested, enclosed, or fast-changing, that loop becomes the bottleneck.</p>' +
       '</section>' +
       '<section class="why-flow">' +
-        '<div class="why-flow-art"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-control-loop.svg" alt="Fragile control loop diagram"></div>' +
+        '<div class="why-flow-art"><img src="' + iconPath('kubeca-control-loop.svg') + '" alt="Fragile control loop diagram"></div>' +
       '</section>' +
       '<section class="why-columns">' +
-        '<article><small>01</small><div class="why-issue-head"><h4>AUTONOMY<br>BOTTLENECK</h4><img class="why-issue-icon" src="assets/icons/kubeca/kubeca_icons/svg/kubeca-menu-operator.svg" alt="" aria-hidden="true"></div><p>Too much of the mission still depends on direct human control, creating slow decision loops and limited scalability.</p></article>' +
-        '<article><small>02</small><div class="why-issue-head"><h4>SIGNAL & CONTROL<br>FRAGILITY</h4><img class="why-issue-icon" src="assets/icons/kubeca/kubeca_icons/svg/kubeca-menu-rf-link.svg" alt="" aria-hidden="true"></div><p>Radio, GPS, terrain, walls, and interference can break the link. When the connection fails, missions lose precision, context, or control.</p></article>' +
-        '<article><small>03</small><div class="why-issue-head"><h4>HUMAN<br>EXPOSURE</h4><img class="why-issue-icon" src="assets/icons/kubeca/kubeca_icons/svg/kubeca-menu-delayed-decisions.svg" alt="" aria-hidden="true"></div><p>Operators carry the burden of piloting, watching, remembering, reporting, and deciding—under pressure and often too close to risk.</p></article>' +
+        '<article><small>01</small><div class="why-issue-head"><h4>AUTONOMY<br>BOTTLENECK</h4><img class="why-issue-icon" src="' + iconPath('kubeca-menu-operator.svg') + '" alt="" aria-hidden="true"></div><p>Too much of the mission still depends on direct human control, limiting scale, speed, and resilience.</p></article>' +
+        '<article><small>02</small><div class="why-issue-head"><h4>SIGNAL & CONTROL<br>FRAGILITY</h4><img class="why-issue-icon" src="' + iconPath('kubeca-menu-rf-link.svg') + '" alt="" aria-hidden="true"></div><p>Radio links, GPS, terrain, walls, and interference can break mission continuity.</p></article>' +
+        '<article><small>03</small><div class="why-issue-head"><h4>HUMAN<br>EXPOSURE</h4><img class="why-issue-icon" src="' + iconPath('kubeca-menu-delayed-decisions.svg') + '" alt="" aria-hidden="true"></div><p>Operators carry the burden of flying, watching, remembering, reporting, and deciding under pressure.</p></article>' +
       '</section>' +
-      '<section class="why-bottom">' +
-        '<small>BOTTOM LINE</small>' +
-        '<p>THE PROBLEM IS NOT ONLY BETTER DRONES.<br><span>THE PROBLEM IS MISSION INTELLIGENCE<br>UNDER REAL-WORLD CONSTRAINTS.</span></p>' +
+      renderChapterBottom('why', 'BOTTOM LINE', 'THE PROBLEM IS NOT ONLY BETTER DRONES.', 'THE PROBLEM IS MISSION INTELLIGENCE<br>UNDER REAL-WORLD CONSTRAINTS.') +
+      renderChapterFooter('why') +
+    '</section>';
+  }
+
+  if (group.heading === 'WHY NOW') {
+    return '<section class="chapter-page chapter-page-now now-page-layout">' +
+      renderChapterHeader(group.heading) +
+      '<section class="now-hero">' +
+        '<div class="now-hero-copy">' +
+          '<h2>AERIAL AUTONOMY<br>IS MOVING FROM<br>TOOLS TO SYSTEMS.</h2>' +
+          '<div class="now-small-line"></div>' +
+        '</div>' +
+        '<div class="now-hero-side">' +
+          '<p>Drone operations are scaling while environments become more contested, complex, and infrastructure-dependent.</p>' +
+          '<p>The shift is no longer about better individual drones.</p>' +
+          '<p>It is about connecting range, local intelligence, resilient navigation, and operators into one coordinated system.</p>' +
+        '</div>' +
       '</section>' +
-      '<footer class="why-footer"><em>KUBECA | AUTONOMOUS AERIAL INTELLIGENCE</em></footer>' +
+      '<section class="now-shift">' +
+        '<h3>THE SHIFT: FROM FRAGILE, SINGLE-ASSET OPERATIONS TO RESILIENT, SYSTEM-LEVEL AUTONOMY</h3>' +
+        '<div class="now-shift-table">' +
+          '<div class="now-shift-head now-shift-left">WHAT CHANGED</div>' +
+          '<div></div>' +
+          '<div class="now-shift-head now-shift-right">WHAT IT REQUIRES</div>' +
+          '<article><img src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><p>More aerial assets</p></article><span class="now-shift-arrow">-></span><article><p>Multi-asset coordination</p><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true"></article>' +
+          '<article><img src="' + whyNowIconPath('degraded_signals.svg') + '" alt="" aria-hidden="true"><p>Degraded signals</p></article><span class="now-shift-arrow">-></span><article><p>Resilient navigation</p><img src="' + whyNowIconPath('resilient_navigation.svg') + '" alt="" aria-hidden="true"></article>' +
+          '<article><img src="' + whyNowIconPath('urban_indoor_missions.svg') + '" alt="" aria-hidden="true"><p>Urban / indoor missions</p></article><span class="now-shift-arrow">-></span><article><p>Shared spatial awareness</p><img src="' + whyNowIconPath('shared_spatial_awareness.svg') + '" alt="" aria-hidden="true"></article>' +
+          '<article><img src="' + whyNowIconPath('longer_mission_distance.svg') + '" alt="" aria-hidden="true"><p>Longer mission distance</p></article><span class="now-shift-arrow">-></span><article><p>Relay and carrier architectures</p><img src="' + whyNowIconPath('relay_carrier_architectures.svg') + '" alt="" aria-hidden="true"></article>' +
+          '<article><img src="' + whyNowIconPath('faster_decision_cycles.svg') + '" alt="" aria-hidden="true"><p>Faster decision cycles</p></article><span class="now-shift-arrow">-></span><article><p>Mission intelligence layer</p><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"></article>' +
+        '</div>' +
+      '</section>' +
+      '<section class="now-drivers">' +
+        '<h3>THREE TIMING DRIVERS</h3>' +
+        '<div class="now-driver-grid">' +
+          '<article><strong>01</strong><img src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><h4>DRONE SCALE IS<br>ACCELERATING</h4><p>More aerial assets are entering operations. Coordination is becoming the bottleneck.</p></article>' +
+          '<article><strong>02</strong><img src="' + iconPath('kubeca-menu-rf-link.svg') + '" alt="" aria-hidden="true"><h4>INFRASTRUCTURE IS<br>LESS RELIABLE</h4><p>GPS, RF, terrain, buildings, and EW degrade mission continuity.</p></article>' +
+          '<article><strong>03</strong><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"><h4>MISSIONS ARE<br>BECOMING MULTI-LAYERED</h4><p>Open terrain, enclosed spaces, long range, and local mapping must work together.</p></article>' +
+        '</div>' +
+      '</section>' +
+      renderChapterBottom('now', 'BOTTOM LINE', 'THE TIMING IS NOT ABOUT DRONES ALONE.', 'IT IS ABOUT AUTONOMY BECOMING A SYSTEM LAYER.') +
+      renderChapterFooter('now') +
     '</section>';
   }
 
@@ -553,7 +622,7 @@ function openDeckPanel(deckId) {
   detailPanel.classList.remove('product-detail');
   detailPanel.classList.add('deck-detail');
   detailEyebrow.textContent = '';
-  if (group.heading === 'WHO WE ARE' || group.heading === 'WHY THIS MATTERS') {
+  if (group.heading === 'WHO WE ARE' || group.heading === 'WHY THIS MATTERS' || group.heading === 'WHY NOW') {
     detailTitle.textContent = '';
     detailIntro.textContent = '';
   } else {

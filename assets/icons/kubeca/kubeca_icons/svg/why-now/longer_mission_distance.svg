@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Longer mission distance">
+<defs>
+  <style>
+    .icon {
+      fill: none;
+      stroke: #080b0f;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fill {
+      fill: #080b0f;
+      stroke: none;
+    }
+    .soft {
+      fill: #f3f3f2;
+      stroke: none;
+    }
+  </style>
+</defs>
+
+<g class="icon">
+  <path d="M16 94L42 56L58 75L82 36L112 94Z"/>
+  <path d="M42 56L54 94"/>
+  <path d="M82 36L74 94"/>
+  <path d="M20 108H108"/>
+  <path d="M28 78C44 68 62 100 80 78C90 66 102 70 112 61" stroke-dasharray="5 6"/>
+  <path d="M100 56C100 45 108 37 108 37C108 37 116 45 116 56C116 66 108 74 108 74C108 74 100 66 100 56Z"/>
+  <circle cx="108" cy="56" r="3" class="fill"/>
+</g>
+</svg>

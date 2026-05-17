@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Relay and carrier architectures">
+<defs>
+  <style>
+    .icon {
+      fill: none;
+      stroke: #080b0f;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fill {
+      fill: #080b0f;
+      stroke: none;
+    }
+    .soft {
+      fill: #f3f3f2;
+      stroke: none;
+    }
+  </style>
+</defs>
+
+<g class="icon">
+  <path d="M28 38H88"/>
+  <path d="M58 25L78 38L58 51Z"/>
+  <path d="M28 38C18 38 12 45 12 54C12 63 18 70 28 70H48"/>
+  <path d="M80 58H100C110 58 116 65 116 74C116 83 110 90 100 90H40"/>
+  <path d="M38 76L22 90L38 104"/>
+  <path d="M90 44L106 58L90 72"/>
+</g>
+</svg>

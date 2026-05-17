@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Urban and indoor missions">
+<defs>
+  <style>
+    .icon {
+      fill: none;
+      stroke: #080b0f;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fill {
+      fill: #080b0f;
+      stroke: none;
+    }
+    .soft {
+      fill: #f3f3f2;
+      stroke: none;
+    }
+  </style>
+</defs>
+
+<g class="icon">
+  <path d="M20 104H108"/>
+  <rect x="26" y="60" width="18" height="44"/>
+  <rect x="55" y="28" width="18" height="76"/>
+  <rect x="84" y="50" width="18" height="54"/>
+  <path d="M64 18V28"/>
+  <path d="M59 23H69"/>
+  <path d="M32 70H38M32 82H38M32 94H38"/>
+  <path d="M61 40H67M61 52H67M61 64H67M61 76H67M61 88H67"/>
+  <path d="M90 62H96M90 74H96M90 86H96"/>
+  <path d="M22 50L16 45M22 45L16 50"/>
+  <path d="M108 40L102 35M108 35L102 40"/>
+</g>
+</svg>
