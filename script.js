@@ -515,6 +515,7 @@ function renderDeckChapter(deckId) {
     return '<section class="chapter-page chapter-page-now now-page-layout">' +
       renderChapterHeader(group.heading) +
       '<section class="now-hero">' +
+        '<div class="now-hero-image"><img src="assets/images/kubeca/commando.png" alt="KUBECA mission control operations room"></div>' +
         '<div class="now-hero-copy">' +
           '<h2>AERIAL AUTONOMY<br>IS MOVING FROM<br>TOOLS TO SYSTEMS.</h2>' +
           '<div class="now-small-line"></div>' +
