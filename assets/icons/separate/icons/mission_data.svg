@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Mission data icon">
+<defs>
+  <style>
+    .icon{stroke:#080b0f;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+    .fill{fill:#080b0f;stroke:none}
+  </style>
+</defs>
+<g class="icon">
+  <path d="M18 26L48 13L78 26L48 39Z"/>
+  <path d="M18 47L48 34L78 47L48 60Z"/>
+  <path d="M18 68L48 55L78 68L48 81Z"/>
+</g>
+</svg>

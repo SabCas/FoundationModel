@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Manual control icon">
+<defs>
+  <style>
+    .icon{stroke:#080b0f;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+    .fill{fill:#080b0f;stroke:none}
+  </style>
+</defs>
+<g class="icon">
+  <path d="M48 10C28 10 16 26 16 48C16 70 28 86 48 86"/>
+  <path d="M48 10C68 10 80 26 80 48C80 70 68 86 48 86"/>
+  <path d="M48 10V86"/>
+  <path d="M31 28C41 34 41 43 31 49"/>
+  <path d="M65 28C55 34 55 43 65 49"/>
+  <path d="M31 68C41 61 41 53 31 49"/>
+  <path d="M65 68C55 61 55 53 65 49"/>
+</g>
+</svg>

@@ -296,23 +296,46 @@ function setupMegaMenuCollapsibleGroups() {
   megaRows.forEach(function (row, index) {
     var heading = row.querySelector('h4');
     if (!heading) return;
+    var subtopics = row.querySelectorAll('.deck-link');
     row.classList.add('is-collapsible');
+    row.classList.add('is-collapsed');
     heading.setAttribute('role', 'button');
     heading.setAttribute('tabindex', '0');
     heading.setAttribute('aria-controls', 'mega-row-' + index);
-    heading.setAttribute('aria-expanded', 'true');
+    heading.setAttribute('aria-expanded', 'false');
     row.id = 'mega-row-' + index;
 
+    subtopics.forEach(function (link) {
+      link.setAttribute('aria-disabled', 'true');
+      link.setAttribute('tabindex', '-1');
+    });
+
+    function toggleRowAndOpen() {
+      var shouldOpen = row.classList.contains('is-collapsed');
+      megaRows.forEach(function (otherRow) {
+        if (otherRow !== row) {
+          otherRow.classList.add('is-collapsed');
+          var otherHeading = otherRow.querySelector('h4');
+          if (otherHeading) otherHeading.setAttribute('aria-expanded', 'false');
+        }
+      });
+      row.classList.toggle('is-collapsed', !shouldOpen);
+      heading.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+
+      if (shouldOpen && subtopics.length) {
+        var deckId = subtopics[0].getAttribute('data-deck');
+        if (deckId) openDeckPanel(deckId);
+      }
+    }
+
     heading.addEventListener('click', function () {
-      row.classList.toggle('is-collapsed');
-      heading.setAttribute('aria-expanded', String(!row.classList.contains('is-collapsed')));
+      toggleRowAndOpen();
     });
 
     heading.addEventListener('keydown', function (event) {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
-      row.classList.toggle('is-collapsed');
-      heading.setAttribute('aria-expanded', String(!row.classList.contains('is-collapsed')));
+      toggleRowAndOpen();
     });
   });
 }
@@ -444,13 +467,12 @@ function renderDeckChapter(deckId) {
         '<p>In contested, enclosed, or fast-changing environments, this chain creates three mission-critical failure points.</p>' +
       '</section>' +
       '<section class="why-flow">' +
-        '<h3>THE FRAGILE CONTROL LOOP</h3>' +
-        '<div class="why-flow-art"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca_fragile_control_loop_grey.svg" alt="Fragile control loop diagram"></div>' +
+        '<div class="why-flow-art"><img src="assets/icons/separate/graphics/control_loop_graphic.svg" alt="Fragile control loop diagram"></div>' +
       '</section>' +
       '<section class="why-columns">' +
-        '<article><small>01</small><h4>AUTONOMY<br>BOTTLENECK</h4><p>Too much of the mission still depends on direct human control, creating slow decision loops and limited scalability.</p></article>' +
-        '<article><small>02</small><h4>SIGNAL & CONTROL<br>FRAGILITY</h4><p>Radio, GPS, terrain, walls, and interference can break the link. When the connection fails, missions lose precision, context, or control.</p></article>' +
-        '<article><small>03</small><h4>HUMAN<br>EXPOSURE</h4><p>Operators carry the burden of piloting, watching, remembering, reporting, and deciding—under pressure and often too close to risk.</p></article>' +
+        '<article><small>01</small><div class="why-issue-head"><h4>AUTONOMY<br>BOTTLENECK</h4><img class="why-issue-icon" src="assets/icons/separate/icons/operator.svg" alt="" aria-hidden="true"></div><p>Too much of the mission still depends on direct human control, creating slow decision loops and limited scalability.</p></article>' +
+        '<article><small>02</small><div class="why-issue-head"><h4>SIGNAL & CONTROL<br>FRAGILITY</h4><img class="why-issue-icon" src="assets/icons/separate/icons/rf_link.svg" alt="" aria-hidden="true"></div><p>Radio, GPS, terrain, walls, and interference can break the link. When the connection fails, missions lose precision, context, or control.</p></article>' +
+        '<article><small>03</small><div class="why-issue-head"><h4>HUMAN<br>EXPOSURE</h4><img class="why-issue-icon" src="assets/icons/separate/icons/delayed_decisions.svg" alt="" aria-hidden="true"></div><p>Operators carry the burden of piloting, watching, remembering, reporting, and deciding—under pressure and often too close to risk.</p></article>' +
       '</section>' +
       '<section class="why-bottom">' +
         '<small>BOTTOM LINE</small>' +
@@ -741,6 +763,7 @@ document.addEventListener('keydown', function (event) {
 
 deckLinks.forEach(function (link) {
   link.addEventListener('click', function () {
+    if (link.closest('.mega-menu')) return;
     openDeckPanel(link.getAttribute('data-deck'));
   });
 });

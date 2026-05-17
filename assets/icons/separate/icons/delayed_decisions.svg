@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Delayed decisions icon">
+<defs>
+  <style>
+    .icon{stroke:#080b0f;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+    .fill{fill:#080b0f;stroke:none}
+  </style>
+</defs>
+<g class="icon">
+  <circle cx="48" cy="48" r="34"/>
+  <path d="M48 23V50L66 62"/>
+</g>
+</svg>

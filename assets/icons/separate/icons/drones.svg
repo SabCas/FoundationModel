@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Drones icon">
+<defs>
+  <style>
+    .icon{stroke:#080b0f;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+    .fill{fill:#080b0f;stroke:none}
+  </style>
+</defs>
+<g class="icon">
+  <line x1="14" y1="38" x2="82" y2="38"/>
+  <line x1="48" y1="15" x2="48" y2="68"/>
+  <rect x="36" y="29" width="24" height="18" rx="2" class="fill"/>
+  <ellipse cx="14" cy="22" rx="22" ry="4"/>
+  <ellipse cx="82" cy="22" rx="22" ry="4"/>
+  <ellipse cx="14" cy="54" rx="22" ry="4"/>
+  <ellipse cx="82" cy="54" rx="22" ry="4"/>
+  <line x1="42" y1="47" x2="29" y2="77"/>
+  <line x1="54" y1="47" x2="67" y2="77"/>
+</g>
+</svg>

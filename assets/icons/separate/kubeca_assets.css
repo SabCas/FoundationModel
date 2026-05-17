@@ -1,0 +1,11 @@
+.kubeca-icon {
+  width: 48px;
+  height: 48px;
+  color: #080b0f;
+}
+
+.kubeca-control-loop {
+  width: 100%;
+  height: auto;
+  display: block;
+}
