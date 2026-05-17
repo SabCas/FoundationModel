@@ -2554,19 +2554,28 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   height:100%;
   object-fit:cover;
   object-position:center 43%;
-  transform:scale(1);
+  transform:scale(1) translate3d(0,0,0);
   transform-origin:center 42%;
-  animation:kubecaHeroZoom 20s ease-in-out infinite alternate;
+  animation:kubecaHeroCameraMove 16s cubic-bezier(.22,1,.36,1) infinite alternate;
   filter:grayscale(.02) contrast(1.02) brightness(1.08);
+  will-change:transform;
 }
 
-@keyframes kubecaHeroZoom{
-  from{
-    transform:scale(1);
+@keyframes kubecaHeroCameraMove{
+  0%{
+    transform:scale(1) translate3d(0,0,0);
   }
 
-  to{
-    transform:scale(1.045);
+  35%{
+    transform:scale(1.035) translate3d(-1.8%,0.9%,0);
+  }
+
+  70%{
+    transform:scale(1.065) translate3d(1.4%,-1.2%,0);
+  }
+
+  100%{
+    transform:scale(1.09) translate3d(-1.1%,-1.8%,0);
   }
 }
 
