@@ -375,7 +375,7 @@ function renderDeckChapter(deckId) {
     return '<section class="who-page-layout">' +
       '<header class="who-header">' +
         '<div class="who-brand"><div class="who-mark"></div><span>KUBECA</span></div>' +
-        '<div class="who-section-label">WHO WE ARE<span></span></div>' +
+        '<div class="who-section-label">01 / WHO WE ARE<span></span></div>' +
       '</header>' +
       '<section class="who-hero">' +
         '<div class="who-hero-text">' +
@@ -427,36 +427,36 @@ function renderDeckChapter(deckId) {
           '<article><video autoplay muted loop playsinline><source src="assets/videos/founder.mp4" type="video/mp4"></video><div><h4>DEFENSE CONTEXT</h4><p>Exposure to professional military environments and modern drone-warfare requirements.</p></div></article>' +
         '</div>' +
       '</section>' +
+      '<footer class="who-footer"><em>KUBECA | AUTONOMOUS AERIAL INTELLIGENCE</em></footer>' +
     '</section>';
   }
 
   if (group.heading === 'WHY THIS MATTERS') {
-    var bottleneck = deckData['autonomy-bottleneck'];
-    var environments = deckData['dangerous-environments'];
-    var exposure = deckData['human-exposure'];
     return '<section class="why-page-layout">' +
       '<header class="why-header">' +
         '<div class="why-brand"><div class="why-mark"></div><span>KUBECA</span></div>' +
         '<div class="why-section-label">02 / WHY THIS MATTERS<span></span></div>' +
       '</header>' +
       '<section class="why-hero">' +
-        '<h2>AUTONOMY BREAKS<br>WHERE MISSIONS<br>BECOME COMPLEX.</h2>' +
+        '<h2>THE FRAGILE<br>CONTROL LOOP</h2>' +
         '<div class="why-blue-line"></div>' +
-        '<p>Current drone systems still depend on one fragile loop: stable signals, manual piloting, and human interpretation.</p>' +
+        '<p>Current drone systems still depend on one vulnerable chain: <strong>stable signals, manual piloting, and human interpretation.</strong></p>' +
+        '<p>In contested, enclosed, or fast-changing environments, this chain creates three mission-critical failure points.</p>' +
       '</section>' +
       '<section class="why-flow">' +
         '<h3>THE FRAGILE CONTROL LOOP</h3>' +
         '<div class="why-flow-art"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca_fragile_control_loop_grey.svg" alt="Fragile control loop diagram"></div>' +
       '</section>' +
       '<section class="why-columns">' +
-        '<article><small>01</small><h4>' + bottleneck[1].toUpperCase() + '</h4><p>' + bottleneck[2] + '</p></article>' +
-        '<article><small>02</small><h4>SIGNAL & CONTROL FRAGILITY</h4><p>' + environments[2] + '</p></article>' +
-        '<article><small>03</small><h4>HUMAN EXPOSURE</h4><p>' + exposure[2] + '</p></article>' +
+        '<article><small>01</small><h4>AUTONOMY<br>BOTTLENECK</h4><p>Too much of the mission still depends on direct human control, creating slow decision loops and limited scalability.</p></article>' +
+        '<article><small>02</small><h4>SIGNAL & CONTROL<br>FRAGILITY</h4><p>Radio, GPS, terrain, walls, and interference can break the link. When the connection fails, missions lose precision, context, or control.</p></article>' +
+        '<article><small>03</small><h4>HUMAN<br>EXPOSURE</h4><p>Operators carry the burden of piloting, watching, remembering, reporting, and deciding—under pressure and often too close to risk.</p></article>' +
       '</section>' +
       '<section class="why-bottom">' +
         '<small>BOTTOM LINE</small>' +
-        '<p>THE PROBLEM IS NOT ONLY BETTER DRONES.<br><span>THE PROBLEM IS MISSION INTELLIGENCE UNDER REAL-WORLD CONSTRAINTS.</span></p>' +
+        '<p>THE PROBLEM IS NOT ONLY BETTER DRONES.<br><span>THE PROBLEM IS MISSION INTELLIGENCE<br>UNDER REAL-WORLD CONSTRAINTS.</span></p>' +
       '</section>' +
+      '<footer class="why-footer"><em>KUBECA | AUTONOMOUS AERIAL INTELLIGENCE</em></footer>' +
     '</section>';
   }
 
@@ -531,8 +531,13 @@ function openDeckPanel(deckId) {
   detailPanel.classList.remove('product-detail');
   detailPanel.classList.add('deck-detail');
   detailEyebrow.textContent = '';
-  detailTitle.textContent = group.heading;
-  detailIntro.textContent = card[2];
+  if (group.heading === 'WHO WE ARE' || group.heading === 'WHY THIS MATTERS') {
+    detailTitle.textContent = '';
+    detailIntro.textContent = '';
+  } else {
+    detailTitle.textContent = group.heading;
+    detailIntro.textContent = card[2];
+  }
   detailGrid.innerHTML = renderDeckChapter(activeDeckId);
 
   if (window.matchMedia('(min-width: 761px)').matches) {
