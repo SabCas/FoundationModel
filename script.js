@@ -12,6 +12,7 @@ var signalState = document.getElementById('signalState');
 var toggle = document.getElementById('mobileToggle');
 var megaMenuOpen = document.getElementById('megaMenuOpen');
 var megaMenu = document.getElementById('megaMenu');
+var megaGrid = megaMenu ? megaMenu.querySelector('.mega-grid') : null;
 var menuClose = document.getElementById('menuClose');
 var panelBackdrop = document.getElementById('panelBackdrop');
 var deckPanel = document.getElementById('deckPanel');
@@ -53,33 +54,54 @@ var storyTextTimer;
 var progressScrollTimer;
 var storyScrollTimer;
 var storyUpdateFrame;
+var panelLockedScrollY = 0;
 
 var deckData = {
-  'pitch-opening': ['Who We Are', 'The 10-Minute Pitch', 'The future of drones is not one aircraft flying alone. It is coordinated aerial teams that understand their environment, share one evolving map, and operate as a network.', 'Main pitch / opening'],
   'pitch-timing': ['Why We Exist', 'The Timing', 'Autonomous aircraft, onboard AI, edge compute, and sensor systems are converging now, but the missing layer is still shared spatial intelligence.', 'Main pitch / timing'],
   'pitch-opportunity': ['Why We Exist', 'The Opportunity', 'The next leap in aerial autonomy is the intelligence layer that lets drone teams map, localize, coordinate, and recover together in difficult environments.', 'Main pitch / opportunity'],
   'pitch-system': ['What We Build', 'The KUBECA System', 'KUBECA combines spatial intelligence software, modular aerial platforms, and shared maps for coordinated drone teams.', 'Main pitch / system'],
   'pitch-progress': ['How We Advance', 'Current Progress', 'Current focus: system architecture, simulation environment, first prototype path, and strategic partner conversations.', 'Main pitch / progress'],
   'pitch-funding-ask': ['How We Advance', 'Funding Milestones', 'The next raise funds integrated prototype development, validation, early team, and strategic demonstrations.', 'Main pitch / funding'],
-  'founder-thesis': ['Who We Are', 'The founder thesis', 'KUBECA begins with a simple premise: autonomous systems need a navigation intelligence layer that survives when GPS disappears.', 'Private preview / origin'],
-  'company-vision': ['Who We Are', 'The company vision', 'Build the spatial intelligence layer that lets aerial systems understand where they are, what changed, and how to recover.', 'Private preview / vision'],
+  'founder-thesis': ['Who We Are', 'Founder Thesis', 'We believe the next generation of autonomous aerial systems will not be defined by hardware alone, but by mission intelligence: the ability to navigate, map, coordinate, and act in complex environments with minimal human burden.', 'Who we are / founder thesis'],
+  'company-vision': ['Who We Are', 'Company Vision', 'KUBECA is building an autonomous aerial intelligence system for open and enclosed environments - combining multi-drone coordination, spatial understanding, mission planning, and resilient operation where conventional drone systems reach their limits.', 'Who we are / company vision'],
+  'mission-core': ['Who We Are', 'Mission', 'Our mission is to give operators real-time situational awareness and autonomous execution capability in environments that are too dangerous, too complex, or too fast-moving for traditional drone operations.', 'Who we are / mission'],
+  'built-from-field-experience': ['Who We Are', 'Built From Field Experience', 'KUBECA is built by a team with practical experience in drone development, field testing, and operational feedback loops. Our work is grounded in real-world constraints: signal loss, complex terrain, pilot overload, cost pressure, and the need for systems that can function under stress. The team has worked on drone platforms for third-party companies, received direct feedback from frontline operators, and contributed expertise in professional military contexts. This gives KUBECA a pragmatic foundation: we do not build theoretical autonomy - we build systems designed for operational reality.', 'Who we are / field experience'],
   'research-direction': ['Who We Are', 'The research direction', 'Our research connects visual-inertial localization, scene graphs, map matching, and uncertainty-aware autonomy.', 'Research track'],
   'gps-disappears': ['Why We Exist', 'When GPS disappears', 'Signal denial, urban occlusion, spoofing, and degraded environments expose a core autonomy weakness: dependence on external positioning.', 'Problem frame'],
   'autonomy-bottleneck': ['Why We Exist', 'The autonomy bottleneck', 'Autonomous systems can perceive more than ever, but they still need resilient position, memory, and route recovery when infrastructure fails.', 'Problem frame'],
+  'dangerous-environments': ['Why This Matters', 'Dangerous Environments', 'Operations in contested, degraded, and hard-to-access areas require systems that continue working when infrastructure is unreliable.', 'Operational urgency'],
+  'human-exposure': ['Why This Matters', 'Human Exposure', 'Autonomous aerial systems reduce direct human exposure during high-risk inspection, response, and reconnaissance missions.', 'Safety imperative'],
   'navigation-change': ['Why We Exist', 'Why navigation must change', 'Future aerial autonomy needs navigation that is local, adaptive, memory-based, and robust to uncertainty.', 'Thesis'],
+  'defense-security-demand': ['Why Now', 'Defense & Security Demand', 'Global demand for resilient, autonomous ISR and operational support is accelerating across defense and security stakeholders.', 'Market momentum'],
+  'autonomous-systems-shift': ['Why Now', 'Autonomous Systems Shift', 'Compute, onboard AI, and sensor fusion are now mature enough to transition from isolated drones to coordinated autonomous systems.', 'Technology shift'],
   'software-layer': ['What We Build', 'The software intelligence layer', 'The first KUBECA layer turns perception, inertial motion, maps, and confidence estimates into navigation decisions.', 'Core system'],
+  'autonomous-multi-drone-ops': ['What We Build', 'Autonomous Multi-Drone Operations', 'KUBECA connects multiple drones into one coordinated operating system with shared awareness, adaptive tasking, and resilient navigation.', 'System capability'],
+  'mission-intelligence-layer': ['What We Build', 'Mission Intelligence Layer', 'A mission software layer that turns live sensor input, map context, and objectives into explainable decisions and controllable actions.', 'Core platform'],
   'prototype-platforms': ['What We Build', 'Prototype aerial platforms', 'KUBECA’s prototype direction pairs KUBECA LRA, a long-range aircraft for 12+ hour wide-area ISR and command, with KUBECA SCD, a 45+ minute scout drone for close-range reconnaissance, perimeter scan, and target localization. Both are designed around GPS-denied / INS / visual navigation.', 'Pitch deck / prototype'],
   'hardware-architecture': ['What We Build', 'The aerial hardware architecture', 'Hardware planning stays close to the software: sensing, onboard compute, deployable scouts, and field-ready autonomy constraints.', 'Roadmap'],
   'scout-uav-roadmap': ['What We Build', 'The scout UAV roadmap', 'Scout UAVs are the first practical path for testing localization, route recovery, and scene-memory workflows.', 'Roadmap'],
   'multi-drone-network': ['What We Build', 'The multi-drone spatial network', 'Future drone teams can share partial maps, reduce uncertainty, and build collaborative spatial awareness.', 'Future layer'],
   'perception-positioning': ['How It Works', 'Perception becomes positioning', 'Visual observations become navigation signals when matched against motion, landmarks, terrain, and prior structure.', 'Mechanism'],
+  'spatial-understanding': ['How The System Operates', 'Spatial Understanding', 'The platform interprets terrain, landmarks, traversable paths, and environmental change to build mission-ready situational context.', 'Operational layer'],
   'state-estimation': ['How It Works', 'Sensors become state estimation', 'Cameras, IMUs, altitude, and local context combine into a continuously updated estimate of state and confidence.', 'Mechanism'],
   'scene-graphs': ['How It Works', 'Scene graphs become spatial memory', 'The system can organize observed places, landmarks, and transitions into memory that supports future recovery.', 'Mechanism'],
   'map-recovery': ['How It Works', 'Maps support position recovery', 'Map-assisted localization helps the system recover orientation and position after drift or signal loss.', 'Mechanism'],
   'uncertainty': ['How It Works', 'Uncertainty guides decisions', 'Instead of hiding uncertainty, KUBECA treats it as a decision signal for route choice, recovery, and collaboration.', 'Mechanism'],
+  'ai-mission-planner': ['How The System Operates', 'AI Mission Planner', 'Mission planning adapts in real time using environment understanding, drone state, and objective priority to recommend next actions.', 'Operational layer'],
+  'high-speed-navigation': ['What It Can Do', 'High-Speed Navigation', 'Maintain stable navigation and decision quality during fast-moving missions across dynamic and partially known environments.', 'Capability'],
+  'open-closed-area-mapping': ['What It Can Do', 'Open & Closed-Area Mapping', 'Build and update spatial maps across both open terrain and constrained spaces to support routing, search, and mission handoff.', 'Capability'],
+  'threat-detection': ['What It Can Do', 'Threat Detection', 'Identify and flag environmental anomalies, potential hazards, and mission risks to support faster, safer operational decisions.', 'Capability'],
+  'carrier-drones': ['Swarm & Carrier Layer', 'Carrier Drones', 'Carrier drones extend range, provide compute and comms support, and deploy specialist units for mission depth.', 'Swarm layer'],
+  'swarm-formation': ['Swarm & Carrier Layer', 'Swarm Formation', 'Dynamic multi-drone formations coordinate by role, spacing, and objective to improve coverage and resilience.', 'Swarm layer'],
+  'mission-specific-payloads': ['Swarm & Carrier Layer', 'Mission-Specific Payloads', 'Modular payload support allows sensor and mission configuration for defense, infrastructure, and response workflows.', 'Swarm layer'],
+  'voice-command': ['How Users Control It', 'Voice Command', 'Operators can issue mission commands through natural voice prompts for faster interaction in high-pressure environments.', 'Control layer'],
+  'natural-language-mission-planning': ['How Users Control It', 'Natural Language Mission Planning', 'Users can describe mission intent in natural language and receive structured, editable mission plans.', 'Control layer'],
+  'human-in-the-loop-control': ['How Users Control It', 'Human-in-the-Loop Control', 'Supervisory controls keep operators in command with transparent autonomy, override capability, and decision traceability.', 'Control layer'],
   'degraded-signals': ['Where It Operates', 'Degraded signal environments', 'Designed for places where satellite positioning is weak, denied, spoofed, blocked, or operationally unreliable.', 'Operating context'],
+  'defense-security': ['Where It Operates', 'Defense & Security', 'Built for defense and security operations that require resilient autonomy in contested and high-risk conditions.', 'Operating context'],
   'unknown-terrain': ['Where It Operates', 'Unknown and unmapped terrain', 'Navigation must adapt when the system enters terrain without dependable infrastructure or complete maps.', 'Operating context'],
   'disaster-zones': ['Where It Operates', 'Disaster and search zones', 'Resilient aerial systems can help inspect, search, and map areas where infrastructure is damaged or absent.', 'Operating context'],
+  'search-rescue': ['Where It Operates', 'Search & Rescue', 'Support rapid area scan, route assessment, and survivor search workflows in time-critical rescue missions.', 'Operating context'],
   'critical-infrastructure': ['Where It Operates', 'Critical infrastructure', 'Inspection and monitoring missions need robust navigation around complex structures and signal shadows.', 'Operating context'],
   'remote-corridors': ['Where It Operates', 'Remote aerial corridors', 'Remote logistics and aerial corridors require navigation that does not assume reliable signal coverage everywhere.', 'Operating context'],
   'simulation-first': ['How We Advance', 'Simulation-first development', 'Simulation lets us test drift, signal loss, map recovery, and route decisions before field exposure.', 'Build phase'],
@@ -94,6 +116,7 @@ var deckData = {
 };
 
 var deckOrder = Object.keys(deckData);
+var megaRows = document.querySelectorAll('.mega-row');
 
 var detailData = {
   'flying-understanding': {
@@ -207,6 +230,7 @@ function openMenu() {
   megaMenu.classList.add('open');
   megaMenu.setAttribute('aria-hidden', 'false');
   if (toggle) toggle.setAttribute('aria-expanded', 'true');
+  updateMegaGridScrollState();
 }
 
 function closeMenu() {
@@ -224,6 +248,12 @@ function toggleMenu() {
   } else {
     openMenu();
   }
+}
+
+function updateMegaGridScrollState() {
+  if (!megaGrid) return;
+  var atEnd = megaGrid.scrollTop + megaGrid.clientHeight >= megaGrid.scrollHeight - 2;
+  megaGrid.classList.toggle('is-scroll-end', atEnd);
 }
 
 function getDeckIndex(deckId) {
@@ -246,6 +276,14 @@ function updateActiveDeckLinks(deckId) {
       link.removeAttribute('aria-current');
     }
   });
+
+  if (!megaRows || !megaRows.length) return;
+  megaRows.forEach(function (row) {
+    var hasActive = !!row.querySelector('.deck-link.is-active');
+    row.classList.toggle('is-collapsed', !hasActive && row.classList.contains('is-collapsible'));
+    var heading = row.querySelector('h4');
+    if (heading) heading.setAttribute('aria-expanded', hasActive ? 'true' : String(!row.classList.contains('is-collapsed')));
+  });
 }
 
 function clearActiveDeck() {
@@ -253,10 +291,196 @@ function clearActiveDeck() {
   updateActiveDeckLinks('');
 }
 
-function renderDeckControls(deckId) {
-  var index = getDeckIndex(deckId);
-  if (index < 0) return '';
-  return '<div class="deck-nav"><button type="button" data-deck-nav="prev">Prev</button><span>' + String(index + 1).padStart(2, '0') + ' / ' + String(deckOrder.length).padStart(2, '0') + '</span><button type="button" data-deck-nav="next">Next</button></div>';
+function setupMegaMenuCollapsibleGroups() {
+  if (!megaRows || !megaRows.length) return;
+  megaRows.forEach(function (row, index) {
+    var heading = row.querySelector('h4');
+    if (!heading) return;
+    row.classList.add('is-collapsible');
+    heading.setAttribute('role', 'button');
+    heading.setAttribute('tabindex', '0');
+    heading.setAttribute('aria-controls', 'mega-row-' + index);
+    heading.setAttribute('aria-expanded', 'true');
+    row.id = 'mega-row-' + index;
+
+    heading.addEventListener('click', function () {
+      row.classList.toggle('is-collapsed');
+      heading.setAttribute('aria-expanded', String(!row.classList.contains('is-collapsed')));
+    });
+
+    heading.addEventListener('keydown', function (event) {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      row.classList.toggle('is-collapsed');
+      heading.setAttribute('aria-expanded', String(!row.classList.contains('is-collapsed')));
+    });
+  });
+}
+
+function getDeckGroup(deckId) {
+  var trigger = document.querySelector('.deck-link[data-deck="' + deckId + '"]');
+  var row = trigger ? trigger.closest('.mega-row') : null;
+  var buttons = row ? Array.prototype.slice.call(row.querySelectorAll('.deck-link')) : (trigger ? [trigger] : []);
+  var heading = row && row.querySelector('h4') ? row.querySelector('h4').textContent.trim() : (deckData[deckId] ? deckData[deckId][0] : 'Investor Room');
+  var ids = buttons.map(function (button) {
+    return button.getAttribute('data-deck');
+  }).filter(Boolean);
+
+  if (!ids.length && deckData[deckId]) ids = [deckId];
+
+  return {
+    heading: heading,
+    ids: ids,
+    selectedIndex: Math.max(ids.indexOf(deckId), 0)
+  };
+}
+
+function renderDeckVisualMarkup(deckId, index, groupHeading) {
+  if (groupHeading !== 'WHO WE ARE') {
+    return '<div class="deck-visual-frame">' +
+      '<i></i><i></i><i></i>' +
+    '</div>';
+  }
+
+  if (deckId === 'built-from-field-experience') {
+    return '<div class="deck-visual-frame who-visual-grid">' +
+      '<figure class="who-photo who-photo-a"><video class="who-media" autoplay muted loop playsinline><source src="assets/videos/founder.mp4" type="video/mp4"></video></figure>' +
+      '<figure class="who-photo who-photo-b"><video class="who-media" autoplay muted loop playsinline><source src="assets/videos/hero.mp4" type="video/mp4"></video></figure>' +
+      '<figure class="who-photo who-photo-c"><video class="who-media" autoplay muted loop playsinline><source src="assets/videos/access.mp4" type="video/mp4"></video></figure>' +
+      '<figure class="who-photo who-photo-d"><video class="who-media" autoplay muted loop playsinline><source src="assets/videos/founder.mp4" type="video/mp4"></video></figure>' +
+    '</div>';
+  }
+
+  if (deckId === 'mission-core') {
+    return '<div class="deck-visual-frame who-visual-mission">' +
+      '<div class="who-mission-title">See. Understand. Coordinate. Act.</div>' +
+      '<div class="who-mission-grid">' +
+        '<span><b>SEE</b><em>Live situational awareness</em></span>' +
+        '<span><b>UNDERSTAND</b><em>Spatial mission context</em></span>' +
+        '<span><b>COORDINATE</b><em>Team-level mapping</em></span>' +
+        '<span><b>ACT</b><em>Operator-guided execution</em></span>' +
+      '</div>' +
+    '</div>';
+  }
+
+  return '<div class="deck-visual-frame who-visual-hero">' +
+    '<video class="who-media who-hero-video" autoplay muted loop playsinline><source src="assets/videos/hero.mp4" type="video/mp4"></video>' +
+    '<div class="who-hero-meta"><span>Autonomous Layer</span><em>Mission intelligence / team coordination</em></div>' +
+  '</div>';
+}
+
+function renderDeckChapter(deckId) {
+  var group = getDeckGroup(deckId);
+  if (group.heading === 'WHO WE ARE') {
+    return '<section class="who-page-layout">' +
+      '<header class="who-header">' +
+        '<div class="who-brand"><div class="who-mark"></div><span>KUBECA</span></div>' +
+        '<div class="who-section-label">WHO WE ARE<span></span></div>' +
+      '</header>' +
+      '<section class="who-hero">' +
+        '<div class="who-hero-text">' +
+          '<h2>AUTONOMOUS<br>AERIAL INTELLIGENCE<br>FOR COMPLEX<br>ENVIRONMENTS</h2>' +
+          '<div class="who-blue-line"></div>' +
+          '<p>KUBECA builds intelligent multi-drone systems for environments where remote control, GPS dependency, and human-led reconnaissance reach their limits.</p>' +
+        '</div>' +
+        '<div class="who-hero-image"><video autoplay muted loop playsinline><source src="assets/videos/hero.mp4" type="video/mp4"></video></div>' +
+      '</section>' +
+      '<section class="who-two-column">' +
+        '<article class="who-text-block">' +
+          '<p class="who-eyebrow">FOUNDER THESIS</p><div class="who-small-line"></div>' +
+          '<h3>THE NEXT ADVANTAGE IS NOT THE DRONE.<br>IT IS THE INTELLIGENCE INSIDE THE SYSTEM.</h3>' +
+          '<div class="who-blue-line who-blue-line-small"></div>' +
+          '<p>As aerial platforms become cheaper and more numerous, the decisive layer shifts from hardware to software: autonomy, spatial understanding, resilient navigation, and coordinated decision-making.</p>' +
+        '</article>' +
+        '<article class="who-text-block who-text-block-right">' +
+          '<p class="who-eyebrow">COMPANY VISION</p><div class="who-small-line"></div>' +
+          '<h3>THE AERIAL INTELLIGENCE LAYER<br>FOR AUTONOMOUS OPERATIONS.</h3>' +
+          '<p>KUBECA aims to turn drones from remote-controlled tools into coordinated mission assets - able to map, relay, understand, and operate as a distributed system across open and enclosed terrain.</p>' +
+          '<p class="who-eyebrow who-eyebrow-diagram">SYSTEM LOGIC</p>' +
+          '<div class="who-system-diagram">' +
+            '<div class="who-diagram-row">OPERATOR</div><div class="who-arrow">↓</div>' +
+            '<div class="who-diagram-row who-diagram-active">MISSION INTELLIGENCE LAYER</div><div class="who-arrow">↓</div>' +
+            '<div class="who-diagram-row">SWARM / CARRIER / MICRO-DRONES</div><div class="who-arrow">↓</div>' +
+            '<div class="who-diagram-row">RESILIENT NAVIGATION / SHARED MAP / INDOOR RECON / MISSION INSIGHT</div>' +
+          '</div>' +
+        '</article>' +
+      '</section>' +
+      '<section class="who-mission">' +
+        '<div><p class="who-eyebrow">MISSION</p><div class="who-small-line"></div></div>' +
+        '<div class="who-mission-content"><h3>REDUCE HUMAN EXPOSURE. INCREASE SITUATIONAL CONTROL.</h3>' +
+          '<div class="who-mission-grid">' +
+            '<div class="who-mission-item"><div class="who-icon"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-see.svg" alt="" aria-hidden="true"></div><h4>SEE</h4><p>Real-time intelligence from complex terrain.</p></div>' +
+            '<div class="who-mission-item"><div class="who-icon"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-map.svg" alt="" aria-hidden="true"></div><h4>MAP</h4><p>Shared spatial awareness across the swarm.</p></div>' +
+            '<div class="who-mission-item"><div class="who-icon"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-coordinate.svg" alt="" aria-hidden="true"></div><h4>RELAY</h4><p>Communication through distributed aerial nodes.</p></div>' +
+            '<div class="who-mission-item"><div class="who-icon"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-act.svg" alt="" aria-hidden="true"></div><h4>DECIDE</h4><p>Operator-guided mission control.</p></div>' +
+          '</div>' +
+        '</div>' +
+      '</section>' +
+      '<section class="who-proof">' +
+        '<p class="who-eyebrow">GROUND TRUTH FROM THE FIELD</p><div class="who-small-line"></div>' +
+        '<h3 class="who-proof-title">WE HAVE ALREADY BUILT IN THIS REALITY.</h3>' +
+        '<p class="who-proof-copy">KUBECA is shaped by practical drone development, field testing, operator feedback, and exposure to modern defense requirements.</p>' +
+        '<div class="who-proof-grid">' +
+          '<article><video autoplay muted loop playsinline><source src="assets/videos/founder.mp4" type="video/mp4"></video><div><h4>PLATFORM DEVELOPMENT</h4><p>Drone systems developed and tested from concept to flight.</p></div></article>' +
+          '<article><video autoplay muted loop playsinline><source src="assets/videos/access.mp4" type="video/mp4"></video><div><h4>FIELD CONDITIONS</h4><p>Built around signal loss, terrain complexity, pilot overload, cost pressure, and mission stress.</p></div></article>' +
+          '<article><video autoplay muted loop playsinline><source src="assets/videos/hero.mp4" type="video/mp4"></video><div><h4>OPERATOR FEEDBACK</h4><p>Continuous exchange with users facing real operational constraints.</p></div></article>' +
+          '<article><video autoplay muted loop playsinline><source src="assets/videos/founder.mp4" type="video/mp4"></video><div><h4>DEFENSE CONTEXT</h4><p>Exposure to professional military environments and modern drone-warfare requirements.</p></div></article>' +
+        '</div>' +
+      '</section>' +
+    '</section>';
+  }
+
+  if (group.heading === 'WHY THIS MATTERS') {
+    var bottleneck = deckData['autonomy-bottleneck'];
+    var environments = deckData['dangerous-environments'];
+    var exposure = deckData['human-exposure'];
+    return '<section class="why-page-layout">' +
+      '<header class="why-header">' +
+        '<div class="why-brand"><div class="why-mark"></div><span>KUBECA</span></div>' +
+        '<div class="why-section-label">02 / WHY THIS MATTERS<span></span></div>' +
+      '</header>' +
+      '<section class="why-hero">' +
+        '<h2>AUTONOMY BREAKS<br>WHERE MISSIONS<br>BECOME COMPLEX.</h2>' +
+        '<div class="why-blue-line"></div>' +
+        '<p>Current drone systems still depend on one fragile loop: stable signals, manual piloting, and human interpretation.</p>' +
+      '</section>' +
+      '<section class="why-flow">' +
+        '<h3>THE FRAGILE CONTROL LOOP</h3>' +
+        '<div class="why-flow-art"><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca_fragile_control_loop_grey.svg" alt="Fragile control loop diagram"></div>' +
+      '</section>' +
+      '<section class="why-columns">' +
+        '<article><small>01</small><h4>' + bottleneck[1].toUpperCase() + '</h4><p>' + bottleneck[2] + '</p></article>' +
+        '<article><small>02</small><h4>SIGNAL & CONTROL FRAGILITY</h4><p>' + environments[2] + '</p></article>' +
+        '<article><small>03</small><h4>HUMAN EXPOSURE</h4><p>' + exposure[2] + '</p></article>' +
+      '</section>' +
+      '<section class="why-bottom">' +
+        '<small>BOTTOM LINE</small>' +
+        '<p>THE PROBLEM IS NOT ONLY BETTER DRONES.<br><span>THE PROBLEM IS MISSION INTELLIGENCE UNDER REAL-WORLD CONSTRAINTS.</span></p>' +
+      '</section>' +
+    '</section>';
+  }
+
+  var sectionMarkup = group.ids.map(function (id, index) {
+    var card = deckData[id];
+    if (!card) return '';
+    return '<section class="deck-chapter-section' + (id === deckId ? ' is-active' : '') + '" data-deck-section="' + id + '">' +
+      '<div class="deck-chapter-inner deck-layout-' + (index % 2 === 0 ? 'split' : 'offset') + '">' +
+        '<div class="deck-chapter-copy">' +
+          '<div class="deck-chapter-meta"><span>' + String(index + 1).padStart(2, '0') + '</span><em>' + group.heading + '</em></div>' +
+          '<h3>' + card[1] + '</h3>' +
+          '<p>' + card[2] + '</p>' +
+          '<small>' + card[3] + '</small>' +
+        '</div>' +
+        '<div class="deck-chapter-visual deck-visual-' + ((index % 3) + 1) + '">' +
+          renderDeckVisualMarkup(id, index, group.heading) +
+        '</div>' +
+      '</div>' +
+    '</section>';
+  }).join('');
+
+  return '<div class="deck-chapter-shell">' +
+    '<div class="deck-chapter-stack">' + sectionMarkup + '</div>' +
+  '</div>';
 }
 
 function goToAdjacentDeck(direction) {
@@ -264,8 +488,28 @@ function goToAdjacentDeck(direction) {
   if (nextDeckId) openDeckPanel(nextDeckId);
 }
 
+function setPanelScrollLock(isLocked) {
+  if (isLocked) {
+    if (!document.body.classList.contains('panel-scroll-lock')) {
+      panelLockedScrollY = window.scrollY || window.pageYOffset || 0;
+      document.body.style.top = '-' + panelLockedScrollY + 'px';
+    }
+    document.documentElement.classList.add('panel-scroll-lock');
+    document.body.classList.add('panel-scroll-lock');
+    return;
+  }
+
+  if (document.body.classList.contains('panel-scroll-lock')) {
+    document.documentElement.classList.remove('panel-scroll-lock');
+    document.body.classList.remove('panel-scroll-lock');
+    document.body.style.top = '';
+    window.scrollTo(0, panelLockedScrollY);
+  }
+}
+
 function openDeckPanel(deckId) {
   var card = deckData[deckId] || deckData['founder-thesis'];
+  var group = getDeckGroup(deckId);
   activeDeckId = deckData[deckId] ? deckId : 'founder-thesis';
   updateActiveDeckLinks(activeDeckId);
 
@@ -286,10 +530,10 @@ function openDeckPanel(deckId) {
   closeDeckPanel();
   detailPanel.classList.remove('product-detail');
   detailPanel.classList.add('deck-detail');
-  detailEyebrow.textContent = card[0];
-  detailTitle.textContent = card[1];
+  detailEyebrow.textContent = '';
+  detailTitle.textContent = group.heading;
   detailIntro.textContent = card[2];
-  detailGrid.innerHTML = '<div class="deck-card-meta"><span>' + card[0] + '</span><strong>' + card[3] + '</strong></div>' + renderDeckControls(activeDeckId);
+  detailGrid.innerHTML = renderDeckChapter(activeDeckId);
 
   if (window.matchMedia('(min-width: 761px)').matches) {
     openMenu();
@@ -304,7 +548,18 @@ function openDeckPanel(deckId) {
   if (detailPanel) {
     detailPanel.classList.add('open');
     detailPanel.setAttribute('aria-hidden', 'false');
+    detailPanel.scrollTop = 0;
   }
+  setPanelScrollLock(true);
+  window.requestAnimationFrame(function () {
+    var selectedSection = detailGrid ? detailGrid.querySelector('[data-deck-section="' + activeDeckId + '"]') : null;
+    if (selectedSection && detailPanel) {
+      detailPanel.scrollTo({
+        top: Math.max(selectedSection.offsetTop - 180, 0),
+        behavior: 'smooth'
+      });
+    }
+  });
 }
 
 function closeDeckPanel() {
@@ -335,6 +590,7 @@ function openDetailPanel(detailId) {
       detailPanel.classList.add('open');
       detailPanel.setAttribute('aria-hidden', 'false');
     }
+    setPanelScrollLock(true);
     return;
   }
 
@@ -368,6 +624,7 @@ function openDetailPanel(detailId) {
     detailPanel.classList.add('open');
     detailPanel.setAttribute('aria-hidden', 'false');
   }
+  setPanelScrollLock(true);
 }
 
 function closeDetailPanel() {
@@ -377,6 +634,7 @@ function closeDetailPanel() {
   detailPanel.classList.remove('deck-detail');
   detailPanel.classList.remove('product-detail');
   detailPanel.setAttribute('aria-hidden', 'true');
+  setPanelScrollLock(false);
   clearActiveDeck();
 }
 
@@ -425,6 +683,7 @@ function closeStoryInlineDetail() {
 if (toggle) toggle.addEventListener('click', toggleMenu);
 if (megaMenuOpen) megaMenuOpen.addEventListener('click', toggleMenu);
 if (menuClose) menuClose.addEventListener('click', closeMenu);
+if (megaGrid) megaGrid.addEventListener('scroll', updateMegaGridScrollState, { passive: true });
 if (deckPanelClose) deckPanelClose.addEventListener('click', closeDeckPanel);
 if (detailClose) detailClose.addEventListener('click', closeDetailPanel);
 if (panelBackdrop) panelBackdrop.addEventListener('click', closeAllPanels);
@@ -467,28 +726,11 @@ progressLinks.forEach(function (link) {
   });
 });
 
-if (detailGrid) {
-  detailGrid.addEventListener('click', function (event) {
-    var navButton = event.target.closest('[data-deck-nav]');
-    if (!navButton) return;
-    goToAdjacentDeck(navButton.getAttribute('data-deck-nav') === 'next' ? 1 : -1);
-  });
-}
-
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
     closeProgressBoard();
     closeStoryInlineDetail();
     closeAllPanels();
-  }
-  if (!activeDeckId || !detailPanel || !detailPanel.classList.contains('open')) return;
-  if (event.key === 'ArrowRight') {
-    event.preventDefault();
-    goToAdjacentDeck(1);
-  }
-  if (event.key === 'ArrowLeft') {
-    event.preventDefault();
-    goToAdjacentDeck(-1);
   }
 });
 
@@ -497,6 +739,8 @@ deckLinks.forEach(function (link) {
     openDeckPanel(link.getAttribute('data-deck'));
   });
 });
+
+setupMegaMenuCollapsibleGroups();
 
 var desktopPanelQuery = window.matchMedia('(min-width: 761px)');
 function handlePanelViewportChange(event) {
@@ -510,6 +754,31 @@ if (desktopPanelQuery.addEventListener) {
   desktopPanelQuery.addEventListener('change', handlePanelViewportChange);
 } else if (desktopPanelQuery.addListener) {
   desktopPanelQuery.addListener(handlePanelViewportChange);
+}
+
+if (detailPanel) {
+  detailPanel.addEventListener('scroll', function () {
+    if (!detailPanel.classList.contains('deck-detail') || !detailPanel.classList.contains('open') || !detailGrid) return;
+    var sections = Array.prototype.slice.call(detailGrid.querySelectorAll('[data-deck-section]'));
+    if (!sections.length) return;
+
+    var activeSection = sections[0];
+    var threshold = 220;
+
+    sections.forEach(function (section) {
+      if (section.offsetTop - detailPanel.scrollTop <= threshold) activeSection = section;
+    });
+
+    var nextDeckId = activeSection.getAttribute('data-deck-section');
+    if (!nextDeckId || nextDeckId === activeDeckId) return;
+
+    activeDeckId = nextDeckId;
+    updateActiveDeckLinks(activeDeckId);
+    detailGrid.querySelectorAll('[data-deck-section]').forEach(function (node) {
+      var isActive = node.getAttribute('data-deck-section') === nextDeckId;
+      node.classList.toggle('is-active', isActive);
+    });
+  }, { passive: true });
 }
 
 function setActiveStoryScene(scene, force) {
@@ -585,6 +854,7 @@ setActiveStoryScene(scenes[0], true);
 updateStoryPin();
 window.addEventListener('scroll', requestStoryUpdate, { passive: true });
 window.addEventListener('resize', requestStoryUpdate);
+window.addEventListener('resize', updateMegaGridScrollState);
 renderStoryInlineDetail();
 
 if (quoteContent) {

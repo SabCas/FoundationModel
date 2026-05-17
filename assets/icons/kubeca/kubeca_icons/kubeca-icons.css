@@ -1,0 +1,10 @@
+.kubeca-icon {
+  width: 54px;
+  height: 54px;
+  color: #080b0f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.kubeca-icon.small { width: 28px; height: 28px; }
+.kubeca-icon.blue { color: #1167ff; }
+.kubeca-icon.muted { color: #6b7280; }
