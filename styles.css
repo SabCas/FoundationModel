@@ -2708,3 +2708,88 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   height:78px !important;
   padding:16px !important;
 }
+
+/* WHO WE ARE hero camera motion */
+.who-hero-image{
+  overflow:hidden !important;
+  background:#f7f7f7 !important;
+}
+
+.who-hero-zoom{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  transform:none !important;
+  transform-origin:center center;
+  animation:none !important;
+  filter:grayscale(.05) contrast(1.03) brightness(1.04);
+  will-change:auto;
+}
+
+@keyframes kubecaWhoHeroCameraMove{
+  0%{
+    transform:scale(1) translate3d(0,0,0);
+  }
+
+  42%{
+    transform:scale(1.035) translate3d(-1.2%,.8%,0);
+  }
+
+  72%{
+    transform:scale(1.06) translate3d(.9%,-.7%,0);
+  }
+
+  100%{
+    transform:scale(1.085) translate3d(-.8%,-1.2%,0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .who-hero-zoom{
+    animation:none;
+    transform:none;
+  }
+}
+
+.who-hero-image{
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+
+.chapter-page-who .who-hero{
+  margin-left:calc(clamp(34px,4.6vw,72px) * -1) !important;
+  margin-right:calc(clamp(34px,4.6vw,72px) * -1) !important;
+  padding-left:clamp(34px,4.6vw,72px) !important;
+}
+
+/* Final deck edge alignment: let chapter pages own their padding so image
+   heroes can bleed cleanly to the scroll/menu edge. */
+.deck-detail .detail-content{
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+
+.deck-detail .chapter-page{
+  min-height:100% !important;
+}
+
+.deck-detail .chapter-page-who{
+  padding-right:0 !important;
+}
+
+.deck-detail .chapter-page-who .who-hero{
+  margin-right:0 !important;
+}
+
+.deck-detail .chapter-page-who .who-hero-image{
+  right:0 !important;
+}
+
+.deck-detail .chapter-page-who .who-two-column,
+.deck-detail .chapter-page-who .who-mission,
+.deck-detail .chapter-page-who .who-proof,
+.deck-detail .chapter-page-who .chapter-footer{
+  margin-right:clamp(34px,4.6vw,72px) !important;
+}

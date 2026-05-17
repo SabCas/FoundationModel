@@ -441,7 +441,7 @@ function renderDeckChapter(deckId) {
           '<div class="who-blue-line"></div>' +
           '<p>KUBECA builds mission intelligence for autonomous aerial systems - connecting long-range platforms, quadcopters, micro-drones, shared maps, and human-in-the-loop control into one coordinated operational layer.</p>' +
         '</div>' +
-        '<div class="who-hero-image"><video autoplay muted loop playsinline><source src="assets/videos/hero.mp4" type="video/mp4"></video></div>' +
+        '<div class="who-hero-image"><img class="who-hero-zoom" src="assets/images/kubeca/kubecaquadcopter.png" alt="KUBECA quadcopter systems in hangar"></div>' +
       '</section>' +
       '<section class="who-two-column">' +
         '<article class="who-text-block">' +
