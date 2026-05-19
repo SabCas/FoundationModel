@@ -247,7 +247,7 @@ function renderDeckChapter(deckId) {
   }
 
   if (group.heading === 'WHY NOW') {
-    return '<section class="chapter-page chapter-page-now now-page-layout">' +
+    return '<section class="chapter-page chapter-page-now now-page-layout now-reference-layout">' +
       renderChapterHeader(group.heading) +
       renderImageChapterHero(group.heading, {
         heroClass: 'now-hero',
@@ -257,12 +257,12 @@ function renderDeckChapter(deckId) {
         ruleClass: 'now-small-line',
         title: 'AERIAL AUTONOMY<br>IS MOVING FROM<br>TOOLS TO SYSTEMS.',
         paragraphs: [
-          'Drone operations are scaling while environments become more contested, complex, and infrastructure-dependent.',
-          'The shift is no longer about better individual drones.',
-          'It is about connecting range, local intelligence, resilient navigation, and operators into one coordinated system.'
+          'Drone operations are scaling beyond single-asset control. More platforms are entering the field, and missions are becoming longer, faster, more distributed, and more dependent on software-defined coordination.',
+          'The shift is no longer about improving individual drones.',
+          'It is about turning autonomy into a system layer.'
         ],
-        imageSrc: 'assets/images/kubeca/commando.png',
-        imageAlt: 'KUBECA mission control operations room'
+        imageSrc: 'assets/images/kubeca/why-now/tools-to-systems-hero.png',
+        imageAlt: 'KUBECA aerial autonomy moving from tools to systems'
       }) +
       '<section class="now-shift">' +
         '<h3>THE SHIFT: FROM FRAGILE, SINGLE-ASSET OPERATIONS TO RESILIENT, SYSTEM-LEVEL AUTONOMY</h3>' +
@@ -280,9 +280,9 @@ function renderDeckChapter(deckId) {
       '<section class="now-drivers">' +
         '<h3>THREE TIMING DRIVERS</h3>' +
         '<div class="now-driver-grid">' +
-          '<article><strong>01</strong><img src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><h4>DRONE SCALE IS<br>ACCELERATING</h4><p>More aerial assets are entering operations. Coordination is becoming the bottleneck.</p></article>' +
-          '<article><strong>02</strong><img src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"><h4>INFRASTRUCTURE IS<br>LESS RELIABLE</h4><p>GPS, RF, terrain, buildings, and EW degrade mission continuity.</p></article>' +
-          '<article><strong>03</strong><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"><h4>MISSIONS ARE<br>BECOMING MULTI-LAYERED</h4><p>Open terrain, enclosed spaces, long range, and local mapping must work together.</p></article>' +
+          '<article><strong>01</strong><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure><img class="now-driver-icon" src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><h4>DRONE SCALE IS<br>ACCELERATING</h4><p>The number of aerial assets is increasing. Coordination, not hardware, becomes the bottleneck.</p></article>' +
+          '<article><strong>02</strong><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure><img class="now-driver-icon" src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"><h4>MISSIONS ARE OUTGROWING<br>DIRECT CONTROL</h4><p>Longer range, enclosed spaces, degraded links, and faster decisions make manual single-drone operation insufficient.</p></article>' +
+          '<article><strong>03</strong><figure><img src="assets/images/kubeca/homepage/swarm.png" alt="" aria-hidden="true"></figure><img class="now-driver-icon" src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"><h4>AUTONOMY IS BECOMING<br>A SYSTEM LAYER</h4><p>The advantage shifts from individual platforms to the software layer that connects assets, maps, navigation, and operators.</p></article>' +
         '</div>' +
       '</section>' +
       renderChapterBottom('now', 'BOTTOM LINE', 'THE TIMING IS NOT ABOUT DRONES ALONE.', 'IT IS ABOUT AUTONOMY BECOMING A SYSTEM LAYER.') +

@@ -5541,7 +5541,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 
 .deck-detail .why-ref-bottom{
   display:grid !important;
-  grid-template-columns:minmax(0,1fr) minmax(260px,.42fr) !important;
+  grid-template-columns:minmax(0,1fr) !important;
   gap:clamp(36px,5vw,76px) !important;
   align-items:center !important;
   margin:0 calc(var(--ir-gutter) * -1) !important;
@@ -5630,4 +5630,852 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   .deck-detail .why-ref-result{
     align-items:flex-start !important;
   }
+}
+
+/* WHY NOW: tools-to-systems timing page */
+.deck-detail .now-reference-layout{
+  background:#fbfbfa !important;
+}
+
+.deck-detail .now-reference-layout .chapter-header{
+  margin-bottom:0 !important;
+  padding-bottom:clamp(20px,2.6vw,34px) !important;
+}
+
+.deck-detail .now-reference-layout .now-hero{
+  display:grid !important;
+  grid-template-columns:minmax(360px,.92fr) minmax(320px,.58fr) !important;
+  align-items:center !important;
+  min-height:clamp(600px,66vh,790px) !important;
+  margin:0 calc(var(--ir-gutter) * -1) clamp(50px,6vw,78px) !important;
+  padding:clamp(64px,7vw,104px) var(--ir-gutter) clamp(72px,8vw,116px) !important;
+  border:0 !important;
+  border-bottom:1px solid rgba(5,8,13,.1) !important;
+  background:#f7f7f5 !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-image{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  overflow:hidden !important;
+  background:#f7f7f5 !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-image img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  filter:grayscale(.05) contrast(1.02) brightness(1.08) !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-image:after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.88) 28%,rgba(255,255,255,.52) 54%,rgba(255,255,255,.35) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 48%,rgba(255,255,255,.9) 100%) !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-copy,
+.deck-detail .now-reference-layout .now-hero-side{
+  position:relative !important;
+  z-index:2 !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-copy{
+  grid-column:1 !important;
+  max-width:720px !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-copy h2{
+  margin:0 !important;
+  color:#05080d !important;
+  font-size:clamp(3.25rem,5.3vw,6.2rem) !important;
+  line-height:.96 !important;
+  font-weight:620 !important;
+  letter-spacing:-.055em !important;
+  text-transform:uppercase !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-copy .image-chapter-rule{
+  width:54px !important;
+  height:2px !important;
+  margin:clamp(30px,3.6vw,46px) 0 0 !important;
+  background:#05080d !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-side{
+  grid-column:2 !important;
+  grid-row:auto !important;
+  max-width:420px !important;
+  align-self:center !important;
+  padding:0 !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-side p{
+  display:block !important;
+  max-width:410px !important;
+  margin:0 0 clamp(20px,2.2vw,30px) !important;
+  color:#111820 !important;
+  font-size:clamp(.98rem,1.04vw,1.12rem) !important;
+  line-height:1.68 !important;
+  font-weight:430 !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-side p + p:before{
+  content:none !important;
+}
+
+.deck-detail .now-reference-layout .now-shift{
+  padding:0 0 clamp(50px,6vw,78px) !important;
+  border-bottom:0 !important;
+}
+
+.deck-detail .now-reference-layout .now-shift h3,
+.deck-detail .now-reference-layout .now-drivers h3{
+  display:flex !important;
+  align-items:center !important;
+  gap:18px !important;
+  margin:0 0 20px !important;
+  color:#05080d !important;
+  font-size:clamp(.78rem,.86vw,.94rem) !important;
+  line-height:1.2 !important;
+  font-weight:690 !important;
+  letter-spacing:.13em !important;
+  text-transform:uppercase !important;
+}
+
+.deck-detail .now-reference-layout .now-shift h3:before,
+.deck-detail .now-reference-layout .now-shift h3:after,
+.deck-detail .now-reference-layout .now-drivers h3:after{
+  content:"" !important;
+  height:1px !important;
+  background:rgba(5,8,13,.26) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift h3:before{
+  width:72px !important;
+  flex:0 0 72px !important;
+}
+
+.deck-detail .now-reference-layout .now-shift h3:after,
+.deck-detail .now-reference-layout .now-drivers h3:after{
+  flex:1 1 auto !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 88px minmax(0,1fr) !important;
+  gap:0 !important;
+  border:1px solid rgba(5,8,13,.13) !important;
+  background:rgba(255,255,255,.7) !important;
+  box-shadow:0 20px 80px rgba(5,8,13,.04) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-head{
+  display:flex !important;
+  align-items:center !important;
+  min-height:58px !important;
+  padding:0 clamp(24px,3vw,38px) !important;
+  background:#0a0d12 !important;
+  color:#fff !important;
+  border-radius:0 !important;
+  font-size:clamp(.82rem,.9vw,.98rem) !important;
+  line-height:1 !important;
+  font-weight:680 !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table > div:empty{
+  background:transparent !important;
+  border-bottom:1px solid rgba(5,8,13,.12) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table article{
+  display:flex !important;
+  align-items:center !important;
+  min-height:78px !important;
+  padding:0 clamp(24px,3vw,38px) !important;
+  background:rgba(255,255,255,.58) !important;
+  border-top:1px solid rgba(5,8,13,.1) !important;
+  gap:clamp(18px,2vw,28px) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table article:nth-of-type(even){
+  justify-content:space-between !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table article img{
+  flex:0 0 auto !important;
+  width:clamp(32px,3vw,46px) !important;
+  height:clamp(32px,3vw,46px) !important;
+  object-fit:contain !important;
+  filter:grayscale(1) contrast(1.2) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table article p{
+  margin:0 !important;
+  color:#111820 !important;
+  font-size:clamp(.95rem,1vw,1.06rem) !important;
+  line-height:1.35 !important;
+  font-weight:430 !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-arrow{
+  display:grid !important;
+  place-items:center !important;
+  min-height:78px !important;
+  border-top:1px solid rgba(5,8,13,.1) !important;
+  color:#05080d !important;
+  font-size:clamp(1.5rem,2vw,2rem) !important;
+}
+
+.deck-detail .now-reference-layout .now-drivers{
+  padding:0 0 clamp(52px,6vw,82px) !important;
+  border-bottom:0 !important;
+}
+
+.deck-detail .now-reference-layout .now-drivers h3{
+  margin-bottom:clamp(22px,2.8vw,34px) !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:clamp(18px,2vw,28px) !important;
+  margin:0 !important;
+  padding:0 !important;
+  border-bottom:0 !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid article{
+  position:relative !important;
+  min-height:420px !important;
+  padding:clamp(28px,3vw,40px) !important;
+  border:1px solid rgba(5,8,13,.12) !important;
+  background:#fff !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid strong{
+  display:block !important;
+  margin:0 !important;
+  color:#05080d !important;
+  font-size:clamp(1.14rem,1.35vw,1.45rem) !important;
+  line-height:1 !important;
+  font-weight:610 !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid strong:after{
+  content:"" !important;
+  display:block !important;
+  width:1px !important;
+  height:36px !important;
+  margin:14px 0 20px !important;
+  background:#05080d !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid figure{
+  order:2 !important;
+  margin:-78px 0 clamp(24px,2.8vw,34px) clamp(56px,6vw,76px) !important;
+  aspect-ratio:1.88 / 1 !important;
+  overflow:hidden !important;
+  background:#eef0ef !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid figure img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  filter:grayscale(1) contrast(1.04) brightness(1.06) !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid .now-driver-icon{
+  order:5 !important;
+  width:42px !important;
+  height:42px !important;
+  margin-top:auto !important;
+  object-fit:contain !important;
+  filter:grayscale(1) contrast(1.25) !important;
+  opacity:.9 !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid h4{
+  order:3 !important;
+  margin:0 !important;
+  color:#05080d !important;
+  font-size:clamp(1.05rem,1.2vw,1.32rem) !important;
+  line-height:1.18 !important;
+  font-weight:660 !important;
+  letter-spacing:.005em !important;
+  text-transform:uppercase !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid h4:after{
+  content:"" !important;
+  display:block !important;
+  width:34px !important;
+  height:1px !important;
+  margin:18px 0 !important;
+  background:#05080d !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid p{
+  order:4 !important;
+  margin:0 0 26px !important;
+  color:#1f2933 !important;
+  font-size:clamp(.9rem,.97vw,1.04rem) !important;
+  line-height:1.62 !important;
+}
+
+.deck-detail .now-reference-layout .chapter-bottom{
+  margin:0 calc(var(--ir-gutter) * -1) !important;
+  padding:clamp(46px,5.5vw,76px) var(--ir-gutter) !important;
+  background:
+    radial-gradient(circle at 84% 40%,rgba(255,255,255,.08),transparent 28%),
+    linear-gradient(135deg,#080c11,#10151b) !important;
+  border:0 !important;
+  color:#fff !important;
+}
+
+.deck-detail .now-reference-layout .chapter-bottom small,
+.deck-detail .now-reference-layout .chapter-bottom p{
+  color:#fff !important;
+}
+
+.deck-detail .now-reference-layout .chapter-bottom small:after{
+  background:#fff !important;
+}
+
+.deck-detail .now-reference-layout .chapter-bottom p span{
+  color:rgba(255,255,255,.68) !important;
+}
+
+@media(max-width:1080px){
+  .deck-detail .now-reference-layout .now-hero,
+  .deck-detail .now-reference-layout .now-shift-table,
+  .deck-detail .now-reference-layout .now-driver-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .deck-detail .now-reference-layout .now-hero-side{
+    grid-column:1 !important;
+  }
+
+  .deck-detail .now-reference-layout .now-shift-arrow{
+    min-height:46px !important;
+  }
+
+  .deck-detail .now-reference-layout .now-driver-grid figure{
+    margin:20px 0 26px !important;
+  }
+}
+
+/* Investor Room aerospace system
+   Final shared layer: quieter typography, consistent rhythm, thinner lines. */
+.detail-panel.deck-detail{
+  --ir-bg:#fbfbfa;
+  --ir-ink:#05080d;
+  --ir-muted:rgba(5,8,13,.66);
+  --ir-soft:#f4f4f2;
+  --ir-line:rgba(5,8,13,.115);
+  --ir-line-strong:rgba(5,8,13,.2);
+  --ir-deep:#070b10;
+  --ir-gutter:clamp(42px,5vw,82px);
+  background:var(--ir-bg) !important;
+}
+
+.deck-detail .chapter-page{
+  background:var(--ir-bg) !important;
+  color:var(--ir-ink) !important;
+  font-family:"Helvetica Neue","Aptos","Inter",Arial,sans-serif !important;
+  letter-spacing:-.01em !important;
+}
+
+.deck-detail .chapter-page > .chapter-header{
+  margin-bottom:clamp(44px,5.6vw,76px) !important;
+}
+
+.deck-detail .chapter-section-label{
+  font-size:clamp(.64rem,.7vw,.74rem) !important;
+  font-weight:560 !important;
+  letter-spacing:.24em !important;
+}
+
+.deck-detail .chapter-section-label span{
+  width:44px !important;
+  opacity:.82 !important;
+}
+
+.deck-detail .why-ref-title h2,
+.deck-detail .now-reference-layout .now-hero-copy h2,
+.deck-detail .image-chapter-copy h2,
+.deck-detail .standard-hero h2{
+  font-size:clamp(2.85rem,4.55vw,5.45rem) !important;
+  line-height:1.02 !important;
+  font-weight:420 !important;
+  letter-spacing:-.062em !important;
+}
+
+.deck-detail .build-hero-copy h2{
+  font-size:clamp(2.75rem,4.4vw,5.2rem) !important;
+  font-weight:420 !important;
+}
+
+.deck-detail .why-ref-copy p,
+.deck-detail .now-reference-layout .now-hero-side p,
+.deck-detail .image-chapter-side p,
+.deck-detail .standard-hero p,
+.deck-detail .standard-card p,
+.deck-detail .build-layer p,
+.deck-detail .build-layer-core p{
+  color:var(--ir-muted) !important;
+  font-size:clamp(.94rem,.98vw,1.06rem) !important;
+  line-height:1.72 !important;
+  font-weight:360 !important;
+  letter-spacing:-.005em !important;
+}
+
+.deck-detail .why-ref-copy strong{
+  font-weight:560 !important;
+}
+
+.deck-detail .why-ref-rule,
+.deck-detail .now-reference-layout .now-hero-copy .image-chapter-rule,
+.deck-detail .image-chapter-rule,
+.deck-detail .standard-rule{
+  width:46px !important;
+  height:1px !important;
+  background:var(--ir-ink) !important;
+}
+
+.deck-detail .why-ref-model > h3,
+.deck-detail .now-reference-layout .now-shift h3,
+.deck-detail .now-reference-layout .now-drivers h3,
+.deck-detail .standard-board > h3,
+.deck-detail .build-system > h3{
+  color:rgba(5,8,13,.78) !important;
+  font-size:clamp(.68rem,.74vw,.8rem) !important;
+  font-weight:560 !important;
+  letter-spacing:.18em !important;
+}
+
+.deck-detail .why-ref-model-grid article,
+.deck-detail .why-ref-issues article,
+.deck-detail .now-reference-layout .now-driver-grid article,
+.deck-detail .standard-card,
+.deck-detail .build-layer{
+  border-color:var(--ir-line) !important;
+  background:rgba(255,255,255,.74) !important;
+  box-shadow:none !important;
+}
+
+.deck-detail .why-ref-model-grid h4,
+.deck-detail .why-ref-issues h4,
+.deck-detail .now-reference-layout .now-driver-grid h4,
+.deck-detail .standard-card h3,
+.deck-detail .build-layer h3{
+  color:var(--ir-ink) !important;
+  font-size:clamp(.96rem,1.08vw,1.22rem) !important;
+  line-height:1.18 !important;
+  font-weight:520 !important;
+  letter-spacing:.01em !important;
+}
+
+.deck-detail .why-ref-index,
+.deck-detail .now-reference-layout .now-driver-grid strong,
+.deck-detail .build-layer > span,
+.deck-detail .standard-card small{
+  color:rgba(5,8,13,.55) !important;
+  font-weight:390 !important;
+  letter-spacing:-.035em !important;
+}
+
+.deck-detail .why-ref-result,
+.deck-detail .build-layer-core,
+.deck-detail .chapter-bottom,
+.deck-detail .why-ref-bottom,
+.deck-detail .now-reference-layout .chapter-bottom{
+  background:
+    radial-gradient(circle at 86% 28%,rgba(255,255,255,.075),transparent 24%),
+    linear-gradient(135deg,#070b10,#11161c) !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+.deck-detail .why-ref-result strong,
+.deck-detail .build-layer-core h3{
+  font-weight:520 !important;
+  letter-spacing:.1em !important;
+}
+
+.deck-detail .chapter-bottom p,
+.deck-detail .why-ref-bottom p,
+.deck-detail .now-reference-layout .chapter-bottom p{
+  max-width:1100px !important;
+  font-size:clamp(1.32rem,1.9vw,2.05rem) !important;
+  line-height:1.24 !important;
+  font-weight:390 !important;
+  letter-spacing:-.035em !important;
+}
+
+.deck-detail .chapter-bottom p span,
+.deck-detail .why-ref-bottom p span,
+.deck-detail .now-reference-layout .chapter-bottom p span{
+  font-weight:360 !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-head{
+  min-height:54px !important;
+  font-size:clamp(.72rem,.78vw,.86rem) !important;
+  font-weight:560 !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table,
+.deck-detail .standard-board-cards,
+.deck-detail .standard-board-proof,
+.deck-detail .standard-board-cta{
+  border-color:var(--ir-line) !important;
+  background:var(--ir-line) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table article{
+  min-height:74px !important;
+  background:rgba(255,255,255,.72) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table article p{
+  font-size:clamp(.9rem,.94vw,1rem) !important;
+  font-weight:360 !important;
+}
+
+.deck-detail .now-reference-layout .now-hero,
+.deck-detail .image-chapter-hero{
+  background:var(--ir-soft) !important;
+}
+
+.deck-detail .now-reference-layout .now-hero-image:after,
+.deck-detail .image-chapter-media:after{
+  background:
+    linear-gradient(90deg,rgba(251,251,250,.99) 0%,rgba(251,251,250,.9) 30%,rgba(251,251,250,.55) 58%,rgba(251,251,250,.22) 100%),
+    linear-gradient(180deg,rgba(251,251,250,.1),rgba(251,251,250,.02) 52%,rgba(251,251,250,.92) 100%) !important;
+}
+
+.deck-detail .chapter-footer{
+  padding-top:18px !important;
+}
+
+.deck-detail .chapter-footer em{
+  font-size:clamp(.62rem,.68vw,.72rem) !important;
+  font-weight:520 !important;
+  letter-spacing:.2em !important;
+}
+
+#megaMenu .mega-row h4{
+  font-weight:560 !important;
+  letter-spacing:.22em !important;
+}
+
+#megaMenu .mega-row button{
+  font-weight:330 !important;
+}
+
+@media(max-width:760px){
+  .deck-detail .why-ref-title h2,
+  .deck-detail .now-reference-layout .now-hero-copy h2,
+  .deck-detail .image-chapter-copy h2,
+  .deck-detail .standard-hero h2{
+    font-size:clamp(2.25rem,12vw,3.8rem) !important;
+    letter-spacing:-.055em !important;
+  }
+}
+
+/* Investor Room component unification
+   One component family for boxes, cards, tables, and system layers. */
+.detail-panel.deck-detail{
+  --ir-card-bg:rgba(255,255,255,.78);
+  --ir-card-line:rgba(5,8,13,.12);
+  --ir-card-line-strong:rgba(5,8,13,.18);
+  --ir-card-pad:clamp(28px,3.1vw,42px);
+  --ir-card-radius:0px;
+}
+
+.deck-detail .why-ref-model-grid article,
+.deck-detail .why-ref-issues article,
+.deck-detail .now-reference-layout .now-driver-grid article,
+.deck-detail .standard-card,
+.deck-detail .build-layer,
+.deck-detail .now-reference-layout .now-shift-table,
+.deck-detail .standard-board-cards,
+.deck-detail .standard-board-proof,
+.deck-detail .standard-board-cta,
+.deck-detail .cta-action-panel{
+  border:1px solid var(--ir-card-line) !important;
+  border-radius:var(--ir-card-radius) !important;
+  background:var(--ir-card-bg) !important;
+  box-shadow:none !important;
+}
+
+.deck-detail .why-ref-model-grid,
+.deck-detail .why-ref-issues,
+.deck-detail .now-reference-layout .now-driver-grid,
+.deck-detail .standard-board-cards,
+.deck-detail .standard-board-proof,
+.deck-detail .standard-board-cta{
+  gap:clamp(16px,1.7vw,24px) !important;
+  background:transparent !important;
+}
+
+.deck-detail .why-ref-model-grid article,
+.deck-detail .why-ref-issues article,
+.deck-detail .now-reference-layout .now-driver-grid article,
+.deck-detail .standard-card{
+  padding:var(--ir-card-pad) !important;
+}
+
+.deck-detail .why-ref-model-grid article,
+.deck-detail .why-ref-issues article,
+.deck-detail .now-reference-layout .now-driver-grid article,
+.deck-detail .standard-card,
+.deck-detail .build-layer{
+  transition:border-color .2s ease, background-color .2s ease, transform .2s ease !important;
+}
+
+.deck-detail .why-ref-model-grid article:hover,
+.deck-detail .why-ref-issues article:hover,
+.deck-detail .now-reference-layout .now-driver-grid article:hover,
+.deck-detail .standard-card:hover,
+.deck-detail .build-layer:hover{
+  border-color:var(--ir-card-line-strong) !important;
+  background:#fff !important;
+}
+
+.deck-detail .why-ref-model-grid img,
+.deck-detail .why-ref-issues span,
+.deck-detail .why-ref-issues span img,
+.deck-detail .now-reference-layout .now-driver-grid .now-driver-icon,
+.deck-detail .standard-card img,
+.deck-detail .build-core-capabilities img{
+  filter:grayscale(1) contrast(1.2) !important;
+  opacity:.86 !important;
+}
+
+.deck-detail .why-ref-model-grid img,
+.deck-detail .now-reference-layout .now-shift-table article img,
+.deck-detail .standard-card img,
+.deck-detail .build-core-capabilities img{
+  width:clamp(34px,3vw,46px) !important;
+  height:clamp(34px,3vw,46px) !important;
+  object-fit:contain !important;
+}
+
+.deck-detail .why-ref-issues figure,
+.deck-detail .now-reference-layout .now-driver-grid figure{
+  border:0 !important;
+  background:#eef0ee !important;
+}
+
+.deck-detail .why-ref-issues figure img,
+.deck-detail .now-reference-layout .now-driver-grid figure img{
+  filter:grayscale(1) contrast(1.03) brightness(1.06) !important;
+}
+
+.deck-detail .why-ref-index:after,
+.deck-detail .now-reference-layout .now-driver-grid strong:after,
+.deck-detail .why-ref-issues h4:after,
+.deck-detail .now-reference-layout .now-driver-grid h4:after{
+  background:rgba(5,8,13,.76) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table{
+  overflow:hidden !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 78px minmax(0,1fr) !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-head{
+  background:#080c11 !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table article,
+.deck-detail .now-reference-layout .now-shift-arrow,
+.deck-detail .now-reference-layout .now-shift-table > div:empty{
+  border-color:var(--ir-card-line) !important;
+}
+
+.deck-detail .build-layer{
+  padding:var(--ir-card-pad) !important;
+  margin:0 0 clamp(16px,1.7vw,24px) !important;
+}
+
+.deck-detail .build-layer-core{
+  border:0 !important;
+  background:linear-gradient(135deg,#070b10,#11161c) !important;
+  margin:clamp(18px,2vw,28px) 0 clamp(22px,2.4vw,32px) !important;
+}
+
+.deck-detail .chapter-bottom,
+.deck-detail .why-ref-bottom,
+.deck-detail .now-reference-layout .chapter-bottom{
+  margin-top:clamp(8px,1vw,14px) !important;
+}
+
+.deck-detail .standard-board-stack .standard-card{
+  border:1px solid var(--ir-card-line) !important;
+  margin-bottom:clamp(16px,1.7vw,24px) !important;
+}
+
+@media(max-width:1080px){
+  .deck-detail .why-ref-model-grid,
+  .deck-detail .why-ref-issues,
+  .deck-detail .now-reference-layout .now-driver-grid,
+  .deck-detail .standard-board-cards,
+  .deck-detail .standard-board-proof,
+  .deck-detail .standard-board-cta{
+    gap:16px !important;
+  }
+}
+
+/* Align WHY NOW components to WHY THIS MATTERS card language */
+.deck-detail .now-reference-layout .now-shift{
+  display:block !important;
+}
+
+.deck-detail .now-reference-layout .now-shift h3,
+.deck-detail .now-reference-layout .now-shift-table{
+  width:min(1180px,100%) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+.deck-detail .now-reference-layout .now-shift-table{
+  grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr) !important;
+}
+
+.deck-detail .now-reference-layout .now-drivers{
+  width:min(1180px,100%) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:clamp(16px,1.7vw,24px) !important;
+  align-items:stretch !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid article{
+  min-height:460px !important;
+  padding:var(--ir-card-pad) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  border:1px solid var(--ir-card-line) !important;
+  background:var(--ir-card-bg) !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid strong{
+  order:1 !important;
+  display:block !important;
+  margin:0 !important;
+  font-size:clamp(1.18rem,1.35vw,1.5rem) !important;
+  line-height:1 !important;
+  font-weight:390 !important;
+  letter-spacing:-.035em !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid strong:after{
+  content:"" !important;
+  display:block !important;
+  width:1px !important;
+  height:34px !important;
+  margin:14px 0 20px !important;
+  background:rgba(5,8,13,.76) !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid figure{
+  order:2 !important;
+  width:100% !important;
+  margin:0 0 clamp(26px,3vw,38px) !important;
+  aspect-ratio:1.78 / 1 !important;
+  overflow:hidden !important;
+  background:#eef0ee !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid figure img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid h4{
+  order:3 !important;
+  margin:0 !important;
+  font-size:clamp(.96rem,1.08vw,1.22rem) !important;
+  line-height:1.18 !important;
+  font-weight:520 !important;
+  letter-spacing:.01em !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid h4:after{
+  content:"" !important;
+  display:block !important;
+  width:34px !important;
+  height:1px !important;
+  margin:18px 0 !important;
+  background:rgba(5,8,13,.76) !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid p{
+  order:4 !important;
+  margin:0 !important;
+  font-size:clamp(.92rem,.98vw,1.04rem) !important;
+  line-height:1.66 !important;
+}
+
+.deck-detail .now-reference-layout .now-driver-grid .now-driver-icon{
+  order:5 !important;
+  display:grid !important;
+  place-items:center !important;
+  width:50px !important;
+  height:50px !important;
+  margin-top:auto !important;
+  padding:10px !important;
+  border:1px solid var(--ir-card-line) !important;
+  object-fit:contain !important;
+}
+
+@media(max-width:1080px){
+  .deck-detail .now-reference-layout .now-shift-table,
+  .deck-detail .now-reference-layout .now-driver-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* WHY NOW shift table centering fix */
+.deck-detail .now-reference-layout .now-shift{
+  width:100% !important;
+  max-width:none !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+
+.deck-detail .now-reference-layout .now-shift > h3,
+.deck-detail .now-reference-layout .now-shift > .now-shift-table{
+  width:min(1120px,100%) !important;
+  max-width:1120px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+.deck-detail .now-reference-layout .now-shift > .now-shift-table{
+  box-sizing:border-box !important;
+  justify-self:center !important;
 }
