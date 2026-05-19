@@ -3491,3 +3491,15 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 .deck-detail .chapter-page-build .chapter-section-label{
   color:#080b0f !important;
 }
+
+.deck-detail .chapter-page-generic{
+  padding-top:0 !important;
+}
+
+.deck-detail .chapter-page-generic .deck-chapter-shell{
+  padding:0 !important;
+}
+
+.deck-detail .chapter-page-generic .deck-chapter-section:first-child{
+  scroll-margin-top:96px !important;
+}
