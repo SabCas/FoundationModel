@@ -207,54 +207,42 @@ function renderDeckChapter(deckId) {
   }
 
   if (group.heading === 'WHY THIS MATTERS') {
-    return '<section class="chapter-page chapter-page-why why-page-layout">' +
+    return '<section class="chapter-page chapter-page-why why-reference-layout">' +
       renderChapterHeader(group.heading) +
-      '<section class="why-hero">' +
-        '<h2>THE MISSION BREAKS<br>WHEN DRONES CANNOT WORK TOGETHER.</h2>' +
-        '<div class="why-blue-line"></div>' +
-        '<p>Current drone operations still depend on isolated assets, manual coordination, fragile links, and fragmented mission data.</p>' +
-        '<p>Small drones can collect local intelligence, but they are limited by range, battery life, and connectivity. Long-range platforms can reach deeper areas, but they do not automatically create shared situational understanding.</p>' +
-        '<p>When missions become contested, enclosed, or fast-changing, the limitation is no longer the drone alone. It is the missing system around it.</p>' +
-      '</section>' +
-      '<section class="why-flow why-system-gap" aria-label="Disconnected drone mission model">' +
-        '<div class="why-gap-grid">' +
-          '<article>' +
-            '<img src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true">' +
-            '<small>01</small>' +
-            '<h3>LOCAL DRONES</h3>' +
-            '<p>Local intelligence, limited range.</p>' +
-          '</article>' +
-          '<article>' +
-            '<img src="' + iconPath('why-now/longer_mission_distance.svg') + '" alt="" aria-hidden="true">' +
-            '<small>02</small>' +
-            '<h3>LONG-RANGE PLATFORM</h3>' +
-            '<p>Reach, but no shared local picture.</p>' +
-          '</article>' +
-          '<article>' +
-            '<img src="' + iconPath('kubeca-menu-operator.svg') + '" alt="" aria-hidden="true">' +
-            '<small>03</small>' +
-            '<h3>OPERATOR</h3>' +
-            '<p>Manual coordination under pressure.</p>' +
-          '</article>' +
-          '<article>' +
-            '<img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true">' +
-            '<small>04</small>' +
-            '<h3>MAPS + VIDEO + SIGNALS</h3>' +
-            '<p>Fragmented context, fragile continuity.</p>' +
-          '</article>' +
+      '<section class="why-ref-intro">' +
+        '<div class="why-ref-title">' +
+          '<h2>THE MISSION<br>BREAKS WHEN<br>DRONES CANNOT<br>WORK TOGETHER.</h2>' +
+          '<div class="why-ref-rule"></div>' +
         '</div>' +
-        '<div class="why-gap-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
-        '<div class="why-gap-result">' +
-          '<span>Mission Continuity Breaks</span>' +
-          '<p>Assets, operators, maps, and decisions do not resolve into one mission system.</p>' +
+        '<div class="why-ref-copy">' +
+          '<p><strong>Current drone operations still depend on isolated assets, manual coordination, fragile links, and fragmented mission data.</strong></p>' +
+          '<p>Small drones are limited by reach, endurance, and connectivity. Long-range platforms extend distance, but do not automatically create shared mission understanding.</p>' +
+          '<p>When missions become contested, enclosed, or fast-changing, the limitation is no longer the drone alone. It is the missing system around it.</p>' +
         '</div>' +
       '</section>' +
-      '<section class="why-columns">' +
-        '<article><small>01</small><div class="why-issue-head"><h4>LIMITED<br>REACH</h4><img class="why-issue-icon" src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"></div><p>Small drones are useful close to the mission area, but battery life, payload, and signal range limit how far they can operate from the user.</p></article>' +
-        '<article><small>02</small><div class="why-issue-head"><h4>FRAGMENTED<br>CONTROL</h4><img class="why-issue-icon" src="' + iconPath('kubeca-coordinate.svg') + '" alt="" aria-hidden="true"></div><p>Drones, maps, video feeds, navigation, and operator decisions often remain separate. The mission depends on humans manually connecting the dots under pressure.</p></article>' +
-        '<article><small>03</small><div class="why-issue-head"><h4>BROKEN<br>CONTINUITY</h4><img class="why-issue-icon" src="' + iconPath('kubeca-menu-rf-link.svg') + '" alt="" aria-hidden="true"></div><p>GPS loss, RF disruption, terrain, buildings, and walls can break the link between assets, operators, and mission context.</p></article>' +
+      '<section class="why-ref-model" aria-label="Disconnected mission model">' +
+        '<h3>DISCONNECTED MISSION MODEL</h3>' +
+        '<div class="why-ref-model-grid">' +
+          '<article><img src="air-drone-icon.svg" alt="" aria-hidden="true"><h4>LOCAL DRONES</h4><p>Limited reach, payload, battery life, and signal range constrain the mission area.</p></article>' +
+          '<article><img src="plane-icon.svg" alt="" aria-hidden="true"><h4>LONG-RANGE PLATFORM</h4><p>Extended reach, but no automatic access to local detail or indoor spaces.</p></article>' +
+          '<article><img src="silhouette-male-icon.svg" alt="" aria-hidden="true"><h4>OPERATOR</h4><p>Manual coordination across multiple tools and feeds creates high cognitive load.</p></article>' +
+          '<article><img src="stack-icon.svg" alt="" aria-hidden="true"><h4>MISSION DATA</h4><p>Maps, video, signals, and telemetry remain fragmented across different systems.</p></article>' +
+        '</div>' +
+        '<div class="why-ref-connectors" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
+        '<div class="why-ref-result">' +
+          '<img src="' + iconPath('kubeca-menu-delayed-decisions.svg') + '" alt="" aria-hidden="true">' +
+          '<div><strong>MISSION CONTINUITY BREAKS</strong><p>Gaps in reach. Gaps in information. Gaps in coordination. The mission loses time, context, and momentum.</p></div>' +
+        '</div>' +
       '</section>' +
-      renderChapterBottom('why', 'BOTTOM LINE', 'THE PROBLEM IS NOT ONLY BETTER DRONES.', 'THE PROBLEM IS MAKING AERIAL ASSETS<br>WORK AS ONE MISSION SYSTEM.') +
+      '<section class="why-ref-issues">' +
+        '<article><div class="why-ref-index">01</div><figure><img src="image1.png" alt="" aria-hidden="true"></figure><h4>LIMITED REACH</h4><p>Small drones are useful close to the mission area, but battery life, payload, and signal range limit how far they can operate from the user.</p><span><img src="air-drone-icon.svg" alt="" aria-hidden="true"></span></article>' +
+        '<article><div class="why-ref-index">02</div><figure><img src="image2.png" alt="" aria-hidden="true"></figure><h4>FRAGMENTED CONTROL</h4><p>Drones, maps, video feeds, navigation, and operator decisions often remain separate. The mission depends on humans manually connecting the dots under pressure.</p><span><img src="silhouette-male-icon.svg" alt="" aria-hidden="true"></span></article>' +
+        '<article><div class="why-ref-index">03</div><figure><img src="image3.png" alt="" aria-hidden="true"></figure><h4>BROKEN CONTINUITY</h4><p>GPS loss, RF disruption, terrain, buildings, and walls can break the link between assets, operators, and mission context.</p><span><img src="' + iconPath('kubeca-menu-rf-link.svg') + '" alt="" aria-hidden="true"></span></article>' +
+      '</section>' +
+      '<section class="why-ref-bottom">' +
+        '<div><small>BOTTOM LINE</small><p>THE PROBLEM IS NOT ONLY BETTER DRONES.<br><span>THE PROBLEM IS MAKING AERIAL ASSETS<br>WORK AS ONE MISSION SYSTEM.</span></p></div>' +
+        '<figure aria-hidden="true"><img src="' + iconPath('kubeca-control-loop.svg') + '" alt=""></figure>' +
+      '</section>' +
       renderChapterFooter('why') +
     '</section>';
   }
