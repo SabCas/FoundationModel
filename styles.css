@@ -4248,3 +4248,71 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
     box-shadow:none !important;
   }
 }
+
+/* Cinematic story blend: image fades into black copy area instead of hard split. */
+@media(min-width:641px){
+  .home-who-story .home-who-scene{
+    width:68% !important;
+    z-index:1 !important;
+  }
+
+  .home-who-text,
+  .home-who-text.is-fixed,
+  .home-who-text.is-bottom{
+    width:42% !important;
+    right:0 !important;
+    z-index:4 !important;
+    border:0 !important;
+    outline:0 !important;
+    box-shadow:none !important;
+    background:linear-gradient(90deg,rgba(5,8,13,0) 0%,rgba(5,8,13,.88) 18%,#05080d 44%,#05080d 100%) !important;
+  }
+
+  .home-who-text:before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    pointer-events:none !important;
+    background:linear-gradient(180deg,#05080d 0 72px,rgba(5,8,13,0) 72px calc(100% - 72px),#05080d calc(100% - 72px) 100%) !important;
+  }
+
+  .home-who-story .home-who-scene:after{
+    top:72px !important;
+    background:
+      linear-gradient(90deg,rgba(5,8,13,0) 0%,rgba(5,8,13,.02) 54%,rgba(5,8,13,.68) 88%,#05080d 100%),
+      linear-gradient(180deg,rgba(255,255,255,.02),rgba(5,8,13,.08)) !important;
+  }
+
+  .home-who-story:before,
+  .home-who-story .home-who-scene:before{
+    background:#05080d !important;
+  }
+}
+
+/* Fade version cleanup: remove the rectangular band overlays that were visible while scrolling. */
+@media(min-width:641px){
+  .home-who-text:before,
+  .home-who-story:before,
+  .home-who-story .home-who-scene:before{
+    display:none !important;
+    content:none !important;
+    background:none !important;
+    box-shadow:none !important;
+  }
+
+  .home-who-text,
+  .home-who-text.is-fixed,
+  .home-who-text.is-bottom{
+    background:linear-gradient(90deg,rgba(5,8,13,0) 0%,rgba(5,8,13,.82) 20%,#05080d 46%,#05080d 100%) !important;
+  }
+
+  .home-who-story .home-who-scene:after{
+    top:0 !important;
+    background:linear-gradient(90deg,rgba(5,8,13,0) 0%,rgba(5,8,13,.02) 58%,rgba(5,8,13,.62) 88%,#05080d 100%) !important;
+  }
+
+  .home-who-image{
+    height:100% !important;
+    top:0 !important;
+  }
+}
