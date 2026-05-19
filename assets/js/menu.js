@@ -42,8 +42,9 @@ function getAdjacentDeckId(direction) {
 function updateActiveDeckLinks(deckId) {
   document.querySelectorAll('[data-deck]').forEach(function (link) {
     var isActive = link.getAttribute('data-deck') === deckId;
-    link.classList.toggle('is-active', isActive);
-    if (isActive) {
+    var isMegaMenuContext = !!link.closest('.mega-menu');
+    link.classList.toggle('is-active', isActive && !isMegaMenuContext);
+    if (isActive && !isMegaMenuContext) {
       link.setAttribute('aria-current', 'true');
     } else {
       link.removeAttribute('aria-current');
@@ -52,7 +53,11 @@ function updateActiveDeckLinks(deckId) {
 
   if (!megaRows || !megaRows.length) return;
   megaRows.forEach(function (row) {
-    var hasActive = !!row.querySelector('.deck-link.is-active');
+    var ids = Array.prototype.slice.call(row.querySelectorAll('.deck-link')).map(function (button) {
+      return button.getAttribute('data-deck');
+    }).filter(Boolean);
+    var hasActive = ids.indexOf(deckId) !== -1;
+    row.classList.toggle('is-active', hasActive);
     row.classList.toggle('is-collapsed', !hasActive && row.classList.contains('is-collapsible'));
     var heading = row.querySelector('h4');
     if (heading) heading.setAttribute('aria-expanded', hasActive ? 'true' : String(!row.classList.contains('is-collapsed')));
@@ -81,34 +86,36 @@ function setupMegaMenuCollapsibleGroups() {
     subtopics.forEach(function (link) {
       link.setAttribute('aria-disabled', 'true');
       link.setAttribute('tabindex', '-1');
+      link.setAttribute('role', 'presentation');
     });
 
-    function toggleRowAndOpen() {
-      var shouldOpen = row.classList.contains('is-collapsed');
+    function openRowAndChapter() {
       megaRows.forEach(function (otherRow) {
         if (otherRow !== row) {
           otherRow.classList.add('is-collapsed');
+          otherRow.classList.remove('is-active');
           var otherHeading = otherRow.querySelector('h4');
           if (otherHeading) otherHeading.setAttribute('aria-expanded', 'false');
         }
       });
-      row.classList.toggle('is-collapsed', !shouldOpen);
-      heading.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      row.classList.remove('is-collapsed');
+      row.classList.add('is-active');
+      heading.setAttribute('aria-expanded', 'true');
 
-      if (shouldOpen && subtopics.length) {
+      if (subtopics.length) {
         var deckId = subtopics[0].getAttribute('data-deck');
         if (deckId) openDeckPanel(deckId);
       }
     }
 
     heading.addEventListener('click', function () {
-      toggleRowAndOpen();
+      openRowAndChapter();
     });
 
     heading.addEventListener('keydown', function (event) {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
-      toggleRowAndOpen();
+      openRowAndChapter();
     });
   });
 }
