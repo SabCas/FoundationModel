@@ -33,16 +33,16 @@ function renderDeckVisualMarkup(deckId, index, groupHeading) {
 }
 
 var chapterMeta = {
-  'WHO WE ARE': { number: '01', className: 'who', label: 'WHO WE ARE' },
-  'WHY THIS MATTERS': { number: '02', className: 'why', label: 'WHY THIS MATTERS' },
-  'WHY NOW': { number: '03', className: 'now', label: 'WHY NOW' },
-  'WHAT WE BUILD': { number: '04', className: 'build', label: 'WHAT WE BUILD' },
-  'HOW IT WORKS': { number: '05', className: 'works', label: 'HOW IT WORKS' },
-  'WHAT IT ENABLES': { number: '06', className: 'enables', label: 'WHAT IT ENABLES' },
-  'WHY WE WIN': { number: '07', className: 'win', label: 'WHY WE WIN' },
-  'MARKET AREAS': { number: '08', className: 'market', label: 'MARKET AREAS' },
-  'TEAM / VALIDATION': { number: '09', className: 'team', label: 'TEAM / VALIDATION' },
-  'CTA': { number: '10', className: 'cta', label: 'CTA' }
+  'WHO WE ARE': { number: '00', className: 'who', label: 'WHO WE ARE' },
+  'WHY THIS MATTERS': { number: '01', className: 'why', label: 'WHY THIS MATTERS' },
+  'WHY NOW': { number: '02', className: 'now', label: 'WHY NOW' },
+  'WHAT WE BUILD': { number: '03', className: 'build', label: 'WHAT WE BUILD' },
+  'HOW IT WORKS': { number: '04', className: 'works', label: 'HOW IT WORKS' },
+  'WHAT IT ENABLES': { number: '05', className: 'enables', label: 'WHAT IT ENABLES' },
+  'WHY WE WIN': { number: '06', className: 'win', label: 'WHY WE WIN' },
+  'MARKET AREAS': { number: '07', className: 'market', label: 'MARKET AREAS' },
+  'TEAM / VALIDATION': { number: '08', className: 'team', label: 'TEAM / VALIDATION' },
+  'CTA': { number: '09', className: 'cta', label: 'CTA' }
 };
 
 function iconPath(fileName) {

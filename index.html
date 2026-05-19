@@ -79,13 +79,6 @@
     </div>
     <div class="mega-grid">
       <div class="mega-row">
-        <h4>WHO WE ARE</h4>
-        <button class="deck-link" data-deck="founder-thesis" type="button">Founder Thesis</button>
-        <button class="deck-link" data-deck="company-vision" type="button">Company Vision</button>
-        <button class="deck-link" data-deck="mission-core" type="button">Mission</button>
-        <button class="deck-link" data-deck="built-from-field-experience" type="button">Built From Field Experience</button>
-      </div>
-      <div class="mega-row">
         <h4>WHY THIS MATTERS</h4>
         <button class="deck-link" data-deck="signal-control-fragility" type="button">Signal &amp; Control Fragility</button>
         <button class="deck-link" data-deck="human-bottleneck" type="button">Human Bottleneck</button>
@@ -178,150 +171,44 @@
   </aside>
 
   <main id="home">
-    <section class="hero-section">
-      <img class="media-fill hero-image-zoom" src="assets/images/kubeca/Kubecafixed.png" alt="KUBECA autonomous aerial platform in hangar">
+    <section class="hero-section home-hero">
+      <img class="media-fill hero-image-zoom" src="assets/images/kubeca/Kubecafixed.png" alt="KUBECA autonomous aerial platform in an operational hangar">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <p class="eyebrow">Private Preview</p>
-        <h1>Autonomous aerial systems.</h1>
-        <p class="hero-copy">KUBECA is building the spatial intelligence layer for autonomous drone teams.</p>
+        <p class="eyebrow">Who We Are</p>
+        <h1>Mission intelligence for coordinated aerial autonomy.</h1>
+        <p class="hero-copy">KUBECA connects long-range carrier drones, local drone teams, shared spatial data, and human oversight into one coordinated operating system.</p>
         <div class="hero-actions">
-          <button id="systemOverviewOpen" class="secondary-link" type="button">The KUBECA System</button>
+          <button id="homeInvestorOpen" class="primary-link" type="button">Enter Investor Room</button>
+          <a class="secondary-link" href="mailto:contact@kubeca.com?subject=KUBECA%20Mission%20Brief">Request mission brief</a>
         </div>
       </div>
     </section>
 
-    <section class="quote-section">
-      <div class="container quote-content">
-        <span>Coordinated Autonomy</span>
-        <p>The future of drones is not one aircraft flying alone.<br>KUBECA builds modular aerial autonomy for coordinated drone teams.</p>
-      </div>
-    </section>
-
-    <section class="progress-board-section" id="systemProgress" aria-label="System progress">
-      <div class="container progress-summary">
-        <div>
-          <span>KUBECA System</span>
-          <strong>System progress</strong>
-          <em>Core layers advancing through a clear engineering process.</em>
-        </div>
-        <button id="progressToggle" class="progress-toggle" type="button" aria-expanded="false" aria-controls="progressBoard">Open progress board <span>↓</span></button>
-      </div>
-      <div id="progressBoard" class="container progress-board" aria-hidden="true">
-        <div class="progress-board-main">
-          <div class="progress-board-head">
-            <div>
-              <span>KUBECA System</span>
-              <h2>System progress.<br>Built with focus.</h2>
-            </div>
-            <p>Core layers of aerial autonomy advancing through a clear engineering process. Select any row to open the deeper deck.</p>
-          </div>
-
-          <div class="progress-table" aria-label="KUBECA maturity progress">
-            <div class="progress-table-head">
-              <span>System</span>
-              <span>Maturity Progress</span>
-              <span>Current Status</span>
-            </div>
-            <button class="progress-row" data-deck="hardware-architecture" type="button">
-              <span class="progress-icon progress-icon-wing"></span>
-              <span class="progress-name"><strong>Long-Range UAV Platform</strong><em>KUBECA LRA</em></span>
-              <span class="progress-line" style="--step:3"><i>Concept</i><i>Architecture</i><i>Prototype</i><i>Flight Test</i><i>Integration</i></span>
-              <span class="progress-status"><em>Current phase</em><strong>Prototype Development</strong></span>
-            </button>
-            <button class="progress-row" data-deck="scout-uav-roadmap" type="button">
-              <span class="progress-icon progress-icon-drone"></span>
-              <span class="progress-name"><strong>Scout Drone System</strong><em>KUBECA SCD</em></span>
-              <span class="progress-line" style="--step:1"><i>Concept</i><i>Architecture</i><i>Prototype</i><i>Integration</i><i>Field Test</i></span>
-              <span class="progress-status"><em>Current phase</em><strong>Concept Definition</strong></span>
-            </button>
-            <button class="progress-row" data-deck="software-layer" type="button">
-              <span class="progress-icon progress-icon-map"></span>
-              <span class="progress-name"><strong>Spatial Intelligence Software</strong><em>KUBECA NAV</em></span>
-              <span class="progress-line" style="--step:3"><i>Research</i><i>Simulation</i><i>Prototype</i><i>Validation</i><i>Field Deployment</i></span>
-              <span class="progress-status"><em>Current phase</em><strong>Prototype Development</strong></span>
-            </button>
-            <button class="progress-row" data-deck="multi-drone-network" type="button">
-              <span class="progress-icon progress-icon-network"></span>
-              <span class="progress-name"><strong>Shared Map Network</strong><em>KUBECA NET</em></span>
-              <span class="progress-line" style="--step:2"><i>Research</i><i>Simulation</i><i>Multi-Agent Test</i><i>Integration</i><i>Field Deployment</i></span>
-              <span class="progress-status"><em>Current phase</em><strong>Simulation Development</strong></span>
-            </button>
-          </div>
-
-          <div class="progress-principles" aria-label="System principles">
-            <span><b>Focus</b><em>Building the most critical capabilities first.</em></span>
-            <span><b>Integration</b><em>All systems designed to work together as one.</em></span>
-            <span><b>Iteration</b><em>Testing early. Learning fast. Improving continuously.</em></span>
-            <span><b>Advantage</b><em>GPS-denied. Team-centric. Mission ready.</em></span>
-          </div>
-        </div>
-
-        <aside class="progress-roadmap" aria-label="Roadmap">
-          <h3>Roadmap</h3>
-          <button class="roadmap-item complete" data-deck="research-direction" type="button">
-            <span>01</span><strong>Research & Foundation</strong><em>Completed</em>
-            <p>Core algorithms, spatial understanding research, and system architecture defined.</p>
-          </button>
-          <button class="roadmap-item active" data-deck="simulation-first" type="button">
-            <span>02</span><strong>Simulation Environment</strong><em>In Progress</em>
-            <p>High-fidelity simulation for sensors, mapping, and multi-agent coordination.</p>
-          </button>
-          <button class="roadmap-item active" data-deck="single-drone-prototype" type="button">
-            <span>03</span><strong>Single-Agent Prototypes</strong><em>In Progress</em>
-            <p>First hardware and software prototypes for individual platforms.</p>
-          </button>
-          <button class="roadmap-item" data-deck="collaborative-mapping" type="button">
-            <span>04</span><strong>Teamed Autonomy</strong><em>Planned</em>
-            <p>Multi-agent integration and shared map capabilities.</p>
-          </button>
-          <button class="roadmap-item" data-deck="field-validation" type="button">
-            <span>05</span><strong>Field Validation</strong><em>Planned</em>
-            <p>Real-world testing in GPS-denied environments.</p>
-          </button>
-        </aside>
-      </div>
-    </section>
-
-    <section class="story" id="story">
-      <section class="scene" data-detail="flying-understanding" data-title="From Flying to Understanding" data-copy="The next generation of drones will not just follow coordinates. They will understand the environment around them.">
-        <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1532693322450-2cb5c511067d?auto=format&fit=crop&w=1400&q=85" aria-label="Abstract navigation intelligence">
-          <source src="assets/videos/access.mp4" type="video/mp4">
-        </video>
+    <section class="story home-who-story" id="story" aria-label="Who We Are story">
+      <section class="scene home-who-scene" data-detail="founder-thesis" data-title="Founder Thesis" data-copy="The next advantage is not the drone. It is the intelligence that connects the system.">
+        <img class="media-fill home-who-image" src="assets/images/kubeca/who-coordinate-layer.png" alt="Coordinated aerial system over mapped terrain">
       </section>
-      <section class="scene" data-detail="modular-systems" data-title="From Single Drones to Modular Systems" data-copy="KUBECA’s system vision combines long-range UAVs, carrier platforms, and deployable scout drones — extending range, coverage, and flexibility.">
-        <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1400&q=85" aria-label="Autonomous aerial system">
-          <source src="assets/videos/hero.mp4" type="video/mp4">
-        </video>
+      <section class="scene home-who-scene" data-detail="company-vision" data-title="Company Vision" data-copy="KUBECA turns drones from remote-controlled tools into connected mission assets able to map, relay, coordinate, and operate as one distributed system.">
+        <img class="media-fill home-who-image" src="assets/images/kubeca/kubeca-system-multi.png" alt="KUBECA multi-drone mission system">
       </section>
-      <section class="scene" data-detail="shared-map" data-title="From Local Views to One Shared Map" data-copy="KUBECA brings drone observations together into one live environmental picture for navigation, mapping, and coordination.">
-        <video class="media-fill" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1400&q=85" aria-label="Aerial autonomy roadmap">
-          <source src="assets/videos/founder.mp4" type="video/mp4">
-        </video>
+      <section class="scene home-who-scene" data-detail="built-from-field-experience" data-title="Ground Truth From The Field" data-copy="KUBECA is shaped by practical drone development, field testing, operator feedback, and exposure to modern defense requirements.">
+        <img class="media-fill home-who-image" src="assets/images/kubeca/kubecaquadcopter.png" alt="KUBECA drone systems in field-oriented development environment">
       </section>
-      <aside class="story-text" id="storyText">
-        <span>KUBECA System Story</span>
-        <h2 id="storyTitle">01 — From Flying to Understanding</h2>
-        <p id="storyCopy">The next generation of drones will not just follow coordinates. They will understand the environment around them.</p>
-        <button id="storyDetailOpen" class="primary-link" type="button" aria-expanded="false" aria-controls="storyDetailInline">Open detail</button>
-        <div id="storyDetailInline" class="story-detail-inline" aria-hidden="true">
-          <span id="storyDetailEyebrow">Main Point 01</span>
-          <h3 id="storyDetailTitle">From Flying to Understanding</h3>
-          <p id="storyDetailIntro">Most drones can capture video. KUBECA is building software that helps aerial systems understand the environment they enter.</p>
-          <p id="storyDetailBody">The system turns camera, sensor, and motion data into useful spatial structure.</p>
-          <ul id="storyDetailBullets"></ul>
-          <p id="storyDetailWhy"></p>
-        </div>
+      <aside class="story-text home-who-text" id="storyText">
+        <span>Who We Are</span>
+        <h2 id="storyTitle">01 - Founder Thesis</h2>
+        <p id="storyCopy">The next advantage is not the drone. It is the intelligence that connects the system.</p>
       </aside>
     </section>
 
     <section class="contact-cta" id="contact">
       <div class="container contact-cta-inner">
         <div>
-          <span>Contact</span>
-          <h2>Ready to discuss coordinated autonomy?</h2>
-          <p>For investor access, research collaboration, or strategic partnership conversations.</p>
-          <a class="primary-link" href="mailto:contact@kubeca.com">Contact <span>-></span></a>
+          <span>Investor Room</span>
+          <h2>Ready to review the system architecture?</h2>
+          <p>Continue into the Investor Room for the problem, timing, product architecture, validation roadmap, market areas, and partnership path.</p>
+          <button id="homeInvestorBottomOpen" class="primary-link" type="button">Enter Investor Room <span>-></span></button>
         </div>
         <div class="contact-schematic" aria-hidden="true">
           <i></i><i></i><i></i><i></i>

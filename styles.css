@@ -3787,3 +3787,464 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
     margin-left:12px !important;
   }
 }
+
+/* Public homepage: Who We Are becomes a cinematic scroll story. */
+.home-hero .hero-content h1{
+  max-width:1120px !important;
+  font-size:clamp(3.3rem,7.4vw,8.4rem) !important;
+  line-height:.94 !important;
+  font-weight:330 !important;
+  letter-spacing:-.055em !important;
+  text-transform:none !important;
+}
+
+.home-hero .hero-copy{
+  max-width:720px !important;
+  color:rgba(255,255,255,.88) !important;
+  font-size:clamp(1rem,1.25vw,1.22rem) !important;
+}
+
+.home-hero .hero-actions{
+  margin-top:34px !important;
+}
+
+.home-hero .primary-link,
+.home-hero .secondary-link{
+  min-height:52px !important;
+  padding:0 22px !important;
+}
+
+.home-who-story{
+  min-height:300vh !important;
+  background:#05080d !important;
+}
+
+.home-who-story .home-who-scene{
+  position:relative !important;
+  overflow:hidden !important;
+  background:#05080d !important;
+}
+
+.home-who-story .home-who-scene:after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  background:
+    linear-gradient(90deg,rgba(5,8,13,.08),rgba(5,8,13,.42) 48%,rgba(5,8,13,.9) 100%),
+    linear-gradient(180deg,rgba(5,8,13,.05),rgba(5,8,13,.32)) !important;
+  pointer-events:none !important;
+}
+
+.home-who-image{
+  transform:scale(1.04) !important;
+  transform-origin:center !important;
+  filter:grayscale(.12) contrast(1.04) brightness(.9) !important;
+  animation:homeWhoImageDrift 26s cubic-bezier(.22,1,.36,1) infinite alternate !important;
+  will-change:transform !important;
+}
+
+.home-who-scene:nth-child(2) .home-who-image{
+  transform-origin:58% 45% !important;
+  filter:grayscale(.04) contrast(1.05) brightness(.76) !important;
+  animation-duration:30s !important;
+}
+
+.home-who-scene:nth-child(3) .home-who-image{
+  transform-origin:62% 48% !important;
+  filter:grayscale(.1) contrast(1.04) brightness(.86) !important;
+  animation-duration:28s !important;
+}
+
+@keyframes homeWhoImageDrift{
+  0%{transform:scale(1.035) translate3d(0,0,0)}
+  50%{transform:scale(1.07) translate3d(-1.4%,.7%,0)}
+  100%{transform:scale(1.095) translate3d(1.2%,-1.1%,0)}
+}
+
+.home-who-text{
+  background:#05080d !important;
+  color:#fff !important;
+  border-left:1px solid rgba(255,255,255,.12) !important;
+  padding:0 clamp(38px,6vw,112px) !important;
+}
+
+.home-who-text:before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  pointer-events:none !important;
+  background:
+    radial-gradient(circle at 100% 12%,rgba(255,255,255,.08),transparent 30%),
+    linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0)) !important;
+}
+
+.home-who-text span,
+.home-who-text h2,
+.home-who-text p{
+  position:relative !important;
+  z-index:1 !important;
+}
+
+.home-who-text span{
+  color:rgba(255,255,255,.58) !important;
+  font-size:.66rem !important;
+  letter-spacing:.34em !important;
+}
+
+.home-who-text h2{
+  max-width:680px !important;
+  margin-bottom:28px !important;
+  color:#fff !important;
+  font-size:clamp(2.7rem,4.8vw,5.9rem) !important;
+  line-height:.98 !important;
+  font-weight:360 !important;
+  letter-spacing:-.04em !important;
+  text-transform:none !important;
+}
+
+.home-who-text p{
+  max-width:560px !important;
+  color:rgba(255,255,255,.72) !important;
+  font-size:clamp(1rem,1.25vw,1.2rem) !important;
+  line-height:1.72 !important;
+}
+
+.home-who-text.is-changing{
+  transform:translateY(8px) !important;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .home-who-image{
+    animation:none !important;
+    transform:scale(1.04) !important;
+  }
+}
+
+@media(max-width:640px){
+  .home-who-story{
+    min-height:auto !important;
+    background:#05080d !important;
+  }
+
+  .home-who-story .home-who-scene{
+    width:100% !important;
+    min-height:58svh !important;
+  }
+
+  .home-who-story .home-who-scene:after{
+    background:linear-gradient(180deg,rgba(5,8,13,.04),rgba(5,8,13,.68)) !important;
+  }
+
+  .home-who-image{
+    min-height:58svh !important;
+    height:58svh !important;
+  }
+
+  .home-who-text{
+    position:static !important;
+    width:100% !important;
+    min-height:auto !important;
+    height:auto !important;
+    padding:44px 24px 58px !important;
+    border-left:0 !important;
+  }
+
+  .home-who-text h2{
+    font-size:clamp(2.2rem,10vw,3.6rem) !important;
+  }
+}
+
+/* Brighter cinematic scroll tuning: keep the premium dark frame, but let the
+   imagery stay large, readable, and alive while scrolling. */
+.home-who-story .home-who-scene{
+  width:58% !important;
+}
+
+.home-who-story .home-who-scene:after{
+  background:
+    linear-gradient(90deg,rgba(5,8,13,0) 0%,rgba(5,8,13,.06) 42%,rgba(5,8,13,.48) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.03),rgba(5,8,13,.12)) !important;
+}
+
+.home-who-image{
+  --story-scale:1.12;
+  --story-shift:0%;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  transform:scale(var(--story-scale)) translate3d(var(--story-shift),0,0) !important;
+  filter:grayscale(.08) contrast(1.04) brightness(1.08) !important;
+  animation:none !important;
+  transition:filter .6s ease !important;
+}
+
+.home-who-scene:nth-child(1) .home-who-image{
+  object-position:56% 48% !important;
+  filter:grayscale(.08) contrast(1.04) brightness(1.12) !important;
+}
+
+.home-who-scene:nth-child(2) .home-who-image{
+  object-position:50% 50% !important;
+  filter:grayscale(.04) contrast(1.05) brightness(.98) !important;
+}
+
+.home-who-scene:nth-child(3) .home-who-image{
+  object-position:62% 48% !important;
+  filter:grayscale(.08) contrast(1.04) brightness(1.08) !important;
+}
+
+.home-who-text{
+  width:42% !important;
+  background:linear-gradient(135deg,#05080d 0%,#080d14 100%) !important;
+  border-left:1px solid rgba(255,255,255,.1) !important;
+}
+
+.home-who-text h2{
+  font-size:clamp(2.55rem,4.2vw,5.1rem) !important;
+}
+
+.home-who-text p{
+  color:rgba(255,255,255,.78) !important;
+}
+
+@media(max-width:640px){
+  .home-who-story .home-who-scene{
+    width:100% !important;
+  }
+
+  .home-who-image{
+    transform:scale(1.08) !important;
+  }
+
+  .home-who-text{
+    width:100% !important;
+  }
+}
+
+/* Homepage story polish: larger visual canvas, lighter image treatment, tighter copy column. */
+@media(min-width:641px){
+  .home-who-story .home-who-scene{
+    width:64% !important;
+  }
+
+  .home-who-text{
+    width:36% !important;
+    padding:0 clamp(34px,4.6vw,82px) !important;
+  }
+
+  .home-who-story .home-who-scene:after{
+    background:
+      linear-gradient(90deg,rgba(5,8,13,0) 0%,rgba(5,8,13,.03) 48%,rgba(5,8,13,.34) 100%),
+      linear-gradient(180deg,rgba(255,255,255,.02),rgba(5,8,13,.08)) !important;
+  }
+
+  .home-who-image{
+    --story-scale:1.2;
+    transform:scale(var(--story-scale)) translate3d(var(--story-shift),0,0) !important;
+  }
+
+  .home-who-scene:nth-child(1) .home-who-image{
+    object-position:60% 48% !important;
+    filter:grayscale(.05) contrast(1.05) brightness(1.2) !important;
+  }
+
+  .home-who-scene:nth-child(2) .home-who-image{
+    object-position:52% 50% !important;
+    filter:grayscale(.02) contrast(1.05) brightness(1.08) !important;
+  }
+
+  .home-who-scene:nth-child(3) .home-who-image{
+    object-position:66% 48% !important;
+    filter:grayscale(.05) contrast(1.05) brightness(1.16) !important;
+  }
+
+  .home-who-text h2{
+    max-width:520px !important;
+    font-size:clamp(2.25rem,3.45vw,4.6rem) !important;
+    line-height:1 !important;
+  }
+
+  .home-who-text p{
+    max-width:430px !important;
+    font-size:clamp(.98rem,1.05vw,1.1rem) !important;
+    line-height:1.68 !important;
+  }
+}
+
+/* Correction: keep text readable; make the image crops larger instead of narrowing copy. */
+@media(min-width:641px){
+  .home-who-story .home-who-scene{
+    width:58% !important;
+  }
+
+  .home-who-text{
+    width:42% !important;
+    padding:0 clamp(38px,6vw,112px) !important;
+  }
+
+  .home-who-image{
+    transform:scale(calc(var(--story-scale) + .13)) translate3d(var(--story-shift),0,0) !important;
+  }
+
+  .home-who-scene:nth-child(1) .home-who-image{
+    object-position:63% 48% !important;
+  }
+
+  .home-who-scene:nth-child(2) .home-who-image{
+    object-position:54% 50% !important;
+  }
+
+  .home-who-scene:nth-child(3) .home-who-image{
+    object-position:68% 48% !important;
+  }
+
+  .home-who-text h2{
+    max-width:680px !important;
+    font-size:clamp(2.55rem,4.2vw,5.1rem) !important;
+  }
+
+  .home-who-text p{
+    max-width:560px !important;
+    font-size:clamp(1rem,1.25vw,1.2rem) !important;
+  }
+}
+
+/* Clean handoff from hero into the scroll story: one consistent technical seam. */
+.home-hero{
+  border-bottom:1px solid rgba(255,255,255,.18) !important;
+}
+
+.home-who-story{
+  position:relative !important;
+  border-top:1px solid rgba(8,11,15,.16) !important;
+}
+
+.home-who-story:before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  top:0 !important;
+  height:1px !important;
+  z-index:6 !important;
+  background:linear-gradient(90deg,rgba(255,255,255,.45),rgba(255,255,255,.12) 58%,rgba(255,255,255,.22)) !important;
+  pointer-events:none !important;
+}
+
+.home-who-text{
+  border-left:1px solid rgba(255,255,255,.16) !important;
+  box-shadow:inset 1px 0 0 rgba(255,255,255,.035) !important;
+}
+
+.home-who-story .home-who-scene{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18) !important;
+}
+
+.home-who-text.is-fixed{
+  border-top:1px solid rgba(255,255,255,.12) !important;
+}
+
+.home-who-text.is-bottom{
+  border-bottom:1px solid rgba(255,255,255,.12) !important;
+}
+
+/* Use one clean black divider between the hero and the scroll story. */
+.home-hero{
+  border-bottom:1px solid #05080d !important;
+}
+
+.home-who-story{
+  border-top:0 !important;
+}
+
+.home-who-story:before{
+  background:#05080d !important;
+  opacity:1 !important;
+}
+
+.home-who-story .home-who-scene{
+  box-shadow:none !important;
+}
+
+/* Match the scroll-story top and bottom black bands so the panel feels framed. */
+@media(min-width:641px){
+  .home-who-text{
+    background:
+      linear-gradient(180deg,#05080d 0 72px,transparent 72px calc(100% - 72px),#05080d calc(100% - 72px) 100%),
+      linear-gradient(135deg,#05080d 0%,#080d14 100%) !important;
+    border-top:1px solid rgba(255,255,255,.12) !important;
+    border-bottom:1px solid rgba(255,255,255,.12) !important;
+  }
+
+  .home-who-story .home-who-scene{
+    background:#05080d !important;
+  }
+
+  .home-who-story .home-who-scene:before{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    top:0 !important;
+    height:72px !important;
+    z-index:2 !important;
+    background:#05080d !important;
+    pointer-events:none !important;
+  }
+
+  .home-who-story .home-who-scene:after{
+    top:72px !important;
+  }
+
+  .home-who-image{
+    height:calc(100% - 72px) !important;
+    top:72px !important;
+    bottom:auto !important;
+  }
+}
+
+/* Unify the scroll story surface: same black on image frame and right text panel. */
+@media(min-width:641px){
+  .home-who-text,
+  .home-who-text.is-fixed,
+  .home-who-text.is-bottom{
+    background:#05080d !important;
+    border-top:1px solid rgba(255,255,255,.08) !important;
+    border-bottom:1px solid rgba(255,255,255,.08) !important;
+    border-left:1px solid rgba(255,255,255,.08) !important;
+    box-shadow:none !important;
+  }
+
+  .home-who-text:before{
+    background:none !important;
+  }
+
+  .home-who-story .home-who-scene:before{
+    background:#05080d !important;
+  }
+
+  .home-who-story{
+    background:#05080d !important;
+  }
+}
+
+/* Remove the remaining light outline around the story text panel. */
+@media(min-width:641px){
+  .home-who-text,
+  .home-who-text.is-fixed,
+  .home-who-text.is-bottom{
+    border:0 !important;
+    outline:0 !important;
+    box-shadow:inset 1px 0 0 rgba(0,0,0,.65) !important;
+  }
+
+  .home-who-story:before{
+    background:#05080d !important;
+  }
+
+  .home-who-story .home-who-scene:before{
+    box-shadow:none !important;
+  }
+}

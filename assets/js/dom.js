@@ -29,6 +29,8 @@ var detailIntro = document.getElementById('detailIntro');
 var detailGrid = document.getElementById('detailGrid');
 var storyDetailOpen = document.getElementById('storyDetailOpen');
 var systemOverviewOpen = document.getElementById('systemOverviewOpen');
+var homeInvestorOpen = document.getElementById('homeInvestorOpen');
+var homeInvestorBottomOpen = document.getElementById('homeInvestorBottomOpen');
 var systemProgress = document.getElementById('systemProgress');
 var progressToggle = document.getElementById('progressToggle');
 var progressBoard = document.getElementById('progressBoard');
@@ -55,4 +57,4 @@ var progressScrollTimer;
 var storyScrollTimer;
 var storyUpdateFrame;
 var panelLockedScrollY = 0;
-
+var storyImageFrame;
