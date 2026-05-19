@@ -223,10 +223,10 @@ function renderDeckChapter(deckId) {
       '<section class="why-ref-model" aria-label="Disconnected mission model">' +
         '<h3>DISCONNECTED MISSION MODEL</h3>' +
         '<div class="why-ref-model-grid">' +
-          '<article><img src="air-drone-icon.svg" alt="" aria-hidden="true"><h4>LOCAL DRONES</h4><p>Limited reach, payload, battery life, and signal range constrain the mission area.</p></article>' +
-          '<article><img src="plane-icon.svg" alt="" aria-hidden="true"><h4>LONG-RANGE PLATFORM</h4><p>Extended reach, but no automatic access to local detail or indoor spaces.</p></article>' +
-          '<article><img src="silhouette-male-icon.svg" alt="" aria-hidden="true"><h4>OPERATOR</h4><p>Manual coordination across multiple tools and feeds creates high cognitive load.</p></article>' +
-          '<article><img src="stack-icon.svg" alt="" aria-hidden="true"><h4>MISSION DATA</h4><p>Maps, video, signals, and telemetry remain fragmented across different systems.</p></article>' +
+          '<article><img src="assets/icons/kubeca/why-matters/local-drone.svg" alt="" aria-hidden="true"><h4>LOCAL DRONES</h4><p>Limited reach, payload, battery life, and signal range constrain the mission area.</p></article>' +
+          '<article><img src="assets/icons/kubeca/why-matters/long-range-platform.svg" alt="" aria-hidden="true"><h4>LONG-RANGE PLATFORM</h4><p>Extended reach, but no automatic access to local detail or indoor spaces.</p></article>' +
+          '<article><img src="assets/icons/kubeca/why-matters/operator.svg" alt="" aria-hidden="true"><h4>OPERATOR</h4><p>Manual coordination across multiple tools and feeds creates high cognitive load.</p></article>' +
+          '<article><img src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"><h4>FRAGILE LINKS</h4><p>Signals, telemetry, and mission context remain fragmented across different systems.</p></article>' +
         '</div>' +
         '<div class="why-ref-connectors" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
         '<div class="why-ref-result">' +
@@ -235,13 +235,12 @@ function renderDeckChapter(deckId) {
         '</div>' +
       '</section>' +
       '<section class="why-ref-issues">' +
-        '<article><div class="why-ref-index">01</div><figure><img src="image1.png" alt="" aria-hidden="true"></figure><h4>LIMITED REACH</h4><p>Small drones are useful close to the mission area, but battery life, payload, and signal range limit how far they can operate from the user.</p><span><img src="air-drone-icon.svg" alt="" aria-hidden="true"></span></article>' +
-        '<article><div class="why-ref-index">02</div><figure><img src="image2.png" alt="" aria-hidden="true"></figure><h4>FRAGMENTED CONTROL</h4><p>Drones, maps, video feeds, navigation, and operator decisions often remain separate. The mission depends on humans manually connecting the dots under pressure.</p><span><img src="silhouette-male-icon.svg" alt="" aria-hidden="true"></span></article>' +
-        '<article><div class="why-ref-index">03</div><figure><img src="image3.png" alt="" aria-hidden="true"></figure><h4>BROKEN CONTINUITY</h4><p>GPS loss, RF disruption, terrain, buildings, and walls can break the link between assets, operators, and mission context.</p><span><img src="' + iconPath('kubeca-menu-rf-link.svg') + '" alt="" aria-hidden="true"></span></article>' +
+        '<article><div class="why-ref-index">01</div><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure><h4>LIMITED REACH</h4><p>Small drones are useful close to the mission area, but battery life, payload, and signal range limit how far they can operate from the user.</p><span><img src="assets/icons/kubeca/why-matters/local-drone.svg" alt="" aria-hidden="true"></span></article>' +
+        '<article><div class="why-ref-index">02</div><figure><img src="assets/images/kubeca/why-matters/fragmented-control.png" alt="" aria-hidden="true"></figure><h4>FRAGMENTED CONTROL</h4><p>Drones, maps, video feeds, navigation, and operator decisions often remain separate. The mission depends on humans manually connecting the dots under pressure.</p><span><img src="assets/icons/kubeca/why-matters/operator.svg" alt="" aria-hidden="true"></span></article>' +
+        '<article><div class="why-ref-index">03</div><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure><h4>BROKEN CONTINUITY</h4><p>GPS loss, RF disruption, terrain, buildings, and walls can break the link between assets, operators, and mission context.</p><span><img src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"></span></article>' +
       '</section>' +
       '<section class="why-ref-bottom">' +
         '<div><small>BOTTOM LINE</small><p>THE PROBLEM IS NOT ONLY BETTER DRONES.<br><span>THE PROBLEM IS MAKING AERIAL ASSETS<br>WORK AS ONE MISSION SYSTEM.</span></p></div>' +
-        '<figure aria-hidden="true"><img src="' + iconPath('kubeca-control-loop.svg') + '" alt=""></figure>' +
       '</section>' +
       renderChapterFooter('why') +
     '</section>';
@@ -282,7 +281,7 @@ function renderDeckChapter(deckId) {
         '<h3>THREE TIMING DRIVERS</h3>' +
         '<div class="now-driver-grid">' +
           '<article><strong>01</strong><img src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><h4>DRONE SCALE IS<br>ACCELERATING</h4><p>More aerial assets are entering operations. Coordination is becoming the bottleneck.</p></article>' +
-          '<article><strong>02</strong><img src="' + iconPath('kubeca-menu-rf-link.svg') + '" alt="" aria-hidden="true"><h4>INFRASTRUCTURE IS<br>LESS RELIABLE</h4><p>GPS, RF, terrain, buildings, and EW degrade mission continuity.</p></article>' +
+          '<article><strong>02</strong><img src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"><h4>INFRASTRUCTURE IS<br>LESS RELIABLE</h4><p>GPS, RF, terrain, buildings, and EW degrade mission continuity.</p></article>' +
           '<article><strong>03</strong><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"><h4>MISSIONS ARE<br>BECOMING MULTI-LAYERED</h4><p>Open terrain, enclosed spaces, long range, and local mapping must work together.</p></article>' +
         '</div>' +
       '</section>' +
