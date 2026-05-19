@@ -4316,3 +4316,31 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
     top:0 !important;
   }
 }
+
+/* Match hero-to-story spacing with the black rhythm between story scenes. */
+.home-hero{
+  margin-bottom:0 !important;
+  border-bottom:0 !important;
+}
+
+.home-who-story{
+  padding-top:clamp(70px,8vh,112px) !important;
+}
+
+.home-who-story .home-who-scene{
+  margin-top:0 !important;
+}
+
+.home-who-story .home-who-scene + .home-who-scene{
+  margin-top:clamp(70px,8vh,112px) !important;
+}
+
+@media(max-width:640px){
+  .home-who-story{
+    padding-top:48px !important;
+  }
+
+  .home-who-story .home-who-scene + .home-who-scene{
+    margin-top:48px !important;
+  }
+}
