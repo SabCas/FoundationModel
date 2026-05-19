@@ -2884,7 +2884,8 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 
 /* Shared image-hero system for slide 01 and slide 03. */
 .deck-detail .chapter-page-who .who-hero,
-.deck-detail .chapter-page-now .now-hero{
+.deck-detail .chapter-page-now .now-hero,
+.deck-detail .chapter-page-build .build-hero{
   position:relative !important;
   min-height:clamp(560px,68vh,760px) !important;
   margin-left:calc(clamp(34px,4.6vw,72px) * -1) !important;
@@ -2895,11 +2896,40 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   background:#fff !important;
 }
 
+.deck-detail .chapter-page-who > .chapter-header,
+.deck-detail .chapter-page-now > .chapter-header,
+.deck-detail .chapter-page-build > .chapter-header{
+  display:none !important;
+}
+
+.chapter-hero-label{
+  position:absolute !important;
+  top:clamp(24px,3.2vw,42px) !important;
+  right:clamp(34px,4.6vw,72px) !important;
+  z-index:4 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:16px !important;
+  color:#111 !important;
+  font-size:.74rem !important;
+  font-weight:600 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+}
+
+.chapter-hero-label span{
+  display:block !important;
+  width:46px !important;
+  height:2px !important;
+  background:#111 !important;
+}
+
 .deck-detail .chapter-page-who .who-hero{
   display:block !important;
 }
 
-.deck-detail .chapter-page-now .now-hero{
+.deck-detail .chapter-page-now .now-hero,
+.deck-detail .chapter-page-build .build-hero{
   display:grid !important;
   grid-template-columns:minmax(0,58%) 1fr !important;
   grid-template-rows:auto auto 1fr !important;
@@ -2909,7 +2939,9 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 
 .deck-detail .chapter-page-who .who-hero-text,
 .deck-detail .chapter-page-now .now-hero-copy,
-.deck-detail .chapter-page-now .now-hero-side{
+.deck-detail .chapter-page-now .now-hero-side,
+.deck-detail .chapter-page-build .build-hero-copy,
+.deck-detail .chapter-page-build .build-hero-side{
   position:relative !important;
   z-index:2 !important;
   grid-column:1 !important;
@@ -2921,7 +2953,8 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-who .who-hero-image,
-.deck-detail .chapter-page-now .now-hero-image{
+.deck-detail .chapter-page-now .now-hero-image,
+.deck-detail .chapter-page-build .build-hero-image{
   position:absolute !important;
   inset:0 !important;
   z-index:1 !important;
@@ -2930,7 +2963,8 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-who .who-hero-image img,
-.deck-detail .chapter-page-now .now-hero-image img{
+.deck-detail .chapter-page-now .now-hero-image img,
+.deck-detail .chapter-page-build .build-hero-image img{
   width:100% !important;
   height:100% !important;
   display:block !important;
@@ -2940,7 +2974,8 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-who .who-hero-image::before,
-.deck-detail .chapter-page-now .now-hero-image::after{
+.deck-detail .chapter-page-now .now-hero-image::after,
+.deck-detail .chapter-page-build .build-hero-image::after{
   content:"" !important;
   position:absolute !important;
   inset:0 !important;
@@ -2962,10 +2997,35 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   backdrop-filter:none !important;
 }
 
+.deck-detail .chapter-page-build .build-hero-copy{
+  grid-column:1 !important;
+  grid-row:1 !important;
+}
+
+.deck-detail .chapter-page-build .build-hero-side{
+  grid-column:1 / -1 !important;
+  grid-row:3 !important;
+  align-self:end !important;
+  max-width:980px !important;
+  margin-top:34px !important;
+  padding:0 !important;
+  border-left:0 !important;
+  backdrop-filter:none !important;
+}
+
 .deck-detail .chapter-page-now .now-hero-side p{
   display:inline !important;
   max-width:none !important;
   margin:0 !important;
+  font-size:1.05rem !important;
+  line-height:1.68 !important;
+}
+
+.deck-detail .chapter-page-build .build-hero-side p{
+  display:inline !important;
+  max-width:none !important;
+  margin:0 !important;
+  color:rgba(8,11,15,.76) !important;
   font-size:1.05rem !important;
   line-height:1.68 !important;
 }
@@ -2976,7 +3036,458 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   letter-spacing:.04em !important;
 }
 
+.deck-detail .chapter-page-build .build-hero-side p + p:before{
+  content:"  /  " !important;
+  color:rgba(8,11,15,.42) !important;
+  letter-spacing:.04em !important;
+}
+
 .deck-detail .chapter-page-who .who-hero p{
   max-width:430px !important;
   color:rgba(8,11,15,.76) !important;
+}
+
+/* Keep slide 04 chapter header/chrome identical to slides 01 and 03. */
+.deck-detail .chapter-page-build .chapter-header{
+  background:transparent !important;
+  border:0 !important;
+  min-height:auto !important;
+  padding:0 !important;
+  margin:0 clamp(34px,4.6vw,72px) 40px 0 !important;
+  display:flex !important;
+  justify-content:flex-end !important;
+  align-items:center !important;
+}
+
+.deck-detail .chapter-page-build .chapter-brand{
+  display:none !important;
+}
+
+.deck-detail .chapter-page-build .chapter-section-label{
+  display:flex !important;
+  align-items:center !important;
+  gap:16px !important;
+  color:#111 !important;
+  font-size:.74rem !important;
+  font-weight:600 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+}
+
+.deck-detail .chapter-page-build .chapter-section-label span{
+  display:block !important;
+  width:46px !important;
+  height:2px !important;
+  background:#111 !important;
+}
+
+/* Slide 04: WHAT WE BUILD / product-core system page */
+.build-page-layout{
+  background:#fff !important;
+  color:#080b0f !important;
+  padding:0 clamp(34px,4.6vw,72px) 44px !important;
+  display:grid !important;
+  gap:0 !important;
+}
+
+.deck-detail .chapter-page-build{
+  padding-right:0 !important;
+}
+
+.deck-detail .chapter-page-build .build-system,
+.deck-detail .chapter-page-build .chapter-bottom,
+.deck-detail .chapter-page-build .chapter-footer{
+  margin-right:clamp(34px,4.6vw,72px) !important;
+}
+
+.build-hero{
+  position:relative !important;
+  min-height:clamp(560px,68vh,760px) !important;
+  margin-left:calc(clamp(34px,4.6vw,72px) * -1) !important;
+  margin-right:0 !important;
+  padding:clamp(58px,7vw,88px) clamp(34px,4.6vw,72px) clamp(64px,8vw,100px) !important;
+  overflow:hidden !important;
+  border-bottom:1px solid #e5e7eb !important;
+  background:#fff !important;
+}
+
+.build-hero-image{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  overflow:hidden !important;
+  background:
+    radial-gradient(circle at 72% 44%,rgba(8,11,15,.08),transparent 34%),
+    linear-gradient(135deg,#f8f8f8,#fff 48%,#f4f4f4) !important;
+}
+
+.build-hero-image img{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  filter:grayscale(.03) contrast(1.04) brightness(1.02) !important;
+}
+
+.build-hero-image:after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:2 !important;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.9) 31%,rgba(255,255,255,.54) 55%,rgba(255,255,255,.16) 78%,rgba(255,255,255,.02) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.08) 34%,rgba(255,255,255,.72) 68%,rgba(255,255,255,.98) 100%) !important;
+  pointer-events:none !important;
+}
+
+.build-hero.is-missing-image .build-hero-image:before{
+  content:"" !important;
+  position:absolute !important;
+  right:5% !important;
+  top:14% !important;
+  width:64% !important;
+  height:68% !important;
+  opacity:.16 !important;
+  background:
+    linear-gradient(30deg,transparent 49%,#080b0f 50%,transparent 51%),
+    linear-gradient(150deg,transparent 49%,#080b0f 50%,transparent 51%),
+    repeating-linear-gradient(0deg,transparent 0 34px,rgba(8,11,15,.35) 35px 36px),
+    repeating-linear-gradient(90deg,transparent 0 34px,rgba(8,11,15,.35) 35px 36px) !important;
+  transform:skewY(-10deg) !important;
+}
+
+.build-hero .build-hero-copy{
+  position:relative !important;
+  z-index:2 !important;
+  max-width:100% !important;
+  top:auto !important;
+}
+
+.build-system{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:0 !important;
+  align-items:start !important;
+  padding:42px 0 38px !important;
+}
+
+.build-intro,
+.build-hero-copy{
+  position:relative !important;
+  top:auto !important;
+}
+
+.build-intro h2,
+.build-hero-copy h2{
+  margin:0 !important;
+  font-size:clamp(3rem,5.2vw,5.3rem) !important;
+  line-height:1.03 !important;
+  font-weight:560 !important;
+  letter-spacing:0 !important;
+}
+
+.build-rule{
+  width:42px !important;
+  height:2px !important;
+  margin:30px 0 28px !important;
+  background:#080b0f !important;
+}
+
+.build-intro p{
+  max-width:430px !important;
+  margin:0 0 28px !important;
+  color:rgba(8,11,15,.76) !important;
+  font-size:1.02rem !important;
+  line-height:1.72 !important;
+}
+
+.build-intro .build-lead{
+  color:rgba(8,11,15,.52) !important;
+  font-size:1.25rem !important;
+  line-height:1.42 !important;
+  font-weight:560 !important;
+}
+
+.build-stack{
+  display:grid !important;
+  gap:0 !important;
+}
+
+.build-layer{
+  position:relative !important;
+  display:grid !important;
+  grid-template-columns:52px minmax(170px,.38fr) minmax(300px,1fr) !important;
+  gap:18px !important;
+  align-items:center !important;
+  min-height:168px !important;
+  padding:26px 28px !important;
+  border-top:1px solid #e2e2e2 !important;
+  overflow:hidden !important;
+}
+
+.build-layer-light{
+  background:linear-gradient(90deg,#fff,#fafafa) !important;
+}
+
+.build-layer > span{
+  color:#111 !important;
+  font-size:1.9rem !important;
+  line-height:1 !important;
+  font-weight:560 !important;
+  letter-spacing:0 !important;
+}
+
+.build-layer h3{
+  margin:0 0 18px !important;
+  max-width:180px !important;
+  font-size:1.05rem !important;
+  line-height:1.2 !important;
+  font-weight:650 !important;
+  letter-spacing:0 !important;
+  text-transform:uppercase !important;
+}
+
+.build-layer p{
+  max-width:270px !important;
+  margin:0 !important;
+  color:rgba(8,11,15,.72) !important;
+  font-size:.88rem !important;
+  line-height:1.72 !important;
+}
+
+.build-down{
+  width:1px !important;
+  height:28px !important;
+  margin:0 auto !important;
+  background:#111 !important;
+  position:relative !important;
+}
+
+.build-down:after{
+  content:"" !important;
+  position:absolute !important;
+  left:50% !important;
+  bottom:-1px !important;
+  transform:translateX(-50%) !important;
+  border-left:4px solid transparent !important;
+  border-right:4px solid transparent !important;
+  border-top:7px solid #111 !important;
+}
+
+.build-layer-core{
+  min-height:240px !important;
+  grid-template-columns:52px minmax(190px,.34fr) minmax(150px,.28fr) minmax(320px,1fr) !important;
+  background:#080b0f !important;
+  color:#fff !important;
+  border:0 !important;
+  border-radius:6px !important;
+  box-shadow:0 20px 50px rgba(8,11,15,.16) !important;
+}
+
+.build-layer-core > span,
+.build-layer-core h3{
+  color:#fff !important;
+}
+
+.build-layer-core p{
+  color:rgba(255,255,255,.72) !important;
+}
+
+.build-core-mark{
+  display:grid !important;
+  place-items:center !important;
+}
+
+.build-core-mark img{
+  width:108px !important;
+  height:108px !important;
+  filter:invert(1) !important;
+  opacity:.95 !important;
+}
+
+.build-core-capabilities{
+  display:grid !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  align-items:end !important;
+  gap:0 !important;
+  min-height:120px !important;
+}
+
+.build-core-capabilities span{
+  display:grid !important;
+  justify-items:center !important;
+  gap:12px !important;
+  padding:0 14px !important;
+  color:#fff !important;
+  font-size:.78rem !important;
+  line-height:1.25 !important;
+  text-align:center !important;
+  border-left:1px solid rgba(255,255,255,.2) !important;
+}
+
+.build-core-capabilities span:first-child{
+  border-left:0 !important;
+}
+
+.build-core-capabilities img{
+  width:34px !important;
+  height:34px !important;
+  filter:invert(1) !important;
+}
+
+.build-visual{
+  position:relative !important;
+  min-height:120px !important;
+  opacity:.72 !important;
+}
+
+.carrier-visual i{
+  position:absolute !important;
+  top:30px !important;
+  width:120px !important;
+  height:18px !important;
+  border-top:2px solid #111 !important;
+}
+
+.carrier-visual i:before{
+  content:"" !important;
+  position:absolute !important;
+  left:50% !important;
+  top:-12px !important;
+  width:42px !important;
+  height:26px !important;
+  border:2px solid #111 !important;
+  border-radius:50% 50% 45% 45% !important;
+  transform:translateX(-50%) skewX(-12deg) !important;
+  background:#fff !important;
+}
+
+.carrier-visual i:nth-child(1){left:18% !important}
+.carrier-visual i:nth-child(2){right:12% !important}
+.carrier-visual em{
+  position:absolute !important;
+  left:23% !important;
+  right:17% !important;
+  top:42px !important;
+  border-top:1px dashed #9da3aa !important;
+}
+
+.drone-team-visual i{
+  position:absolute !important;
+  top:22px !important;
+  width:40px !important;
+  height:40px !important;
+  border:2px solid #111 !important;
+  border-radius:50% !important;
+}
+
+.drone-team-visual i:after{
+  content:"" !important;
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:58px !important;
+  height:2px !important;
+  background:#111 !important;
+  transform:translate(-50%,-50%) rotate(18deg) !important;
+}
+
+.drone-team-visual i:nth-child(1){left:18% !important}
+.drone-team-visual i:nth-child(2){left:48% !important; top:42px !important}
+.drone-team-visual i:nth-child(3){right:15% !important}
+.drone-team-visual em{
+  position:absolute !important;
+  left:10% !important;
+  right:4% !important;
+  bottom:0 !important;
+  height:64px !important;
+  background:repeating-linear-gradient(165deg,transparent 0 17px,rgba(8,11,15,.08) 18px 19px),linear-gradient(180deg,transparent,rgba(8,11,15,.05)) !important;
+  clip-path:polygon(0 70%,18% 32%,32% 62%,50% 36%,66% 60%,82% 28%,100% 68%,100% 100%,0 100%) !important;
+}
+
+.map-visual i{
+  position:absolute !important;
+  left:34% !important;
+  top:16px !important;
+  width:140px !important;
+  height:82px !important;
+  border:1px solid #111 !important;
+  transform:skewY(-18deg) !important;
+  background:repeating-linear-gradient(45deg,transparent 0 13px,rgba(8,11,15,.08) 14px 15px) !important;
+}
+
+.map-visual i:nth-child(2){top:28px !important; opacity:.5 !important}
+.map-visual i:nth-child(3){top:40px !important; opacity:.25 !important}
+
+.control-visual{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:18px !important;
+}
+
+.control-visual i{
+  width:92px !important;
+  height:64px !important;
+  border:2px solid #111 !important;
+  border-radius:4px !important;
+  background:linear-gradient(180deg,#fff,#f4f4f4) !important;
+}
+
+@media (max-width:980px){
+  .build-system{
+    grid-template-columns:1fr !important;
+  }
+
+  .build-intro{
+    position:relative !important;
+    top:auto !important;
+  }
+
+  .build-layer,
+  .build-layer-core{
+    grid-template-columns:44px 1fr !important;
+  }
+
+  .build-visual,
+  .build-core-mark,
+  .build-core-capabilities{
+    grid-column:1 / -1 !important;
+  }
+}
+
+/* Deck architecture cleanup:
+   The outer detail panel should never create a second chapter headline for
+   custom slides. Each custom chapter owns a single top meta row, followed by
+   its hero/content system. */
+.deck-detail .detail-content h1:empty,
+.deck-detail .detail-content > p:empty{
+  display:none !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.deck-detail .detail-content h1:empty ~ .detail-grid{
+  margin-top:0 !important;
+}
+
+.deck-detail .chapter-page-who > .chapter-header,
+.deck-detail .chapter-page-now > .chapter-header,
+.deck-detail .chapter-page-build > .chapter-header{
+  display:flex !important;
+  margin:0 clamp(34px,4.6vw,72px) 34px 0 !important;
+  padding-top:0 !important;
+}
+
+.deck-detail .chapter-page-who .who-hero,
+.deck-detail .chapter-page-now .now-hero,
+.deck-detail .chapter-page-build .build-hero{
+  margin-top:0 !important;
+}
+
+.deck-detail .chapter-page-who .chapter-section-label,
+.deck-detail .chapter-page-now .chapter-section-label,
+.deck-detail .chapter-page-build .chapter-section-label{
+  color:#080b0f !important;
 }

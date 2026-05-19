@@ -398,7 +398,8 @@ function renderDeckVisualMarkup(deckId, index, groupHeading) {
 var chapterMeta = {
   'WHO WE ARE': { number: '01', className: 'who', label: 'WHO WE ARE' },
   'WHY THIS MATTERS': { number: '02', className: 'why', label: 'WHY THIS MATTERS' },
-  'WHY NOW': { number: '03', className: 'now', label: 'WHY NOW' }
+  'WHY NOW': { number: '03', className: 'now', label: 'WHY NOW' },
+  'WHAT WE BUILD': { number: '04', className: 'build', label: 'WHAT WE BUILD' }
 };
 
 function iconPath(fileName) {
@@ -419,6 +420,31 @@ function renderChapterHeader(groupHeading) {
   '</header>';
 }
 
+function renderImageChapterHero(groupHeading, options) {
+  var paragraphs = (options.paragraphs || []).map(function (paragraph) {
+    return '<p>' + paragraph + '</p>';
+  }).join('');
+  var sideMarkup = paragraphs ? '<div class="' + options.sideClass + ' image-chapter-side">' + paragraphs + '</div>' : '';
+  var imageError = options.fallbackClass ? ' onerror="this.closest(\'.' + options.heroClass + '\').classList.add(\'' + options.fallbackClass + '\'); this.remove();"' : '';
+
+  return '<section class="' + options.heroClass + ' image-chapter-hero">' +
+    '<div class="' + options.mediaClass + ' image-chapter-media"><img src="' + options.imageSrc + '" alt="' + options.imageAlt + '"' + imageError + '></div>' +
+    '<div class="' + options.copyClass + ' image-chapter-copy">' +
+      '<h2>' + options.title + '</h2>' +
+      '<div class="' + options.ruleClass + ' image-chapter-rule"></div>' +
+      (options.lead ? '<p>' + options.lead + '</p>' : '') +
+    '</div>' +
+    sideMarkup +
+  '</section>';
+}
+
+function usesCustomChapterPage(groupHeading) {
+  return groupHeading === 'WHO WE ARE' ||
+    groupHeading === 'WHY THIS MATTERS' ||
+    groupHeading === 'WHY NOW' ||
+    groupHeading === 'WHAT WE BUILD';
+}
+
 function renderChapterFooter(className) {
   return '<footer class="chapter-footer ' + className + '-footer"><em>KUBECA | AUTONOMOUS AERIAL INTELLIGENCE</em></footer>';
 }
@@ -435,14 +461,17 @@ function renderDeckChapter(deckId) {
   if (group.heading === 'WHO WE ARE') {
     return '<section class="chapter-page chapter-page-who who-page-layout">' +
       renderChapterHeader(group.heading) +
-      '<section class="who-hero">' +
-        '<div class="who-hero-text">' +
-          '<h2>AUTONOMOUS<br>AERIAL INTELLIGENCE<br>FOR SYSTEM-LEVEL<br>OPERATIONS</h2>' +
-          '<div class="who-blue-line"></div>' +
-          '<p>KUBECA builds mission intelligence for autonomous aerial systems - connecting long-range platforms, quadcopters, micro-drones, shared maps, and human-in-the-loop control into one coordinated operational layer.</p>' +
-        '</div>' +
-        '<div class="who-hero-image"><img class="who-hero-zoom" src="assets/images/kubeca/kubecaquadcopter.png" alt="KUBECA quadcopter systems in hangar"></div>' +
-      '</section>' +
+      renderImageChapterHero(group.heading, {
+        heroClass: 'who-hero',
+        mediaClass: 'who-hero-image',
+        copyClass: 'who-hero-text',
+        sideClass: 'who-hero-side',
+        ruleClass: 'who-blue-line',
+        title: 'AUTONOMOUS<br>AERIAL INTELLIGENCE<br>FOR SYSTEM-LEVEL<br>OPERATIONS',
+        lead: 'KUBECA builds mission intelligence for autonomous aerial systems - connecting long-range platforms, quadcopters, micro-drones, shared maps, and human-in-the-loop control into one coordinated operational layer.',
+        imageSrc: 'assets/images/kubeca/kubecaquadcopter.png',
+        imageAlt: 'KUBECA quadcopter systems in hangar'
+      }) +
       '<section class="who-two-column">' +
         '<article class="who-text-block">' +
           '<p class="who-eyebrow">FOUNDER THESIS</p><div class="who-small-line"></div>' +
@@ -514,18 +543,21 @@ function renderDeckChapter(deckId) {
   if (group.heading === 'WHY NOW') {
     return '<section class="chapter-page chapter-page-now now-page-layout">' +
       renderChapterHeader(group.heading) +
-      '<section class="now-hero">' +
-        '<div class="now-hero-image"><img src="assets/images/kubeca/commando.png" alt="KUBECA mission control operations room"></div>' +
-        '<div class="now-hero-copy">' +
-          '<h2>AERIAL AUTONOMY<br>IS MOVING FROM<br>TOOLS TO SYSTEMS.</h2>' +
-          '<div class="now-small-line"></div>' +
-        '</div>' +
-        '<div class="now-hero-side">' +
-          '<p>Drone operations are scaling while environments become more contested, complex, and infrastructure-dependent.</p>' +
-          '<p>The shift is no longer about better individual drones.</p>' +
-          '<p>It is about connecting range, local intelligence, resilient navigation, and operators into one coordinated system.</p>' +
-        '</div>' +
-      '</section>' +
+      renderImageChapterHero(group.heading, {
+        heroClass: 'now-hero',
+        mediaClass: 'now-hero-image',
+        copyClass: 'now-hero-copy',
+        sideClass: 'now-hero-side',
+        ruleClass: 'now-small-line',
+        title: 'AERIAL AUTONOMY<br>IS MOVING FROM<br>TOOLS TO SYSTEMS.',
+        paragraphs: [
+          'Drone operations are scaling while environments become more contested, complex, and infrastructure-dependent.',
+          'The shift is no longer about better individual drones.',
+          'It is about connecting range, local intelligence, resilient navigation, and operators into one coordinated system.'
+        ],
+        imageSrc: 'assets/images/kubeca/commando.png',
+        imageAlt: 'KUBECA mission control operations room'
+      }) +
       '<section class="now-shift">' +
         '<h3>THE SHIFT: FROM FRAGILE, SINGLE-ASSET OPERATIONS TO RESILIENT, SYSTEM-LEVEL AUTONOMY</h3>' +
         '<div class="now-shift-table">' +
@@ -549,6 +581,64 @@ function renderDeckChapter(deckId) {
       '</section>' +
       renderChapterBottom('now', 'BOTTOM LINE', 'THE TIMING IS NOT ABOUT DRONES ALONE.', 'IT IS ABOUT AUTONOMY BECOMING A SYSTEM LAYER.') +
       renderChapterFooter('now') +
+    '</section>';
+  }
+
+  if (group.heading === 'WHAT WE BUILD') {
+    return '<section class="chapter-page chapter-page-build build-page-layout">' +
+      renderChapterHeader(group.heading) +
+      renderImageChapterHero(group.heading, {
+        heroClass: 'build-hero',
+        mediaClass: 'build-hero-image',
+        copyClass: 'build-hero-copy',
+        sideClass: 'build-hero-side',
+        ruleClass: 'build-rule',
+        title: 'THE KUBECA<br>SYSTEM',
+        paragraphs: [
+          'KUBECA connects long-range carrier drones, local drone teams, shared spatial data, and human oversight into one coordinated operating system.',
+          'The carrier extends reach and acts as the relay.',
+          'The software layer fuses data and coordinates action.'
+        ],
+        imageSrc: 'assets/images/kubeca/kubeca-system-multi.png',
+        imageAlt: 'KUBECA coordinated aerial system architecture',
+        fallbackClass: 'is-missing-image'
+      }) +
+      '<section class="build-system">' +
+        '<div class="build-stack" aria-label="KUBECA system layers">' +
+          '<article class="build-layer build-layer-light">' +
+            '<span>01</span><div><h3>CARRIER / RELAY LAYER</h3><p>Extends reach, moves local teams into position, and maintains the secure data bridge back to the operator.</p></div>' +
+            '<div class="build-visual carrier-visual"><i></i><i></i><em></em></div>' +
+          '</article>' +
+          '<div class="build-down"></div>' +
+          '<article class="build-layer build-layer-light">' +
+            '<span>02</span><div><h3>LOCAL DRONE TEAMS</h3><p>Operate close to the mission area for reconnaissance, mapping, detection, relay, and local execution.</p></div>' +
+            '<div class="build-visual drone-team-visual"><i></i><i></i><i></i><em></em></div>' +
+          '</article>' +
+          '<div class="build-down"></div>' +
+          '<article class="build-layer build-layer-core">' +
+            '<span>03</span><div><h3>MISSION INTELLIGENCE LAYER</h3><p>Fuses live sensor feeds, map context, asset status, and mission objectives into coordinated actions.</p></div>' +
+            '<div class="build-core-mark"><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"></div>' +
+            '<div class="build-core-capabilities">' +
+              '<span><img src="' + iconPath('kubeca-navigate.svg') + '" alt="" aria-hidden="true">Resilient Navigation</span>' +
+              '<span><img src="' + iconPath('kubeca-map.svg') + '" alt="" aria-hidden="true">Mapping & Context</span>' +
+              '<span><img src="' + iconPath('kubeca-coordinate.svg') + '" alt="" aria-hidden="true">Coordination</span>' +
+              '<span><img src="' + iconPath('kubeca-detect.svg') + '" alt="" aria-hidden="true">Mission Logic</span>' +
+            '</div>' +
+          '</article>' +
+          '<div class="build-down"></div>' +
+          '<article class="build-layer build-layer-light">' +
+            '<span>04</span><div><h3>SHARED SPATIAL DATA</h3><p>Creates one persistent operational picture across terrain, infrastructure, assets, and updates.</p></div>' +
+            '<div class="build-visual map-visual"><i></i><i></i><i></i></div>' +
+          '</article>' +
+          '<div class="build-down"></div>' +
+          '<article class="build-layer build-layer-light">' +
+            '<span>05</span><div><h3>HUMAN-IN-THE-LOOP CONTROL</h3><p>Operators plan, confirm, supervise, and intervene while the system handles coordination.</p></div>' +
+            '<div class="build-visual control-visual"><i></i><i></i><i></i></div>' +
+          '</article>' +
+        '</div>' +
+      '</section>' +
+      renderChapterBottom('build', 'BOTTOM LINE', 'KUBECA IS NOT BUILDING ANOTHER DRONE.', 'KUBECA IS BUILDING THE MISSION LAYER<br>THAT MAKES DRONES WORK TOGETHER.') +
+      renderChapterFooter('build') +
     '</section>';
   }
 
@@ -623,7 +713,7 @@ function openDeckPanel(deckId) {
   detailPanel.classList.remove('product-detail');
   detailPanel.classList.add('deck-detail');
   detailEyebrow.textContent = '';
-  if (group.heading === 'WHO WE ARE' || group.heading === 'WHY THIS MATTERS' || group.heading === 'WHY NOW') {
+  if (usesCustomChapterPage(group.heading)) {
     detailTitle.textContent = '';
     detailIntro.textContent = '';
   } else {
