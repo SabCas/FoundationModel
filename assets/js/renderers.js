@@ -96,6 +96,54 @@ function renderChapterBottom(className, label, lineOne, lineTwo) {
   '</section>';
 }
 
+function getChapterCards(group) {
+  return group.ids.map(function (id, index) {
+    var card = deckData[id];
+    if (!card) return '';
+
+    return '<article class="standard-card" data-deck-section="' + id + '">' +
+      '<small>' + String(index + 1).padStart(2, '0') + '</small>' +
+      '<h3>' + card[1] + '</h3>' +
+      '<p>' + card[2] + '</p>' +
+      '<em>' + card[3] + '</em>' +
+    '</article>';
+  }).join('');
+}
+
+function renderStandardChapterPage(group, options) {
+  return '<section class="chapter-page chapter-page-standard chapter-page-' + options.className + '">' +
+    renderChapterHeader(group.heading) +
+    '<section class="standard-hero">' +
+      '<h2>' + options.title + '</h2>' +
+      '<div class="standard-rule"></div>' +
+      '<p>' + options.lead + '</p>' +
+    '</section>' +
+    '<section class="standard-board standard-board-' + options.layout + '">' +
+      getChapterCards(group) +
+    '</section>' +
+    (options.extra || '') +
+    renderChapterBottom(options.className, 'BOTTOM LINE', options.bottomLineOne, options.bottomLineTwo) +
+    renderChapterFooter(options.className) +
+  '</section>';
+}
+
+function renderHowItWorksGraphic() {
+  return '<section class="mission-flow-line" aria-label="Mission flow">' +
+    '<span>Deploy</span><i></i>' +
+    '<span>Relay</span><i></i>' +
+    '<span>Explore</span><i></i>' +
+    '<span>Fuse</span><i></i>' +
+    '<span>Control</span>' +
+  '</section>';
+}
+
+function renderCtaActions() {
+  return '<section class="cta-action-panel">' +
+    '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Mission%20Brief">Request mission brief <span>-></span></a>' +
+    '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Partnership">Partner with us <span>-></span></a>' +
+  '</section>';
+}
+
 function renderDeckChapter(deckId) {
   var group = getDeckGroup(deckId);
   if (group.heading === 'WHO WE ARE') {
@@ -280,6 +328,74 @@ function renderDeckChapter(deckId) {
       renderChapterBottom('build', 'BOTTOM LINE', 'KUBECA IS NOT BUILDING ANOTHER DRONE.', 'KUBECA IS BUILDING THE MISSION LAYER<br>THAT MAKES DRONES WORK TOGETHER.') +
       renderChapterFooter('build') +
     '</section>';
+  }
+
+  if (group.heading === 'HOW IT WORKS') {
+    return renderStandardChapterPage(group, {
+      className: 'works',
+      layout: 'flow',
+      title: 'FROM RANGE TO<br>LOCAL INTELLIGENCE.',
+      lead: 'The KUBECA mission sequence is simple: deploy local drone teams at range, keep the relay alive, explore and map the area, fuse what matters, and keep operators in control.',
+      extra: renderHowItWorksGraphic(),
+      bottomLineOne: 'THE SYSTEM IS NOT ONLY A SET OF ASSETS.',
+      bottomLineTwo: 'IT IS A MISSION FLOW FROM RANGE TO CONTROL.'
+    });
+  }
+
+  if (group.heading === 'WHAT IT ENABLES') {
+    return renderStandardChapterPage(group, {
+      className: 'enables',
+      layout: 'cards',
+      title: 'LOCAL INTELLIGENCE<br>DELIVERED AT RANGE.',
+      lead: 'KUBECA turns system architecture into operational outcomes: reach, shared awareness, reduced workload, safer standoff, and faster decisions.',
+      bottomLineOne: 'THE VALUE IS NOT MORE VIDEO.',
+      bottomLineTwo: 'THE VALUE IS STRUCTURED LOCAL INTELLIGENCE.'
+    });
+  }
+
+  if (group.heading === 'WHY WE WIN') {
+    return renderStandardChapterPage(group, {
+      className: 'win',
+      layout: 'stack',
+      title: 'SOFTWARE ACROSS<br>THE MISSION STACK.',
+      lead: 'The defensibility sits across carrier autonomy, local drone autonomy, mission intelligence, and the operator interface. Each layer compounds the value of the others.',
+      bottomLineOne: 'THE MOAT IS NOT ONE ALGORITHM.',
+      bottomLineTwo: 'IT IS SOFTWARE ACROSS THE FULL MISSION STACK.'
+    });
+  }
+
+  if (group.heading === 'MARKET AREAS') {
+    return renderStandardChapterPage(group, {
+      className: 'market',
+      layout: 'cards',
+      title: 'WHERE KUBECA<br>CREATES VALUE.',
+      lead: 'KUBECA is built for missions where range, signal reliability, local intelligence, and operator workload become limiting factors.',
+      bottomLineOne: 'THE BEACHHEAD IS WHERE DRONE OPERATIONS BREAK.',
+      bottomLineTwo: 'RANGE, SIGNALS, LOCAL INTELLIGENCE, AND WORKLOAD.'
+    });
+  }
+
+  if (group.heading === 'TEAM / VALIDATION') {
+    return renderStandardChapterPage(group, {
+      className: 'team',
+      layout: 'proof',
+      title: 'BUILT BY PRACTICAL<br>DRONE AND AUTONOMY DEVELOPERS.',
+      lead: 'The team story should be credible and grounded: practical drone development, flight testing, operator feedback, autonomy foundations, and software validation.',
+      bottomLineOne: 'KUBECA IS BUILT FROM FIELD CONSTRAINTS.',
+      bottomLineTwo: 'NOT FROM THEORETICAL AUTONOMY ALONE.'
+    });
+  }
+
+  if (group.heading === 'CTA') {
+    return renderStandardChapterPage(group, {
+      className: 'cta',
+      layout: 'cta',
+      title: 'BUILD THE MISSION LAYER<br>FOR COORDINATED AERIAL AUTONOMY.',
+      lead: 'We are looking for partners, operators, and investors who understand that the next leap in aerial autonomy is not only better drones - it is coordinated systems.',
+      extra: renderCtaActions(),
+      bottomLineOne: 'PARTNER WITH KUBECA.',
+      bottomLineTwo: 'REQUEST A MISSION BRIEF.'
+    });
   }
 
   var sectionMarkup = group.ids.map(function (id, index) {
