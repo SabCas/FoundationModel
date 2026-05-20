@@ -302,6 +302,7 @@ function renderDeckChapter(deckId) {
         '<div class="build-architecture-copy">' +
           '<p>KUBECA connects carrier platforms, local drone teams, shared spatial data, and human oversight into one coordinated mission layer.</p>' +
           '<p><strong>The carrier extends reach.<br>The software layer turns separate assets into one operating system.</strong></p>' +
+          '<p>The system is being developed from flight-tested platform experience: quadcopter development, GPS-denied software testing, and early autonomous fixed-wing flight.</p>' +
         '</div>' +
       '</section>' +
       '<section class="build-architecture">' +
