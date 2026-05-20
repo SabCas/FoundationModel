@@ -291,59 +291,63 @@ function renderDeckChapter(deckId) {
   }
 
   if (group.heading === 'WHAT WE BUILD') {
-    return '<section class="chapter-page chapter-page-build build-page-layout">' +
+    return '<section class="chapter-page chapter-page-build build-architecture-layout">' +
       renderChapterHeader(group.heading) +
-      renderImageChapterHero(group.heading, {
-        heroClass: 'build-hero',
-        mediaClass: 'build-hero-image',
-        copyClass: 'build-hero-copy',
-        sideClass: 'build-hero-side',
-        ruleClass: 'build-rule',
-        title: 'THE KUBECA<br>SYSTEM',
-        paragraphs: [
-          'KUBECA connects long-range carrier drones, local drone teams, shared spatial data, and human oversight into one coordinated operating system.',
-          'The carrier extends reach and acts as the relay.',
-          'The software layer fuses data and coordinates action.'
-        ],
-        imageSrc: 'assets/images/kubeca/kubeca-system-multi.png',
-        imageAlt: 'KUBECA coordinated aerial system architecture',
-        fallbackClass: 'is-missing-image'
-      }) +
-      '<section class="build-system">' +
-        '<div class="build-stack" aria-label="KUBECA system layers">' +
-          '<article class="build-layer build-layer-light">' +
-            '<span>01</span><div><h3>CARRIER / RELAY LAYER</h3><p>Extends reach, moves local teams into position, and maintains the secure data bridge back to the operator.</p></div>' +
-            '<div class="build-visual carrier-visual"><i></i><i></i><em></em></div>' +
-          '</article>' +
-          '<div class="build-down"></div>' +
-          '<article class="build-layer build-layer-light">' +
-            '<span>02</span><div><h3>LOCAL DRONE TEAMS</h3><p>Operate close to the mission area for reconnaissance, mapping, detection, relay, and local execution.</p></div>' +
-            '<div class="build-visual drone-team-visual"><i></i><i></i><i></i><em></em></div>' +
-          '</article>' +
-          '<div class="build-down"></div>' +
-          '<article class="build-layer build-layer-core">' +
-            '<span>03</span><div><h3>MISSION INTELLIGENCE LAYER</h3><p>Fuses live sensor feeds, map context, asset status, and mission objectives into coordinated actions.</p></div>' +
-            '<div class="build-core-mark"><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"></div>' +
-            '<div class="build-core-capabilities">' +
-              '<span><img src="' + iconPath('kubeca-navigate.svg') + '" alt="" aria-hidden="true">Resilient Navigation</span>' +
-              '<span><img src="' + iconPath('kubeca-map.svg') + '" alt="" aria-hidden="true">Mapping & Context</span>' +
-              '<span><img src="' + iconPath('kubeca-coordinate.svg') + '" alt="" aria-hidden="true">Coordination</span>' +
-              '<span><img src="' + iconPath('kubeca-detect.svg') + '" alt="" aria-hidden="true">Mission Logic</span>' +
-            '</div>' +
-          '</article>' +
-          '<div class="build-down"></div>' +
-          '<article class="build-layer build-layer-light">' +
-            '<span>04</span><div><h3>SHARED SPATIAL DATA</h3><p>Creates one persistent operational picture across terrain, infrastructure, assets, and updates.</p></div>' +
-            '<div class="build-visual map-visual"><i></i><i></i><i></i></div>' +
-          '</article>' +
-          '<div class="build-down"></div>' +
-          '<article class="build-layer build-layer-light">' +
-            '<span>05</span><div><h3>HUMAN-IN-THE-LOOP CONTROL</h3><p>Operators plan, confirm, supervise, and intervene while the system handles coordination.</p></div>' +
-            '<div class="build-visual control-visual"><i></i><i></i><i></i></div>' +
-          '</article>' +
+      '<section class="build-architecture-intro">' +
+        '<figure class="build-intro-image"><img src="assets/images/kubeca/system/command-room-alt.png" alt="" aria-hidden="true"></figure>' +
+        '<div class="build-architecture-title">' +
+          '<h2>THE KUBECA<br>SYSTEM</h2>' +
+          '<div class="build-architecture-rule"></div>' +
+        '</div>' +
+        '<div class="build-architecture-copy">' +
+          '<p>KUBECA connects carrier platforms, local drone teams, shared spatial data, and human oversight into one coordinated mission layer.</p>' +
+          '<p><strong>The carrier extends reach.<br>The software layer turns separate assets into one operating system.</strong></p>' +
         '</div>' +
       '</section>' +
-      renderChapterBottom('build', 'BOTTOM LINE', 'KUBECA IS NOT BUILDING ANOTHER DRONE.', 'KUBECA IS BUILDING THE MISSION LAYER<br>THAT MAKES DRONES WORK TOGETHER.') +
+      '<section class="build-architecture">' +
+        '<div class="build-architecture-label"><span></span><h3>SYSTEM ARCHITECTURE</h3><span></span></div>' +
+        '<div class="build-architecture-top">' +
+          '<article class="build-arch-card build-arch-card-carrier">' +
+            '<header><strong>01</strong><h4>CARRIER / RELAY PLATFORM</h4></header>' +
+            '<div class="build-card-body"><img src="assets/icons/kubeca/why-matters/long-range-platform.svg" alt="" aria-hidden="true"><p>Extends mission reach and maintains the data bridge between local assets and the operator.</p></div>' +
+          '</article>' +
+          '<article class="build-arch-card build-arch-card-local">' +
+            '<header><strong>02</strong><h4>LOCAL DRONE TEAMS</h4></header>' +
+            '<div class="build-card-body"><img src="assets/icons/kubeca/why-matters/local-drone.svg" alt="" aria-hidden="true"><p>Operate close to the mission area to collect local intelligence, map terrain, and relay updates.</p></div>' +
+          '</article>' +
+        '</div>' +
+        '<div class="build-connectors build-connectors-top"><span></span><span></span></div>' +
+        '<article class="build-arch-core">' +
+          '<div class="build-core-heading"><strong>03</strong><h4>MISSION<br>INTELLIGENCE<br>LAYER</h4></div>' +
+          '<p>Fuses sensor feeds, map context, asset status, and mission objectives into coordinated system behavior.</p>' +
+          '<div class="build-core-art" aria-hidden="true"><span></span><span></span><span></span></div>' +
+          '<div class="build-core-capabilities">' +
+            '<span><img src="' + whyNowIconPath('resilient_navigation.svg') + '" alt="" aria-hidden="true">Resilient<br>Navigation</span>' +
+            '<span><img src="' + whyNowIconPath('shared_spatial_awareness.svg') + '" alt="" aria-hidden="true">Mapping &<br>Context</span>' +
+            '<span><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true">Coordination</span>' +
+            '<span><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true">Mission<br>Logic</span>' +
+          '</div>' +
+        '</article>' +
+        '<div class="build-connectors build-connectors-bottom"><span></span><span></span></div>' +
+        '<div class="build-architecture-lower">' +
+          '<article class="build-arch-card build-arch-card-spatial">' +
+            '<header><strong>04</strong><h4>SHARED SPATIAL DATA</h4></header>' +
+            '<div class="build-card-body"><img class="build-card-image" src="assets/images/kubeca/system/spatial_layer.png" alt="" aria-hidden="true"><p>Creates one persistent operational picture across terrain, infrastructure, assets, and updates.</p></div>' +
+          '</article>' +
+          '<article class="build-arch-card build-arch-card-human">' +
+            '<header><strong>05</strong><h4>HUMAN OVERSIGHT</h4></header>' +
+            '<div class="build-card-body"><p>Operators plan, confirm, supervise, and intervene while the system handles coordination.</p><img src="assets/icons/kubeca/why-matters/operator.svg" alt="" aria-hidden="true"></div>' +
+          '</article>' +
+        '</div>' +
+        '<div class="build-output">' +
+          '<img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true">' +
+          '<div><h4>MISSION OUTPUT</h4><strong>ONE SHARED OPERATIONAL PICTURE</strong><p>Aligned data. Coordinated actions. Mission continuity.</p></div>' +
+          '<figure><img src="assets/images/kubeca/system/mission.png" alt="" aria-hidden="true"></figure>' +
+        '</div>' +
+      '</section>' +
+      '<section class="build-arch-bottom">' +
+        '<div><small>BOTTOM LINE</small><p>KUBECA IS NOT BUILDING ANOTHER DRONE.<br><span>KUBECA IS BUILDING THE MISSION INTELLIGENCE LAYER<br>THAT MAKES AERIAL ASSETS WORK TOGETHER.</span></p></div>' +
+      '</section>' +
       renderChapterFooter('build') +
     '</section>';
   }
