@@ -354,15 +354,76 @@ function renderDeckChapter(deckId) {
   }
 
   if (group.heading === 'HOW IT WORKS') {
-    return renderStandardChapterPage(group, {
-      className: 'works',
-      layout: 'flow',
-      title: 'FROM RANGE TO<br>LOCAL INTELLIGENCE.',
-      lead: 'The KUBECA mission sequence is simple: deploy local drone teams at range, keep the relay alive, explore and map the area, fuse what matters, and keep operators in control.',
-      extra: renderHowItWorksGraphic(),
-      bottomLineOne: 'THE SYSTEM IS NOT ONLY A SET OF ASSETS.',
-      bottomLineTwo: 'IT IS A MISSION FLOW FROM RANGE TO CONTROL.'
-    });
+    return '<section class="chapter-page chapter-page-works works-flow-layout">' +
+      renderChapterHeader(group.heading) +
+      '<section class="works-flow-intro">' +
+        '<div class="works-flow-title">' +
+          '<h2>FROM RANGE TO<br>LOCAL INTELLIGENCE.</h2>' +
+          '<div class="works-flow-rule"></div>' +
+        '</div>' +
+        '<div class="works-flow-copy">' +
+          '<p>KUBECA moves local drone teams beyond normal range, keeps the relay alive, explores complex environments, builds spatial understanding, and returns mission-relevant answers to the operator.</p>' +
+          '<small>DEPLOY / RELAY / EXPLORE / UNDERSTAND / CONTROL</small>' +
+        '</div>' +
+      '</section>' +
+      '<section class="works-mission-flow" aria-label="Mission flow">' +
+        '<div class="works-section-label"><h3>MISSION FLOW</h3><span></span></div>' +
+        '<div class="works-flow-steps">' +
+          '<article><strong>01</strong><figure><img src="assets/icons/kubeca/why-matters/long-range-platform.svg" alt="" aria-hidden="true"></figure><h4>DEPLOY</h4><p>The carrier moves local autonomous drone teams beyond normal range and positions them near the area of interest.</p></article>' +
+          '<i aria-hidden="true">-></i>' +
+          '<article><strong>02</strong><figure><img src="assets/icons/kubeca/why-matters/local-drone.svg" alt="" aria-hidden="true"></figure><h4>RELEASE + RELAY</h4><p>Local drones deploy near the mission area while the carrier remains airborne as a relay and data bridge.</p></article>' +
+          '<i aria-hidden="true">-></i>' +
+          '<article><strong>03</strong><figure><img src="' + whyNowIconPath('longer_mission_distance.svg') + '" alt="" aria-hidden="true"></figure><h4>EXPLORE + MAP</h4><p>Autonomous drones explore terrain, buildings, and enclosed spaces while building spatial context.</p></article>' +
+          '<i aria-hidden="true">-></i>' +
+          '<article class="is-understand"><strong>04</strong><figure><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true"></figure><h4>UNDERSTAND</h4><p>The system turns raw data into spatial understanding using relationships in the environment.</p></article>' +
+          '<i aria-hidden="true">-></i>' +
+          '<article><strong>05</strong><figure><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-map.svg" alt="" aria-hidden="true"></figure><h4>CONFIRM + CONTROL</h4><p>Operators supervise the mission, confirm critical actions, and intervene when needed while the system handles coordination.</p></article>' +
+        '</div>' +
+      '</section>' +
+      '<div class="works-understand-bridge"><span>STEP 04 EXPANDS BELOW</span></div>' +
+      '<section class="works-spatial-layer">' +
+        '<div class="works-spatial-copy">' +
+          '<small>SPATIAL AUTONOMY</small>' +
+          '<h3>THE GOAL IS NOT ONLY<br>TO STREAM VIDEO.<br>IT IS TO UNDERSTAND<br>THE ENVIRONMENT.</h3>' +
+          '<p>KUBECA has already implemented and flight-tested early scene-graph based environment understanding in the first flight.</p>' +
+          '<p><strong>Phase 2 turns this capability into robust autonomous local drone teams.</strong></p>' +
+        '</div>' +
+        '<div class="works-spatial-pipeline" aria-label="Spatial autonomy pipeline">' +
+          '<article>' +
+            '<strong>01</strong>' +
+            '<h4>DRONE FEEDS</h4>' +
+            '<p>Sensors, video, telemetry</p>' +
+            '<figure><img src="assets/images/kubeca/how-it-works/drone-feeds-objects.png" alt="" aria-hidden="true"></figure>' +
+          '</article>' +
+          '<article>' +
+            '<strong>02</strong>' +
+            '<h4>OBJECTS + STRUCTURE</h4>' +
+            '<p>Detection, mapping, local context</p>' +
+            '<figure><img src="assets/images/kubeca/how-it-works/drone-feeds-objects.png" alt="" aria-hidden="true"></figure>' +
+          '</article>' +
+          '<article>' +
+            '<strong>03</strong>' +
+            '<h4>SCENE GRAPH</h4>' +
+            '<p>Relationships between objects, places, paths, and events</p>' +
+            '<figure><img src="assets/images/kubeca/how-it-works/scene-graph.png" alt="" aria-hidden="true"></figure>' +
+          '</article>' +
+          '<article>' +
+            '<strong>04</strong>' +
+            '<h4>MISSION-RELEVANT ANSWERS</h4>' +
+            '<p>Operator insights, unit actions, mission continuity</p>' +
+            '<figure><img src="assets/images/kubeca/how-it-works/route-control.png" alt="" aria-hidden="true"></figure>' +
+          '</article>' +
+        '</div>' +
+        '<div class="works-spatial-capabilities">' +
+          '<span><img src="' + whyNowIconPath('resilient_navigation.svg') + '" alt="" aria-hidden="true">Resilient<br>Navigation</span>' +
+          '<span><img src="' + whyNowIconPath('shared_spatial_awareness.svg') + '" alt="" aria-hidden="true">Mapping &<br>Context</span>' +
+          '<span><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true">Coordination<br>at Scale</span>' +
+          '<span><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true">Mission<br>Logic</span>' +
+        '</div>' +
+      '</section>' +
+      renderChapterBottom('works', 'BOTTOM LINE', 'THE SYSTEM IS NOT ONLY A SET OF ASSETS.', 'IT IS A MISSION FLOW FROM RANGE TO CONTROL.') +
+      renderChapterFooter('works') +
+    '</section>';
   }
 
   if (group.heading === 'WHAT IT ENABLES') {
