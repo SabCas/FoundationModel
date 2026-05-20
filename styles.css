@@ -4066,3 +4066,41 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   }
   .deck-detail .chapter-page{padding:34px 24px 64px !important;}
 }
+
+/* How It Works: give the newly loaded mission-flow icons more presence. */
+.deck-detail .works-flow-steps figure{
+  height:112px !important;
+  margin:0 0 22px !important;
+}
+
+.deck-detail .works-flow-steps figure img{
+  width:108px !important;
+  height:108px !important;
+  max-width:100% !important;
+  object-fit:contain !important;
+}
+
+.deck-detail .works-flow-steps article.is-understand figure{
+  height:128px !important;
+}
+
+.deck-detail .works-flow-steps article.is-understand figure img{
+  width:124px !important;
+  height:124px !important;
+}
+
+.deck-detail .works-flow-steps > i{
+  margin-top:132px !important;
+}
+
+/* How It Works: secondary label for the understanding layer copy block. */
+.deck-detail .works-spatial-copy > span{
+  display:block !important;
+  margin:14px 0 26px !important;
+  color:rgba(255,255,255,.54) !important;
+  font-size:.68rem !important;
+  line-height:1.2 !important;
+  font-weight:720 !important;
+  letter-spacing:.24em !important;
+  text-transform:uppercase !important;
+}

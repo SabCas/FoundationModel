@@ -369,24 +369,25 @@ function renderDeckChapter(deckId) {
       '<section class="works-mission-flow" aria-label="Mission flow">' +
         '<div class="works-section-label"><h3>MISSION FLOW</h3><span></span></div>' +
         '<div class="works-flow-steps">' +
-          '<article><strong>01</strong><figure><img src="assets/icons/kubeca/why-matters/long-range-platform.svg" alt="" aria-hidden="true"></figure><h4>DEPLOY</h4><p>The carrier moves local autonomous drone teams beyond normal range and positions them near the area of interest.</p></article>' +
+          '<article><strong>01</strong><figure><img src="assets/images/kubeca/how-it-works/icon1.png" alt="" aria-hidden="true"></figure><h4>DEPLOY</h4><p>The carrier moves local autonomous drone teams beyond normal range and positions them near the area of interest.</p></article>' +
           '<i aria-hidden="true">-></i>' +
-          '<article><strong>02</strong><figure><img src="assets/icons/kubeca/why-matters/local-drone.svg" alt="" aria-hidden="true"></figure><h4>RELEASE + RELAY</h4><p>Local drones deploy near the mission area while the carrier remains airborne as a relay and data bridge.</p></article>' +
+          '<article><strong>02</strong><figure><img src="assets/images/kubeca/how-it-works/icon2.png" alt="" aria-hidden="true"></figure><h4>RELEASE + RELAY</h4><p>Local drones deploy near the mission area while the carrier remains airborne as a relay and data bridge.</p></article>' +
           '<i aria-hidden="true">-></i>' +
-          '<article><strong>03</strong><figure><img src="' + whyNowIconPath('longer_mission_distance.svg') + '" alt="" aria-hidden="true"></figure><h4>EXPLORE + MAP</h4><p>Autonomous drones explore terrain, buildings, and enclosed spaces while building spatial context.</p></article>' +
+          '<article><strong>03</strong><figure><img src="assets/images/kubeca/how-it-works/icon3.png" alt="" aria-hidden="true"></figure><h4>EXPLORE + MAP</h4><p>Autonomous drones explore terrain, buildings, and enclosed spaces while building spatial context.</p></article>' +
           '<i aria-hidden="true">-></i>' +
-          '<article class="is-understand"><strong>04</strong><figure><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true"></figure><h4>UNDERSTAND</h4><p>The system turns raw data into spatial understanding using relationships in the environment.</p></article>' +
+          '<article class="is-understand"><strong>04</strong><figure><img src="assets/images/kubeca/how-it-works/icon4.png" alt="" aria-hidden="true"></figure><h4>UNDERSTAND</h4><p>The system turns raw data into spatial understanding using relationships in the environment.</p></article>' +
           '<i aria-hidden="true">-></i>' +
-          '<article><strong>05</strong><figure><img src="assets/icons/kubeca/kubeca_icons/svg/kubeca-map.svg" alt="" aria-hidden="true"></figure><h4>CONFIRM + CONTROL</h4><p>Operators supervise the mission, confirm critical actions, and intervene when needed while the system handles coordination.</p></article>' +
+          '<article><strong>05</strong><figure><img src="assets/images/kubeca/how-it-works/icon5.png" alt="" aria-hidden="true"></figure><h4>CONFIRM + CONTROL</h4><p>Operators supervise the mission, confirm critical actions, and intervene when needed while the system handles coordination.</p></article>' +
         '</div>' +
       '</section>' +
       '<div class="works-understand-bridge"><span>STEP 04 EXPANDS BELOW</span></div>' +
       '<section class="works-spatial-layer">' +
         '<div class="works-spatial-copy">' +
-          '<small>SPATIAL AUTONOMY</small>' +
+          '<small>THE UNDERSTANDING LAYER</small>' +
+          '<span>SPATIAL AUTONOMY</span>' +
           '<h3>THE GOAL IS NOT ONLY<br>TO STREAM VIDEO.<br>IT IS TO UNDERSTAND<br>THE ENVIRONMENT.</h3>' +
-          '<p>KUBECA has already implemented and flight-tested early scene-graph based environment understanding in the first flight.</p>' +
-          '<p><strong>Phase 2 turns this capability into robust autonomous local drone teams.</strong></p>' +
+          '<p>The system structures live drone data into relationships between objects, places, paths, obstacles, and events.</p>' +
+          '<p><strong>This turns exploration into spatial context — and spatial context into operator-ready answers.</strong></p>' +
         '</div>' +
         '<div class="works-spatial-pipeline" aria-label="Spatial autonomy pipeline">' +
           '<article>' +
