@@ -418,7 +418,7 @@ function renderDeckChapter(deckId) {
         '<article><small>05</small><h3>DEFENSE ECOSYSTEM<br>EXPERIENCE</h3><p>Experience with Bundeswehr-related working groups, discussions with the German Army Concepts and Capabilities Development Centre, collaboration with firms advising the Bundeswehr, industry trade fair representation, and operator feedback.</p></article>' +
       '</section>' +
       '<section class="validation-proof-close" aria-label="Validation conclusion">' +
-        '<div><h3>KUBECA IS NOT BUILT FROM THEORY.</h3><p>It is built from hardware development, flight-stack integration, autonomy software, field testing, and operational feedback.</p></div>' +
+        '<div><h3>KUBECA IS BUILT FROM PROVEN EXPERIENCE.</h3><p>Prior hardware development, flight-stack integration, autonomy software, field testing, and operational feedback form the foundation of the KUBECA system.</p></div>' +
         '<p>The next step is integration: bringing this experience together in the first KUBECA supervised aerial mission-system demonstration.</p>' +
       '</section>' +
     '</section>';
