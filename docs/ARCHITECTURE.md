@@ -17,7 +17,8 @@ Investor Room:
 2. `02 / THE KUBECA SYSTEM` - the architecture: carrier / relay, local drone teams, mission intelligence, shared spatial data, and human oversight.
 3. `03 / OUR PRODUCTS` - the configurable product stack: carrier platform, mission modules, local drone teams, and mission software.
 4. `04 / WHERE KUBECA CREATES VALUE` - one initial defense focus and two explicit expansion paths.
-5. `05 / CONTACT` - a single direct conversation path.
+5. `05 / FIELD VALIDATION` - verified systems-development, autonomy, field, and defense-ecosystem experience.
+6. `06 / CONTACT` - a single direct conversation path.
 
 Rule of thumb:
 
@@ -27,6 +28,7 @@ Rule of thumb:
 - `The KUBECA System` owns the coordinated mission-system explanation and closes with a brief future connected-assets teaser.
 - `Our Products` owns the configurable product stack and the detailed future connected-asset extension.
 - `Where KUBECA Creates Value` owns the market opportunity, without adding product claims.
+- `Field Validation` owns verified execution evidence and the integrated demonstration next step.
 - `Contact` closes with one clear next step.
 
 ## JavaScript Modules

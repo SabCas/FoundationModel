@@ -39,8 +39,10 @@ var chapterMeta = {
   'OUR PRODUCTS': { number: '03', className: 'products', label: 'OUR PRODUCTS' },
   'WHERE KUBECA CREATES VALUE': { number: '04', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
   'MARKET AREAS': { number: '04', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
-  'CONTACT': { number: '05', className: 'cta', label: 'CONTACT' },
-  'CTA': { number: '05', className: 'cta', label: 'CONTACT' }
+  'FIELD VALIDATION': { number: '05', className: 'validation', label: 'FIELD VALIDATION' },
+  'TEAM / VALIDATION': { number: '05', className: 'validation', label: 'FIELD VALIDATION' },
+  'CONTACT': { number: '06', className: 'cta', label: 'CONTACT' },
+  'CTA': { number: '06', className: 'cta', label: 'CONTACT' }
 };
 
 function iconPath(fileName) {
@@ -396,14 +398,30 @@ function renderDeckChapter(deckId) {
   }
 
   if (group.heading === 'FIELD VALIDATION' || group.heading === 'TEAM / VALIDATION') {
-    return renderStandardChapterPage(group, {
-      className: 'team',
-      layout: 'proof',
-      title: 'BUILT FROM REAL SYSTEM DEVELOPMENT.<br>TESTED IN REAL CONDITIONS.',
-      lead: 'KUBECA is built from hands-on experience across drone platform development, autonomy software, field testing, operator feedback, and defense-relevant constraints.',
-      bottomLineOne: 'KUBECA IS NOT BUILT FROM THEORY.',
-      bottomLineTwo: 'IT IS BUILT FROM HARDWARE DEVELOPMENT, SOFTWARE INTEGRATION, FIELD TESTING, AND OPERATOR FEEDBACK.'
-    });
+    return '<section class="chapter-page chapter-page-validation validation-proof-layout">' +
+      '<header class="validation-proof-intro">' +
+        '<div class="validation-proof-title">' +
+          '<p class="validation-proof-kicker">05 / FIELD VALIDATION</p>' +
+          '<h2>BUILT FROM REAL<br>AUTONOMOUS SYSTEM<br>DEVELOPMENT.</h2>' +
+          '<div class="validation-proof-lead">' +
+            '<p>KUBECA is built on hands-on experience across unmanned systems development, autonomy software, field testing, operator feedback, and defense-relevant system environments.</p>' +
+            '<p>These experiences directly inform the KUBECA mission-system architecture.</p>' +
+          '</div>' +
+        '</div>' +
+        '<figure class="validation-proof-media"><img src="assets/images/kubeca/validation/field-validation.png" alt="KUBECA autonomous systems development and field testing" loading="lazy" onerror="this.remove()"></figure>' +
+      '</header>' +
+      '<section class="validation-proof-rows" aria-label="Verified development experience">' +
+        '<article data-deck-section="validation-real-system-development"><small>01</small><h3>FULL SYSTEM DEVELOPMENT</h3><p>Led complete development cycles from concept to deployment: hardware design, component sizing, flight-stack integration, software architecture, hardware/software testing, field iteration, and deployment support.</p></article>' +
+        '<article><small>02</small><h3>MISSION-READY<br>UAS INTEGRATION</h3><p>Experience integrating defense-relevant unmanned aerial systems with proprietary hardware, flight software, payload systems, and mission-relevant platform behavior into functional field-ready systems.</p></article>' +
+        '<article><small>03</small><h3>GPS-DENIED<br>AUTONOMY</h3><p>Core development work in a SPRIND autonomous systems challenge, including SLAM, local mapping, GPS-denied navigation, scene-graph based spatial understanding, autonomy-stack integration, and system-level software development.</p></article>' +
+        '<article><small>04</small><h3>FIELD TESTING &amp;<br>OPERATIONAL EXPOSURE</h3><p>Systems deployed in Ukraine and presented and flight-tested at the NATO Mountain Warfare Centre of Excellence. Tactical drone deployment presentation delivered; Challenge Coin awarded.</p></article>' +
+        '<article><small>05</small><h3>DEFENSE ECOSYSTEM<br>EXPERIENCE</h3><p>Experience with Bundeswehr-related working groups, discussions with the German Army Concepts and Capabilities Development Centre, collaboration with firms advising the Bundeswehr, industry trade fair representation, and operator feedback.</p></article>' +
+      '</section>' +
+      '<section class="validation-proof-close" aria-label="Validation conclusion">' +
+        '<div><h3>KUBECA IS NOT BUILT FROM THEORY.</h3><p>It is built from hardware development, flight-stack integration, autonomy software, field testing, and operational feedback.</p></div>' +
+        '<p>The next step is integration: bringing this experience together in the first KUBECA supervised aerial mission-system demonstration.</p>' +
+      '</section>' +
+    '</section>';
   }
 
   if (group.heading === 'ROADMAP') {
