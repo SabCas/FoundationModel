@@ -8,12 +8,14 @@ The site follows `KUBECA_Investor_Website_Storyline.pdf` as the source of truth.
 
 Public homepage:
 
-1. `01 / HERO` - cinematic positioning for KUBECA as the mission intelligence layer for coordinated aerial autonomy.
+1. `01 / HERO` - cinematic positioning for KUBECA as one supervised mission system for coordinated aerial autonomy.
+2. `THE SYSTEM SHIFT` - a short investor bridge: bottleneck -> system layer -> first aerial configuration.
 
 Investor Room:
 
-2. `02 / WHY THIS MATTERS` - why isolated drone operations fail.
-3. `03 / THE KUBECA SYSTEM` - the architecture: carrier / relay, local drone teams, mission intelligence, shared spatial data, and human oversight.
+1. `01 / WHY THIS MATTERS` - why isolated drone operations fail.
+2. `02 / THE KUBECA SYSTEM` - the architecture: carrier / relay, local drone teams, mission intelligence, shared spatial data, and human oversight.
+3. `03 / OUR PRODUCTS` - the configurable product stack: carrier platform, mission modules, local drone teams, and mission software.
 4. `04 / HOW A MISSION WORKS` - the short mission sequence: Deploy -> Release + Relay -> Explore + Map -> Understand -> Confirm + Control.
 5. `05 / WHAT IT ENABLES` - outcomes and spatial-intelligence value.
 6. `06 / WHERE KUBECA CREATES VALUE` - operational use cases and market areas.
@@ -23,10 +25,11 @@ Investor Room:
 
 Rule of thumb:
 
-- The homepage creates belief.
+- The homepage creates belief and frames the investment story before detailed evidence.
 - The Investor Room provides evidence.
 - `Why This Matters` owns the problem.
-- `The KUBECA System` owns product architecture.
+- `The KUBECA System` owns the coordinated mission-system explanation and closes with a brief future connected-assets teaser.
+- `Our Products` owns the configurable product stack and the detailed future connected-asset extension.
 - `How A Mission Works` owns the mission flow only.
 - `What It Enables` owns spatial-intelligence outcomes.
 

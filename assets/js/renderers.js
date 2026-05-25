@@ -36,15 +36,16 @@ var chapterMeta = {
   'WHY THIS MATTERS': { number: '01', className: 'why', label: 'WHY THIS MATTERS' },
   'THE KUBECA SYSTEM': { number: '02', className: 'build', label: 'THE KUBECA SYSTEM' },
   'WHAT WE BUILD': { number: '02', className: 'build', label: 'THE KUBECA SYSTEM' },
-  'HOW A MISSION WORKS': { number: '03', className: 'works', label: 'HOW A MISSION WORKS' },
-  'HOW IT WORKS': { number: '03', className: 'works', label: 'HOW A MISSION WORKS' },
-  'WHAT IT ENABLES': { number: '04', className: 'enables', label: 'WHAT IT ENABLES' },
-  'WHERE KUBECA CREATES VALUE': { number: '05', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
-  'MARKET AREAS': { number: '05', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
-  'FIELD VALIDATION': { number: '06', className: 'team', label: 'FIELD VALIDATION' },
-  'TEAM / VALIDATION': { number: '06', className: 'team', label: 'FIELD VALIDATION' },
-  'ROADMAP': { number: '07', className: 'roadmap', label: 'ROADMAP' },
-  'CTA': { number: '08', className: 'cta', label: 'CTA' }
+  'OUR PRODUCTS': { number: '03', className: 'products', label: 'OUR PRODUCTS' },
+  'HOW A MISSION WORKS': { number: '04', className: 'works', label: 'HOW A MISSION WORKS' },
+  'HOW IT WORKS': { number: '04', className: 'works', label: 'HOW A MISSION WORKS' },
+  'WHAT IT ENABLES': { number: '05', className: 'enables', label: 'WHAT IT ENABLES' },
+  'WHERE KUBECA CREATES VALUE': { number: '06', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
+  'MARKET AREAS': { number: '06', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
+  'FIELD VALIDATION': { number: '07', className: 'team', label: 'FIELD VALIDATION' },
+  'TEAM / VALIDATION': { number: '07', className: 'team', label: 'FIELD VALIDATION' },
+  'ROADMAP': { number: '08', className: 'roadmap', label: 'ROADMAP' },
+  'CTA': { number: '09', className: 'cta', label: 'CTA' }
 };
 
 function iconPath(fileName) {
@@ -153,12 +154,12 @@ function renderDeckChapter(deckId) {
       renderChapterHeader(group.heading) +
       '<section class="why-repair-intro">' +
         '<div class="why-repair-title">' +
-          '<h2>THE MISSION BREAKS<br>WHEN AERIAL ASSETS<br>CANNOT EVOLVE INTO<br>ONE AUTONOMOUS SYSTEM.</h2>' +
+          '<h2>AERIAL ASSETS<br>FAIL TO SCALE WHEN<br>THEY CANNOT WORK<br>AS ONE SYSTEM.</h2>' +
           '<div class="why-repair-rule"></div>' +
         '</div>' +
         '<div class="why-repair-copy">' +
           '<p>Small drones provide local detail, but lack reach. Carrier platforms provide distance, but not autonomous coordination. Operators are left connecting feeds, maps, telemetry, and decisions under pressure.</p>' +
-          '<p><strong>The bottleneck is not more drones.<br><span>The bottleneck is the missing system layer between carrier, drones, software, and autonomy.</span></strong></p>' +
+          '<p><strong>The bottleneck is not more drones.<br><span>It is the missing mission intelligence layer between reach, local sensing, software, and human control.</span></strong></p>' +
         '</div>' +
       '</section>' +
       '<section class="why-repair-cards">' +
@@ -243,10 +244,63 @@ function renderDeckChapter(deckId) {
           '<button class="system-carousel-arrow" type="button" data-system-next aria-label="Next slide">&rarr;</button>' +
         '</div>' +
       '</section>' +
-      '<section class="system-future-assets" aria-label="Future connected assets">' +
-        '<p class="system-future-label">FUTURE CONNECTED ASSETS</p>' +
-        '<p class="system-future-copy">The mission intelligence layer is designed to connect additional autonomous assets over time. Future ground robots can extend local sensing, indoor exploration, rubble access, relay coverage, and perimeter missions within the same supervised system.</p>' +
-        '<p class="system-future-thesis">The carrier and local drones are the first configuration. The platform is the mission intelligence layer that can coordinate future assets across air and ground.</p>' +
+      '<section class="system-future-teaser" aria-label="Future connected assets">' +
+        '<p class="system-future-teaser-label">FUTURE CONNECTED ASSETS</p>' +
+        '<p class="system-future-teaser-copy">The first configuration is aerial. Over time, the same mission intelligence layer is designed to connect future ground robots and additional autonomous assets across air and ground.</p>' +
+      '</section>' +
+    '</section>';
+  }
+
+  if (group.heading === 'OUR PRODUCTS') {
+    return '<section class="chapter-page chapter-page-products products-deck-layout">' +
+      '<header class="products-deck-intro">' +
+        '<div>' +
+          '<p class="products-deck-kicker">03 / OUR PRODUCTS</p>' +
+          '<h2>Modular mission system.<br>One supervised platform.</h2>' +
+        '</div>' +
+        '<div class="products-deck-overview">' +
+          '<p>KUBECA combines a standardized carrier platform, modular mission payloads, local drone teams, and mission software into one configurable autonomy system.</p>' +
+          '<p class="products-deck-phase">Phase 1 validates the core aerial configuration. The architecture is designed to expand through reusable platforms, modular mission capability, and one supervised software layer.</p>' +
+        '</div>' +
+      '</header>' +
+      '<section class="products-deck" data-products-deck aria-label="Product architecture">' +
+        '<div class="products-panels">' +
+          '<article class="products-panel is-active" id="product-panel-carrier" data-product-panel="0" role="tabpanel" aria-labelledby="product-tab-carrier">' +
+            '<figure class="products-media"><img src="assets/images/kubeca/products/carrier-platform.png" alt="Carrier platform and its modular deployment architecture"></figure>' +
+            '<div class="products-panel-copy"><p class="products-position">The reach layer.</p><h3>Carrier Platform</h3><p class="products-summary">A standardized fixed-wing carrier extends range, maintains connectivity, and carries mission-specific modules without redesigning the base airframe.</p>' +
+              '<dl class="products-details"><div><dt>Core Role</dt><dd>Extend range, maintain connectivity, support local drone deployment.</dd></div><div><dt>Configurable With</dt><dd>Relay, sensor, release, communication, and hybrid mission modules.</dd></div><div><dt>Why It Matters</dt><dd>One reusable platform supports multiple mission types without redesigning the airframe.</dd></div></dl>' +
+            '</div>' +
+          '</article>' +
+          '<article class="products-panel" id="product-panel-modules" data-product-panel="1" role="tabpanel" aria-labelledby="product-tab-modules" aria-hidden="true" hidden>' +
+            '<figure class="products-media"><img src="assets/images/kubeca/products/mission-modules.png" alt="Interchangeable mission modules for configurable capability" loading="lazy"></figure>' +
+            '<div class="products-panel-copy"><p class="products-position">The configurable mission layer.</p><h3>Mission Modules</h3><p class="products-summary">Mission capability changes through interchangeable modules, not a new aircraft for every use case.</p>' +
+              '<dl class="products-details"><div><dt>Relay Module</dt><dd>Extends communication between operators and mission assets.</dd></div><div><dt>Sensor Module</dt><dd>Adds EO, thermal, mapping, or awareness payloads.</dd></div><div><dt>Release Module</dt><dd>Carries and deploys local drones near the mission area.</dd></div><div><dt>Hybrid Module</dt><dd>Combines relay, sensing, and deployment in one setup.</dd></div></dl>' +
+            '</div>' +
+          '</article>' +
+          '<article class="products-panel" id="product-panel-drones" data-product-panel="2" role="tabpanel" aria-labelledby="product-tab-drones" aria-hidden="true" hidden>' +
+            '<figure class="products-media"><img src="assets/images/kubeca/products/local-drone-teams.png" alt="Local drone teams deployed for close-area intelligence" loading="lazy"></figure>' +
+            '<div class="products-panel-copy"><p class="products-position">The close-area intelligence layer.</p><h3>Local Drone Teams</h3><p class="products-summary">Deployable drone teams operate near the objective to explore, map, sense, and provide local context.</p>' +
+              '<dl class="products-details"><div><dt>FPV</dt><dd>Direct control for immediate operator-led tasks.</dd></div><div><dt>Assisted</dt><dd>Stabilized navigation and guided sensing support.</dd></div><div><dt>Autonomous Scout</dt><dd>Local exploration and spatial context generation.</dd></div><div><dt>Coordinated Team</dt><dd>Multiple assets working from shared mission intent.</dd></div></dl>' +
+            '</div>' +
+          '</article>' +
+          '<article class="products-panel" id="product-panel-software" data-product-panel="3" role="tabpanel" aria-labelledby="product-tab-software" aria-hidden="true" hidden>' +
+            '<figure class="products-media"><img src="assets/images/kubeca/products/mission-software.png" alt="Mission software interface coordinating supervised autonomous assets" loading="lazy"></figure>' +
+            '<div class="products-panel-copy"><p class="products-position">The coordination layer.</p><h3>Mission Software</h3><p class="products-summary">Mission software converts maps, feeds, asset state, and operator decisions into one supervised mission picture.</p>' +
+              '<dl class="products-details"><div><dt>Live Mission Map</dt><dd>Tracks assets, routes, zones, and mission progress in real time.</dd></div><div><dt>Building Intelligence</dt><dd>Structures cleared, unknown, and attention areas inside buildings.</dd></div><div><dt>Feed Fusion</dt><dd>Combines drone video, mapping, and sensor context.</dd></div><div><dt>Operator Control</dt><dd>Supports supervision, tasking, confirmation, and intervention.</dd></div></dl>' +
+            '</div>' +
+          '</article>' +
+        '</div>' +
+        '<div class="products-tabs" role="tablist" aria-label="Select product view">' +
+          '<button class="products-tab is-active" id="product-tab-carrier" type="button" role="tab" data-product-tab="0" aria-controls="product-panel-carrier" aria-selected="true"><small>01</small><span>Carrier Platform</span></button>' +
+          '<button class="products-tab" id="product-tab-modules" type="button" role="tab" data-product-tab="1" aria-controls="product-panel-modules" aria-selected="false" tabindex="-1"><small>02</small><span>Mission Modules</span></button>' +
+          '<button class="products-tab" id="product-tab-drones" type="button" role="tab" data-product-tab="2" aria-controls="product-panel-drones" aria-selected="false" tabindex="-1"><small>03</small><span>Local Drone Teams</span></button>' +
+          '<button class="products-tab" id="product-tab-software" type="button" role="tab" data-product-tab="3" aria-controls="product-panel-software" aria-selected="false" tabindex="-1"><small>04</small><span>Mission Software</span></button>' +
+        '</div>' +
+      '</section>' +
+      '<section class="products-future-assets" aria-label="Future connected assets">' +
+        '<p class="products-future-label">FUTURE CONNECTED ASSETS</p>' +
+        '<p class="products-future-copy">The mission intelligence layer is designed to connect additional autonomous assets over time. Future ground robots can extend local sensing, indoor exploration, rubble access, relay coverage, and perimeter missions within the same supervised system.</p>' +
+        '<p class="products-future-thesis">The carrier and local drones are the first configuration. The platform is the mission intelligence layer that can coordinate future assets across air and ground.</p>' +
       '</section>' +
     '</section>';
   }
