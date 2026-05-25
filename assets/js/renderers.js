@@ -399,8 +399,9 @@ function renderDeckChapter(deckId) {
 
   if (group.heading === 'FIELD VALIDATION' || group.heading === 'TEAM / VALIDATION') {
     return '<section class="chapter-page chapter-page-validation validation-proof-layout">' +
-      '<header class="validation-proof-intro">' +
-        '<div class="validation-proof-title">' +
+      '<header class="validation-proof-hero">' +
+        '<img src="assets/images/kubeca/validation/field-validation.png" alt="KUBECA autonomous systems development and field testing" loading="lazy" onload="this.closest(\'.validation-proof-hero\').classList.add(\'has-media\')" onerror="this.remove()">' +
+        '<div class="validation-proof-overlay">' +
           '<p class="validation-proof-kicker">05 / FIELD VALIDATION</p>' +
           '<h2>BUILT FROM REAL<br>AUTONOMOUS SYSTEM<br>DEVELOPMENT.</h2>' +
           '<div class="validation-proof-lead">' +
@@ -408,7 +409,6 @@ function renderDeckChapter(deckId) {
             '<p>These experiences directly inform the KUBECA mission-system architecture.</p>' +
           '</div>' +
         '</div>' +
-        '<figure class="validation-proof-media"><img src="assets/images/kubeca/validation/field-validation.png" alt="KUBECA autonomous systems development and field testing" loading="lazy" onerror="this.remove()"></figure>' +
       '</header>' +
       '<section class="validation-proof-rows" aria-label="Verified development experience">' +
         '<article data-deck-section="validation-real-system-development"><small>01</small><h3>FULL SYSTEM DEVELOPMENT</h3><p>Led complete development cycles from concept to deployment: hardware design, component sizing, flight-stack integration, software architecture, hardware/software testing, field iteration, and deployment support.</p></article>' +
