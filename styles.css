@@ -4422,7 +4422,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-enables .standard-hero,
-.deck-detail .chapter-page-market .standard-hero,
 .deck-detail .chapter-page-team .standard-hero,
 .deck-detail .chapter-page-roadmap .standard-hero,
 .deck-detail .chapter-page-cta .standard-hero{
@@ -4437,7 +4436,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-enables .standard-hero:before,
-.deck-detail .chapter-page-market .standard-hero:before,
 .deck-detail .chapter-page-team .standard-hero:before,
 .deck-detail .chapter-page-roadmap .standard-hero:before,
 .deck-detail .chapter-page-cta .standard-hero:before{
@@ -4451,13 +4449,11 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-enables .standard-hero:before{background-image:url("assets/images/kubeca/homepage/coordination-system.png") !important;}
-.deck-detail .chapter-page-market .standard-hero:before{background-image:url("assets/images/kubeca/homepage/swarm.png") !important;}
 .deck-detail .chapter-page-team .standard-hero:before{background-image:url("assets/images/kubeca/homepage/tested.png") !important;}
 .deck-detail .chapter-page-roadmap .standard-hero:before{background-image:url("assets/images/kubeca/homepage/coordinated-flying.png") !important;}
 .deck-detail .chapter-page-cta .standard-hero:before{background-image:url("assets/images/kubeca/Kubecafixed.png") !important;}
 
 .deck-detail .chapter-page-enables .standard-hero:after,
-.deck-detail .chapter-page-market .standard-hero:after,
 .deck-detail .chapter-page-team .standard-hero:after,
 .deck-detail .chapter-page-roadmap .standard-hero:after,
 .deck-detail .chapter-page-cta .standard-hero:after{
@@ -4471,7 +4467,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-enables .standard-hero > *,
-.deck-detail .chapter-page-market .standard-hero > *,
 .deck-detail .chapter-page-team .standard-hero > *,
 .deck-detail .chapter-page-roadmap .standard-hero > *,
 .deck-detail .chapter-page-cta .standard-hero > *{
@@ -4480,7 +4475,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-enables .standard-hero h2,
-.deck-detail .chapter-page-market .standard-hero h2,
 .deck-detail .chapter-page-team .standard-hero h2,
 .deck-detail .chapter-page-roadmap .standard-hero h2,
 .deck-detail .chapter-page-cta .standard-hero h2{
@@ -4489,7 +4483,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-enables .standard-rule,
-.deck-detail .chapter-page-market .standard-rule,
 .deck-detail .chapter-page-team .standard-rule,
 .deck-detail .chapter-page-roadmap .standard-rule,
 .deck-detail .chapter-page-cta .standard-rule{
@@ -4497,7 +4490,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .chapter-page-enables .standard-hero p,
-.deck-detail .chapter-page-market .standard-hero p,
 .deck-detail .chapter-page-team .standard-hero p,
 .deck-detail .chapter-page-roadmap .standard-hero p,
 .deck-detail .chapter-page-cta .standard-hero p{
@@ -4593,7 +4585,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   .deck-detail .who-hero,
   .deck-detail .build-architecture-intro,
   .deck-detail .chapter-page-enables .standard-hero,
-  .deck-detail .chapter-page-market .standard-hero,
   .deck-detail .chapter-page-team .standard-hero,
   .deck-detail .chapter-page-roadmap .standard-hero,
   .deck-detail .chapter-page-cta .standard-hero,
@@ -4681,7 +4672,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 .deck-detail .who-hero,
 .deck-detail .build-architecture-intro,
 .deck-detail .chapter-page-enables .standard-hero,
-.deck-detail .chapter-page-market .standard-hero,
 .deck-detail .chapter-page-team .standard-hero,
 .deck-detail .chapter-page-roadmap .standard-hero,
 .deck-detail .chapter-page-cta .standard-hero{
@@ -4697,7 +4687,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 .deck-detail .who-hero h2,
 .deck-detail .build-architecture-title h2,
 .deck-detail .chapter-page-enables .standard-hero h2,
-.deck-detail .chapter-page-market .standard-hero h2,
 .deck-detail .chapter-page-team .standard-hero h2,
 .deck-detail .chapter-page-roadmap .standard-hero h2,
 .deck-detail .chapter-page-cta .standard-hero h2{
@@ -6822,7 +6811,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   }
 }
 
-/* 06 / WHERE KUBECA CREATES VALUE: quiet white impact spread with image-ready tiles. */
+/* 04 / WHERE KUBECA CREATES VALUE: focused white impact spread with image-ready tiles. */
 .deck-detail .market-impact-layout{
   --market-ink:#101318;
   --market-muted:#555c64;
@@ -6870,11 +6859,11 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .market-impact-title h2{
-  max-width:680px !important;
+  max-width:760px !important;
   margin:0 !important;
   padding:0 !important;
   color:var(--market-ink) !important;
-  font-size:clamp(2.9rem,4.45vw,5.2rem) !important;
+  font-size:clamp(2.55rem,3.75vw,4.55rem) !important;
   font-weight:480 !important;
   letter-spacing:-.062em !important;
   line-height:.96 !important;
@@ -6896,7 +6885,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 
 .deck-detail .market-impact-tiles{
   display:grid !important;
-  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  grid-template-columns:minmax(0,1.34fr) repeat(2,minmax(0,1fr)) !important;
   gap:clamp(12px,1.3vw,18px) !important;
 }
 
@@ -6909,11 +6898,31 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .market-impact-media{
-  flex:0 0 clamp(205px,18vw,300px) !important;
+  display:block !important;
+  flex:0 0 clamp(220px,20vw,300px) !important;
+  height:clamp(220px,20vw,300px) !important;
+  min-height:clamp(220px,20vw,300px) !important;
   width:100% !important;
+  margin:0 !important;
+  overflow:hidden !important;
   background:
     linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,0) 50%),
     var(--market-media) !important;
+}
+
+.deck-detail .market-impact-media img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  filter:none !important;
+}
+
+.deck-detail .market-impact-tile--focus .market-impact-media img{
+  object-position:center 42% !important;
 }
 
 .deck-detail .market-impact-body{
@@ -6922,6 +6931,17 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   flex-direction:column !important;
   gap:clamp(22px,2.4vw,32px) !important;
   padding:clamp(19px,2vw,28px) !important;
+}
+
+.deck-detail .market-impact-tag{
+  margin:0 !important;
+  padding:0 !important;
+  color:#6b737a !important;
+  font-size:.58rem !important;
+  font-weight:720 !important;
+  letter-spacing:.25em !important;
+  line-height:1.4 !important;
+  text-transform:uppercase !important;
 }
 
 .deck-detail .market-impact-body > div{
@@ -7032,6 +7052,10 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
     grid-template-columns:repeat(2,minmax(0,1fr)) !important;
   }
 
+  .deck-detail .market-impact-tile--focus{
+    grid-column:1 / -1 !important;
+  }
+
   .deck-detail .market-impact-tile{
     min-height:0 !important;
   }
@@ -7064,8 +7088,14 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
     grid-template-columns:1fr !important;
   }
 
+  .deck-detail .market-impact-tile--focus{
+    grid-column:auto !important;
+  }
+
   .deck-detail .market-impact-media{
-    flex-basis:clamp(185px,60vw,250px) !important;
+    flex-basis:clamp(200px,60vw,250px) !important;
+    height:clamp(200px,60vw,250px) !important;
+    min-height:clamp(200px,60vw,250px) !important;
   }
 
   .deck-detail .market-impact-focus > div{

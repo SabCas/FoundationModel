@@ -375,23 +375,22 @@ function renderDeckChapter(deckId) {
       '<header class="market-impact-intro">' +
         '<div class="market-impact-title">' +
           '<p class="market-impact-kicker">04 / WHERE KUBECA CREATES VALUE</p>' +
-          '<h2>WHERE KUBECA<br>MAKES AN IMPACT.</h2>' +
+          '<h2>BUILT FOR MISSIONS<br>WHERE ACCESS, RANGE<br>AND UNDERSTANDING<br>MATTER.</h2>' +
         '</div>' +
         '<div class="market-impact-copy">' +
-          '<p>KUBECA is built for missions where range, access, and coordination determine operational outcomes.</p>' +
-          '<p>The system delivers mission-relevant spatial intelligence in demanding environments while keeping operators in control.</p>' +
+          '<p>KUBECA begins with a defense-relevant aerial configuration for supervised intelligence at range.</p>' +
+          '<p>The same mission intelligence architecture can extend over time into adjacent high-need environments where access is limited and decisions depend on structured spatial context.</p>' +
         '</div>' +
       '</header>' +
       '<section class="market-impact-tiles" aria-label="High-need markets">' +
-        '<article class="market-impact-tile" data-deck-section="market-deep-recon"><div class="market-impact-media" aria-hidden="true"></div><div class="market-impact-body"><div><small>01</small><h3>DEFENSE / TACTICAL ISR</h3></div><p>Long-range reconnaissance, distributed drone teams, and supervised situational awareness in contested and high-risk environments.</p></div></article>' +
-        '<article class="market-impact-tile" data-deck-section="market-indoor-urban"><div class="market-impact-media" aria-hidden="true"></div><div class="market-impact-body"><div><small>02</small><h3>SEARCH &amp; RESCUE /<br>DISASTER RESPONSE</h3></div><p>Rapid assessment of damaged areas, local mapping, survivor-search support, and access to locations unsafe for responders.</p></div></article>' +
-        '<article class="market-impact-tile" data-deck-section="market-distributed-isr"><div class="market-impact-media" aria-hidden="true"></div><div class="market-impact-body"><div><small>03</small><h3>CRITICAL INFRASTRUCTURE<br>SECURITY</h3></div><p>Inspection and perimeter awareness across energy facilities, transport hubs, borders, ports, and industrial sites.</p></div></article>' +
-        '<article class="market-impact-tile" data-deck-section="market-infrastructure"><div class="market-impact-media" aria-hidden="true"></div><div class="market-impact-body"><div><small>04</small><h3>PUBLIC SAFETY /<br>URBAN OPERATIONS</h3></div><p>Indoor mapping, complex-site awareness, and supervised local sensing in dense or hard-to-access urban environments.</p></div></article>' +
+        '<article class="market-impact-tile market-impact-tile--focus" data-deck-section="market-deep-recon"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/defense-tactical-isr.png" alt="A field operator supervising a reconnaissance aircraft in remote terrain" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">INITIAL FOCUS</p><div><small>01</small><h3>DEFENSE / TACTICAL ISR</h3></div><p>Long-range reconnaissance, deployable local sensing, and supervised situational awareness in contested and high-risk environments.</p></div></article>' +
+        '<article class="market-impact-tile" data-deck-section="market-indoor-urban"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/disaster-response-search.png" alt="Rescue responders supervising drones during a waterside search operation" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">ADJACENT APPLICATION</p><div><small>02</small><h3>DISASTER RESPONSE /<br>SEARCH OPERATIONS</h3></div><p>Rapid assessment of damaged or inaccessible areas, local mapping, and safer information gathering before responders enter.</p></div></article>' +
+        '<article class="market-impact-tile" data-deck-section="market-distributed-isr"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/critical-infrastructure-security.png" alt="An infrastructure inspector supervising a drone beneath a bridge" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">PLATFORM EXPANSION</p><div><small>03</small><h3>CRITICAL INFRASTRUCTURE<br>SECURITY</h3></div><p>Inspection, perimeter awareness, and coordinated autonomous sensing across complex sites and critical assets.</p></div></article>' +
       '</section>' +
       '<section class="market-impact-focus" aria-label="Market focus">' +
-        '<p class="market-impact-statement">ONE MISSION SYSTEM.<br><strong>MULTIPLE HIGH-NEED MARKETS.</strong></p>' +
-        '<div><small>INITIAL FOCUS</small><p>Defense / Tactical ISR</p></div>' +
-        '<div><small>EXPANSION MARKETS</small><p>Search &amp; Rescue, Critical Infrastructure Security, Public Safety</p></div>' +
+        '<p class="market-impact-statement">ONE MISSION INTELLIGENCE LAYER.<br><strong>EXPANDABLE ACROSS HIGH-NEED MISSIONS.</strong></p>' +
+        '<div><small>FIRST VALIDATION PATH</small><p>Aerial Defense / Tactical ISR</p></div>' +
+        '<div><small>FUTURE REACH</small><p>Disaster response and critical infrastructure security</p></div>' +
       '</section>' +
     '</section>';
   }

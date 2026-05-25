@@ -16,12 +16,8 @@ Investor Room:
 1. `01 / WHY THIS MATTERS` - why isolated drone operations fail.
 2. `02 / THE KUBECA SYSTEM` - the architecture: carrier / relay, local drone teams, mission intelligence, shared spatial data, and human oversight.
 3. `03 / OUR PRODUCTS` - the configurable product stack: carrier platform, mission modules, local drone teams, and mission software.
-4. `04 / HOW A MISSION WORKS` - the short mission sequence: Deploy -> Release + Relay -> Explore + Map -> Understand -> Confirm + Control.
-5. `05 / WHAT IT ENABLES` - outcomes and spatial-intelligence value.
-6. `06 / WHERE KUBECA CREATES VALUE` - operational use cases and market areas.
-7. `07 / FIELD VALIDATION` - platform work, GPS-denied software testing, fixed-wing flight, spatial understanding, and operator / defense feedback.
-8. `08 / ROADMAP` - milestone path to integrated system demonstration.
-9. `09 / CTA` - partnership and mission brief request.
+4. `04 / WHERE KUBECA CREATES VALUE` - one initial defense focus and two explicit expansion paths.
+5. `05 / CONTACT` - a single direct conversation path.
 
 Rule of thumb:
 
@@ -30,8 +26,8 @@ Rule of thumb:
 - `Why This Matters` owns the problem.
 - `The KUBECA System` owns the coordinated mission-system explanation and closes with a brief future connected-assets teaser.
 - `Our Products` owns the configurable product stack and the detailed future connected-asset extension.
-- `How A Mission Works` owns the mission flow only.
-- `What It Enables` owns spatial-intelligence outcomes.
+- `Where KUBECA Creates Value` owns the market opportunity, without adding product claims.
+- `Contact` closes with one clear next step.
 
 ## JavaScript Modules
 
