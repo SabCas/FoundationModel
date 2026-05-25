@@ -37,15 +37,10 @@ var chapterMeta = {
   'THE KUBECA SYSTEM': { number: '02', className: 'build', label: 'THE KUBECA SYSTEM' },
   'WHAT WE BUILD': { number: '02', className: 'build', label: 'THE KUBECA SYSTEM' },
   'OUR PRODUCTS': { number: '03', className: 'products', label: 'OUR PRODUCTS' },
-  'HOW A MISSION WORKS': { number: '04', className: 'works', label: 'HOW A MISSION WORKS' },
-  'HOW IT WORKS': { number: '04', className: 'works', label: 'HOW A MISSION WORKS' },
-  'WHAT IT ENABLES': { number: '05', className: 'enables', label: 'WHAT IT ENABLES' },
-  'WHERE KUBECA CREATES VALUE': { number: '06', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
-  'MARKET AREAS': { number: '06', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
-  'FIELD VALIDATION': { number: '07', className: 'team', label: 'FIELD VALIDATION' },
-  'TEAM / VALIDATION': { number: '07', className: 'team', label: 'FIELD VALIDATION' },
-  'ROADMAP': { number: '08', className: 'roadmap', label: 'ROADMAP' },
-  'CTA': { number: '09', className: 'cta', label: 'CTA' }
+  'WHERE KUBECA CREATES VALUE': { number: '04', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
+  'MARKET AREAS': { number: '04', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
+  'CONTACT': { number: '05', className: 'cta', label: 'CONTACT' },
+  'CTA': { number: '05', className: 'cta', label: 'CONTACT' }
 };
 
 function iconPath(fileName) {
@@ -142,7 +137,6 @@ function renderHowItWorksGraphic() {
 
 function renderCtaActions() {
   return '<section class="cta-action-panel">' +
-    '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Investor%20Access">Request investor access <span>-></span></a>' +
     '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Team%20Contact">Contact the team <span>-></span></a>' +
   '</section>';
 }
@@ -377,16 +371,29 @@ function renderDeckChapter(deckId) {
   }
 
   if (group.heading === 'WHERE KUBECA CREATES VALUE' || group.heading === 'MARKET AREAS') {
-    return renderStandardChapterPage(group, {
-      className: 'market',
-      layout: 'cards',
-      title: 'BUILT FOR MISSIONS WHERE<br>RANGE, ACCESS, AND UNDERSTANDING<br>DETERMINE OUTCOMES.',
-      lead: 'KUBECA is built for environments where teams need spatial intelligence from places that are distant, enclosed, degraded, or unsafe to enter.',
-      extra: '<section class="degraded-band"><small>BUILT FOR DEGRADED CONDITIONS</small><p>GPS, RF links, terrain, buildings, and infrastructure cannot always be assumed reliable. KUBECA is designed around mission continuity from the start.</p></section>',
-      includeBottomLine: false,
-      bottomLineOne: '',
-      bottomLineTwo: ''
-    });
+    return '<section class="chapter-page chapter-page-market market-impact-layout">' +
+      '<header class="market-impact-intro">' +
+        '<div class="market-impact-title">' +
+          '<p class="market-impact-kicker">04 / WHERE KUBECA CREATES VALUE</p>' +
+          '<h2>WHERE KUBECA<br>MAKES AN IMPACT.</h2>' +
+        '</div>' +
+        '<div class="market-impact-copy">' +
+          '<p>KUBECA is built for missions where range, access, and coordination determine operational outcomes.</p>' +
+          '<p>The system delivers mission-relevant spatial intelligence in demanding environments while keeping operators in control.</p>' +
+        '</div>' +
+      '</header>' +
+      '<section class="market-impact-tiles" aria-label="High-need markets">' +
+        '<article class="market-impact-tile" data-deck-section="market-deep-recon"><div class="market-impact-media" aria-hidden="true"></div><div class="market-impact-body"><div><small>01</small><h3>DEFENSE / TACTICAL ISR</h3></div><p>Long-range reconnaissance, distributed drone teams, and supervised situational awareness in contested and high-risk environments.</p></div></article>' +
+        '<article class="market-impact-tile" data-deck-section="market-indoor-urban"><div class="market-impact-media" aria-hidden="true"></div><div class="market-impact-body"><div><small>02</small><h3>SEARCH &amp; RESCUE /<br>DISASTER RESPONSE</h3></div><p>Rapid assessment of damaged areas, local mapping, survivor-search support, and access to locations unsafe for responders.</p></div></article>' +
+        '<article class="market-impact-tile" data-deck-section="market-distributed-isr"><div class="market-impact-media" aria-hidden="true"></div><div class="market-impact-body"><div><small>03</small><h3>CRITICAL INFRASTRUCTURE<br>SECURITY</h3></div><p>Inspection and perimeter awareness across energy facilities, transport hubs, borders, ports, and industrial sites.</p></div></article>' +
+        '<article class="market-impact-tile" data-deck-section="market-infrastructure"><div class="market-impact-media" aria-hidden="true"></div><div class="market-impact-body"><div><small>04</small><h3>PUBLIC SAFETY /<br>URBAN OPERATIONS</h3></div><p>Indoor mapping, complex-site awareness, and supervised local sensing in dense or hard-to-access urban environments.</p></div></article>' +
+      '</section>' +
+      '<section class="market-impact-focus" aria-label="Market focus">' +
+        '<p class="market-impact-statement">ONE MISSION SYSTEM.<br><strong>MULTIPLE HIGH-NEED MARKETS.</strong></p>' +
+        '<div><small>INITIAL FOCUS</small><p>Defense / Tactical ISR</p></div>' +
+        '<div><small>EXPANSION MARKETS</small><p>Search &amp; Rescue, Critical Infrastructure Security, Public Safety</p></div>' +
+      '</section>' +
+    '</section>';
   }
 
   if (group.heading === 'FIELD VALIDATION' || group.heading === 'TEAM / VALIDATION') {
@@ -411,15 +418,14 @@ function renderDeckChapter(deckId) {
     });
   }
 
-  if (group.heading === 'CTA') {
+  if (group.heading === 'CTA' || group.heading === 'CONTACT') {
     return renderStandardChapterPage(group, {
       className: 'cta',
       layout: 'cta',
-      title: 'BUILD THE FUTURE OF<br>AUTONOMOUS AERIAL INTELLIGENCE.',
-      lead: 'KUBECA is creating the mission intelligence layer that enables decentralized aerial systems to understand, decide, and act while humans remain in control. Not isolated drones. Coordinated mission systems.',
+      title: 'DISCUSS THE<br>KUBECA SYSTEM.',
+      lead: 'Connect with the team to discuss the mission intelligence architecture, strategic partnerships, or an investment conversation.',
       extra: renderCtaActions(),
-      bottomLineOne: 'MISSION INTELLIGENCE.',
-      bottomLineTwo: 'AT RANGE. AT SCALE.'
+      includeBottomLine: false
     });
   }
 
