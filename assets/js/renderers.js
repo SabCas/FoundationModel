@@ -33,16 +33,18 @@ function renderDeckVisualMarkup(deckId, index, groupHeading) {
 }
 
 var chapterMeta = {
-  'WHO WE ARE': { number: '00', className: 'who', label: 'WHO WE ARE' },
   'WHY THIS MATTERS': { number: '01', className: 'why', label: 'WHY THIS MATTERS' },
-  'WHY NOW': { number: '02', className: 'now', label: 'WHY NOW' },
-  'WHAT WE BUILD': { number: '03', className: 'build', label: 'WHAT WE BUILD' },
-  'HOW IT WORKS': { number: '04', className: 'works', label: 'HOW IT WORKS' },
-  'WHAT IT ENABLES': { number: '05', className: 'enables', label: 'WHAT IT ENABLES' },
-  'WHY WE WIN': { number: '06', className: 'win', label: 'WHY WE WIN' },
-  'MARKET AREAS': { number: '07', className: 'market', label: 'MARKET AREAS' },
-  'TEAM / VALIDATION': { number: '08', className: 'team', label: 'TEAM / VALIDATION' },
-  'CTA': { number: '09', className: 'cta', label: 'CTA' }
+  'THE KUBECA SYSTEM': { number: '02', className: 'build', label: 'THE KUBECA SYSTEM' },
+  'WHAT WE BUILD': { number: '02', className: 'build', label: 'THE KUBECA SYSTEM' },
+  'HOW A MISSION WORKS': { number: '03', className: 'works', label: 'HOW A MISSION WORKS' },
+  'HOW IT WORKS': { number: '03', className: 'works', label: 'HOW A MISSION WORKS' },
+  'WHAT IT ENABLES': { number: '04', className: 'enables', label: 'WHAT IT ENABLES' },
+  'WHERE KUBECA CREATES VALUE': { number: '05', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
+  'MARKET AREAS': { number: '05', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
+  'FIELD VALIDATION': { number: '06', className: 'team', label: 'FIELD VALIDATION' },
+  'TEAM / VALIDATION': { number: '06', className: 'team', label: 'FIELD VALIDATION' },
+  'ROADMAP': { number: '07', className: 'roadmap', label: 'ROADMAP' },
+  'CTA': { number: '08', className: 'cta', label: 'CTA' }
 };
 
 function iconPath(fileName) {
@@ -122,7 +124,7 @@ function renderStandardChapterPage(group, options) {
       getChapterCards(group) +
     '</section>' +
     (options.extra || '') +
-    renderChapterBottom(options.className, 'BOTTOM LINE', options.bottomLineOne, options.bottomLineTwo) +
+    (options.includeBottomLine === false ? '' : renderChapterBottom(options.className, 'BOTTOM LINE', options.bottomLineOne, options.bottomLineTwo)) +
     renderChapterFooter(options.className) +
   '</section>';
 }
@@ -139,110 +141,31 @@ function renderHowItWorksGraphic() {
 
 function renderCtaActions() {
   return '<section class="cta-action-panel">' +
-    '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Mission%20Brief">Request mission brief <span>-></span></a>' +
-    '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Partnership">Partner with us <span>-></span></a>' +
+    '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Investor%20Access">Request investor access <span>-></span></a>' +
+    '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Team%20Contact">Contact the team <span>-></span></a>' +
   '</section>';
 }
 
 function renderDeckChapter(deckId) {
   var group = getDeckGroup(deckId);
-  if (group.heading === 'WHO WE ARE') {
-    return '<section class="chapter-page chapter-page-who who-page-layout">' +
-      renderChapterHeader(group.heading) +
-      renderImageChapterHero(group.heading, {
-        heroClass: 'who-hero',
-        mediaClass: 'who-hero-image',
-        copyClass: 'who-hero-text',
-        sideClass: 'who-hero-side',
-        ruleClass: 'who-blue-line',
-        title: 'AUTONOMOUS<br>AERIAL INTELLIGENCE<br>FOR SYSTEM-LEVEL<br>OPERATIONS',
-        lead: 'KUBECA builds mission intelligence for autonomous aerial systems - connecting long-range platforms, quadcopters, micro-drones, shared maps, and human-in-the-loop control into one coordinated operational layer.',
-        imageSrc: 'assets/images/kubeca/kubecaquadcopter.png',
-        imageAlt: 'KUBECA quadcopter systems in hangar'
-      }) +
-      '<section class="who-two-column">' +
-        '<article class="who-text-block">' +
-          '<p class="who-eyebrow">FOUNDER THESIS</p><div class="who-small-line"></div>' +
-          '<h3>THE NEXT ADVANTAGE IS NOT THE DRONE.<br>IT IS THE INTELLIGENCE THAT CONNECTS THE SYSTEM.</h3>' +
-          '<div class="who-blue-line who-blue-line-small"></div>' +
-          '<p>As aerial platforms become cheaper and more numerous, the decisive layer shifts from hardware to software: autonomy, resilient navigation, spatial understanding, and coordinated mission execution.</p>' +
-        '</article>' +
-        '<article class="who-text-block who-text-block-right">' +
-          '<p class="who-eyebrow">COMPANY VISION</p><div class="who-small-line"></div>' +
-          '<h3>THE AERIAL INTELLIGENCE LAYER<br>FOR AUTONOMOUS OPERATIONS.</h3>' +
-          '<p>KUBECA aims to turn drones from remote-controlled tools into connected mission assets - able to map, relay, coordinate, and operate as one distributed system across open and enclosed terrain.</p>' +
-          '<p class="who-eyebrow who-eyebrow-diagram">SYSTEM LOGIC</p>' +
-          '<div class="who-system-diagram">' +
-            '<div class="who-diagram-row">OPERATOR</div><div class="who-arrow">↓</div>' +
-            '<div class="who-diagram-row who-diagram-active">MISSION INTELLIGENCE LAYER</div><div class="who-arrow">↓</div>' +
-            '<div class="who-diagram-row">SWARM / CARRIER / MICRO-DRONES</div><div class="who-arrow">↓</div>' +
-            '<div class="who-diagram-row">RESILIENT NAVIGATION / SHARED MAP / INDOOR RECON / MISSION INSIGHT</div>' +
-          '</div>' +
-        '</article>' +
-      '</section>' +
-      '<section class="who-mission">' +
-        '<div><p class="who-eyebrow">MISSION</p><div class="who-small-line"></div></div>' +
-        '<div class="who-mission-content"><h3>REDUCE HUMAN EXPOSURE. INCREASE SITUATIONAL CONTROL.</h3>' +
-          '<div class="who-mission-grid">' +
-            '<div class="who-mission-item"><div class="who-icon"><img src="' + iconPath('kubeca-see.svg') + '" alt="" aria-hidden="true"></div><h4>SEE</h4><p>Real-time intelligence from complex terrain.</p></div>' +
-            '<div class="who-mission-item"><div class="who-icon"><img src="' + iconPath('kubeca-map.svg') + '" alt="" aria-hidden="true"></div><h4>MAP</h4><p>Shared spatial awareness across the swarm.</p></div>' +
-            '<div class="who-mission-item"><div class="who-icon"><img src="' + iconPath('kubeca-coordinate.svg') + '" alt="" aria-hidden="true"></div><h4>RELAY</h4><p>Communication through distributed aerial nodes.</p></div>' +
-            '<div class="who-mission-item"><div class="who-icon"><img src="' + iconPath('kubeca-act.svg') + '" alt="" aria-hidden="true"></div><h4>DECIDE</h4><p>Operator-guided mission control.</p></div>' +
-          '</div>' +
-        '</div>' +
-      '</section>' +
-      '<section class="who-proof">' +
-        '<p class="who-eyebrow">GROUND TRUTH FROM THE FIELD</p><div class="who-small-line"></div>' +
-        '<h3 class="who-proof-title">WE HAVE ALREADY BUILT IN THIS REALITY.</h3>' +
-        '<p class="who-proof-copy">KUBECA is shaped by practical drone development, field testing, operator feedback, and exposure to modern defense requirements.</p>' +
-        '<div class="who-proof-grid">' +
-          '<article><video autoplay muted loop playsinline><source src="assets/videos/founder.mp4" type="video/mp4"></video><div><h4>PLATFORM DEVELOPMENT</h4><p>Drone systems developed and tested from concept to flight.</p></div></article>' +
-          '<article><video autoplay muted loop playsinline><source src="assets/videos/access.mp4" type="video/mp4"></video><div><h4>FIELD CONDITIONS</h4><p>Built around signal loss, terrain complexity, pilot overload, cost pressure, and mission stress.</p></div></article>' +
-          '<article><video autoplay muted loop playsinline><source src="assets/videos/hero.mp4" type="video/mp4"></video><div><h4>OPERATOR FEEDBACK</h4><p>Continuous exchange with users facing real operational constraints.</p></div></article>' +
-          '<article><video autoplay muted loop playsinline><source src="assets/videos/founder.mp4" type="video/mp4"></video><div><h4>DEFENSE CONTEXT</h4><p>Exposure to professional military environments and modern drone-warfare requirements.</p></div></article>' +
-        '</div>' +
-      '</section>' +
-      renderChapterFooter('who') +
-    '</section>';
-  }
-
   if (group.heading === 'WHY THIS MATTERS') {
-    return '<section class="chapter-page chapter-page-why why-reference-layout">' +
+    return '<section class="chapter-page chapter-page-why why-repair-layout">' +
       renderChapterHeader(group.heading) +
-      '<section class="why-ref-intro">' +
-        '<div class="why-ref-title">' +
-          '<h2>THE MISSION<br>BREAKS WHEN<br>DRONES CANNOT<br>WORK TOGETHER.</h2>' +
-          '<div class="why-ref-rule"></div>' +
+      '<section class="why-repair-intro">' +
+        '<div class="why-repair-title">' +
+          '<h2>THE MISSION BREAKS<br>WHEN AERIAL ASSETS<br>CANNOT EVOLVE INTO<br>ONE AUTONOMOUS SYSTEM.</h2>' +
+          '<div class="why-repair-rule"></div>' +
         '</div>' +
-        '<div class="why-ref-copy">' +
-          '<p><strong>Current drone operations still depend on isolated assets, manual coordination, fragile links, and fragmented mission data.</strong></p>' +
-          '<p>Small drones are limited by reach, endurance, and connectivity. Long-range platforms extend distance, but do not automatically create shared mission understanding.</p>' +
-          '<p>When missions become contested, enclosed, or fast-changing, the limitation is no longer the drone alone. It is the missing system around it.</p>' +
-        '</div>' +
-      '</section>' +
-      '<section class="why-ref-model" aria-label="Disconnected mission model">' +
-        '<h3>DISCONNECTED MISSION MODEL</h3>' +
-        '<div class="why-ref-model-grid">' +
-          '<article><img src="assets/icons/kubeca/why-matters/local-drone.svg" alt="" aria-hidden="true"><h4>LOCAL DRONES</h4><p>Limited reach, payload, battery life, and signal range constrain the mission area.</p></article>' +
-          '<article><img src="assets/icons/kubeca/why-matters/long-range-platform.svg" alt="" aria-hidden="true"><h4>LONG-RANGE PLATFORM</h4><p>Extended reach, but no automatic access to local detail or indoor spaces.</p></article>' +
-          '<article><img src="assets/icons/kubeca/why-matters/operator.svg" alt="" aria-hidden="true"><h4>OPERATOR</h4><p>Manual coordination across multiple tools and feeds creates high cognitive load.</p></article>' +
-          '<article><img src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"><h4>FRAGILE LINKS</h4><p>Signals, telemetry, and mission context remain fragmented across different systems.</p></article>' +
-        '</div>' +
-        '<div class="why-ref-connectors" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
-        '<div class="why-ref-result">' +
-          '<img src="' + iconPath('kubeca-menu-delayed-decisions.svg') + '" alt="" aria-hidden="true">' +
-          '<div><strong>MISSION CONTINUITY BREAKS</strong><p>Gaps in reach. Gaps in information. Gaps in coordination. The mission loses time, context, and momentum.</p></div>' +
+        '<div class="why-repair-copy">' +
+          '<p>Small drones provide local detail, but lack reach. Carrier platforms provide distance, but not autonomous coordination. Operators are left connecting feeds, maps, telemetry, and decisions under pressure.</p>' +
+          '<p><strong>The bottleneck is not more drones.<br><span>The bottleneck is the missing system layer between carrier, drones, software, and autonomy.</span></strong></p>' +
         '</div>' +
       '</section>' +
-      '<section class="why-ref-issues">' +
-        '<article><div class="why-ref-index">01</div><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure><h4>LIMITED REACH</h4><p>Small drones are useful close to the mission area, but battery life, payload, and signal range limit how far they can operate from the user.</p><span><img src="assets/icons/kubeca/why-matters/local-drone.svg" alt="" aria-hidden="true"></span></article>' +
-        '<article><div class="why-ref-index">02</div><figure><img src="assets/images/kubeca/why-matters/fragmented-control.png" alt="" aria-hidden="true"></figure><h4>FRAGMENTED CONTROL</h4><p>Drones, maps, video feeds, navigation, and operator decisions often remain separate. The mission depends on humans manually connecting the dots under pressure.</p><span><img src="assets/icons/kubeca/why-matters/operator.svg" alt="" aria-hidden="true"></span></article>' +
-        '<article><div class="why-ref-index">03</div><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure><h4>BROKEN CONTINUITY</h4><p>GPS loss, RF disruption, terrain, buildings, and walls can break the link between assets, operators, and mission context.</p><span><img src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"></span></article>' +
+      '<section class="why-repair-cards">' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">01</div><i class="why-repair-icon why-icon-crosshair"></i></div><h4>LIMITED REACH</h4><p>Small drones create valuable local intelligence, but lose endurance, payload, and connectivity far from the operator.</p><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">02</div><i class="why-repair-icon why-icon-layers"></i></div><h4>FRAGMENTED CONTROL</h4><p>Carrier systems, drone feeds, maps, telemetry, and decisions remain separated across tools, increasing operator workload.</p><figure><img src="assets/images/kubeca/why-matters/fragmented-control.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">03</div><i class="why-repair-icon why-icon-signal"></i></div><h4>BROKEN CONTINUITY</h4><p>Terrain, buildings, RF disruption, and degraded infrastructure break the mission picture between assets and operators.</p><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure></article>' +
       '</section>' +
-      '<section class="why-ref-bottom">' +
-        '<div><small>BOTTOM LINE</small><p>THE PROBLEM IS NOT ONLY BETTER DRONES.<br><span>THE PROBLEM IS MAKING AERIAL ASSETS<br>WORK AS ONE MISSION SYSTEM.</span></p></div>' +
-      '</section>' +
-      renderChapterFooter('why') +
     '</section>';
   }
 
@@ -273,87 +196,62 @@ function renderDeckChapter(deckId) {
           '<article><img src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><p>More aerial assets</p></article><span class="now-shift-arrow">-></span><article><p>Multi-asset coordination</p><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true"></article>' +
           '<article><img src="' + whyNowIconPath('degraded_signals.svg') + '" alt="" aria-hidden="true"><p>Degraded signals</p></article><span class="now-shift-arrow">-></span><article><p>Resilient navigation</p><img src="' + whyNowIconPath('resilient_navigation.svg') + '" alt="" aria-hidden="true"></article>' +
           '<article><img src="' + whyNowIconPath('urban_indoor_missions.svg') + '" alt="" aria-hidden="true"><p>Urban / indoor missions</p></article><span class="now-shift-arrow">-></span><article><p>Shared spatial awareness</p><img src="' + whyNowIconPath('shared_spatial_awareness.svg') + '" alt="" aria-hidden="true"></article>' +
-          '<article><img src="' + whyNowIconPath('longer_mission_distance.svg') + '" alt="" aria-hidden="true"><p>Longer mission distance</p></article><span class="now-shift-arrow">-></span><article><p>Relay and carrier architectures</p><img src="' + whyNowIconPath('relay_carrier_architectures.svg') + '" alt="" aria-hidden="true"></article>' +
-          '<article><img src="' + whyNowIconPath('faster_decision_cycles.svg') + '" alt="" aria-hidden="true"><p>Faster decision cycles</p></article><span class="now-shift-arrow">-></span><article><p>Mission intelligence layer</p><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"></article>' +
         '</div>' +
       '</section>' +
       '<section class="now-drivers">' +
-        '<h3>THREE TIMING DRIVERS</h3>' +
+        '<h3>KEY TIMING DRIVERS</h3>' +
         '<div class="now-driver-grid">' +
           '<article><strong>01</strong><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure><img class="now-driver-icon" src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><h4>DRONE SCALE IS<br>ACCELERATING</h4><p>The number of aerial assets is increasing. Coordination, not hardware, becomes the bottleneck.</p></article>' +
           '<article><strong>02</strong><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure><img class="now-driver-icon" src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"><h4>MISSIONS ARE OUTGROWING<br>DIRECT CONTROL</h4><p>Longer range, enclosed spaces, degraded links, and faster decisions make manual single-drone operation insufficient.</p></article>' +
-          '<article><strong>03</strong><figure><img src="assets/images/kubeca/homepage/swarm.png" alt="" aria-hidden="true"></figure><img class="now-driver-icon" src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true"><h4>AUTONOMY IS BECOMING<br>A SYSTEM LAYER</h4><p>The advantage shifts from individual platforms to the software layer that connects assets, maps, navigation, and operators.</p></article>' +
         '</div>' +
       '</section>' +
-      renderChapterBottom('now', 'BOTTOM LINE', 'THE TIMING IS NOT ABOUT DRONES ALONE.', 'IT IS ABOUT AUTONOMY BECOMING A SYSTEM LAYER.') +
       renderChapterFooter('now') +
     '</section>';
   }
 
-  if (group.heading === 'WHAT WE BUILD') {
-    return '<section class="chapter-page chapter-page-build build-architecture-layout">' +
+  if (group.heading === 'THE KUBECA SYSTEM' || group.heading === 'WHAT WE BUILD') {
+    return '<section class="chapter-page chapter-page-build system-showcase-layout">' +
       renderChapterHeader(group.heading) +
-      '<section class="build-architecture-intro">' +
-        '<figure class="build-intro-image"><img src="assets/images/kubeca/system/command-room-alt.png" alt="" aria-hidden="true"></figure>' +
-        '<div class="build-architecture-title">' +
-          '<h2>THE KUBECA<br>SYSTEM</h2>' +
-          '<div class="build-architecture-rule"></div>' +
-        '</div>' +
-        '<div class="build-architecture-copy">' +
-          '<p>KUBECA connects carrier platforms, local drone teams, shared spatial data, and human oversight into one coordinated mission layer.</p>' +
-          '<p><strong>The carrier extends reach.<br>The software layer turns separate assets into one operating system.</strong></p>' +
-          '<p>The system is being developed from flight-tested platform experience: quadcopter development, GPS-denied software testing, and early autonomous fixed-wing flight.</p>' +
-        '</div>' +
+      '<section class="system-showcase-intro">' +
+        '<p class="system-showcase-kicker">02 / THE KUBECA SYSTEM</p>' +
+        '<h2>FROM CARRIER PLATFORM TO HUMAN-SUPERVISED AUTONOMOUS MISSION SYSTEMS.</h2>' +
+        '<p class="system-showcase-copy">KUBECA combines long-range carrier deployment, local drone teams, mission intelligence, and human oversight into one coordinated mission system. The key difference is not a single drone, but the system layer that keeps reach, local understanding, and operator control connected throughout the mission.</p>' +
       '</section>' +
-      '<section class="build-architecture">' +
-        '<div class="build-architecture-label"><span></span><h3>SYSTEM ARCHITECTURE</h3><span></span></div>' +
-        '<div class="build-architecture-top">' +
-          '<article class="build-arch-card build-arch-card-carrier">' +
-            '<header><strong>01</strong><h4>CARRIER / RELAY PLATFORM</h4></header>' +
-            '<div class="build-card-body"><img src="assets/icons/kubeca/why-matters/long-range-platform.svg" alt="" aria-hidden="true"><p>Extends mission reach and maintains the data bridge between local assets and the operator.</p></div>' +
+      '<section class="system-carousel" data-system-carousel role="region" aria-roledescription="carousel" aria-label="The KUBECA system">' +
+        '<div class="system-carousel-slides">' +
+          '<article class="system-carousel-slide is-active" data-system-slide-panel="0" role="group" aria-roledescription="slide" aria-label="1 of 3: Carrier at range">' +
+            '<img src="assets/images/kubeca/system/carrier.png" alt="Carrier aircraft operating above a mountain valley">' +
+            '<div class="system-carousel-caption"><small>01 /</small><h3>CARRIER AT RANGE</h3><p>The carrier platform moves local drone teams beyond normal range and maintains a resilient relay link for mission continuity.</p></div>' +
           '</article>' +
-          '<article class="build-arch-card build-arch-card-local">' +
-            '<header><strong>02</strong><h4>LOCAL DRONE TEAMS</h4></header>' +
-            '<div class="build-card-body"><img src="assets/icons/kubeca/why-matters/local-drone.svg" alt="" aria-hidden="true"><p>Operate close to the mission area to collect local intelligence, map terrain, and relay updates.</p></div>' +
+          '<article class="system-carousel-slide" data-system-slide-panel="1" role="group" aria-roledescription="slide" aria-label="2 of 3: Deployable scout agents" aria-hidden="true">' +
+            '<img src="assets/images/kubeca/system/scout-agents.png" alt="Deployable drone agents operating above an urban area" loading="lazy">' +
+            '<div class="system-carousel-caption"><small>02 /</small><h3>DEPLOYABLE SCOUT AGENTS</h3><p>Local drone teams explore, map, and sense close to the objective, generating the spatial context that raw video alone cannot provide.</p></div>' +
+          '</article>' +
+          '<article class="system-carousel-slide" data-system-slide-panel="2" role="group" aria-roledescription="slide" aria-label="3 of 3: Operator in control" aria-hidden="true">' +
+            '<img src="assets/images/kubeca/system/operator-control.png" alt="Operator supervising mission intelligence screens" loading="lazy">' +
+            '<div class="system-carousel-caption"><small>03 /</small><h3>OPERATOR IN CONTROL</h3><p>Mission intelligence transforms distributed sensor data into actionable answers, while operators supervise autonomy, confirm decisions, and intervene when needed.</p></div>' +
           '</article>' +
         '</div>' +
-        '<div class="build-connectors build-connectors-top"><span></span><span></span></div>' +
-        '<article class="build-arch-core">' +
-          '<div class="build-core-heading"><strong>03</strong><h4>MISSION<br>INTELLIGENCE<br>LAYER</h4></div>' +
-          '<p>Fuses sensor feeds, map context, asset status, and mission objectives into coordinated system behavior.</p>' +
-          '<div class="build-core-art" aria-hidden="true"><span></span><span></span><span></span></div>' +
-          '<div class="build-core-capabilities">' +
-            '<span><img src="' + whyNowIconPath('resilient_navigation.svg') + '" alt="" aria-hidden="true">Resilient<br>Navigation</span>' +
-            '<span><img src="' + whyNowIconPath('shared_spatial_awareness.svg') + '" alt="" aria-hidden="true">Mapping &<br>Context</span>' +
-            '<span><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true">Coordination</span>' +
-            '<span><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true">Mission<br>Logic</span>' +
+        '<div class="system-carousel-controls">' +
+          '<button class="system-carousel-arrow" type="button" data-system-previous aria-label="Previous slide">&larr;</button>' +
+          '<div class="system-carousel-dots" aria-label="Select a slide">' +
+            '<button type="button" class="is-active" data-system-slide="0" aria-label="Show slide 1: Carrier at range" aria-current="true"><span>01</span></button>' +
+            '<button type="button" data-system-slide="1" aria-label="Show slide 2: Deployable scout agents"><span>02</span></button>' +
+            '<button type="button" data-system-slide="2" aria-label="Show slide 3: Operator in control"><span>03</span></button>' +
           '</div>' +
-        '</article>' +
-        '<div class="build-connectors build-connectors-bottom"><span></span><span></span></div>' +
-        '<div class="build-architecture-lower">' +
-          '<article class="build-arch-card build-arch-card-spatial">' +
-            '<header><strong>04</strong><h4>SHARED SPATIAL DATA</h4></header>' +
-            '<div class="build-card-body"><img class="build-card-image" src="assets/images/kubeca/system/spatial_layer.png" alt="" aria-hidden="true"><p>Creates one persistent operational picture across terrain, infrastructure, assets, and updates.</p></div>' +
-          '</article>' +
-          '<article class="build-arch-card build-arch-card-human">' +
-            '<header><strong>05</strong><h4>HUMAN OVERSIGHT</h4></header>' +
-            '<div class="build-card-body"><p>Operators plan, confirm, supervise, and intervene while the system handles coordination.</p><img src="assets/icons/kubeca/why-matters/operator.svg" alt="" aria-hidden="true"></div>' +
-          '</article>' +
-        '</div>' +
-        '<div class="build-output">' +
-          '<img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true">' +
-          '<div><h4>MISSION OUTPUT</h4><strong>ONE SHARED OPERATIONAL PICTURE</strong><p>Aligned data. Coordinated actions. Mission continuity.</p></div>' +
-          '<figure><img src="assets/images/kubeca/system/mission.png" alt="" aria-hidden="true"></figure>' +
+          '<p class="system-carousel-count" aria-live="polite"><span data-system-current>01</span> / 03</p>' +
+          '<button class="system-carousel-arrow" type="button" data-system-next aria-label="Next slide">&rarr;</button>' +
         '</div>' +
       '</section>' +
-      '<section class="build-arch-bottom">' +
-        '<div><small>BOTTOM LINE</small><p>KUBECA IS NOT BUILDING ANOTHER DRONE.<br><span>KUBECA IS BUILDING THE MISSION INTELLIGENCE LAYER<br>THAT MAKES AERIAL ASSETS WORK TOGETHER.</span></p></div>' +
+      '<section class="system-future-assets" aria-label="Future connected assets">' +
+        '<p class="system-future-label">FUTURE CONNECTED ASSETS</p>' +
+        '<p class="system-future-copy">The mission intelligence layer is designed to connect additional autonomous assets over time. Future ground robots can extend local sensing, indoor exploration, rubble access, relay coverage, and perimeter missions within the same supervised system.</p>' +
+        '<p class="system-future-thesis">The carrier and local drones are the first configuration. The platform is the mission intelligence layer that can coordinate future assets across air and ground.</p>' +
       '</section>' +
-      renderChapterFooter('build') +
     '</section>';
   }
 
-  if (group.heading === 'HOW IT WORKS') {
+  if (group.heading === 'HOW A MISSION WORKS' || group.heading === 'HOW IT WORKS') {
     return '<section class="chapter-page chapter-page-works works-flow-layout">' +
       renderChapterHeader(group.heading) +
       '<section class="works-flow-intro">' +
@@ -362,7 +260,7 @@ function renderDeckChapter(deckId) {
           '<div class="works-flow-rule"></div>' +
         '</div>' +
         '<div class="works-flow-copy">' +
-          '<p>KUBECA moves local drone teams beyond normal range, keeps the relay alive, explores complex environments, builds spatial understanding, and returns mission-relevant answers to the operator.</p>' +
+          '<p>The carrier moves local drone teams beyond normal range. Local drones explore and map the area. The system turns live sensor data into spatial context. Operators receive mission-relevant answers and remain in control.</p>' +
           '<small>DEPLOY / RELAY / EXPLORE / UNDERSTAND / CONTROL</small>' +
         '</div>' +
       '</section>' +
@@ -375,19 +273,18 @@ function renderDeckChapter(deckId) {
           '<i aria-hidden="true">-></i>' +
           '<article><strong>03</strong><figure><img src="assets/images/kubeca/how-it-works/icon3.png" alt="" aria-hidden="true"></figure><h4>EXPLORE + MAP</h4><p>Autonomous drones explore terrain, buildings, and enclosed spaces while building spatial context.</p></article>' +
           '<i aria-hidden="true">-></i>' +
-          '<article class="is-understand"><strong>04</strong><figure><img src="assets/images/kubeca/how-it-works/icon4.png" alt="" aria-hidden="true"></figure><h4>UNDERSTAND</h4><p>The system turns raw data into spatial understanding using relationships in the environment.</p></article>' +
+          '<article class="is-understand"><strong>04</strong><figure><img src="assets/images/kubeca/how-it-works/icon4.png" alt="" aria-hidden="true"></figure><h4>UNDERSTAND</h4><p>Raw feeds become spatial context: places, paths, obstacles, objects, changes, and risk areas.</p></article>' +
           '<i aria-hidden="true">-></i>' +
-          '<article><strong>05</strong><figure><img src="assets/images/kubeca/how-it-works/icon5.png" alt="" aria-hidden="true"></figure><h4>CONFIRM + CONTROL</h4><p>Operators supervise the mission, confirm critical actions, and intervene when needed while the system handles coordination.</p></article>' +
+          '<article><strong>05</strong><figure><img src="assets/images/kubeca/how-it-works/icon5.png" alt="" aria-hidden="true"></figure><h4>CONFIRM + CONTROL</h4><p>Operators receive answers, confirm critical actions, and remain in control.</p></article>' +
         '</div>' +
       '</section>' +
-      '<div class="works-understand-bridge"><span>STEP 04 EXPANDS BELOW</span></div>' +
       '<section class="works-spatial-layer">' +
         '<div class="works-spatial-copy">' +
           '<small>THE UNDERSTANDING LAYER</small>' +
-          '<span>SPATIAL AUTONOMY</span>' +
-          '<h3>THE GOAL IS NOT ONLY<br>TO STREAM VIDEO.<br>IT IS TO UNDERSTAND<br>THE ENVIRONMENT.</h3>' +
-          '<p>The system structures live drone data into relationships between objects, places, paths, obstacles, and events.</p>' +
-          '<p><strong>This turns exploration into spatial context — and spatial context into operator-ready answers.</strong></p>' +
+          '<span>SPATIAL CONTEXT</span>' +
+          '<h3>DRONE FEEDS<br>TO SPATIAL CONTEXT<br>TO MISSION-RELEVANT<br>ANSWERS.</h3>' +
+          '<p>The system structures live drone data into places, paths, obstacles, objects, changes, and risk areas.</p>' +
+          '<p><strong>Spatial context turns exploration into operator-ready answers.</strong></p>' +
         '</div>' +
         '<div class="works-spatial-pipeline" aria-label="Spatial autonomy pipeline">' +
           '<article>' +
@@ -398,31 +295,18 @@ function renderDeckChapter(deckId) {
           '</article>' +
           '<article>' +
             '<strong>02</strong>' +
-            '<h4>OBJECTS + STRUCTURE</h4>' +
-            '<p>Detection, mapping, local context</p>' +
-            '<figure><img src="assets/images/kubeca/how-it-works/drone-feeds-objects.png" alt="" aria-hidden="true"></figure>' +
-          '</article>' +
-          '<article>' +
-            '<strong>03</strong>' +
-            '<h4>SCENE GRAPH</h4>' +
-            '<p>Relationships between objects, places, paths, and events</p>' +
+            '<h4>SPATIAL CONTEXT</h4>' +
+            '<p>Places, paths, obstacles, objects, changes, and risk areas</p>' +
             '<figure><img src="assets/images/kubeca/how-it-works/scene-graph.png" alt="" aria-hidden="true"></figure>' +
           '</article>' +
           '<article>' +
-            '<strong>04</strong>' +
+            '<strong>03</strong>' +
             '<h4>MISSION-RELEVANT ANSWERS</h4>' +
             '<p>Operator insights, unit actions, mission continuity</p>' +
             '<figure><img src="assets/images/kubeca/how-it-works/route-control.png" alt="" aria-hidden="true"></figure>' +
           '</article>' +
         '</div>' +
-        '<div class="works-spatial-capabilities">' +
-          '<span><img src="' + whyNowIconPath('resilient_navigation.svg') + '" alt="" aria-hidden="true">Resilient<br>Navigation</span>' +
-          '<span><img src="' + whyNowIconPath('shared_spatial_awareness.svg') + '" alt="" aria-hidden="true">Mapping &<br>Context</span>' +
-          '<span><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true">Coordination<br>at Scale</span>' +
-          '<span><img src="' + whyNowIconPath('mission_intelligence_layer.svg') + '" alt="" aria-hidden="true">Mission<br>Logic</span>' +
-        '</div>' +
       '</section>' +
-      renderChapterBottom('works', 'BOTTOM LINE', 'THE SYSTEM IS NOT ONLY A SET OF ASSETS.', 'IT IS A MISSION FLOW FROM RANGE TO CONTROL.') +
       renderChapterFooter('works') +
     '</section>';
   }
@@ -431,43 +315,45 @@ function renderDeckChapter(deckId) {
     return renderStandardChapterPage(group, {
       className: 'enables',
       layout: 'cards',
-      title: 'LOCAL INTELLIGENCE<br>DELIVERED AT RANGE.',
-      lead: 'KUBECA turns system architecture into operational outcomes: reach, shared awareness, reduced workload, safer standoff, and faster decisions.',
+      title: 'STRUCTURED SPATIAL INTELLIGENCE<br>FROM PLACES TEAMS CANNOT SAFELY<br>OR RELIABLY REACH.',
+      lead: 'KUBECA gives operators more than video. It returns spatial information: where things are, how spaces connect, what changed, where movement is possible, and where attention is needed.',
       bottomLineOne: 'THE VALUE IS NOT MORE VIDEO.',
-      bottomLineTwo: 'THE VALUE IS STRUCTURED LOCAL INTELLIGENCE.'
+      bottomLineTwo: 'THE VALUE IS STRUCTURED SPATIAL INTELLIGENCE DELIVERED AT RANGE.'
     });
   }
 
-  if (group.heading === 'WHY WE WIN') {
-    return renderStandardChapterPage(group, {
-      className: 'win',
-      layout: 'stack',
-      title: 'SOFTWARE ACROSS<br>THE MISSION STACK.',
-      lead: 'The defensibility sits across carrier autonomy, local drone autonomy, mission intelligence, and the operator interface. Each layer compounds the value of the others.',
-      bottomLineOne: 'THE MOAT IS NOT ONE ALGORITHM.',
-      bottomLineTwo: 'IT IS SOFTWARE ACROSS THE FULL MISSION STACK.'
-    });
-  }
-
-  if (group.heading === 'MARKET AREAS') {
+  if (group.heading === 'WHERE KUBECA CREATES VALUE' || group.heading === 'MARKET AREAS') {
     return renderStandardChapterPage(group, {
       className: 'market',
       layout: 'cards',
-      title: 'WHERE KUBECA<br>CREATES VALUE.',
-      lead: 'KUBECA is built for missions where range, signal reliability, local intelligence, and operator workload become limiting factors.',
-      bottomLineOne: 'THE BEACHHEAD IS WHERE DRONE OPERATIONS BREAK.',
-      bottomLineTwo: 'RANGE, SIGNALS, LOCAL INTELLIGENCE, AND WORKLOAD.'
+      title: 'BUILT FOR MISSIONS WHERE<br>RANGE, ACCESS, AND UNDERSTANDING<br>DETERMINE OUTCOMES.',
+      lead: 'KUBECA is built for environments where teams need spatial intelligence from places that are distant, enclosed, degraded, or unsafe to enter.',
+      extra: '<section class="degraded-band"><small>BUILT FOR DEGRADED CONDITIONS</small><p>GPS, RF links, terrain, buildings, and infrastructure cannot always be assumed reliable. KUBECA is designed around mission continuity from the start.</p></section>',
+      includeBottomLine: false,
+      bottomLineOne: '',
+      bottomLineTwo: ''
     });
   }
 
-  if (group.heading === 'TEAM / VALIDATION') {
+  if (group.heading === 'FIELD VALIDATION' || group.heading === 'TEAM / VALIDATION') {
     return renderStandardChapterPage(group, {
       className: 'team',
       layout: 'proof',
-      title: 'BUILT BY PRACTICAL<br>DRONE AND AUTONOMY DEVELOPERS.',
-      lead: 'The team story should be credible and grounded: practical drone development, flight testing, operator feedback, autonomy foundations, and software validation.',
-      bottomLineOne: 'KUBECA IS BUILT FROM FIELD CONSTRAINTS.',
-      bottomLineTwo: 'NOT FROM THEORETICAL AUTONOMY ALONE.'
+      title: 'BUILT FROM REAL SYSTEM DEVELOPMENT.<br>TESTED IN REAL CONDITIONS.',
+      lead: 'KUBECA is built from hands-on experience across drone platform development, autonomy software, field testing, operator feedback, and defense-relevant constraints.',
+      bottomLineOne: 'KUBECA IS NOT BUILT FROM THEORY.',
+      bottomLineTwo: 'IT IS BUILT FROM HARDWARE DEVELOPMENT, SOFTWARE INTEGRATION, FIELD TESTING, AND OPERATOR FEEDBACK.'
+    });
+  }
+
+  if (group.heading === 'ROADMAP') {
+    return renderStandardChapterPage(group, {
+      className: 'roadmap',
+      layout: 'stack',
+      title: 'FROM FLIGHT-TESTED COMPONENTS<br>TO AN INTEGRATED MISSION SYSTEM.',
+      lead: 'KUBECA is building in stages: carrier platform, local drone teams, spatial understanding, relay architecture, and operator handover.',
+      bottomLineOne: 'THE NEXT PROOF POINT IS A SYSTEM DEMONSTRATION:',
+      bottomLineTwo: 'CARRIER FLIGHT, LOCAL DRONE DEPLOYMENT, SPATIAL INTELLIGENCE, AND MISSION HANDOVER.'
     });
   }
 
@@ -475,11 +361,11 @@ function renderDeckChapter(deckId) {
     return renderStandardChapterPage(group, {
       className: 'cta',
       layout: 'cta',
-      title: 'BUILD THE MISSION LAYER<br>FOR COORDINATED AERIAL AUTONOMY.',
-      lead: 'We are looking for partners, operators, and investors who understand that the next leap in aerial autonomy is not only better drones - it is coordinated systems.',
+      title: 'BUILD THE FUTURE OF<br>AUTONOMOUS AERIAL INTELLIGENCE.',
+      lead: 'KUBECA is creating the mission intelligence layer that enables decentralized aerial systems to understand, decide, and act while humans remain in control. Not isolated drones. Coordinated mission systems.',
       extra: renderCtaActions(),
-      bottomLineOne: 'PARTNER WITH KUBECA.',
-      bottomLineTwo: 'REQUEST A MISSION BRIEF.'
+      bottomLineOne: 'MISSION INTELLIGENCE.',
+      bottomLineTwo: 'AT RANGE. AT SCALE.'
     });
   }
 

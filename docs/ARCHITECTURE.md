@@ -4,25 +4,31 @@ This site is intentionally kept as a static, no-build website while the pitch an
 
 ## Narrative Spine
 
-The investor-room menu follows `KUBECA_Website_Pitch_Roadmap_v2-1.pdf`:
+The site follows `KUBECA_Investor_Website_Storyline.pdf` as the source of truth.
 
-1. Hero
-2. Why This Matters
-3. Why Now
-4. What We Build
-5. How It Works
-6. What It Enables
-7. Why We Win
-8. Market Areas
-9. Team / Validation
-10. CTA
+Public homepage:
+
+1. `01 / HERO` - cinematic positioning for KUBECA as the mission intelligence layer for coordinated aerial autonomy.
+
+Investor Room:
+
+2. `02 / WHY THIS MATTERS` - why isolated drone operations fail.
+3. `03 / THE KUBECA SYSTEM` - the architecture: carrier / relay, local drone teams, mission intelligence, shared spatial data, and human oversight.
+4. `04 / HOW A MISSION WORKS` - the short mission sequence: Deploy -> Release + Relay -> Explore + Map -> Understand -> Confirm + Control.
+5. `05 / WHAT IT ENABLES` - outcomes and spatial-intelligence value.
+6. `06 / WHERE KUBECA CREATES VALUE` - operational use cases and market areas.
+7. `07 / FIELD VALIDATION` - platform work, GPS-denied software testing, fixed-wing flight, spatial understanding, and operator / defense feedback.
+8. `08 / ROADMAP` - milestone path to integrated system demonstration.
+9. `09 / CTA` - partnership and mission brief request.
 
 Rule of thumb:
 
-- `What We Build` defines the product architecture.
-- `How It Works` explains the mission sequence.
-- `What It Enables` explains outcomes and use cases.
-- `Why We Win` holds deeper technology and defensibility.
+- The homepage creates belief.
+- The Investor Room provides evidence.
+- `Why This Matters` owns the problem.
+- `The KUBECA System` owns product architecture.
+- `How A Mission Works` owns the mission flow only.
+- `What It Enables` owns spatial-intelligence outcomes.
 
 ## JavaScript Modules
 
@@ -47,7 +53,7 @@ Rule of thumb:
 
 Keep the chapter language consistent:
 
-- one small chapter header, e.g. `04 / WHAT WE BUILD`;
+- one small chapter header, e.g. `03 / THE KUBECA SYSTEM`;
 - one dominant headline;
 - one strong visual or diagram;
 - thin dividers and large whitespace;

@@ -3,6 +3,133 @@ function goToAdjacentDeck(direction) {
   if (nextDeckId) openDeckPanel(nextDeckId);
 }
 
+function getInvestorPageGroups() {
+  return Array.prototype.slice.call(megaRows || []).map(function (row) {
+    var ids = Array.prototype.slice.call(row.querySelectorAll('.deck-link')).map(function (button) {
+      return button.getAttribute('data-deck');
+    }).filter(Boolean);
+    return {
+      ids: ids,
+      deckId: ids[0] || ''
+    };
+  }).filter(function (group) {
+    return !!group.deckId;
+  });
+}
+
+function renderInvestorLongScrollPages() {
+  return getInvestorPageGroups().map(function (group) {
+    return '<section class="investor-long-page" data-deck-section="' + group.deckId + '">' +
+      renderDeckChapter(group.deckId) +
+    '</section>';
+  }).join('');
+}
+
+var systemCarouselController = null;
+
+function destroySystemCarousel() {
+  if (!systemCarouselController) return;
+  systemCarouselController.destroy();
+  systemCarouselController = null;
+}
+
+function initializeSystemCarousel() {
+  destroySystemCarousel();
+  if (!detailGrid) return;
+
+  var carousel = detailGrid.querySelector('[data-system-carousel]');
+  if (!carousel) return;
+
+  var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-system-slide-panel]'));
+  var selectors = Array.prototype.slice.call(carousel.querySelectorAll('[data-system-slide]'));
+  var previous = carousel.querySelector('[data-system-previous]');
+  var next = carousel.querySelector('[data-system-next]');
+  var counter = carousel.querySelector('[data-system-current]');
+  var timer = null;
+  var activeIndex = 0;
+  var isHovered = false;
+  var hasFocus = false;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function showSlide(index) {
+    activeIndex = (index + slides.length) % slides.length;
+    slides.forEach(function (slide, slideIndex) {
+      var isActive = slideIndex === activeIndex;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    });
+    selectors.forEach(function (selector, selectorIndex) {
+      var isActive = selectorIndex === activeIndex;
+      selector.classList.toggle('is-active', isActive);
+      if (isActive) {
+        selector.setAttribute('aria-current', 'true');
+      } else {
+        selector.removeAttribute('aria-current');
+      }
+    });
+    if (counter) counter.textContent = String(activeIndex + 1).padStart(2, '0');
+  }
+
+  function stopAutoplay() {
+    if (!timer) return;
+    window.clearInterval(timer);
+    timer = null;
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (reduceMotion || isHovered || hasFocus) return;
+    timer = window.setInterval(function () {
+      showSlide(activeIndex + 1);
+    }, 6000);
+  }
+
+  function selectSlide(index) {
+    stopAutoplay();
+    showSlide(index);
+  }
+
+  selectors.forEach(function (selector) {
+    selector.addEventListener('click', function () {
+      selectSlide(Number(selector.getAttribute('data-system-slide')));
+    });
+  });
+  if (previous) {
+    previous.addEventListener('click', function () {
+      selectSlide(activeIndex - 1);
+    });
+  }
+  if (next) {
+    next.addEventListener('click', function () {
+      selectSlide(activeIndex + 1);
+    });
+  }
+  carousel.addEventListener('mouseenter', function () {
+    isHovered = true;
+    stopAutoplay();
+  });
+  carousel.addEventListener('mouseleave', function () {
+    isHovered = false;
+    startAutoplay();
+  });
+  carousel.addEventListener('focusin', function () {
+    hasFocus = true;
+    stopAutoplay();
+  });
+  carousel.addEventListener('focusout', function (event) {
+    if (!carousel.contains(event.relatedTarget)) {
+      hasFocus = false;
+      startAutoplay();
+    }
+  });
+
+  showSlide(0);
+  startAutoplay();
+  systemCarouselController = {
+    destroy: stopAutoplay
+  };
+}
+
 function setPanelScrollLock(isLocked) {
   if (isLocked) {
     if (!document.body.classList.contains('panel-scroll-lock')) {
@@ -26,6 +153,7 @@ function openDeckPanel(deckId) {
   var card = deckData[deckId] || deckData['founder-thesis'];
   var group = getDeckGroup(deckId);
   activeDeckId = deckData[deckId] ? deckId : 'founder-thesis';
+  var scrollTargetId = group && group.ids && group.ids.length ? group.ids[0] : activeDeckId;
   updateActiveDeckLinks(activeDeckId);
 
   if (deckId === 'prototype-platforms') {
@@ -46,14 +174,11 @@ function openDeckPanel(deckId) {
   detailPanel.classList.remove('product-detail');
   detailPanel.classList.add('deck-detail');
   detailEyebrow.textContent = '';
-  if (usesCustomChapterPage(group.heading)) {
-    detailTitle.textContent = '';
-    detailIntro.textContent = '';
-  } else {
-    detailTitle.textContent = group.heading;
-    detailIntro.textContent = card[2];
-  }
-  detailGrid.innerHTML = renderDeckChapter(activeDeckId);
+  detailTitle.textContent = '';
+  detailIntro.textContent = '';
+  destroySystemCarousel();
+  detailGrid.innerHTML = renderInvestorLongScrollPages();
+  initializeSystemCarousel();
 
   if (window.matchMedia('(min-width: 761px)').matches) {
     openMenu();
@@ -72,7 +197,7 @@ function openDeckPanel(deckId) {
   }
   setPanelScrollLock(true);
   window.requestAnimationFrame(function () {
-    var selectedSection = detailGrid ? detailGrid.querySelector('[data-deck-section="' + activeDeckId + '"]') : null;
+    var selectedSection = detailGrid ? detailGrid.querySelector('[data-deck-section="' + scrollTargetId + '"]') : null;
     if (selectedSection && detailPanel) {
       detailPanel.scrollTo({
         top: Math.max(selectedSection.offsetTop - 180, 0),
@@ -93,6 +218,7 @@ function openDetailPanel(detailId) {
   var detail = detailData[detailId] || detailData['flying-understanding'];
 
   closeDeckPanel();
+  destroySystemCarousel();
   if (detailId !== 'prototype-platforms') clearActiveDeck();
   if (detailPanel) {
     detailPanel.classList.remove('deck-detail');
@@ -148,6 +274,7 @@ function openDetailPanel(detailId) {
 }
 
 function closeDetailPanel() {
+  destroySystemCarousel();
   if (panelBackdrop) panelBackdrop.classList.remove('open');
   if (!detailPanel) return;
   detailPanel.classList.remove('open');
