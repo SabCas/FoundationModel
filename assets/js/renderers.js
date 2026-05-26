@@ -41,8 +41,10 @@ var chapterMeta = {
   'MARKET AREAS': { number: '04', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
   'FIELD VALIDATION': { number: '05', className: 'validation', label: 'FIELD VALIDATION' },
   'TEAM / VALIDATION': { number: '05', className: 'validation', label: 'FIELD VALIDATION' },
-  'CONTACT': { number: '06', className: 'cta', label: 'CONTACT' },
-  'CTA': { number: '06', className: 'cta', label: 'CONTACT' }
+  'INVESTOR ROADMAP': { number: '06', className: 'finance', label: 'INVESTOR ROADMAP' },
+  'CURRENT INVESTMENT FOCUS': { number: '07', className: 'finance-focus', label: 'CURRENT INVESTMENT FOCUS' },
+  'CONTACT': { number: '08', className: 'cta', label: 'CONTACT' },
+  'CTA': { number: '08', className: 'cta', label: 'CONTACT' }
 };
 
 function iconPath(fileName) {
@@ -406,23 +408,125 @@ function renderDeckChapter(deckId) {
             '<p class="validation-proof-kicker">05 / FIELD VALIDATION</p>' +
             '<h2>BUILT FROM REAL<br>AUTONOMOUS SYSTEM<br>DEVELOPMENT.</h2>' +
             '<div class="validation-proof-lead">' +
-              '<p>KUBECA is built on hands-on experience across unmanned systems development, autonomy software, field testing, operator feedback, and defense-relevant system environments.</p>' +
-              '<p>These experiences directly inform the KUBECA mission-system architecture.</p>' +
+              '<p>KUBECA is founded on hands-on team experience across unmanned systems development, autonomy software, field testing, operator feedback, and defense-relevant system environments.</p>' +
+              '<p>This prior team experience directly informs the KUBECA mission-system architecture.</p>' +
             '</div>' +
           '</div>' +
         '</header>' +
         '<section class="validation-proof-rows" aria-label="Verified development experience">' +
-          '<article data-deck-section="validation-real-system-development"><small>01</small><h3>FULL SYSTEM DEVELOPMENT</h3><p>Led complete development cycles from concept to deployment: hardware design, component sizing, flight-stack integration, software architecture, hardware/software testing, field iteration, and deployment support.</p></article>' +
-          '<article><small>02</small><h3>MISSION-READY<br>UAS INTEGRATION</h3><p>Experience integrating defense-relevant unmanned aerial systems with proprietary hardware, flight software, payload systems, and mission-relevant platform behavior into functional field-ready systems.</p></article>' +
-          '<article><small>03</small><h3>GPS-DENIED<br>AUTONOMY</h3><p>Core development work in a SPRIND autonomous systems challenge, including SLAM, local mapping, GPS-denied navigation, scene-graph based spatial understanding, autonomy-stack integration, and system-level software development.</p></article>' +
-          '<article><small>04</small><h3>FIELD TESTING &amp;<br>OPERATIONAL EXPOSURE</h3><p>Systems deployed in Ukraine and presented and flight-tested at the NATO Mountain Warfare Centre of Excellence. Tactical drone deployment presentation delivered; Challenge Coin awarded.</p></article>' +
-          '<article><small>05</small><h3>DEFENSE ECOSYSTEM<br>EXPERIENCE</h3><p>Experience with Bundeswehr-related working groups, discussions with the German Army Concepts and Capabilities Development Centre, collaboration with firms advising the Bundeswehr, industry trade fair representation, and operator feedback.</p></article>' +
+          '<article data-deck-section="validation-real-system-development"><small>01</small><h3>FULL SYSTEM DEVELOPMENT</h3><p>Team experience leading complete development cycles from concept to deployment: hardware design, component sizing, flight-stack integration, software architecture, hardware/software testing, field iteration, and deployment support.</p></article>' +
+          '<article><small>02</small><h3>MISSION-READY<br>UAS INTEGRATION</h3><p>Prior team experience integrating defense-relevant unmanned aerial systems with hardware, flight software, payload systems, and mission-relevant platform behavior into functional field-ready systems.</p></article>' +
+          '<article><small>03</small><h3>GPS-DENIED<br>AUTONOMY</h3><p>Prior team development work in a SPRIND autonomous systems challenge, including SLAM, local mapping, GPS-denied navigation, scene-graph based spatial understanding, autonomy-stack integration, and system-level software development.</p></article>' +
+          '<article><small>04</small><h3>FIELD TESTING &amp;<br>OPERATIONAL EXPOSURE</h3><p>Prior team work included systems deployed in Ukraine and systems presented and flight-tested at the NATO Mountain Warfare Centre of Excellence. Tactical drone deployment presentation delivered; Challenge Coin awarded.</p></article>' +
+          '<article><small>05</small><h3>DEFENSE ECOSYSTEM<br>EXPERIENCE</h3><p>Team experience includes Bundeswehr-related working groups, discussions with the German Army Concepts and Capabilities Development Centre, collaboration with firms advising the Bundeswehr, industry trade fair representation, and operator feedback.</p></article>' +
         '</section>' +
       '</section>' +
       '<section class="validation-method-band" aria-label="How KUBECA builds">' +
-        '<div class="validation-method-title"><small>HOW WE BUILD</small><h3>KUBECA IS BUILT FROM PROVEN EXPERIENCE.</h3><p>Prior hardware development, flight-stack integration, autonomy software, field testing, and operational feedback form the foundation of the KUBECA system.</p></div>' +
-        '<div class="validation-method-copy"><h4>BUILD EARLY. TEST IN THE FIELD.<br>ITERATE FROM OPERATOR FEEDBACK.</h4><p>KUBECA follows an applied development approach: build usable prototypes early, test under real constraints, learn from operators, and improve the system through fast hardware-software iterations.</p><strong>REAL CONDITIONS REDUCE DEVELOPMENT RISK EARLY.</strong><p class="validation-method-next">The next step is integration: bringing this experience together in the first KUBECA supervised aerial mission-system demonstration.</p></div>' +
+        '<div class="validation-method-title"><small>HOW WE BUILD</small><h3>BUILD EARLY. TEST IN THE FIELD.<br>ITERATE FROM OPERATOR FEEDBACK.</h3></div>' +
+        '<div class="validation-method-copy"><p>Proven hardware development, autonomy software, and operational feedback are applied through usable prototypes, real constraints, and fast hardware-software iteration.</p><strong>THE NEXT STEP IS THE FIRST INTEGRATED KUBECA MISSION-SYSTEM DEMONSTRATION.</strong></div>' +
       '</section>' +
+    '</section>';
+  }
+
+  if (group.heading === 'INVESTOR ROADMAP') {
+    return '<section class="chapter-page chapter-page-finance finance-roadmap-layout">' +
+      '<header class="finance-intro">' +
+        '<div>' +
+          '<p class="finance-kicker">06 / INVESTOR ROADMAP</p>' +
+          '<h2>Capital staged<br>around risk reduction.</h2>' +
+        '</div>' +
+        '<p class="finance-lead">KUBECA raises against measurable milestones: hardware validation, repeatable pilot systems, and a verification pathway toward regulated scale.</p>' +
+      '</header>' +
+      '<section class="finance-roadmap-table" aria-label="Capital roadmap">' +
+        '<div class="finance-table-head" aria-hidden="true"><span>Phase</span><span>Round</span><span>Indicative Raise</span><span>Primary Unlock</span><span>Risk Reduced</span></div>' +
+        '<article>' +
+          '<div class="finance-phase" data-label="Phase">01</div>' +
+          '<div data-label="Round"><strong>Pre-Seed / Prototype</strong></div>' +
+          '<div class="finance-raise" data-label="Indicative Raise">&euro;2-4M</div>' +
+          '<p data-label="Primary Unlock">Integrated carrier-enabled hardware demonstration and partner evaluation units</p>' +
+          '<p data-label="Risk Reduced">Technical integration risk</p>' +
+        '</article>' +
+        '<article>' +
+          '<div class="finance-phase" data-label="Phase">02</div>' +
+          '<div data-label="Round"><strong>Seed / Pilot Production</strong></div>' +
+          '<div class="finance-raise" data-label="Indicative Raise">&euro;8-15M</div>' +
+          '<p data-label="Primary Unlock">Repeatable pilot systems, Mission Intelligence v1, and early partner validation</p>' +
+          '<p data-label="Risk Reduced">Production, market, and verification risk</p>' +
+        '</article>' +
+        '<article>' +
+          '<div class="finance-phase" data-label="Phase">03</div>' +
+          '<div data-label="Round"><strong>Series A / Regulated Scale</strong></div>' +
+          '<div class="finance-raise" data-label="Indicative Raise">&euro;25-50M</div>' +
+          '<p data-label="Primary Unlock">Verification package, certification pathway, and scalable autonomous mission-system production</p>' +
+          '<p data-label="Risk Reduced">Regulatory and scale risk</p>' +
+        '</article>' +
+      '</section>' +
+      '<section class="finance-logic" aria-label="Investment logic">' +
+        '<small>INVESTMENT LOGIC</small>' +
+        '<p>Each round reduces a different class of risk. Phase 1 proves the integrated system in hardware. Phase 2 makes it repeatable and pilot-ready. Phase 3 prepares verification, certification pathways, and regulated scale.</p>' +
+      '</section>' +
+      '<p class="finance-conclusion">The roadmap is not about building another drone. It is about proving a supervised autonomous mission system step by step.</p>' +
+    '</section>';
+  }
+
+  if (group.heading === 'CURRENT INVESTMENT FOCUS') {
+    return '<section class="chapter-page chapter-page-finance finance-focus-layout">' +
+      '<header class="finance-intro finance-focus-intro">' +
+        '<div>' +
+          '<p class="finance-kicker">07 / CURRENT INVESTMENT FOCUS</p>' +
+          '<h2>Pre-Seed /<br>Prototype Round</h2>' +
+        '</div>' +
+        '<p class="finance-lead">KUBECA is preparing an indicative &euro;2-4M Pre-Seed / Prototype round to validate the carrier-enabled mission system in hardware, build partner evaluation units, and prepare the transition to pilot production.</p>' +
+      '</header>' +
+      '<section class="finance-progress" aria-label="Phase 1 starting point">' +
+        '<header class="finance-progress-intro">' +
+          '<h3>PHASE 1 STARTING POINT</h3>' +
+          '<p>The current round does not begin from zero. It builds on proven team capability and tangible KUBECA carrier-platform progress, while funding the integration and validation work required for a complete supervised mission-system demonstration.</p>' +
+        '</header>' +
+        '<div class="finance-progress-head" aria-hidden="true"><span>Workstream</span><span>Current Status</span><span>Next Validation Step</span></div>' +
+        '<article>' +
+          '<strong data-label="Workstream">Carrier Platform Design</strong>' +
+          '<p data-label="Current Status"><em>COMPLETED</em>Carrier-system CAD design completed and prototype chassis built.</p>' +
+          '<p data-label="Next Validation Step">Integrate mission hardware, relay architecture, and deployment mechanism.</p>' +
+        '</article>' +
+        '<article>' +
+          '<strong data-label="Workstream">Autonomous Carrier Flight</strong>' +
+          '<p data-label="Current Status"><em>DEMONSTRATED</em>First autonomous flight of the long-range carrier platform completed successfully.</p>' +
+          '<p data-label="Next Validation Step">Expand testing toward integrated mission-system operations.</p>' +
+        '</article>' +
+        '<article>' +
+          '<strong data-label="Workstream">GNSS-Denied Autonomy</strong>' +
+          '<p data-label="Current Status"><em>EARLY DEMONSTRATION</em>GNSS-denied functionality demonstrated in a short test scenario.</p>' +
+          '<p data-label="Next Validation Step">Field-test under representative mission constraints.</p>' +
+        '</article>' +
+        '<article>' +
+          '<strong data-label="Workstream">Carrier GNSS-Denied Integration</strong>' +
+          '<p data-label="Current Status"><em>IN PROGRESS</em>Integration into the carrier-system development path is underway.</p>' +
+          '<p data-label="Next Validation Step">Validate within the integrated aerial configuration.</p>' +
+        '</article>' +
+        '<p class="finance-progress-close">Phase 1 converts proven capability and current carrier-platform progress into an integrated KUBECA mission-system demonstration.</p>' +
+      '</section>' +
+      '<section class="finance-snapshot" aria-label="Round snapshot">' +
+        '<h3>ROUND SNAPSHOT</h3>' +
+        '<dl>' +
+          '<div><dt>Target Range</dt><dd class="finance-raise">Indicative &euro;2-4M</dd></div>' +
+          '<div><dt>Runway</dt><dd>18-24 months</dd></div>' +
+          '<div><dt>Structure</dt><dd>To be finalized with a lead investor; equity or convertible instrument considered</dd></div>' +
+          '<div><dt>Primary Proof Point</dt><dd>Integrated hardware demonstration and partner evaluation readiness</dd></div>' +
+          '<div><dt>Capital Unlock</dt><dd>Technical proof, evaluation units, and pilot-production readiness</dd></div>' +
+          '<div><dt>Main Risk Reduced</dt><dd>Technical integration risk</dd></div>' +
+        '</dl>' +
+      '</section>' +
+      '<section class="finance-use" aria-label="Indicative use of funds">' +
+        '<h3>INDICATIVE USE OF FUNDS</h3>' +
+        '<div class="finance-use-head" aria-hidden="true"><span>Category</span><span>Allocation</span><span>Use</span></div>' +
+        '<article><strong data-label="Category">Engineering &amp; Hardware</strong><em data-label="Allocation">45-55%</em><p data-label="Use">Carrier chassis, release mechanism, relay architecture, and local drone redesign</p></article>' +
+        '<article><strong data-label="Category">Testing &amp; Validation</strong><em data-label="Allocation">15-20%</em><p data-label="Use">Ground tests, flight tests, GNSS-denied field validation, partner evaluation units, and field iteration</p></article>' +
+        '<article><strong data-label="Category">Software Integration</strong><em data-label="Allocation">10-15%</em><p data-label="Use">Telemetry, operator workflow, asset tracking, and mission intelligence prototype</p></article>' +
+        '<article><strong data-label="Category">Team &amp; Operations</strong><em data-label="Allocation">10-15%</em><p data-label="Use">Core hires, contractors, supplier coordination, workshop, and operations setup</p></article>' +
+        '<article><strong data-label="Category">Verification / Documentation</strong><em data-label="Allocation">5-10%</em><p data-label="Use">Test evidence, safety documentation, and regulatory pathway preparation</p></article>' +
+      '</section>' +
+      '<p class="finance-conclusion finance-focus-close">Capital is focused on hardware validation, controlled testing, and evidence required for pilot production.</p>' +
     '</section>';
   }
 

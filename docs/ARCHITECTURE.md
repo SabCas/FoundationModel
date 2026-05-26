@@ -17,8 +17,10 @@ Investor Room:
 2. `02 / THE KUBECA SYSTEM` - the architecture: carrier / relay, local drone teams, mission intelligence, shared spatial data, and human oversight.
 3. `03 / OUR PRODUCTS` - the configurable product stack: carrier platform, mission modules, local drone teams, and mission software.
 4. `04 / WHERE KUBECA CREATES VALUE` - one initial defense focus and two explicit expansion paths.
-5. `05 / FIELD VALIDATION` - verified systems-development, autonomy, field, and defense-ecosystem experience.
-6. `06 / CONTACT` - a single direct conversation path.
+5. `05 / FIELD VALIDATION` - verified prior team experience in systems-development, autonomy, field, and defense ecosystems.
+6. `06 / INVESTOR ROADMAP` - indicative staged capital linked to measurable risk reduction.
+7. `07 / CURRENT INVESTMENT FOCUS` - current KUBECA Phase 1 progress, indicative pre-seed use of funds, and proof targets.
+8. `08 / CONTACT` - a single direct conversation path.
 
 Rule of thumb:
 
