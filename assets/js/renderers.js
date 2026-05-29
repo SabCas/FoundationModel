@@ -411,17 +411,15 @@ function renderDeckChapter(deckId) {
             '<p class="validation-proof-kicker">05 / FIELD VALIDATION</p>' +
             '<h2>BUILT FROM REAL<br>AUTONOMOUS SYSTEM<br>DEVELOPMENT.</h2>' +
             '<div class="validation-proof-lead">' +
-              '<p>KUBECA is founded on hands-on team experience across unmanned systems development, autonomy software, field testing, operator feedback, and defense-relevant system environments.</p>' +
-              '<p>This prior team experience directly informs the KUBECA mission-system architecture.</p>' +
+              '<p>KUBECA is founded on hands-on team experience in unmanned systems, autonomy software, field testing, operator feedback, and defense-relevant environments.</p>' +
+              '<p>This experience informs the KUBECA architecture and its staged validation path.</p>' +
             '</div>' +
           '</div>' +
         '</header>' +
         '<section class="validation-proof-rows" aria-label="Verified development experience">' +
-          '<article data-deck-section="validation-real-system-development"><small>01</small><h3>FULL SYSTEM DEVELOPMENT</h3><p>Team experience leading complete development cycles from concept to deployment: hardware design, component sizing, flight-stack integration, software architecture, hardware/software testing, field iteration, and deployment support.</p></article>' +
-          '<article><small>02</small><h3>MISSION-READY<br>UAS INTEGRATION</h3><p>Prior team experience integrating defense-relevant unmanned aerial systems with hardware, flight software, payload systems, and mission-relevant platform behavior into functional field-ready systems.</p></article>' +
-          '<article><small>03</small><h3>GPS-DENIED<br>AUTONOMY</h3><p>Prior team development work in a SPRIND autonomous systems challenge, including SLAM, local mapping, GPS-denied navigation, scene-graph based spatial understanding, autonomy-stack integration, and system-level software development.</p></article>' +
-          '<article><small>04</small><h3>FIELD TESTING &amp;<br>OPERATIONAL EXPOSURE</h3><p>Prior team work included systems deployed in Ukraine and systems presented and flight-tested at the NATO Mountain Warfare Centre of Excellence. Tactical drone deployment presentation delivered; Challenge Coin awarded.</p></article>' +
-          '<article><small>05</small><h3>DEFENSE ECOSYSTEM<br>EXPERIENCE</h3><p>Team experience includes Bundeswehr-related working groups, discussions with the German Army Concepts and Capabilities Development Centre, collaboration with firms advising the Bundeswehr, industry trade fair representation, and operator feedback.</p></article>' +
+          '<article data-deck-section="validation-real-system-development"><small>01</small><div class="validation-proof-copy"><em>PRIOR TEAM EXPERIENCE</em><h3>AUTONOMOUS SYSTEMS<br>DEVELOPMENT</h3><p>Prior team experience includes hardware design, component sizing, flight-stack integration, software architecture, mission-ready UAS integration, payload systems, testing, field iteration, and development work in a SPRIND autonomous systems challenge involving SLAM, local mapping, GNSS-denied navigation, spatial understanding, and autonomy-stack integration.</p></div></article>' +
+          '<article><small>02</small><div class="validation-proof-copy"><em>FIELD + ECOSYSTEM EXPOSURE</em><h3>OPERATOR FEEDBACK AND<br>DEFENSE-RELEVANT ENVIRONMENTS</h3><p>Prior team work included systems deployed in Ukraine and systems presented and flight-tested at the NATO Mountain Warfare Centre of Excellence. A tactical drone deployment presentation was delivered and a Challenge Coin was awarded. Team experience also includes Bundeswehr-related working groups, discussions with the German Army Concepts and Capabilities Development Centre, collaboration with firms advising the Bundeswehr, industry trade fair representation, and operator feedback.</p></div></article>' +
+          '<article><small>03</small><div class="validation-proof-copy"><em>CURRENT KUBECA PROGRESS</em><h3>CARRIER-SYSTEM<br>DEVELOPMENT</h3><p>Carrier-platform CAD completed, prototype chassis built, first autonomous carrier flight demonstrated, and integration work underway.</p></div></article>' +
         '</section>' +
       '</section>' +
       '<section class="validation-method-band" aria-label="How KUBECA builds">' +
