@@ -214,8 +214,9 @@ function renderDeckChapter(deckId) {
       renderChapterHeader(group.heading) +
       '<section class="system-showcase-intro">' +
         '<p class="system-showcase-kicker">02 / THE KUBECA SYSTEM</p>' +
-        '<h2>FROM CARRIER PLATFORM TO HUMAN-SUPERVISED AUTONOMOUS MISSION SYSTEMS.</h2>' +
-        '<p class="system-showcase-copy">KUBECA combines long-range carrier deployment, local drone teams, mission intelligence, and human oversight into one coordinated mission system. The key difference is not a single drone, but the system layer that keeps reach, local understanding, and operator control connected throughout the mission.</p>' +
+        '<h2>THE KUBECA SYSTEM: ONE MISSION LAYER FOR COORDINATED AUTONOMOUS ASSETS.</h2>' +
+        '<p class="system-showcase-copy">KUBECA starts with an aerial configuration: a carrier platform, local drone agents, mission software, and human supervision. Together, these elements form one supervised mission-intelligence system - connecting reach, local sensing, spatial understanding, and operator control.</p>' +
+        '<p class="system-showcase-copy">The first configuration validates the architecture in the air. The long-term platform is the coordination layer: future ground robots, additional sensors, or maritime assets can connect as mission nodes through the same supervised mission system.</p>' +
       '</section>' +
       '<section class="system-carousel" data-system-carousel role="region" aria-roledescription="carousel" aria-label="The KUBECA system">' +
         '<div class="system-carousel-slides">' +
@@ -244,8 +245,8 @@ function renderDeckChapter(deckId) {
         '</div>' +
       '</section>' +
       '<section class="system-future-teaser" aria-label="Future connected assets">' +
-        '<p class="system-future-teaser-label">FUTURE CONNECTED ASSETS</p>' +
-        '<p class="system-future-teaser-copy">The first configuration is aerial. The long-term platform is a mission intelligence layer for coordinated autonomous assets across air, ground, and maritime systems.</p>' +
+        '<p class="system-future-teaser-label">FUTURE EXTENSION</p>' +
+        '<p class="system-future-teaser-copy">Future ground robots, maritime systems, and additional sensors can connect as mission nodes through the same supervised mission-intelligence layer.</p>' +
       '</section>' +
     '</section>';
   }
@@ -255,18 +256,18 @@ function renderDeckChapter(deckId) {
       '<header class="products-deck-intro">' +
         '<div>' +
           '<p class="products-deck-kicker">03 / OUR PRODUCTS</p>' +
-          '<h2>Modular mission system.<br>One supervised platform.</h2>' +
+          '<h2>What KUBECA is building first.</h2>' +
         '</div>' +
         '<div class="products-deck-overview">' +
-          '<p>KUBECA combines a standardized carrier platform, modular mission payloads, local drone teams, and mission software into one configurable autonomy system.</p>' +
-          '<p class="products-deck-phase">Phase 1 validates the core aerial configuration. The architecture is designed to expand through reusable platforms, modular mission capability, and one supervised software layer.</p>' +
+          '<p>Phase 1 focuses on the aerial mission-system configuration: a carrier platform, mission modules, local drone agents, and the mission software stack.</p>' +
+          '<p class="products-deck-phase">This configuration is designed to validate the core coordination layer before expanding to additional asset types.</p>' +
         '</div>' +
       '</header>' +
       '<section class="products-deck" data-products-deck aria-label="Product architecture">' +
         '<div class="products-panels">' +
           '<article class="products-panel is-active" id="product-panel-carrier" data-product-panel="0" role="tabpanel" aria-labelledby="product-tab-carrier">' +
             '<figure class="products-media"><img src="assets/images/kubeca/products/carrier-platform.png" alt="Carrier platform and its modular deployment architecture"></figure>' +
-            '<div class="products-panel-copy"><p class="products-position">The reach layer.</p><h3>Carrier Platform</h3><p class="products-summary">A standardized fixed-wing carrier extends range, maintains connectivity, and carries mission-specific modules without redesigning the base airframe.</p>' +
+            '<div class="products-panel-copy"><p class="products-position">The reach layer.</p><h3>Carrier Platform</h3><p class="products-summary">Extends range, supports relay connectivity, carries mission modules, and enables deployment of local drone agents.</p>' +
               '<dl class="products-details"><div><dt>Core Role</dt><dd>Extend range, maintain connectivity, support local drone deployment.</dd></div><div><dt>Configurable With</dt><dd>Relay, sensor, release, communication, and hybrid mission modules.</dd></div><div><dt>Why It Matters</dt><dd>One reusable platform supports multiple mission types without redesigning the airframe.</dd></div></dl>' +
             '</div>' +
           '</article>' +
@@ -278,22 +279,22 @@ function renderDeckChapter(deckId) {
           '</article>' +
           '<article class="products-panel" id="product-panel-drones" data-product-panel="2" role="tabpanel" aria-labelledby="product-tab-drones" aria-hidden="true" hidden>' +
             '<figure class="products-media"><img src="assets/images/kubeca/products/local-drone-teams.png" alt="Local drone teams deployed for close-area intelligence" loading="lazy"></figure>' +
-            '<div class="products-panel-copy"><p class="products-position">The close-area intelligence layer.</p><h3>Local Drone Teams</h3><p class="products-summary">Deployable drone teams operate near the objective to explore, map, sense, and provide local context.</p>' +
+            '<div class="products-panel-copy"><p class="products-position">The close-area intelligence layer.</p><h3>Local Drone Agents</h3><p class="products-summary">Deployable drones sense, localize, map, and report local mission context near the objective.</p>' +
               '<dl class="products-details"><div><dt>FPV</dt><dd>Direct control for immediate operator-led tasks.</dd></div><div><dt>Assisted</dt><dd>Stabilized navigation and guided sensing support.</dd></div><div><dt>Autonomous Scout</dt><dd>Local exploration and spatial context generation.</dd></div><div><dt>Coordinated Team</dt><dd>Multiple assets working from shared mission intent.</dd></div></dl>' +
             '</div>' +
           '</article>' +
           '<article class="products-panel" id="product-panel-software" data-product-panel="3" role="tabpanel" aria-labelledby="product-tab-software" aria-hidden="true" hidden>' +
             '<figure class="products-media"><img src="assets/images/kubeca/products/mission-software.png" alt="Mission software interface coordinating supervised autonomous assets" loading="lazy"></figure>' +
-            '<div class="products-panel-copy"><p class="products-position">The coordination layer.</p><h3>Mission Software</h3><p class="products-summary">Mission software converts maps, feeds, asset state, and operator decisions into one supervised mission picture.</p>' +
-              '<dl class="products-details"><div><dt>Live Mission Map</dt><dd>Tracks assets, routes, zones, and mission progress in real time.</dd></div><div><dt>Building Intelligence</dt><dd>Structures cleared, unknown, and attention areas inside buildings.</dd></div><div><dt>Feed Fusion</dt><dd>Combines drone video, mapping, and sensor context.</dd></div><div><dt>Operator Control</dt><dd>Supports supervision, tasking, confirmation, and intervention.</dd></div></dl>' +
+            '<div class="products-panel-copy"><p class="products-position">The coordination layer.</p><h3>Mission Software Stack</h3><p class="products-summary">Connects carrier agent, local drone agents, mission data, and human supervision into one shared operational picture.</p>' +
+              '<dl class="products-details"><div><dt>Carrier Agent Layer</dt><dd>Reach, relay, and deployment coordination.</dd></div><div><dt>Local Drone Agent Layer</dt><dd>Sense, map, and report local mission context.</dd></div><div><dt>Mission Intelligence Layer</dt><dd>Fuse, coordinate, and supervise mission data.</dd></div><div><dt>Human Supervision Interface</dt><dd>Decide, redirect, and intervene while the system coordinates.</dd></div></dl>' +
             '</div>' +
           '</article>' +
         '</div>' +
         '<div class="products-tabs" role="tablist" aria-label="Select product view">' +
           '<button class="products-tab is-active" id="product-tab-carrier" type="button" role="tab" data-product-tab="0" aria-controls="product-panel-carrier" aria-selected="true"><small>01</small><span>Carrier Platform</span></button>' +
           '<button class="products-tab" id="product-tab-modules" type="button" role="tab" data-product-tab="1" aria-controls="product-panel-modules" aria-selected="false" tabindex="-1"><small>02</small><span>Mission Modules</span></button>' +
-          '<button class="products-tab" id="product-tab-drones" type="button" role="tab" data-product-tab="2" aria-controls="product-panel-drones" aria-selected="false" tabindex="-1"><small>03</small><span>Local Drone Teams</span></button>' +
-          '<button class="products-tab" id="product-tab-software" type="button" role="tab" data-product-tab="3" aria-controls="product-panel-software" aria-selected="false" tabindex="-1"><small>04</small><span>Mission Software</span></button>' +
+          '<button class="products-tab" id="product-tab-drones" type="button" role="tab" data-product-tab="2" aria-controls="product-panel-drones" aria-selected="false" tabindex="-1"><small>03</small><span>Local Drone Agents</span></button>' +
+          '<button class="products-tab" id="product-tab-software" type="button" role="tab" data-product-tab="3" aria-controls="product-panel-software" aria-selected="false" tabindex="-1"><small>04</small><span>Mission Software Stack</span></button>' +
         '</div>' +
       '</section>' +
       '<section class="products-future-assets" aria-label="Future connected assets">' +
