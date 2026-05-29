@@ -152,18 +152,18 @@ function renderDeckChapter(deckId) {
       renderChapterHeader(group.heading) +
       '<section class="why-repair-intro">' +
         '<div class="why-repair-title">' +
-          '<h2>AERIAL ASSETS<br>FAIL TO SCALE WHEN<br>THEY CANNOT WORK<br>AS ONE SYSTEM.</h2>' +
+          '<h2>THE BOTTLENECK<br>IS NOT MORE DRONES.<br>IT IS COORDINATION.</h2>' +
           '<div class="why-repair-rule"></div>' +
         '</div>' +
         '<div class="why-repair-copy">' +
-          '<p>Small drones provide local detail, but lack reach. Carrier platforms provide distance, but not autonomous coordination. Operators are left connecting feeds, maps, telemetry, and decisions under pressure.</p>' +
-          '<p><strong>The bottleneck is not more drones.<br><span>It is the missing mission intelligence layer between reach, local sensing, software, and human control.</span></strong></p>' +
+          '<p>Small drones provide local detail, but lack range and endurance. Carrier systems extend reach, but often remain disconnected from local sensing, mapping, and operator workflows. Operators are left managing feeds, telemetry, maps, and decisions across fragmented tools.</p>' +
+          '<p><strong>KUBECA solves this by building a supervised mission-intelligence layer:<br><span>connecting reach, local sensing, and human control inside one shared mission picture.</span></strong></p>' +
         '</div>' +
       '</section>' +
       '<section class="why-repair-cards">' +
         '<article><div class="why-repair-card-head"><div class="why-repair-index">01</div><i class="why-repair-icon why-icon-crosshair"></i></div><h4>LIMITED REACH</h4><p>Small drones create valuable local intelligence, but lose endurance, payload, and connectivity far from the operator.</p><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure></article>' +
         '<article><div class="why-repair-card-head"><div class="why-repair-index">02</div><i class="why-repair-icon why-icon-layers"></i></div><h4>FRAGMENTED CONTROL</h4><p>Carrier systems, drone feeds, maps, telemetry, and decisions remain separated across tools, increasing operator workload.</p><figure><img src="assets/images/kubeca/why-matters/fragmented-control.png" alt="" aria-hidden="true"></figure></article>' +
-        '<article><div class="why-repair-card-head"><div class="why-repair-index">03</div><i class="why-repair-icon why-icon-signal"></i></div><h4>BROKEN CONTINUITY</h4><p>Terrain, buildings, RF disruption, and degraded infrastructure break the mission picture between assets and operators.</p><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">03</div><i class="why-repair-icon why-icon-signal"></i></div><h4>BROKEN CONTINUITY</h4><p>Terrain, buildings, RF disruption, and degraded infrastructure can break the mission picture between assets and operators.</p><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure></article>' +
       '</section>' +
     '</section>';
   }
@@ -244,7 +244,7 @@ function renderDeckChapter(deckId) {
       '</section>' +
       '<section class="system-future-teaser" aria-label="Future connected assets">' +
         '<p class="system-future-teaser-label">FUTURE CONNECTED ASSETS</p>' +
-        '<p class="system-future-teaser-copy">The first configuration is aerial. Over time, the same mission intelligence layer is designed to connect future ground robots and additional autonomous assets across air and ground.</p>' +
+        '<p class="system-future-teaser-copy">The first configuration is aerial. The long-term platform is a mission intelligence layer for coordinated autonomous assets across air, ground, and maritime systems.</p>' +
       '</section>' +
     '</section>';
   }
@@ -297,8 +297,8 @@ function renderDeckChapter(deckId) {
       '</section>' +
       '<section class="products-future-assets" aria-label="Future connected assets">' +
         '<p class="products-future-label">FUTURE CONNECTED ASSETS</p>' +
-        '<p class="products-future-copy">The mission intelligence layer is designed to connect additional autonomous assets over time. Future ground robots can extend local sensing, indoor exploration, rubble access, relay coverage, and perimeter missions within the same supervised system.</p>' +
-        '<p class="products-future-thesis">The carrier and local drones are the first configuration. The platform is the mission intelligence layer that can coordinate future assets across air and ground.</p>' +
+        '<p class="products-future-copy">The mission intelligence layer is designed to connect additional autonomous assets over time. Carrier drones, local scout teams, future ground robots, and maritime carrier systems can become connected assets inside the same supervised mission architecture.</p>' +
+        '<p class="products-future-thesis">The carrier and local drones are the first configuration. The defensible platform is the mission intelligence layer that can coordinate future assets across air, ground, and maritime domains.</p>' +
       '</section>' +
     '</section>';
   }
@@ -542,14 +542,23 @@ function renderDeckChapter(deckId) {
   }
 
   if (group.heading === 'CTA' || group.heading === 'CONTACT') {
-    return renderStandardChapterPage(group, {
-      className: 'cta',
-      layout: 'cta',
-      title: 'DISCUSS THE<br>KUBECA SYSTEM.',
-      lead: 'Connect with the team to discuss the mission intelligence architecture, strategic partnerships, or an investment conversation.',
-      extra: renderCtaActions(),
-      includeBottomLine: false
-    });
+    return '<section class="chapter-page chapter-page-cta investor-contact-layout">' +
+      '<div class="investor-contact-copy">' +
+        '<p class="investor-contact-kicker">08 / CONTACT</p>' +
+        '<h2>DISCUSS THE<br>KUBECA SYSTEM.</h2>' +
+        '<p class="investor-contact-lead">Connect with the team to discuss the mission intelligence architecture, strategic partnerships, or an investment conversation.</p>' +
+        '<details class="investor-contact-reveal">' +
+          '<summary>Contact the team <span aria-hidden="true">-&gt;</span></summary>' +
+          '<div class="investor-contact-details">' +
+            '<p>Investor and strategic partnership conversations</p>' +
+            '<a href="mailto:contact@kubeca.com?subject=KUBECA%20Investor%20Conversation">contact@kubeca.com</a>' +
+          '</div>' +
+        '</details>' +
+      '</div>' +
+      '<div class="investor-contact-signal" aria-hidden="true">' +
+        '<i></i><i></i><i></i><i></i><i></i>' +
+      '</div>' +
+    '</section>';
   }
 
   var sectionMarkup = group.ids.map(function (id, index) {

@@ -17,6 +17,7 @@ if (systemOverviewOpen) systemOverviewOpen.addEventListener('click', function ()
   openDetailPanel('kubeca-system');
 });
 if (homeInvestorOpen) homeInvestorOpen.addEventListener('click', openMenu);
+if (homeInvestorHeroOpen) homeInvestorHeroOpen.addEventListener('click', openMenu);
 if (homeInvestorBottomOpen) homeInvestorBottomOpen.addEventListener('click', openMenu);
 if (progressToggle && progressBoard) progressToggle.addEventListener('click', function () {
   var isOpen = progressBoard.classList.toggle('open');

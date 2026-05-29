@@ -30,6 +30,7 @@ var detailGrid = document.getElementById('detailGrid');
 var storyDetailOpen = document.getElementById('storyDetailOpen');
 var systemOverviewOpen = document.getElementById('systemOverviewOpen');
 var homeInvestorOpen = document.getElementById('homeInvestorOpen');
+var homeInvestorHeroOpen = document.getElementById('homeInvestorHeroOpen');
 var homeInvestorBottomOpen = document.getElementById('homeInvestorBottomOpen');
 var systemProgress = document.getElementById('systemProgress');
 var progressToggle = document.getElementById('progressToggle');
