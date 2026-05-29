@@ -279,8 +279,8 @@ function renderDeckChapter(deckId) {
           '</article>' +
           '<article class="products-panel" id="product-panel-drones" data-product-panel="2" role="tabpanel" aria-labelledby="product-tab-drones" aria-hidden="true" hidden>' +
             '<figure class="products-media"><img src="assets/images/kubeca/products/local-drone-teams.png" alt="Local drone teams deployed for close-area intelligence" loading="lazy"></figure>' +
-            '<div class="products-panel-copy"><p class="products-position">The close-area intelligence layer.</p><h3>Local Drone Teams</h3><p class="products-summary">Deployable local drone teams operate near the objective to explore, map, sense, and provide local context where the carrier cannot act directly.</p>' +
-              '<ul class="products-capabilities"><li>Local sensing</li><li>Mapping</li><li>Exploration</li><li>Context reporting</li></ul>' +
+            '<div class="products-panel-copy"><p class="products-position">The close-area intelligence layer.</p><h3>Local Drone Teams</h3><p class="products-summary">Deployable local drone teams start with FPV and assisted operation for close-area sensing, then progress toward autonomous scout behavior as the mission software and field validation mature.</p>' +
+              '<ul class="products-capabilities"><li>FPV operation</li><li>Assisted sensing</li><li>Autonomous scout path</li><li>Local context reporting</li></ul>' +
             '</div>' +
           '</article>' +
           '<article class="products-panel" id="product-panel-software" data-product-panel="3" role="tabpanel" aria-labelledby="product-tab-software" aria-hidden="true" hidden>' +
