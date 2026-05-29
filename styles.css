@@ -6920,7 +6920,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 .deck-detail .market-impact-tile{
   display:flex !important;
   flex-direction:column !important;
-  min-height:clamp(450px,35vw,560px) !important;
+  min-height:clamp(390px,31vw,500px) !important;
   border:1px solid var(--market-line) !important;
   background:#fff !important;
 }
@@ -6957,7 +6957,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   display:flex !important;
   flex:1 !important;
   flex-direction:column !important;
-  gap:clamp(22px,2.4vw,32px) !important;
+  gap:clamp(18px,2vw,26px) !important;
   padding:clamp(19px,2vw,28px) !important;
 }
 
@@ -7008,21 +7008,28 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   line-height:1.72 !important;
 }
 
+.deck-detail .market-impact-simple{
+  padding-top:clamp(16px,1.7vw,22px) !important;
+  border-top:1px solid var(--market-line) !important;
+  font-size:clamp(.78rem,.9vw,.93rem) !important;
+  line-height:1.72 !important;
+}
+
 .deck-detail .market-impact-focus{
   display:grid !important;
   grid-template-columns:minmax(290px,1.25fr) minmax(170px,.56fr) minmax(270px,.9fr) !important;
-  gap:0 !important;
+  gap:clamp(26px,4vw,72px) !important;
   align-items:center !important;
   margin:clamp(20px,2.3vw,32px) 0 0 !important;
-  padding:clamp(23px,2.5vw,34px) 0 !important;
-  border-top:1px solid var(--market-line) !important;
-  border-bottom:1px solid var(--market-line) !important;
+  padding:clamp(28px,3vw,42px) 0 0 !important;
+  border-top:0 !important;
+  border-bottom:0 !important;
 }
 
 .deck-detail .market-impact-focus > *{
   min-height:58px !important;
   margin:0 !important;
-  padding:0 clamp(24px,2.5vw,34px) !important;
+  padding:0 !important;
 }
 
 .deck-detail .market-impact-focus > *:first-child{
@@ -7030,7 +7037,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
 }
 
 .deck-detail .market-impact-focus > * + *{
-  border-left:1px solid var(--market-line) !important;
+  border-left:0 !important;
 }
 
 .deck-detail .market-impact-statement{
