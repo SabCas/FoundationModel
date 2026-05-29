@@ -152,18 +152,18 @@ function renderDeckChapter(deckId) {
       renderChapterHeader(group.heading) +
       '<section class="why-repair-intro">' +
         '<div class="why-repair-title">' +
-          '<h2>THE BOTTLENECK<br>IS NOT MORE DRONES.<br>IT IS COORDINATION.</h2>' +
+          '<h2>THE AUTONOMY<br>BOTTLENECK IS<br>SYSTEM COORDINATION.</h2>' +
           '<div class="why-repair-rule"></div>' +
         '</div>' +
         '<div class="why-repair-copy">' +
-          '<p>Small drones provide local detail, but lack range and endurance. Carrier systems extend reach, but often remain disconnected from local sensing, mapping, and operator workflows. Operators are left managing feeds, telemetry, maps, and decisions across fragmented tools.</p>' +
-          '<p><strong>KUBECA solves this by building a supervised mission-intelligence layer:<br><span>connecting reach, local sensing, and human control inside one shared mission picture.</span></strong></p>' +
+          '<p>Autonomous platforms are advancing quickly, but mission coordination has not kept pace. Carriers, drones, sensors, maps, and operator workflows often remain disconnected. In high-pressure environments, this creates fragmented awareness, higher operator workload, and weaker mission continuity.</p>' +
+          '<p><strong>KUBECA connects these layers into one supervised mission-intelligence architecture.</strong></p>' +
         '</div>' +
       '</section>' +
       '<section class="why-repair-cards">' +
-        '<article><div class="why-repair-card-head"><div class="why-repair-index">01</div><i class="why-repair-icon why-icon-crosshair"></i></div><h4>LIMITED REACH</h4><p>Small drones create valuable local intelligence, but lose endurance, payload, and connectivity far from the operator.</p><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure></article>' +
-        '<article><div class="why-repair-card-head"><div class="why-repair-index">02</div><i class="why-repair-icon why-icon-layers"></i></div><h4>FRAGMENTED CONTROL</h4><p>Carrier systems, drone feeds, maps, telemetry, and decisions remain separated across tools, increasing operator workload.</p><figure><img src="assets/images/kubeca/why-matters/fragmented-control.png" alt="" aria-hidden="true"></figure></article>' +
-        '<article><div class="why-repair-card-head"><div class="why-repair-index">03</div><i class="why-repair-icon why-icon-signal"></i></div><h4>BROKEN CONTINUITY</h4><p>Terrain, buildings, RF disruption, and degraded infrastructure can break the mission picture between assets and operators.</p><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">01</div><i class="why-repair-icon why-icon-crosshair"></i></div><h4>DISCONNECTED SYSTEMS</h4><p>Assets, sensors, maps, and command tools do not automatically share one operational context.</p><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">02</div><i class="why-repair-icon why-icon-layers"></i></div><h4>DEGRADED CONTINUITY</h4><p>Range limits, terrain, structures, and communication disruption can break the mission picture.</p><figure><img src="assets/images/kubeca/why-matters/fragmented-control.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">03</div><i class="why-repair-icon why-icon-signal"></i></div><h4>OPERATOR OVERLOAD</h4><p>Operators must interpret multiple feeds and tools instead of supervising one coherent mission system.</p><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure></article>' +
       '</section>' +
     '</section>';
   }
