@@ -156,14 +156,15 @@ function renderDeckChapter(deckId) {
           '<div class="why-repair-rule"></div>' +
         '</div>' +
         '<div class="why-repair-copy">' +
-          '<p>Autonomous platforms are advancing quickly, but mission coordination has not kept pace. Carriers, drones, sensors, maps, and operator workflows often remain disconnected. In high-pressure environments, this creates fragmented awareness, higher operator workload, and weaker mission continuity.</p>' +
+          '<p>Autonomous platforms are advancing quickly, but mission coordination has not kept pace. Carrier hardware, local assets, sensors, maps, relay links, and operator workflows still have to become one mission system.</p>' +
+          '<p>In high-pressure environments, the problem is both physical and digital: assets need reach, continuity, shared context, and human supervision at the same time.</p>' +
           '<p><strong>KUBECA connects these layers into one supervised mission-intelligence architecture.</strong></p>' +
         '</div>' +
       '</section>' +
       '<section class="why-repair-cards">' +
-        '<article><div class="why-repair-card-head"><div class="why-repair-index">01</div><i class="why-repair-icon why-icon-crosshair"></i></div><h4>DISCONNECTED SYSTEMS</h4><p>Assets, sensors, maps, and command tools do not automatically share one operational context.</p><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure></article>' +
-        '<article><div class="why-repair-card-head"><div class="why-repair-index">02</div><i class="why-repair-icon why-icon-layers"></i></div><h4>DEGRADED CONTINUITY</h4><p>Range limits, terrain, structures, and communication disruption can break the mission picture.</p><figure><img src="assets/images/kubeca/why-matters/fragmented-control.png" alt="" aria-hidden="true"></figure></article>' +
-        '<article><div class="why-repair-card-head"><div class="why-repair-index">03</div><i class="why-repair-icon why-icon-signal"></i></div><h4>OPERATOR OVERLOAD</h4><p>Operators must interpret multiple feeds and tools instead of supervising one coherent mission system.</p><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">01</div><i class="why-repair-icon why-icon-crosshair"></i></div><h4>REACH + DEPLOYMENT GAP</h4><p>Local assets need reach, relay, payload capacity, and deployment support before they can create useful intelligence far from the operator.</p><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">02</div><i class="why-repair-icon why-icon-signal"></i></div><h4>DEGRADED CONTINUITY</h4><p>Range limits, terrain, structures, and communication disruption can break the mission picture.</p><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure></article>' +
+        '<article><div class="why-repair-card-head"><div class="why-repair-index">03</div><i class="why-repair-icon why-icon-layers"></i></div><h4>OPERATOR OVERLOAD</h4><p>Operators must interpret multiple feeds and tools instead of supervising one coherent mission system.</p><figure><img src="assets/images/kubeca/why-matters/fragmented-control.png" alt="" aria-hidden="true"></figure></article>' +
       '</section>' +
     '</section>';
   }
