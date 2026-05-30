@@ -41,10 +41,10 @@ var chapterMeta = {
   'MARKET AREAS': { number: '04', className: 'market', label: 'WHERE KUBECA CREATES VALUE' },
   'FIELD VALIDATION': { number: '05', className: 'validation', label: 'FIELD VALIDATION' },
   'TEAM / VALIDATION': { number: '05', className: 'validation', label: 'FIELD VALIDATION' },
-  'INVESTOR ROADMAP': { number: '06', className: 'finance', label: 'INVESTOR ROADMAP' },
-  'CURRENT INVESTMENT FOCUS': { number: '07', className: 'finance-focus', label: 'CURRENT INVESTMENT FOCUS' },
-  'CONTACT': { number: '08', className: 'cta', label: 'CONTACT' },
-  'CTA': { number: '08', className: 'cta', label: 'CONTACT' }
+  'INVESTOR ROADMAP': { number: '06', className: 'finance', label: 'CAPITAL STAGED AROUND RISK REDUCTION' },
+  'CAPITAL STAGED AROUND RISK REDUCTION': { number: '06', className: 'finance', label: 'CAPITAL STAGED AROUND RISK REDUCTION' },
+  'CONTACT': { number: '07', className: 'cta', label: 'CONTACT' },
+  'CTA': { number: '07', className: 'cta', label: 'CONTACT' }
 };
 
 function iconPath(fileName) {
@@ -215,18 +215,18 @@ function renderDeckChapter(deckId) {
       '<section class="system-showcase-intro">' +
         '<p class="system-showcase-kicker">02 / THE KUBECA SYSTEM</p>' +
         '<h2>THE KUBECA SYSTEM: ONE MISSION LAYER FOR COORDINATED AUTONOMOUS ASSETS.</h2>' +
-        '<p class="system-showcase-copy">KUBECA starts with an aerial configuration: a carrier platform, local drone agents, mission software, and human supervision. Together, these elements form one supervised mission-intelligence system - connecting reach, local sensing, spatial understanding, and operator control.</p>' +
-        '<p class="system-showcase-copy">The first configuration validates the architecture in the air. The long-term platform is the coordination layer: future ground robots, additional sensors, or maritime assets can connect as mission nodes through the same supervised mission system.</p>' +
+        '<p class="system-showcase-copy">KUBECA starts with a carrier-enabled aerial configuration: a GNSS-resilient fixed-wing carrier, releasable GNSS-denied local quadcopters, mission software, and human supervision. Together, these elements form one supervised mission-intelligence system - connecting reach, local sensing, spatial understanding, and operator control.</p>' +
+        '<p class="system-showcase-copy">The first configuration validates the integrated handover in the air: carrier reach, local quadcopter release, GNSS-denied local operation, relay/control workflow, and supervised operator handover. The long-term platform is the coordination layer for future mission nodes across domains.</p>' +
       '</section>' +
       '<section class="system-carousel" data-system-carousel role="region" aria-roledescription="carousel" aria-label="The KUBECA system">' +
         '<div class="system-carousel-slides">' +
           '<article class="system-carousel-slide is-active" data-system-slide-panel="0" role="group" aria-roledescription="slide" aria-label="1 of 3: Carrier at range">' +
             '<img src="assets/images/kubeca/system/carrier.png" alt="Carrier aircraft operating above a mountain valley">' +
-            '<div class="system-carousel-caption"><small>01 /</small><h3>CARRIER AT RANGE</h3><p>The carrier platform moves local drone teams beyond normal range and maintains a resilient relay link for mission continuity.</p></div>' +
+            '<div class="system-carousel-caption"><small>01 /</small><h3>CARRIER AT RANGE</h3><p>A GNSS-resilient carrier extends reach, transports local quadcopters, and maintains a relay/control link for mission continuity.</p></div>' +
           '</article>' +
           '<article class="system-carousel-slide" data-system-slide-panel="1" role="group" aria-roledescription="slide" aria-label="2 of 3: Deployable scout agents" aria-hidden="true">' +
             '<img src="assets/images/kubeca/system/scout-agents.png" alt="Deployable drone agents operating above an urban area" loading="lazy">' +
-            '<div class="system-carousel-caption"><small>02 /</small><h3>DEPLOYABLE SCOUT AGENTS</h3><p>Local drone teams explore, map, and sense close to the objective, generating the spatial context that raw video alone cannot provide.</p></div>' +
+            '<div class="system-carousel-caption"><small>02 /</small><h3>DEPLOYABLE SCOUT AGENTS</h3><p>Released local quadcopters continue FPV, assisted sensing, mapping, or local operation in GNSS-denied environments near the mission area.</p></div>' +
           '</article>' +
           '<article class="system-carousel-slide" data-system-slide-panel="2" role="group" aria-roledescription="slide" aria-label="3 of 3: Operator in control" aria-hidden="true">' +
             '<img src="assets/images/kubeca/system/operator-control.png" alt="Operator supervising mission intelligence screens" loading="lazy">' +
@@ -259,7 +259,7 @@ function renderDeckChapter(deckId) {
           '<h2>What KUBECA is building first.</h2>' +
         '</div>' +
         '<div class="products-deck-overview">' +
-          '<p>Phase 1 focuses on the aerial mission-system configuration: a carrier platform, mission modules, local drone teams, and mission software.</p>' +
+          '<p>Phase 1 focuses on the carrier-enabled aerial configuration: a GNSS-resilient carrier platform, mission modules, GNSS-denied local quadcopters, and mission software.</p>' +
           '<p class="products-deck-phase">This configuration is designed to validate the core coordination layer before expanding to additional asset types.</p>' +
         '</div>' +
       '</header>' +
@@ -267,8 +267,8 @@ function renderDeckChapter(deckId) {
         '<div class="products-panels">' +
           '<article class="products-panel is-active" id="product-panel-carrier" data-product-panel="0" role="tabpanel" aria-labelledby="product-tab-carrier">' +
             '<figure class="products-media"><img src="assets/images/kubeca/products/carrier-platform.png" alt="Carrier platform and its modular deployment architecture"></figure>' +
-            '<div class="products-panel-copy"><p class="products-position">The reach layer.</p><h3>Carrier Platform</h3><p class="products-summary">A standardized carrier platform extends mission range, maintains relay connectivity, and carries mission-specific modules for deployment, sensing, or communication.</p>' +
-              '<ul class="products-capabilities"><li>Long-range reach</li><li>Relay connectivity</li><li>Mission module carriage</li><li>Local drone deployment</li></ul>' +
+            '<div class="products-panel-copy"><p class="products-position">The GNSS-resilient reach and relay layer.</p><h3>Carrier Platform</h3><p class="products-summary">A standardized fixed-wing carrier extends mission range, maintains relay connectivity, and carries mission modules for local quadcopter release, sensing, or communication.</p>' +
+              '<ul class="products-capabilities"><li>GNSS-resilient reach</li><li>Relay connectivity</li><li>Mission module carriage</li><li>Local quadcopter release</li></ul>' +
             '</div>' +
           '</article>' +
           '<article class="products-panel" id="product-panel-modules" data-product-panel="1" role="tabpanel" aria-labelledby="product-tab-modules" aria-hidden="true" hidden>' +
@@ -279,8 +279,8 @@ function renderDeckChapter(deckId) {
           '</article>' +
           '<article class="products-panel" id="product-panel-drones" data-product-panel="2" role="tabpanel" aria-labelledby="product-tab-drones" aria-hidden="true" hidden>' +
             '<figure class="products-media"><img src="assets/images/kubeca/products/local-drone-teams.png" alt="Local drone teams deployed for close-area intelligence" loading="lazy"></figure>' +
-            '<div class="products-panel-copy"><p class="products-position">The close-area intelligence layer.</p><h3>Local Drone Teams</h3><p class="products-summary">Deployable local drone teams start with FPV and assisted operation for close-area sensing, then progress toward autonomous scout behavior as the mission software and field validation mature.</p>' +
-              '<ul class="products-capabilities"><li>FPV operation</li><li>Assisted sensing</li><li>Autonomous scout path</li><li>Local context reporting</li></ul>' +
+            '<div class="products-panel-copy"><p class="products-position">The GNSS-denied local operation layer.</p><h3>Local Drone Teams</h3><p class="products-summary">Released local quadcopters begin with FPV, assisted sensing, and GNSS-denied local operation near the objective, then progress toward autonomous scout behavior as the mission software and field validation mature.</p>' +
+              '<ul class="products-capabilities"><li>FPV / assisted operation</li><li>GNSS-denied local operation</li><li>Mapping and sensing</li><li>Autonomous scout path</li></ul>' +
             '</div>' +
           '</article>' +
           '<article class="products-panel" id="product-panel-software" data-product-panel="3" role="tabpanel" aria-labelledby="product-tab-software" aria-hidden="true" hidden>' +
@@ -300,7 +300,7 @@ function renderDeckChapter(deckId) {
       '<section class="products-future-assets" aria-label="Future connected assets">' +
         '<p class="products-future-label">FUTURE CONNECTED ASSETS</p>' +
         '<p class="products-future-copy">Technical materials are available on request for deeper architecture, validation, and integration detail.</p>' +
-        '<p class="products-future-thesis">The carrier and local drone teams are the first configuration. The long-term platform is the mission-intelligence layer that can coordinate future assets across multiple domains.</p>' +
+        '<p class="products-future-thesis">The carrier and local quadcopters are the first configuration. The long-term platform is the mission-intelligence layer that can coordinate future assets across multiple domains.</p>' +
       '</section>' +
     '</section>';
   }
@@ -429,105 +429,43 @@ function renderDeckChapter(deckId) {
     '</section>';
   }
 
-  if (group.heading === 'INVESTOR ROADMAP') {
+  if (group.heading === 'INVESTOR ROADMAP' || group.heading === 'CAPITAL STAGED AROUND RISK REDUCTION') {
     return '<section class="chapter-page chapter-page-finance finance-roadmap-layout">' +
       '<header class="finance-intro">' +
         '<div>' +
-          '<p class="finance-kicker">06 / INVESTOR ROADMAP</p>' +
+          '<p class="finance-kicker">06 / CAPITAL STAGED AROUND RISK REDUCTION</p>' +
           '<h2>Capital staged<br>around risk reduction.</h2>' +
         '</div>' +
-        '<p class="finance-lead">KUBECA raises against measurable milestones: hardware validation, repeatable pilot systems, and a verification pathway toward regulated scale.</p>' +
+        '<p class="finance-lead">KUBECA is preparing an indicative &euro;2&ndash;4M Pre-Seed / Integrated Prototype round to validate a carrier-enabled mission-system MVP: a GNSS-resilient fixed-wing carrier extends reach, releases GNSS-denied local quadcopters, and connects the workflow through operator supervision.</p>' +
       '</header>' +
-      '<section class="finance-roadmap-table" aria-label="Capital roadmap">' +
-        '<div class="finance-table-head" aria-hidden="true"><span>Phase</span><span>Round</span><span>Indicative Raise</span><span>Primary Unlock</span><span>Risk Reduced</span></div>' +
+      '<section class="finance-phase-cards" aria-label="Capital roadmap">' +
         '<article>' +
-          '<div class="finance-phase" data-label="Phase">01</div>' +
-          '<div data-label="Round"><strong>Pre-Seed / Prototype</strong></div>' +
-          '<div class="finance-raise" data-label="Indicative Raise">&euro;2-4M</div>' +
-          '<p data-label="Primary Unlock">Integrated carrier-enabled hardware demonstration and partner evaluation units</p>' +
-          '<p data-label="Risk Reduced">Technical integration risk</p>' +
+          '<div class="finance-phase-card-top"><span class="finance-phase">01</span><strong>Pre-Seed / Integrated Prototype</strong></div>' +
+          '<div class="finance-raise">&euro;2&ndash;4M</div>' +
+          '<dl><div><dt>Goal</dt><dd>Carrier-enabled GNSS-denied deployment: carrier reach, quadcopter release, local operation, and supervised handover.</dd></div><div><dt>Risk Reduced</dt><dd>Technical integration risk</dd></div></dl>' +
         '</article>' +
         '<article>' +
-          '<div class="finance-phase" data-label="Phase">02</div>' +
-          '<div data-label="Round"><strong>Seed / Pilot Production</strong></div>' +
-          '<div class="finance-raise" data-label="Indicative Raise">&euro;8-15M</div>' +
-          '<p data-label="Primary Unlock">Repeatable pilot systems, Mission Intelligence v1, and early partner validation</p>' +
-          '<p data-label="Risk Reduced">Production, market, and verification risk</p>' +
+          '<div class="finance-phase-card-top"><span class="finance-phase">02</span><strong>Seed / Pilot Systems</strong></div>' +
+          '<div class="finance-raise">&euro;8&ndash;15M</div>' +
+          '<dl><div><dt>Goal</dt><dd>Local drone intelligence, mapping, mission-state reporting, and early supervised coordination.</dd></div><div><dt>Risk Reduced</dt><dd>Autonomy and software risk</dd></div></dl>' +
         '</article>' +
         '<article>' +
-          '<div class="finance-phase" data-label="Phase">03</div>' +
-          '<div data-label="Round"><strong>Series A / Regulated Scale</strong></div>' +
-          '<div class="finance-raise" data-label="Indicative Raise">&euro;25-50M</div>' +
-          '<p data-label="Primary Unlock">Verification package, certification pathway, and scalable autonomous mission-system production</p>' +
-          '<p data-label="Risk Reduced">Regulatory and scale risk</p>' +
+          '<div class="finance-phase-card-top"><span class="finance-phase">03</span><strong>Series A / Regulated Scale</strong></div>' +
+          '<div class="finance-raise">&euro;25&ndash;50M</div>' +
+          '<dl><div><dt>Goal</dt><dd>Regulated supervised autonomous mission operations, multi-agent coordination, and platform scalability.</dd></div><div><dt>Risk Reduced</dt><dd>Scale, certification, and platform risk</dd></div></dl>' +
         '</article>' +
       '</section>' +
-      '<section class="finance-logic" aria-label="Investment logic">' +
-        '<small>INVESTMENT LOGIC</small>' +
-        '<p>Each round reduces a different class of risk. Phase 1 proves the integrated system in hardware. Phase 2 makes it repeatable and pilot-ready. Phase 3 prepares verification, certification pathways, and regulated scale.</p>' +
-      '</section>' +
-      '<p class="finance-conclusion">The roadmap is not about building another drone. It is about proving a supervised autonomous mission system step by step.</p>' +
-    '</section>';
-  }
-
-  if (group.heading === 'CURRENT INVESTMENT FOCUS') {
-    return '<section class="chapter-page chapter-page-finance finance-focus-layout">' +
-      '<header class="finance-intro finance-focus-intro">' +
-        '<div>' +
-          '<p class="finance-kicker">07 / CURRENT INVESTMENT FOCUS</p>' +
-          '<h2>Pre-Seed /<br>Prototype Round</h2>' +
-        '</div>' +
-        '<p class="finance-lead">KUBECA is preparing an indicative &euro;2-4M Pre-Seed / Prototype round to validate the carrier-enabled mission system in hardware, build partner evaluation units, and prepare the transition to pilot production.</p>' +
-      '</header>' +
-      '<section class="finance-progress" aria-label="Phase 1 starting point">' +
-        '<header class="finance-progress-intro">' +
-          '<h3>PHASE 1 STARTING POINT</h3>' +
-          '<p>The current round does not begin from zero. It builds on proven team capability and tangible KUBECA carrier-platform progress, while funding the integration and validation work required for a complete supervised mission-system demonstration.</p>' +
-        '</header>' +
-        '<div class="finance-progress-head" aria-hidden="true"><span>Workstream</span><span>Current Status</span><span>Next Validation Step</span></div>' +
-        '<article>' +
-          '<strong data-label="Workstream">Carrier Platform Design</strong>' +
-          '<p data-label="Current Status"><em>COMPLETED</em>Carrier-system CAD design completed and prototype chassis built.</p>' +
-          '<p data-label="Next Validation Step">Integrate mission hardware, relay architecture, and deployment mechanism.</p>' +
-        '</article>' +
-        '<article>' +
-          '<strong data-label="Workstream">Autonomous Carrier Flight</strong>' +
-          '<p data-label="Current Status"><em>DEMONSTRATED</em>First autonomous flight of the long-range carrier platform completed successfully.</p>' +
-          '<p data-label="Next Validation Step">Expand testing toward integrated mission-system operations.</p>' +
-        '</article>' +
-        '<article>' +
-          '<strong data-label="Workstream">GNSS-Denied Autonomy</strong>' +
-          '<p data-label="Current Status"><em>EARLY DEMONSTRATION</em>GNSS-denied functionality demonstrated in a short test scenario.</p>' +
-          '<p data-label="Next Validation Step">Field-test under representative mission constraints.</p>' +
-        '</article>' +
-        '<article>' +
-          '<strong data-label="Workstream">Carrier GNSS-Denied Integration</strong>' +
-          '<p data-label="Current Status"><em>IN PROGRESS</em>Integration into the carrier-system development path is underway.</p>' +
-          '<p data-label="Next Validation Step">Validate within the integrated aerial configuration.</p>' +
-        '</article>' +
-        '<p class="finance-progress-close">Phase 1 converts proven capability and current carrier-platform progress into an integrated KUBECA mission-system demonstration.</p>' +
-      '</section>' +
-      '<section class="finance-snapshot" aria-label="Round snapshot">' +
-        '<h3>ROUND SNAPSHOT</h3>' +
+      '<section class="finance-snapshot finance-snapshot-compact" aria-label="Current round snapshot">' +
+        '<h3>CURRENT ROUND SNAPSHOT</h3>' +
         '<dl>' +
-          '<div><dt>Target Range</dt><dd class="finance-raise">Indicative &euro;2-4M</dd></div>' +
+          '<div><dt>Target Range</dt><dd class="finance-raise">Indicative &euro;2&ndash;4M</dd></div>' +
           '<div><dt>Runway</dt><dd>18-24 months</dd></div>' +
-          '<div><dt>Structure</dt><dd>To be finalized with a lead investor; equity or convertible instrument considered</dd></div>' +
-          '<div><dt>Primary Proof Point</dt><dd>Integrated hardware demonstration and partner evaluation readiness</dd></div>' +
-          '<div><dt>Capital Unlock</dt><dd>Technical proof, evaluation units, and pilot-production readiness</dd></div>' +
+          '<div><dt>Primary Proof Point</dt><dd>Integrated flight-tested carrier-to-quadcopter handover</dd></div>' +
+          '<div><dt>Main Use of Funds</dt><dd>Carrier integration, release mechanism, GNSS-denied local drone operation, relay/control workflow, software, testing, documentation</dd></div>' +
           '<div><dt>Main Risk Reduced</dt><dd>Technical integration risk</dd></div>' +
         '</dl>' +
       '</section>' +
-      '<section class="finance-use" aria-label="Indicative use of funds">' +
-        '<h3>INDICATIVE USE OF FUNDS</h3>' +
-        '<div class="finance-use-head" aria-hidden="true"><span>Category</span><span>Allocation</span><span>Use</span></div>' +
-        '<article><strong data-label="Category">Engineering &amp; Hardware</strong><em data-label="Allocation">45-55%</em><p data-label="Use">Carrier chassis, release mechanism, relay architecture, and local drone redesign</p></article>' +
-        '<article><strong data-label="Category">Testing &amp; Validation</strong><em data-label="Allocation">15-20%</em><p data-label="Use">Ground tests, flight tests, GNSS-denied field validation, partner evaluation units, and field iteration</p></article>' +
-        '<article><strong data-label="Category">Software Integration</strong><em data-label="Allocation">10-15%</em><p data-label="Use">Telemetry, operator workflow, asset tracking, and mission intelligence prototype</p></article>' +
-        '<article><strong data-label="Category">Team &amp; Operations</strong><em data-label="Allocation">10-15%</em><p data-label="Use">Core hires, contractors, supplier coordination, workshop, and operations setup</p></article>' +
-        '<article><strong data-label="Category">Verification / Documentation</strong><em data-label="Allocation">5-10%</em><p data-label="Use">Test evidence, safety documentation, and regulatory pathway preparation</p></article>' +
-      '</section>' +
-      '<p class="finance-conclusion finance-focus-close">Capital is focused on hardware validation, controlled testing, and evidence required for pilot production.</p>' +
+      '<p class="finance-conclusion">KUBECA first proves the carrier-enabled deployment system, then upgrades local drones into intelligent supervised agents, and finally scales the architecture into a regulated multi-agent mission-intelligence platform.</p>' +
     '</section>';
   }
 
@@ -545,7 +483,7 @@ function renderDeckChapter(deckId) {
   if (group.heading === 'CTA' || group.heading === 'CONTACT') {
     return '<section class="chapter-page chapter-page-cta investor-contact-layout">' +
       '<div class="investor-contact-copy">' +
-        '<p class="investor-contact-kicker">08 / CONTACT</p>' +
+        '<p class="investor-contact-kicker">07 / CONTACT</p>' +
         '<h2>DISCUSS THE<br>KUBECA SYSTEM.</h2>' +
         '<p class="investor-contact-lead">Connect with the team to discuss the mission intelligence architecture, strategic partnerships, or an investment conversation.</p>' +
         '<details class="investor-contact-reveal">' +

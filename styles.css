@@ -7472,7 +7472,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   }
 }
 
-/* 06-07 / FINANCING: quiet memo pages for staged capital and the current round. */
+/* 06 / FINANCING: quiet memo page for staged capital and the current round. */
 .deck-detail .chapter-page-finance{
   --finance-ink:#11151a;
   --finance-muted:#5c6670;
@@ -7537,6 +7537,85 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   width:100% !important;
   margin:0 !important;
   border-top:1px solid var(--finance-line) !important;
+}
+
+.deck-detail .finance-phase-cards{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:clamp(14px,1.6vw,22px) !important;
+  margin:0 0 clamp(42px,4.8vw,66px) !important;
+}
+
+.deck-detail .finance-phase-cards article{
+  display:flex !important;
+  flex-direction:column !important;
+  min-height:clamp(270px,25vw,330px) !important;
+  padding:clamp(24px,2.6vw,34px) !important;
+  border:1px solid var(--finance-line) !important;
+  background:#fff !important;
+  box-shadow:0 18px 44px rgba(16,24,32,.035) !important;
+}
+
+.deck-detail .finance-phase-card-top{
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:space-between !important;
+  gap:18px !important;
+  margin:0 0 clamp(24px,2.6vw,34px) !important;
+}
+
+.deck-detail .finance-phase-card-top strong{
+  max-width:170px !important;
+  color:var(--finance-ink) !important;
+  font-size:clamp(.98rem,1.08vw,1.12rem) !important;
+  font-weight:620 !important;
+  line-height:1.42 !important;
+  text-align:right !important;
+}
+
+.deck-detail .finance-phase-cards .finance-raise{
+  margin:auto 0 clamp(24px,2.8vw,36px) !important;
+  color:var(--finance-ink) !important;
+  font-size:clamp(2.05rem,3.3vw,3.35rem) !important;
+  font-weight:480 !important;
+  letter-spacing:-.065em !important;
+  line-height:1 !important;
+}
+
+.deck-detail .finance-phase-cards dl{
+  display:grid !important;
+  gap:0 !important;
+  margin:0 !important;
+  border-top:1px solid var(--finance-line) !important;
+}
+
+.deck-detail .finance-phase-cards dl div{
+  display:grid !important;
+  grid-template-columns:minmax(88px,.42fr) minmax(0,1fr) !important;
+  gap:18px !important;
+  padding:16px 0 !important;
+  border-bottom:1px solid var(--finance-line) !important;
+}
+
+.deck-detail .finance-phase-cards dl div:last-child{
+  border-bottom:0 !important;
+}
+
+.deck-detail .finance-phase-cards dt{
+  margin:0 !important;
+  color:var(--finance-muted) !important;
+  font-size:.62rem !important;
+  font-weight:700 !important;
+  letter-spacing:.18em !important;
+  line-height:1.45 !important;
+  text-transform:uppercase !important;
+}
+
+.deck-detail .finance-phase-cards dd{
+  margin:0 !important;
+  color:#303b44 !important;
+  font-size:clamp(.83rem,.92vw,.95rem) !important;
+  line-height:1.58 !important;
 }
 
 .deck-detail .finance-table-head,
@@ -7727,6 +7806,10 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   margin:0 0 clamp(42px,5vw,66px) !important;
 }
 
+.deck-detail .finance-snapshot-compact{
+  max-width:920px !important;
+}
+
 .deck-detail .finance-snapshot h3,
 .deck-detail .finance-use h3{
   margin:0 0 clamp(18px,2vw,24px) !important;
@@ -7830,6 +7913,19 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
     display:none !important;
   }
 
+  .deck-detail .finance-phase-cards{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+
+  .deck-detail .finance-phase-cards article{
+    min-height:0 !important;
+  }
+
+  .deck-detail .finance-phase-card-top strong{
+    text-align:left !important;
+  }
+
   .deck-detail .finance-roadmap-table article,
   .deck-detail .finance-progress article,
   .deck-detail .finance-use article{
@@ -7873,7 +7969,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}html.panel-scroll-lock,bod
   }
 }
 
-/* 08 / CONTACT: compact final conversation step in the homepage CTA language. */
+/* 07 / CONTACT: compact final conversation step in the homepage CTA language. */
 .deck-detail .investor-contact-layout{
   position:relative !important;
   display:grid !important;
