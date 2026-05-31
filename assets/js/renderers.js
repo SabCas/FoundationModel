@@ -170,42 +170,22 @@ function renderDeckChapter(deckId) {
   }
 
   if (group.heading === 'WHY NOW') {
-    return '<section class="chapter-page chapter-page-now now-page-layout now-reference-layout">' +
+    return '<section class="chapter-page chapter-page-now now-page-layout now-editorial-layout">' +
       renderChapterHeader(group.heading) +
-      renderImageChapterHero(group.heading, {
-        heroClass: 'now-hero',
-        mediaClass: 'now-hero-image',
-        copyClass: 'now-hero-copy',
-        sideClass: 'now-hero-side',
-        ruleClass: 'now-small-line',
-        title: 'AERIAL AUTONOMY<br>IS MOVING FROM<br>TOOLS TO SYSTEMS.',
-        paragraphs: [
-          'Drone operations are scaling beyond single-asset control. More platforms are entering the field, and missions are becoming longer, faster, more distributed, and more dependent on software-defined coordination.',
-          'The shift is no longer about improving individual drones.',
-          'It is about turning autonomy into a system layer.'
-        ],
-        imageSrc: 'assets/images/kubeca/why-now/tools-to-systems-hero.png',
-        imageAlt: 'KUBECA aerial autonomy moving from tools to systems'
-      }) +
-      '<section class="now-shift">' +
-        '<h3>THE SHIFT: FROM FRAGILE, SINGLE-ASSET OPERATIONS TO RESILIENT, SYSTEM-LEVEL AUTONOMY</h3>' +
-        '<div class="now-shift-table">' +
-          '<div class="now-shift-head now-shift-left">WHAT CHANGED</div>' +
-          '<div></div>' +
-          '<div class="now-shift-head now-shift-right">WHAT IT REQUIRES</div>' +
-          '<article><img src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><p>More aerial assets</p></article><span class="now-shift-arrow">-></span><article><p>Multi-asset coordination</p><img src="' + whyNowIconPath('multi_asset_coordination.svg') + '" alt="" aria-hidden="true"></article>' +
-          '<article><img src="' + whyNowIconPath('degraded_signals.svg') + '" alt="" aria-hidden="true"><p>Degraded signals</p></article><span class="now-shift-arrow">-></span><article><p>Resilient navigation</p><img src="' + whyNowIconPath('resilient_navigation.svg') + '" alt="" aria-hidden="true"></article>' +
-          '<article><img src="' + whyNowIconPath('urban_indoor_missions.svg') + '" alt="" aria-hidden="true"><p>Urban / indoor missions</p></article><span class="now-shift-arrow">-></span><article><p>Shared spatial awareness</p><img src="' + whyNowIconPath('shared_spatial_awareness.svg') + '" alt="" aria-hidden="true"></article>' +
+      '<section class="now-editorial-head">' +
+        '<div class="now-editorial-kicker"><span>05</span><em>WHY NOW</em></div>' +
+        '<h2>The next autonomy wave is coordinated systems - not isolated vehicles.</h2>' +
+      '</section>' +
+      '<section class="now-editorial-grid">' +
+        '<figure class="now-editorial-media">' +
+          '<img src="assets/images/kubeca/why-now/tools-to-systems-hero.png" alt="Mission screen and field operations view" loading="lazy">' +
+        '</figure>' +
+        '<div class="now-editorial-points">' +
+          '<article><h3>Market shift</h3><p>Autonomous assets are moving from single platforms to connected air, ground, and maritime systems.</p></article>' +
+          '<article><h3>External signals</h3><p>DARPA programs such as OFFSET, AMASS, and ANCILLARY point toward multi-agent autonomy, cross-domain coordination, and infrastructure-light carrier deployment.</p></article>' +
+          '<article><h3>KUBECA entry point</h3><p>KUBECA validates the mission layer through aerial carrier-swarm operations, then extends the same coordination model across domains.</p></article>' +
         '</div>' +
       '</section>' +
-      '<section class="now-drivers">' +
-        '<h3>KEY TIMING DRIVERS</h3>' +
-        '<div class="now-driver-grid">' +
-          '<article><strong>01</strong><figure><img src="assets/images/kubeca/why-matters/limited-reach.png" alt="" aria-hidden="true"></figure><img class="now-driver-icon" src="' + whyNowIconPath('more_aerial_assets.svg') + '" alt="" aria-hidden="true"><h4>DRONE SCALE IS<br>ACCELERATING</h4><p>The number of aerial assets is increasing. Coordination, not hardware, becomes the bottleneck.</p></article>' +
-          '<article><strong>02</strong><figure><img src="assets/images/kubeca/why-matters/broken-continuity.png" alt="" aria-hidden="true"></figure><img class="now-driver-icon" src="assets/icons/kubeca/why-matters/podcast.svg" alt="" aria-hidden="true"><h4>MISSIONS ARE OUTGROWING<br>DIRECT CONTROL</h4><p>Longer range, enclosed spaces, degraded links, and faster decisions make manual single-drone operation insufficient.</p></article>' +
-        '</div>' +
-      '</section>' +
-      renderChapterFooter('now') +
     '</section>';
   }
 
@@ -215,8 +195,8 @@ function renderDeckChapter(deckId) {
       '<section class="system-showcase-intro">' +
         '<p class="system-showcase-kicker">02 / THE KUBECA SYSTEM</p>' +
         '<h2>THE KUBECA SYSTEM: ONE MISSION LAYER FOR COORDINATED AUTONOMOUS ASSETS.</h2>' +
-        '<p class="system-showcase-copy">KUBECA starts with a carrier-enabled aerial configuration: a GNSS-resilient fixed-wing carrier, releasable GNSS-denied local quadcopters, mission software, and human supervision. Together, these elements form one supervised mission-intelligence system - connecting reach, local sensing, spatial understanding, and operator control.</p>' +
-        '<p class="system-showcase-copy">The first configuration validates the integrated handover in the air: carrier reach, local quadcopter release, GNSS-denied local operation, relay/control workflow, and supervised operator handover. The long-term platform is the coordination layer for future mission nodes across domains.</p>' +
+        '<p class="system-showcase-copy">Seed product: aerial carrier-swarm operations. The system integrates carrier reach, local GNSS-denied drone operation, and mission software with human supervision into one workflow.</p>' +
+        '<p class="system-showcase-copy">This chapter shows the three core system blocks in operation and how they stay connected through release, relay, sensing, and supervised handover.</p>' +
       '</section>' +
       '<section class="system-carousel" data-system-carousel role="region" aria-roledescription="carousel" aria-label="The KUBECA system">' +
         '<div class="system-carousel-slides">' +
@@ -259,8 +239,8 @@ function renderDeckChapter(deckId) {
           '<h2>What KUBECA is building first.</h2>' +
         '</div>' +
         '<div class="products-deck-overview">' +
-          '<p>Phase 1 focuses on the carrier-enabled aerial configuration: a GNSS-resilient carrier platform, mission modules, GNSS-denied local quadcopters, and mission software.</p>' +
-          '<p class="products-deck-phase">This configuration is designed to validate the core coordination layer before expanding to additional asset types.</p>' +
+          '<p>Phase 1 validates a carrier-enabled aerial stack: GNSS-resilient carrier platform, mission modules, GNSS-denied local quadcopters, and mission software.</p>' +
+          '<p class="products-deck-phase">That validation establishes the coordination layer used to integrate additional asset types over time.</p>' +
         '</div>' +
       '</header>' +
       '<section class="products-deck" data-products-deck aria-label="Product architecture">' +
@@ -300,7 +280,7 @@ function renderDeckChapter(deckId) {
       '<section class="products-future-assets" aria-label="Future connected assets">' +
         '<p class="products-future-label">FUTURE CONNECTED ASSETS</p>' +
         '<p class="products-future-copy">Technical materials are available on request for deeper architecture, validation, and integration detail.</p>' +
-        '<p class="products-future-thesis">The carrier and local quadcopters are the first configuration. The long-term platform is the mission-intelligence layer that can coordinate future assets across multiple domains.</p>' +
+        '<p class="products-future-thesis">Carrier and local quadcopters are today’s validation stack. The enduring platform is the mission-intelligence layer coordinating future assets across multiple domains.</p>' +
       '</section>' +
     '</section>';
   }
@@ -380,24 +360,22 @@ function renderDeckChapter(deckId) {
     return '<section class="chapter-page chapter-page-market market-impact-layout">' +
       '<header class="market-impact-intro">' +
         '<div class="market-impact-title">' +
-          '<p class="market-impact-kicker">04 / WHERE KUBECA CREATES VALUE</p>' +
-          '<h2>FOCUSED FIRST ON MISSIONS<br>WHERE COORDINATION<br>CHANGES THE OUTCOME.</h2>' +
+          '<p class="market-impact-kicker">06</p>' +
+          '<h2>BEACHHEAD +<br>EXPANSION</h2>' +
         '</div>' +
         '<div class="market-impact-copy">' +
-          '<p>KUBECA is built for missions where range, access, local sensing, and human-supervised coordination matter more than a single platform.</p>' +
-          '<p>The first validation path focuses on defense and tactical ISR, where fragmented assets, limited reach, and operator workload create immediate operational pain.</p>' +
-          '<p>Adjacent applications follow the same system logic: distributed assets, mission continuity, and one shared operational picture.</p>' +
+          '<p>KUBECA focuses on missions where coordination changes outcomes: operations requiring reach, local sensing, and supervised autonomy under degraded conditions.</p>' +
         '</div>' +
       '</header>' +
       '<section class="market-impact-tiles" aria-label="High-need markets">' +
-        '<article class="market-impact-tile market-impact-tile--focus" data-deck-section="market-deep-recon"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/defense-tactical-isr.png" alt="A field operator supervising a reconnaissance aircraft in remote terrain" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">INITIAL FOCUS</p><div><small>01</small><h3>DEFENSE / TACTICAL ISR</h3></div><p class="market-impact-simple">Carrier-enabled reach, local drone teams, relay support, and one supervised mission picture for reconnaissance, area assessment, and high-risk situational awareness.</p></div></article>' +
-        '<article class="market-impact-tile" data-deck-section="market-indoor-urban"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/disaster-response-search.png" alt="Rescue responders supervising drones during a waterside search operation" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">ADJACENT APPLICATION</p><div><small>02</small><h3>DISASTER RESPONSE /<br>SEARCH OPERATIONS</h3></div><p class="market-impact-simple">Deploy local sensing before responders enter, map relevant areas, and maintain a shared picture across damaged, dangerous, or inaccessible environments.</p></div></article>' +
-        '<article class="market-impact-tile" data-deck-section="market-distributed-isr"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/critical-infrastructure-security.png" alt="An infrastructure inspector supervising a drone beneath a bridge" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">PLATFORM EXPANSION</p><div><small>03</small><h3>CRITICAL INFRASTRUCTURE<br>SECURITY</h3></div><p class="market-impact-simple">Coordinate carrier systems, local agents, and mission-level supervision for perimeter awareness, remote inspection, anomaly investigation, and site mapping.</p></div></article>' +
+        '<article class="market-impact-tile market-impact-tile--focus" data-deck-section="market-deep-recon"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/defense-tactical-isr.png" alt="A field operator supervising a reconnaissance aircraft in remote terrain" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">BEACHHEAD</p><div><small>01</small><h3>DEFENSE / TACTICAL ISR</h3></div><p class="market-impact-simple">Carrier reach, local sensing, relay support, and supervised situational awareness in GNSS-denied or high-risk environments.</p></div></article>' +
+        '<article class="market-impact-tile" data-deck-section="market-indoor-urban"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/disaster-response-search.png" alt="Rescue responders supervising drones during a waterside search operation" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">ADJACENT MARKETS</p><div><small>02</small><h3>DISASTER RESPONSE /<br>SEARCH OPERATIONS</h3></div><p class="market-impact-simple">Disaster response, search operations, infrastructure security, border monitoring, maritime inspection, and ground robotics share the same coordination problem.</p></div></article>' +
+        '<article class="market-impact-tile" data-deck-section="market-distributed-isr"><figure class="market-impact-media"><img src="assets/images/kubeca/markets/critical-infrastructure-security.png" alt="An infrastructure inspector supervising a drone beneath a bridge" loading="lazy"></figure><div class="market-impact-body"><p class="market-impact-tag">PLATFORM EXPANSION</p><div><small>03</small><h3>PLATFORM EXPANSION</h3></div><p class="market-impact-simple">The long-term opportunity is not one drone category - it is the mission layer coordinating autonomous assets across air, ground, maritime systems, sensors, and operators.</p></div></article>' +
       '</section>' +
       '<section class="market-impact-focus" aria-label="Market focus">' +
         '<p class="market-impact-statement">WHY THESE MARKETS FIRST?</p>' +
-        '<div><small>SHARED PROBLEM</small><p>Distributed assets, fragmented information, and decisions under time pressure.</p></div>' +
-        '<div><small>KUBECA ROLE</small><p>Turning separate platforms and feeds into one supervised mission system.</p></div>' +
+        '<div><small>CORE THESIS</small><p>KUBECA targets coordination-critical operations first, then scales with the same mission layer.</p></div>' +
+        '<div><small>PLATFORM LOGIC</small><p>One supervised coordination layer across missions and asset types.</p></div>' +
       '</section>' +
     '</section>';
   }
@@ -408,18 +386,17 @@ function renderDeckChapter(deckId) {
         '<img class="validation-proof-media" src="assets/images/kubeca/validation/fabric.png" alt="Carrier aircraft integration facility" loading="lazy" onload="this.closest(\'.validation-proof-stage\').classList.add(\'has-media\')" onerror="this.remove()">' +
         '<header class="validation-proof-hero">' +
           '<div class="validation-proof-overlay">' +
-            '<p class="validation-proof-kicker">05 / FIELD VALIDATION</p>' +
-            '<h2>BUILT FROM REAL<br>AUTONOMOUS SYSTEM<br>DEVELOPMENT.</h2>' +
+            '<p class="validation-proof-kicker">12</p>' +
+            '<h2>WHY THIS TEAM CAN<br>EXECUTE</h2>' +
             '<div class="validation-proof-lead">' +
-              '<p>KUBECA is founded on hands-on team experience in unmanned systems, autonomy software, field testing, operator feedback, and defense-relevant environments.</p>' +
-              '<p>This experience informs the KUBECA architecture and its staged validation path.</p>' +
+              '<p>The team has already worked across the core risks KUBECA needs to solve: hardware, flight integration, autonomy software, and field feedback.</p>' +
             '</div>' +
           '</div>' +
         '</header>' +
         '<section class="validation-proof-rows" aria-label="Verified development experience">' +
-          '<article data-deck-section="validation-real-system-development"><small>01</small><div class="validation-proof-copy"><em>PRIOR TEAM EXPERIENCE</em><h3>AUTONOMOUS SYSTEMS<br>DEVELOPMENT</h3><p>Prior team experience includes hardware design, component sizing, flight-stack integration, software architecture, mission-ready UAS integration, payload systems, testing, field iteration, and development work in a SPRIND autonomous systems challenge involving SLAM, local mapping, GNSS-denied navigation, spatial understanding, and autonomy-stack integration.</p></div></article>' +
-          '<article><small>02</small><div class="validation-proof-copy"><em>FIELD + ECOSYSTEM EXPOSURE</em><h3>OPERATOR FEEDBACK AND<br>DEFENSE-RELEVANT ENVIRONMENTS</h3><p>Prior team work included systems deployed in Ukraine and systems presented and flight-tested at the NATO Mountain Warfare Centre of Excellence. A tactical drone deployment presentation was delivered and a Challenge Coin was awarded. Team experience also includes Bundeswehr-related working groups, discussions with the German Army Concepts and Capabilities Development Centre, collaboration with firms advising the Bundeswehr, industry trade fair representation, and operator feedback.</p></div></article>' +
-          '<article><small>03</small><div class="validation-proof-copy"><em>CURRENT KUBECA PROGRESS</em><h3>CARRIER-SYSTEM<br>DEVELOPMENT</h3><p>Carrier-platform CAD completed, prototype chassis built, first autonomous carrier flight demonstrated, and integration work underway.</p></div></article>' +
+          '<article data-deck-section="validation-real-system-development"><small></small><div class="validation-proof-copy"><em></em><h3>Technical Execution</h3><p>Hardware design, component sizing, sensor integration, flight-stack integration, payload systems, mission-ready UAS integration, autonomy software, reinforcement learning, testing, and field iteration.</p></div></article>' +
+          '<article><small></small><div class="validation-proof-copy"><em></em><h3>Autonomy + GNSS-Denied Experience</h3><p>Development work in a SPRIND autonomous systems challenge involving SLAM, local mapping, GNSS-denied navigation, spatial understanding, autonomy-stack integration, and drone-swarm architecture.</p></div></article>' +
+          '<article><small></small><div class="validation-proof-copy"><em></em><h3>Field + Defense Ecosystem Exposure</h3><p>Documented work with systems deployed in Ukraine, systems presented and flight-tested at the NATO Mountain Warfare Centre of Excellence, tactical drone deployment presentation with Challenge Coin awarded, Bundeswehr-related working groups, German Army capability-development discussions, industry collaboration, trade fair representation, and operator feedback.</p></div></article>' +
         '</section>' +
       '</section>' +
       '<section class="validation-method-band" aria-label="How KUBECA builds">' +
@@ -436,13 +413,13 @@ function renderDeckChapter(deckId) {
           '<p class="finance-kicker">06 / CAPITAL STAGED AROUND RISK REDUCTION</p>' +
           '<h2>Capital staged<br>around risk reduction.</h2>' +
         '</div>' +
-        '<p class="finance-lead">KUBECA is preparing an indicative &euro;2&ndash;4M Pre-Seed / Integrated Prototype round to validate a carrier-enabled mission-system MVP: a GNSS-resilient fixed-wing carrier extends reach, releases GNSS-denied local quadcopters, and connects the workflow through operator supervision.</p>' +
+        '<p class="finance-lead">KUBECA is preparing an indicative &euro;5&ndash;8M Pre-Seed / Integrated Prototype round with 18-24 months runway to validate the first carrier-enabled mission-layer MVP.</p>' +
       '</header>' +
       '<section class="finance-phase-cards" aria-label="Capital roadmap">' +
         '<article>' +
           '<div class="finance-phase-card-top"><span class="finance-phase">01</span><strong>Pre-Seed / Integrated Prototype</strong></div>' +
-          '<div class="finance-raise">&euro;2&ndash;4M</div>' +
-          '<dl><div><dt>Goal</dt><dd>Carrier-enabled GNSS-denied deployment: carrier reach, quadcopter release, local operation, and supervised handover.</dd></div><div><dt>Risk Reduced</dt><dd>Technical integration risk</dd></div></dl>' +
+          '<div class="finance-raise">&euro;5&ndash;8M</div>' +
+          '<dl><div><dt>Goal</dt><dd>Carrier-enabled GNSS-denied deployment: carrier reach, quadcopter release, local operation, and supervised handover.</dd></div><div><dt>Risk Reduced</dt><dd>Technical integration risk + mission-layer execution risk</dd></div></dl>' +
         '</article>' +
         '<article>' +
           '<div class="finance-phase-card-top"><span class="finance-phase">02</span><strong>Seed / Pilot Systems</strong></div>' +
@@ -458,14 +435,14 @@ function renderDeckChapter(deckId) {
       '<section class="finance-snapshot finance-snapshot-compact" aria-label="Current round snapshot">' +
         '<h3>CURRENT ROUND SNAPSHOT</h3>' +
         '<dl>' +
-          '<div><dt>Target Range</dt><dd class="finance-raise">Indicative &euro;2&ndash;4M</dd></div>' +
+          '<div><dt>Target Range</dt><dd class="finance-raise">Indicative &euro;5&ndash;8M</dd></div>' +
           '<div><dt>Runway</dt><dd>18-24 months</dd></div>' +
           '<div><dt>Primary Proof Point</dt><dd>Integrated flight-tested carrier-to-quadcopter handover</dd></div>' +
           '<div><dt>Main Use of Funds</dt><dd>Carrier integration, release mechanism, GNSS-denied local drone operation, relay/control workflow, software, testing, documentation</dd></div>' +
-          '<div><dt>Main Risk Reduced</dt><dd>Technical integration risk</dd></div>' +
+          '<div><dt>Main Risk Reduced</dt><dd>Technical integration risk + mission-layer execution risk</dd></div>' +
         '</dl>' +
       '</section>' +
-      '<p class="finance-conclusion">KUBECA first proves the carrier-enabled deployment system, then upgrades local drones into intelligent supervised agents, and finally scales the architecture into a regulated multi-agent mission-intelligence platform.</p>' +
+      '<p class="finance-conclusion">KUBECA validates carrier-enabled deployment, matures local drones into supervised intelligent agents, and scales toward a regulated multi-agent mission-intelligence platform.</p>' +
     '</section>';
   }
 
