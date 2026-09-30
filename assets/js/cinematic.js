@@ -77,10 +77,11 @@
     const scene = time < 2200 ? 0 : time < 4200 ? 1 : time < 7800 ? 2 : 3;
     get('title').textContent = ['Reach further.', 'Release four quadcopters.', 'Explore the surroundings.', 'One mission. Human supervision.'][scene];
     get('step').textContent = ['01 / Reach', '02 / Release', '03 / Explore', '04 / Coordinate'][scene];
-    get('scene-label').textContent = ['Fixed-wing carrier', '4 quadcopters / Concept', 'Explore around buildings', 'Vehicle detected / Concept'][scene];
+    const detectionOpacity = String(clamp((time - 7200) / 600));
     get('route').style.opacity = '.45';
-    get('c2').style.opacity = scene === 3 ? '1' : '0';
-    get('detection').style.opacity = String(clamp((time - 7200) / 600));
+    get('c2').style.opacity = '1';
+    get('detection-status').style.opacity = detectionOpacity;
+    get('detection').style.opacity = detectionOpacity;
     const aircraft = carrier(time);
     get('aircraft').setAttribute('transform', `translate(${aircraft.point.join(' ')}) rotate(${aircraft.angle})`);
     routes.forEach(({ points, release }, index) => {
