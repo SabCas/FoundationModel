@@ -33,3 +33,109 @@
   desktop.addEventListener('change', schedule);
   schedule();
 })();
+
+// A 10-second concept sequence; the unenhanced markup is its static final frame.
+(() => {
+  const film = document.querySelector('[data-mission-film]');
+  if (!film) return;
+  const staticView = window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 600px)');
+  const get = (name) => film.querySelector(`.mission-${name}`);
+  const button = get('toggle');
+  const duration = 10000;
+  let elapsed = 0;
+  let previous = null;
+  let frame = 0;
+  let playing = false;
+  let visible = false;
+  let started = false;
+
+  // Continuous curves keep position and heading smooth; releases follow the moving carrier.
+  const clamp = (n) => Math.max(0, Math.min(1, n));
+  const mix = (a, b, t) => a.map((value, i) => value + (b[i] - value) * t);
+  function carrier(time) {
+    const t = time / 1000;
+    return { point: [160 + 70 * t, 245 - 65 * Math.sin(Math.PI * t / 16)],
+      angle: Math.atan2(-65 * Math.PI / 16 * Math.cos(Math.PI * t / 16), 70) * 180 / Math.PI + 90 };
+  }
+  const destinations = [[750, 225], [875, 285], [755, 355], [650, 295]];
+  const bends = [[620, 130], [820, 150], [610, 405], [570, 320]];
+  const routes = destinations.map((end, index) => {
+    const release = 2400 + index * 300;
+    const start = carrier(release).point;
+    return { release, points: [start, [start[0] + 135, start[1] - 22], bends[index], end] };
+  });
+  function curve(points, t) {
+    const a = mix(points[0], points[1], t);
+    const b = mix(points[1], points[2], t);
+    const c = mix(points[2], points[3], t);
+    const d = mix(a, b, t), e = mix(b, c, t);
+    const point = mix(d, e, t);
+    return { point, angle: Math.atan2(e[1] - d[1], e[0] - d[0]) * 180 / Math.PI + 90,
+      trail: `M${points[0].join(' ')} C${a.join(' ')} ${d.join(' ')} ${point.join(' ')}` };
+  }
+  function draw(time) {
+    const scene = time < 2200 ? 0 : time < 4200 ? 1 : time < 7800 ? 2 : 3;
+    get('title').textContent = ['Reach further.', 'Release four quadcopters.', 'Explore the surroundings.', 'One mission. Human supervision.'][scene];
+    get('step').textContent = ['01 / Reach', '02 / Release', '03 / Explore', '04 / Coordinate'][scene];
+    get('scene-label').textContent = ['Fixed-wing carrier', '4 quadcopters / Concept', 'Explore around buildings', 'Vehicle detected / Concept'][scene];
+    get('route').style.opacity = '.45';
+    get('c2').style.opacity = scene === 3 ? '1' : '0';
+    get('detection').style.opacity = String(clamp((time - 7200) / 600));
+    const aircraft = carrier(time);
+    get('aircraft').setAttribute('transform', `translate(${aircraft.point.join(' ')}) rotate(${aircraft.angle})`);
+    routes.forEach(({ points, release }, index) => {
+      const released = time >= release;
+      const progress = clamp((time - release) / (duration - release));
+      const flight = curve(points, progress);
+      const drone = get(`drone-${index}`);
+      drone.style.opacity = released ? '1' : '0';
+      drone.setAttribute('transform', `translate(${flight.point.join(' ')}) rotate(${flight.angle}) scale(.42)`);
+      const trail = get(`trail-${index}`);
+      trail.style.opacity = released ? '.38' : '0';
+      trail.setAttribute('d', flight.trail);
+    });
+    get('progress').firstElementChild.style.transform = `scaleX(${time / duration})`;
+  }
+
+  function tick(now) {
+    if (!playing) return;
+    if (previous !== null) elapsed = Math.min(duration, elapsed + now - previous);
+    previous = now;
+    draw(elapsed);
+    if (elapsed >= duration) { pause(); button.textContent = 'Replay animation'; return; }
+    frame = requestAnimationFrame(tick);
+  }
+  function pause() {
+    playing = false;
+    previous = null;
+    cancelAnimationFrame(frame);
+    button.textContent = elapsed >= duration ? 'Replay animation' : 'Play animation';
+  }
+  function play() {
+    if (staticView.matches || document.hidden) return;
+    if (elapsed >= duration) elapsed = 0;
+    started = true;
+    playing = true;
+    previous = null;
+    button.textContent = 'Pause animation';
+    frame = requestAnimationFrame(tick);
+  }
+  function preference() {
+    pause();
+    button.hidden = staticView.matches;
+    elapsed = staticView.matches ? duration : 0;
+    draw(elapsed);
+    if (!staticView.matches && visible && !started) play();
+  }
+  button.addEventListener('click', () => playing ? pause() : play());
+  staticView.addEventListener('change', preference);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+  preference();
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (!visible) pause();
+      else if (!started) play();
+    }, { threshold: .35 }).observe(film);
+  }
+})();
