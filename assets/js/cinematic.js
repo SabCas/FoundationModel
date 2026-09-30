@@ -111,8 +111,8 @@
     cancelAnimationFrame(frame);
     button.textContent = elapsed >= duration ? 'Replay animation' : 'Play animation';
   }
-  function play() {
-    if (staticView.matches || document.hidden) return;
+  function play(manual = false) {
+    if ((!manual && staticView.matches) || document.hidden) return;
     if (elapsed >= duration) elapsed = 0;
     started = true;
     playing = true;
@@ -122,12 +122,12 @@
   }
   function preference() {
     pause();
-    button.hidden = staticView.matches;
+    button.hidden = false;
     elapsed = staticView.matches ? duration : 0;
     draw(elapsed);
     if (!staticView.matches && visible && !started) play();
   }
-  button.addEventListener('click', () => playing ? pause() : play());
+  button.addEventListener('click', () => playing ? pause() : play(true));
   staticView.addEventListener('change', preference);
   document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
   preference();
