@@ -77,6 +77,13 @@
     const scene = time < 2200 ? 0 : time < 4200 ? 1 : time < 7800 ? 2 : 3;
     get('title').textContent = ['Reach further.', 'Deploy local autonomy.', 'Explore the surroundings.', 'One mission. Human supervision.'][scene];
     get('step').textContent = ['01 / Reach', '02 / Release', '03 / Explore', '04 / Coordinate'][scene];
+    const sceneStarts = [0, 2200, 4200, 7800];
+    const sceneEnds = [2200, 4200, 7800, duration];
+    // Gentle cosine easing avoids the abrupt start/stop of a linear fade.
+    const soften = (value) => (1 - Math.cos(Math.PI * clamp(value))) / 2;
+    const fadeIn = scene === 0 ? 1 : soften((time - sceneStarts[scene]) / 650);
+    const fadeOut = scene === 3 ? 1 : soften((sceneEnds[scene] - time) / 650);
+    get('caption').style.opacity = String(Math.min(fadeIn, fadeOut));
     const detectionOpacity = String(clamp((time - 7200) / 600));
     get('route').style.opacity = '.45';
     get('c2').style.opacity = '1';
