@@ -38,7 +38,7 @@
 (() => {
   const film = document.querySelector('[data-mission-film]');
   if (!film) return;
-  const staticView = window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 600px)');
+  const staticView = window.matchMedia('(prefers-reduced-motion: reduce)');
   const get = (name) => film.querySelector(`.mission-${name}`);
   const button = get('toggle');
   const duration = 10000;
