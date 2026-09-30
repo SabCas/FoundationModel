@@ -153,9 +153,6 @@
 .system-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8cbcc3}
 .system-platforms h3{font-size:clamp(28px,3.3vw,46px);line-height:1.15;letter-spacing:-.035em;margin:30px 0 20px}
 .system-platforms article>p:last-child{max-width:34ch;font-size:17px;color:#b4c0c8;line-height:1.7}
-.system-context{display:flex;align-items:start;justify-content:space-between;gap:36px;border-top:1px solid #ffffff26;margin-top:70px;padding-top:28px}
-.system-context p{max-width:57ch;font-size:16px;color:#cbd5da}
-.system-context span{font-size:11px;color:#8f9da7;line-height:1.7;max-width:19ch}
 .mission-film{margin-top:64px}
 .mission-stage{position:relative;background:#0a1218;overflow:hidden;border-block:1px solid #ffffff20}
 .mission-kicker{display:flex;justify-content:space-between;gap:20px;padding:25px 30px 0;color:#99acb6;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
@@ -167,8 +164,6 @@
 .mission-toggle{font:inherit;color:#dce8ec;border:1px solid #ffffff38;background:transparent;padding:10px 16px;cursor:pointer;min-width:125px}
 .mission-toggle:hover{border-color:#83cbd1}
 .mission-toggle:focus-visible{outline:2px solid #83cbd1;outline-offset:4px}
-.mission-progress{height:1px;background:#ffffff16;margin-top:16px}
-.mission-progress span{display:block;height:100%;background:#83cbd1;transform-origin:left;transform:scaleX(1)}
 .mission-transcript{max-width:65ch;margin-top:22px;font-size:14px;color:#9aadb8}
 @media(max-width:600px){
  .mission-film{margin-top:40px}
@@ -180,8 +175,6 @@
  .system-intro{grid-template-columns:1fr;gap:28px}
  .system-platforms{grid-template-columns:1fr;gap:42px;margin-top:48px}
  .system-platforms h3{margin-top:22px}
- .system-context{flex-direction:column;gap:18px;margin-top:48px}
- .system-context span{max-width:none}
 }
 .development-goals{margin-top:60px;border-top:1px solid #ffffff26;padding-top:30px}
 .development-goals>h3{font-size:21px;margin-bottom:25px}

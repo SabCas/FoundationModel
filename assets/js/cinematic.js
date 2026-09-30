@@ -95,7 +95,6 @@
       trail.style.opacity = released ? '.38' : '0';
       trail.setAttribute('d', flight.trail);
     });
-    get('progress').firstElementChild.style.transform = `scaleX(${time / duration})`;
   }
 
   function tick(now) {
