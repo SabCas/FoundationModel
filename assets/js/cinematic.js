@@ -75,7 +75,7 @@
   }
   function draw(time) {
     const scene = time < 2200 ? 0 : time < 4200 ? 1 : time < 7800 ? 2 : 3;
-    get('title').textContent = ['Reach further.', 'Release four quadcopters.', 'Explore the surroundings.', 'One mission. Human supervision.'][scene];
+    get('title').textContent = ['Reach further.', 'Deploy local autonomy.', 'Explore the surroundings.', 'One mission. Human supervision.'][scene];
     get('step').textContent = ['01 / Reach', '02 / Release', '03 / Explore', '04 / Coordinate'][scene];
     const detectionOpacity = String(clamp((time - 7200) / 600));
     get('route').style.opacity = '.45';
